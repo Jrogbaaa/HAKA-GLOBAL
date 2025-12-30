@@ -29,12 +29,13 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
 | **Animations** | Framer Motion |
 | **Forms** | React Hook Form + Zod |
 | **Icons** | Lucide React, Material Symbols |
-| **Fonts** | Inter (body), Playfair Display (headings) |
+| **Fonts** | Inter (body), Playfair Display (headings), Cinzel (logo/display) |
 | **Deployment** | Vercel |
 
 ## 🎨 Design System
 
 ### Typography
+- **Logo/Display**: Cinzel (Roman-inspired luxury font)
 - **Headings**: Playfair Display (elegant serif)
 - **Body**: Inter (clean sans-serif)
 

@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2024-12-30
+
+### Changed
+- **Logo Rebrand**
+  - "Haka Global" text now displayed in gold (#eebd2b) with uppercase styling
+  - New luxury Cinzel font for logo text (Roman-inspired display font)
+  - Replaced diamond icon with custom SVG globe logo (concentric circles design)
+  - Updated both Navigation and Footer with new branding
+
+### Added
+- Cinzel Google Font for display/branding text
+- New `--font-display` CSS variable for logo typography
+
+### Fixed
+- GitHub Actions workflow: Added fallback DATABASE_URL for `prisma generate` step to prevent CI failures when secret is not configured
+
 ## [1.4.0] - 2024-12-30
 
 ### Changed
