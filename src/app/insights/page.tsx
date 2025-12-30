@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { PageHeader } from "@/components/sections/PageHeader";
 import { getInsights } from "@/lib/actions/insights";
 import { InsightsGrid } from "./InsightsGrid";
 
@@ -143,31 +144,11 @@ export default async function InsightsPage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center px-4 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center z-0"
-          style={{
-            backgroundImage: `linear-gradient(rgba(24, 22, 17, 0.8) 0%, rgba(24, 22, 17, 1) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnxEkcjhjYkzHjwFSLLW7Q21i9AEgnDVvMNGGUvmQxyqweUJJz93duzjL5OF3GairMOe0uUzrdAriPyzx9k-xRMCxJkSTyid5Ivl7HA3rrZijT20XZTLGyxeSXGfnCW0LdG05csu_3cMbXdaMxwk8LRkVqkv7jsU7XOeS1Mzer6nzdTFCbtdya1N0MYu9Qmx4JyQT6UbnJgm3Sea5Da-shxnvY2uWo6diNoMrNwgvy6CLKBaw3zG0h-AcNX7hGlanLkzLzlcX7Smw")`,
-          }}
-          role="img"
-          aria-label="Abstract dark luxury texture"
-        />
-        <div className="relative z-10 flex flex-col gap-6 text-center max-w-4xl mx-auto fade-up mt-10">
-          <div className="flex justify-center mb-2">
-            <span className="px-3 py-1 border border-[var(--primary)]/30 rounded-full text-[var(--primary)] text-xs font-bold tracking-[0.2em] uppercase bg-[var(--primary)]/5">
-              The Journal
-            </span>
-          </div>
-          <h1 className="text-white text-5xl md:text-7xl font-black font-serif leading-tight tracking-tight">
-            Strategic Insights
-          </h1>
-          <h2 className="text-[var(--text-secondary)] text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-            Curated intelligence on wealth, reputation, and luxury living.
-            Perspectives for the modern leader.
-          </h2>
-        </div>
-      </section>
+      <PageHeader
+        subtitle="The Journal"
+        title="Strategic Insights"
+        description="Curated intelligence on wealth, reputation, and luxury living. Perspectives for the modern leader."
+      />
 
       <InsightsGrid insights={insights} />
 

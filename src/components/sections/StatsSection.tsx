@@ -20,14 +20,12 @@ export const StatsSection = ({ stats = defaultStats }: StatsSectionProps) => {
   return (
     <section className="w-full flex justify-center bg-[var(--background)]">
       <div className="w-full max-w-[1280px] px-6 lg:px-10 py-16 lg:py-20">
-        <div className="border-y border-[var(--border)] py-10 lg:py-12">
+        <div className="py-10 lg:py-12">
           <div className="grid grid-cols-2 gap-10 md:grid-cols-4 md:gap-8">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className={`flex flex-col gap-2 ${
-                  index > 0 ? "md:border-l md:border-white/10 md:pl-8" : ""
-                }`}
+                className="flex flex-col gap-2"
               >
                 <p className="font-serif text-3xl lg:text-4xl font-bold text-white">
                   {stat.value}

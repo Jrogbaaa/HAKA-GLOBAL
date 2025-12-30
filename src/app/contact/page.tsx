@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Hero } from "@/components/sections/Hero";
+import { PageHeader } from "@/components/sections/PageHeader";
 import { ContactForm } from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Hero
+      <PageHeader
         subtitle="Private Access"
         title="Connect With Us"
         description="Begin a confidential conversation with our advisory team."

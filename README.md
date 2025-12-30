@@ -57,7 +57,8 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
 - Max content width: 1280px
 - Consistent padding: 24px mobile, 40px desktop
 - Full-width sections with centered content (`flex justify-center`)
-- Large hero sections with background images
+- Hero section on homepage only; compact PageHeader on subpages
+- Content-first layout approach on all pages
 - Smooth scroll and subtle animations (Framer Motion)
 - Minimal borders, spacing-based hierarchy
 - Hover states for all interactive elements
@@ -168,7 +169,8 @@ src/
 │   │   ├── Navigation.tsx      # Sticky header with gold CTA
 │   │   └── Footer.tsx          # Multi-column footer
 │   ├── sections/
-│   │   ├── Hero.tsx            # Full-bleed hero with background
+│   │   ├── Hero.tsx            # Full-bleed hero (homepage only)
+│   │   ├── PageHeader.tsx      # Compact header for subpages
 │   │   ├── ServiceGrid.tsx     # "Core Four" service cards
 │   │   ├── StatsSection.tsx    # Trust/stats bar
 │   │   ├── CTASection.tsx      # Newsletter subscription

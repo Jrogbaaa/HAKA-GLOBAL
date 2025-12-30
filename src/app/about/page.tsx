@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Hero } from "@/components/sections/Hero";
+import { PageHeader } from "@/components/sections/PageHeader";
 import { CTASection } from "@/components/sections/CTASection";
 import { AboutContent } from "./AboutContent";
 
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Hero
+      <PageHeader
         subtitle="About Us"
         title="Excellence Without Compromise"
         description="A distinguished advisory firm serving those who demand the extraordinary in every facet of their lives."

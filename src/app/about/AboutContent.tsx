@@ -56,7 +56,7 @@ export const AboutContent = () => {
   return (
     <>
       {/* Mission Section */}
-      <section className="w-full flex justify-center py-32 lg:py-48 bg-[var(--background)]">
+      <section className="w-full flex justify-center py-16 lg:py-24 bg-[var(--background)]">
         <div className="w-full max-w-[1280px] px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <motion.div
@@ -100,12 +100,7 @@ export const AboutContent = () => {
 
       {/* Values Section */}
       <section className="w-full flex justify-center bg-[var(--surface)]">
-        <div className="w-full max-w-[1280px] px-6 lg:px-10">
-          {/* Divider with generous spacing above and below */}
-          <div className="py-16 lg:py-24">
-            <div className="border-t border-[var(--border)]" />
-          </div>
-          
+        <div className="w-full max-w-[1280px] px-6 lg:px-10 pt-16 lg:pt-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -152,12 +147,7 @@ export const AboutContent = () => {
 
       {/* Stats Section */}
       <section className="w-full flex justify-center bg-[var(--background)]">
-        <div className="w-full max-w-[1280px] px-6 lg:px-10">
-          {/* Divider with generous spacing above and below */}
-          <div className="py-16 lg:py-24">
-            <div className="border-t border-[var(--border)]" />
-          </div>
-          
+        <div className="w-full max-w-[1280px] px-6 lg:px-10 pt-16 lg:pt-24">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

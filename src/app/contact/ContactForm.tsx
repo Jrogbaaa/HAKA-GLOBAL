@@ -37,7 +37,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="w-full flex justify-center py-24 lg:py-32 bg-[var(--background)]">
+    <section className="w-full flex justify-center pb-24 lg:pb-32 bg-[var(--background)]">
       <div className="w-full max-w-[1280px] px-6 lg:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Contact Info */}

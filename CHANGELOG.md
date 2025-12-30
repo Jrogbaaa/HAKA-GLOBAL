@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2024-12-30
+
+### Changed
+- **Page Layout Overhaul - Hero Removal**
+  - Hero sections now exclusive to homepage only
+  - All subpages (About, Contact, Services, Marketplace, Insights) now use compact PageHeader component
+  - Main page content is now immediately visible and prominent
+  - Improved visual hierarchy with content-first approach
+
+- **Navigation**
+  - "Request Access" button renamed to "Contact Us" (desktop and mobile)
+  - Increased spacing between nav links and CTA button (`mr-8` → `mr-12`)
+
+- **Stats/Metrics Sections**
+  - Removed decorative border lines from homepage StatsSection
+  - Removed divider lines from About page Values and Stats sections
+  - Cleaner, more minimal metrics presentation
+
+- **About Page**
+  - Reorganized layout with description as main focus
+  - Reduced Mission section vertical padding for better content flow
+  - Removed visual dividers between sections
+
+- **Contact Page**
+  - Contact form now more prominent without competing hero section
+  - Improved spacing with content immediately below header
+
+### Added
+- **PageHeader Component** (`src/components/sections/PageHeader.tsx`)
+  - New reusable compact header for subpages
+  - Optional subtitle, title, and description props
+  - Framer Motion fade-in animation
+  - Consistent styling across all subpages
+
 ## [1.5.0] - 2024-12-30
 
 ### Changed

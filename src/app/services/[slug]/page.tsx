@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SERVICES } from "@/lib/constants";
-import { Hero } from "@/components/sections/Hero";
+import { PageHeader } from "@/components/sections/PageHeader";
 import { CTASection } from "@/components/sections/CTASection";
 import { ServiceDetail } from "./ServiceDetail";
 
@@ -41,7 +41,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
 
   return (
     <>
-      <Hero
+      <PageHeader
         subtitle="Our Services"
         title={service.title}
         description={service.shortDescription}

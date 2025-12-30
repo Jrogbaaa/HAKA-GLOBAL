@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Hero } from "@/components/sections/Hero";
+import { PageHeader } from "@/components/sections/PageHeader";
 import { getMarketplaceItems } from "@/lib/actions/marketplace";
 import { MarketplaceGrid } from "./MarketplaceGrid";
 
@@ -96,7 +96,7 @@ export default async function MarketplacePage() {
 
   return (
     <>
-      <Hero
+      <PageHeader
         subtitle="Curated Collection"
         title="Luxury Marketplace"
         description="Discover exceptional assets and experiences curated for the most discerning collectors."

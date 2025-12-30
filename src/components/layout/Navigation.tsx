@@ -85,7 +85,7 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden flex-1 items-center justify-end lg:flex">
-            <div className="flex items-center gap-10 mr-8">
+            <div className="flex items-center gap-10 mr-12">
               {NAV_LINKS.filter((link) => link.href !== "/contact").map(
                 (link) => (
                   <Link
@@ -112,7 +112,7 @@ export const Navigation = () => {
                 className="flex h-11 items-center justify-center gap-2.5 rounded-lg border border-[var(--primary)] bg-transparent px-6 text-sm font-semibold text-[var(--primary)] transition-all duration-200 hover:bg-[var(--primary)] hover:text-[var(--background)] whitespace-nowrap"
                 tabIndex={-1}
               >
-                <span>Request Access</span>
+                <span>Contact Us</span>
                 <span className="material-symbols-outlined text-[18px]">
                   arrow_forward
                 </span>
@@ -165,7 +165,7 @@ export const Navigation = () => {
               className="mt-6 flex h-14 items-center justify-center gap-2.5 rounded-lg bg-[var(--primary)] px-10 text-base font-bold text-[var(--background)] transition-transform hover:scale-[1.02] whitespace-nowrap"
               tabIndex={0}
             >
-              Request Access
+              Contact Us
             </Link>
           </nav>
         </div>
