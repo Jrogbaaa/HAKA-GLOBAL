@@ -19,11 +19,11 @@ test.describe("About Page", () => {
     await expect(page.getByText(/Our Values/i)).toBeVisible();
     await expect(page.getByRole("heading", { name: /Principles That Guide Us/i })).toBeVisible();
     
-    // Check all four values
-    await expect(page.getByRole("heading", { name: "Discretion" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Global Reach" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Personalization" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Excellence" })).toBeVisible();
+    // Check all four values - use exact: true to avoid matching "Excellence Without Compromise"
+    await expect(page.getByRole("heading", { name: "Discretion", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Global Reach", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Personalization", exact: true })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Excellence", exact: true })).toBeVisible();
   });
 
   test("should display stats section", async ({ page }) => {
@@ -41,4 +41,3 @@ test.describe("About Page", () => {
     await expect(page.getByRole("heading", { name: /Partner With Us/i })).toBeVisible();
   });
 });
-

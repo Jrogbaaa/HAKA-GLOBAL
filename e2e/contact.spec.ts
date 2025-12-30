@@ -16,10 +16,11 @@ test.describe("Contact Form", () => {
   });
 
   test("should have all form fields", async ({ page }) => {
-    await expect(page.getByLabel(/Name/i)).toBeVisible();
-    await expect(page.getByLabel(/Email/i)).toBeVisible();
-    await expect(page.getByLabel(/Area of Interest/i)).toBeVisible();
-    await expect(page.getByLabel(/Message/i)).toBeVisible();
+    // Use more specific selectors to avoid matching social links
+    await expect(page.getByRole("textbox", { name: /Name/i })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: /Email/i })).toBeVisible();
+    await expect(page.getByRole("combobox", { name: /Area of Interest/i })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: /Message/i })).toBeVisible();
     await expect(page.getByRole("button", { name: /Submit/i })).toBeVisible();
   });
 
@@ -31,10 +32,11 @@ test.describe("Contact Form", () => {
   });
 
   test("should validate email format", async ({ page }) => {
-    await page.getByLabel(/Name/i).fill("Test User");
-    await page.getByLabel(/Email/i).fill("invalid-email");
-    await page.getByLabel(/Area of Interest/i).selectOption({ index: 1 });
-    await page.getByLabel(/Message/i).fill("This is a test message");
+    // Use role-based selectors to be more specific
+    await page.getByRole("textbox", { name: /Name/i }).fill("Test User");
+    await page.getByRole("textbox", { name: /Email/i }).fill("invalid-email");
+    await page.getByRole("combobox", { name: /Area of Interest/i }).selectOption({ index: 1 });
+    await page.getByRole("textbox", { name: /Message/i }).fill("This is a test message");
     
     await page.getByRole("button", { name: /Submit/i }).click();
     
@@ -43,15 +45,15 @@ test.describe("Contact Form", () => {
   });
 
   test("should fill form correctly", async ({ page }) => {
-    await page.getByLabel(/Name/i).fill("John Doe");
-    await page.getByLabel(/Email/i).fill("john@example.com");
-    await page.getByLabel(/Area of Interest/i).selectOption("personal-branding");
-    await page.getByLabel(/Message/i).fill("I am interested in personal branding services.");
+    // Use role-based selectors to be more specific
+    await page.getByRole("textbox", { name: /Name/i }).fill("John Doe");
+    await page.getByRole("textbox", { name: /Email/i }).fill("john@example.com");
+    await page.getByRole("combobox", { name: /Area of Interest/i }).selectOption("personal-branding");
+    await page.getByRole("textbox", { name: /Message/i }).fill("I am interested in personal branding services.");
     
     // Verify form is filled
-    await expect(page.getByLabel(/Name/i)).toHaveValue("John Doe");
-    await expect(page.getByLabel(/Email/i)).toHaveValue("john@example.com");
-    await expect(page.getByLabel(/Message/i)).toHaveValue("I am interested in personal branding services.");
+    await expect(page.getByRole("textbox", { name: /Name/i })).toHaveValue("John Doe");
+    await expect(page.getByRole("textbox", { name: /Email/i })).toHaveValue("john@example.com");
+    await expect(page.getByRole("textbox", { name: /Message/i })).toHaveValue("I am interested in personal branding services.");
   });
 });
-

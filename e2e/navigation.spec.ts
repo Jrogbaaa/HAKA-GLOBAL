@@ -9,20 +9,23 @@ test.describe("Navigation", () => {
 
   test("should navigate to about page", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "About" }).first().click();
+    // Use nav element to scope the selector to navigation links only
+    await page.locator("nav").getByRole("link", { name: "About" }).click();
     await expect(page).toHaveURL("/about");
     await expect(page.getByRole("heading", { name: /Excellence Without Compromise/i })).toBeVisible();
   });
 
   test("should navigate to services page", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: "Services" }).first().click();
+    // Use nav element to scope the selector to navigation links only
+    await page.locator("nav").getByRole("link", { name: /Services/i }).click();
     await expect(page).toHaveURL("/services");
   });
 
   test("should navigate to contact page via Request Access button", async ({ page }) => {
     await page.goto("/");
-    await page.getByRole("link", { name: /Request Access/i }).first().click();
+    // Use nav element to scope the selector to navigation button only
+    await page.locator("nav").getByRole("link", { name: /Request Access/i }).click();
     await expect(page).toHaveURL("/contact");
   });
 
@@ -37,8 +40,8 @@ test.describe("Navigation", () => {
     // Open mobile menu
     await menuButton.click();
     
-    // Navigation links should be visible
-    await expect(page.getByRole("link", { name: "About" }).last()).toBeVisible();
+    // Wait for menu to open and find the About link in the mobile menu
+    await expect(page.locator("[role='dialog']").getByRole("link", { name: "About" })).toBeVisible();
   });
 });
 
@@ -47,8 +50,9 @@ test.describe("Home Page", () => {
     await page.goto("/");
     
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-    await expect(page.getByRole("button", { name: /Request Access/i })).toBeVisible();
-    await expect(page.getByRole("button", { name: /Explore Services/i })).toBeVisible();
+    // Use first() to get the hero CTA button specifically
+    await expect(page.getByRole("link", { name: /Request Access/i }).first()).toBeVisible();
+    await expect(page.getByRole("link", { name: /Explore Services/i })).toBeVisible();
   });
 
   test("should have stats section", async ({ page }) => {
@@ -59,4 +63,3 @@ test.describe("Home Page", () => {
     await expect(page.getByText("Global Offices")).toBeVisible();
   });
 });
-
