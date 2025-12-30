@@ -40,8 +40,9 @@ test.describe("Navigation", () => {
     // Open mobile menu
     await menuButton.click();
     
-    // Wait for menu to open and find the About link in the mobile menu
-    await expect(page.locator("[role='dialog']").getByRole("link", { name: "About" })).toBeVisible();
+    // Wait for mobile menu to appear - look for large text links in mobile menu
+    // The mobile menu shows links with text-3xl styling
+    await expect(page.getByRole("link", { name: "About", exact: true })).toBeVisible();
   });
 });
 
