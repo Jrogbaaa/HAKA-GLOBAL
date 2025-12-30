@@ -29,8 +29,8 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-[var(--border)] bg-[var(--background)] pt-16 pb-8">
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
+    <footer className="w-full flex justify-center border-t border-[var(--border)] bg-[var(--background)] pt-16 pb-8">
+      <div className="w-full max-w-[1280px] px-6 lg:px-10">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           {/* Brand Column */}
           <div className="max-w-sm">

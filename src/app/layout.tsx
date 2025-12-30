@@ -71,10 +71,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased min-h-screen flex flex-col bg-[var(--background)] text-white`}
+        className={`${inter.variable} ${playfair.variable} antialiased min-h-screen w-full flex flex-col bg-[var(--background)] text-white overflow-x-hidden`}
       >
         <Navigation />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 w-full overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

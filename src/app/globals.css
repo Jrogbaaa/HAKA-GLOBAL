@@ -21,6 +21,10 @@
   --primary-muted: rgba(238, 189, 43, 0.1);
   --primary-20: rgba(238, 189, 43, 0.2);
   
+  /* Accent - Alias for Primary Gold */
+  --accent: #eebd2b;
+  --accent-muted: rgba(238, 189, 43, 0.1);
+  
   /* Semantic */
   --success: #22C55E;
   --error: #EF4444;
@@ -40,6 +44,8 @@
   --color-primary-hover: var(--primary-hover);
   --color-primary-muted: var(--primary-muted);
   --color-primary-20: var(--primary-20);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }

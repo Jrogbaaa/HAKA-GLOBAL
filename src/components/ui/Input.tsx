@@ -13,16 +13,16 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 }
 
 const baseStyles = `
-  w-full px-4 py-3
-  bg-[var(--surface)] border border-[var(--border)]
-  text-[var(--foreground)] placeholder:text-[var(--text-muted)]
+  w-full px-4 py-3 rounded-lg
+  bg-[var(--background)] border border-[var(--border)]
+  text-white placeholder:text-white/40
   transition-all duration-300 ease-out
-  focus:outline-none focus:border-[var(--accent)]
-  focus:ring-1 focus:ring-[var(--accent)]
+  focus:outline-none focus:border-[var(--primary)]
+  focus:ring-1 focus:ring-[var(--primary)]
   disabled:opacity-50 disabled:cursor-not-allowed
 `;
 
-const errorStyles = "border-[var(--error)] focus:border-[var(--error)] focus:ring-[var(--error)]";
+const errorStyles = "border-red-500 focus:border-red-500 focus:ring-red-500";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, className = "", id, ...props }, ref) => {
@@ -44,12 +44,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           className={`${baseStyles} ${error ? errorStyles : ""} ${className}`}
           aria-invalid={error ? "true" : "false"}
           aria-describedby={error ? `${inputId}-error` : undefined}
+          tabIndex={0}
           {...props}
         />
         {error && (
           <p
             id={`${inputId}-error`}
-            className="text-sm text-[var(--error)]"
+            className="text-sm text-red-500"
             role="alert"
           >
             {error}
@@ -82,12 +83,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           className={`${baseStyles} min-h-[120px] resize-y ${error ? errorStyles : ""} ${className}`}
           aria-invalid={error ? "true" : "false"}
           aria-describedby={error ? `${textareaId}-error` : undefined}
+          tabIndex={0}
           {...props}
         />
         {error && (
           <p
             id={`${textareaId}-error`}
-            className="text-sm text-[var(--error)]"
+            className="text-sm text-red-500"
             role="alert"
           >
             {error}
@@ -126,6 +128,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
           className={`${baseStyles} cursor-pointer ${error ? errorStyles : ""} ${className}`}
           aria-invalid={error ? "true" : "false"}
           aria-describedby={error ? `${selectId}-error` : undefined}
+          tabIndex={0}
           {...props}
         >
           {options.map((option) => (
@@ -137,7 +140,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {error && (
           <p
             id={`${selectId}-error`}
-            className="text-sm text-[var(--error)]"
+            className="text-sm text-red-500"
             role="alert"
           >
             {error}
@@ -149,4 +152,3 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
 );
 
 Select.displayName = "Select";
-

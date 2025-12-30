@@ -1,10 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { Badge } from "@/components/ui/Badge";
 import { INSIGHTS_CATEGORIES } from "@/lib/constants";
 
 interface Insight {
@@ -16,165 +13,204 @@ interface Insight {
   category: string;
   author: string;
   publishedAt: Date;
+  featured?: boolean;
 }
 
 interface InsightsGridProps {
   insights: Insight[];
 }
 
+const categories = [
+  { value: "all", label: "All Stories" },
+  { value: "strategy", label: "Personal Branding" },
+  { value: "market-trends", label: "Real Estate" },
+  { value: "investments", label: "Finance" },
+  { value: "lifestyle", label: "Marketplace" },
+];
+
 export const InsightsGrid = ({ insights }: InsightsGridProps) => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredInsights =
-    selectedCategory === "all"
-      ? insights
-      : insights.filter((insight) => insight.category === selectedCategory);
+  const filteredInsights = insights.filter((insight) => {
+    const matchesCategory =
+      selectedCategory === "all" || insight.category === selectedCategory;
+    const matchesSearch =
+      searchQuery === "" ||
+      insight.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      insight.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
-  const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  };
+  const featuredInsight = filteredInsights[0];
+  const gridInsights = filteredInsights.slice(1);
 
   const getCategoryLabel = (value: string) => {
     const category = INSIGHTS_CATEGORIES.find((c) => c.value === value);
     return category?.label || value;
   };
 
-  return (
-    <section className="py-24 lg:py-32 bg-[var(--background)]">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-        {/* Category Filter */}
-        <div className="flex flex-wrap gap-3 mb-12">
-          {INSIGHTS_CATEGORIES.map((category) => (
-            <button
-              key={category.value}
-              onClick={() => setSelectedCategory(category.value)}
-              className={`
-                px-4 py-2 text-sm font-medium uppercase tracking-wider
-                border transition-all duration-300
-                ${
-                  selectedCategory === category.value
-                    ? "bg-[var(--accent)] border-[var(--accent)] text-[var(--background)]"
-                    : "bg-transparent border-[var(--border)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                }
-              `}
-              tabIndex={0}
-              aria-pressed={selectedCategory === category.value}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
+  const handleCategorySelect = (category: string) => {
+    setSelectedCategory(category);
+  };
 
-        {/* Featured Article (First Item) */}
-        {filteredInsights.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-12"
-          >
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  return (
+    <div className="w-full">
+      {/* Sticky Filter Bar */}
+      <section className="sticky top-[80px] z-40 w-full flex justify-center bg-[var(--surface)]/95 backdrop-blur border-b border-white/5">
+        <div className="w-full max-w-[1280px] px-6 md:px-10 py-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide">
+              {categories.map((category) => (
+                <button
+                  key={category.value}
+                  onClick={() => handleCategorySelect(category.value)}
+                  className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    selectedCategory === category.value
+                      ? "bg-white/10 text-white"
+                      : "text-[var(--text-secondary)] hover:text-white"
+                  }`}
+                  tabIndex={0}
+                  aria-pressed={selectedCategory === category.value}
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
+            <div className="relative w-full md:w-64">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="w-full bg-white/5 border border-white/10 rounded-full py-2 pl-4 pr-10 text-sm text-white focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 placeholder-[var(--text-muted)] transition-all"
+                placeholder="Search insights..."
+                aria-label="Search insights"
+                tabIndex={0}
+              />
+              <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] text-lg">
+                search
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Article */}
+      {featuredInsight && (
+        <section className="py-12 md:py-16 w-full flex justify-center bg-[var(--surface)]">
+          <div className="w-full max-w-[1280px] px-6 md:px-10">
             <Link
-              href={`/insights/${filteredInsights[0].slug}`}
-              className="block group"
+              href={`/insights/${featuredInsight.slug}`}
+              className="group grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center"
               tabIndex={0}
-              aria-label={`Read ${filteredInsights[0].title}`}
+              aria-label={`Read ${featuredInsight.title}`}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-500">
-                <div className="relative aspect-[16/10] lg:aspect-auto overflow-hidden">
-                  <Image
-                    src={filteredInsights[0].imageUrl}
-                    alt={filteredInsights[0].title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+              <div className="relative aspect-[16/9] md:aspect-[3/2] w-full overflow-hidden rounded-lg">
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
+                <div
+                  className="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700"
+                  style={{ backgroundImage: `url("${featuredInsight.imageUrl}")` }}
+                  role="img"
+                  aria-label={featuredInsight.title}
+                />
+              </div>
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-3">
+                  <span className="text-[var(--primary)] text-xs font-bold tracking-widest uppercase">
+                    Editor&apos;s Pick
+                  </span>
+                  <span className="w-12 h-[1px] bg-white/20" />
+                  <span className="text-[var(--text-secondary)] text-xs font-medium uppercase tracking-wider">
+                    {getCategoryLabel(featuredInsight.category)}
+                  </span>
                 </div>
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <Badge variant="gold" className="self-start mb-4">
-                    {getCategoryLabel(filteredInsights[0].category)}
-                  </Badge>
-                  <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors duration-300">
-                    {filteredInsights[0].title}
-                  </h2>
-                  <p className="mt-4 text-[var(--text-secondary)] leading-relaxed">
-                    {filteredInsights[0].excerpt}
-                  </p>
-                  <p className="mt-6 text-sm text-[var(--text-muted)]">
-                    {formatDate(filteredInsights[0].publishedAt)}
-                  </p>
+                <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight group-hover:text-[var(--primary)] transition-colors duration-300">
+                  {featuredInsight.title}
+                </h2>
+                <p className="text-[var(--text-secondary)] text-lg font-light leading-relaxed line-clamp-3">
+                  {featuredInsight.excerpt}
+                </p>
+                <div className="flex items-center gap-2 text-white font-bold text-sm tracking-wide uppercase mt-2 group-hover:translate-x-2 transition-transform duration-300">
+                  Read Full Report{" "}
+                  <span className="material-symbols-outlined text-[var(--primary)]">
+                    arrow_forward
+                  </span>
                 </div>
               </div>
             </Link>
-          </motion.div>
-        )}
-
-        {/* Articles Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredInsights.slice(1).map((insight) => (
-              <motion.div
-                key={insight.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-              >
-                <Link
-                  href={`/insights/${insight.slug}`}
-                  className="block group"
-                  tabIndex={0}
-                  aria-label={`Read ${insight.title}`}
-                >
-                  <div className="relative overflow-hidden bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-500">
-                    <div className="relative aspect-[16/10] overflow-hidden">
-                      <Image
-                        src={insight.imageUrl}
-                        alt={insight.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent opacity-60" />
-                      <div className="absolute top-4 left-4">
-                        <Badge variant="gold">
-                          {getCategoryLabel(insight.category)}
-                        </Badge>
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="font-serif text-xl font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors duration-300 line-clamp-2">
-                        {insight.title}
-                      </h3>
-                      <p className="mt-2 text-sm text-[var(--text-secondary)] line-clamp-2">
-                        {insight.excerpt}
-                      </p>
-                      <p className="mt-4 text-xs text-[var(--text-muted)]">
-                        {formatDate(insight.publishedAt)}
-                      </p>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--accent)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {filteredInsights.length === 0 && (
-          <div className="text-center py-16">
-            <p className="text-[var(--text-secondary)]">
-              No articles found in this category.
-            </p>
           </div>
-        )}
-      </div>
-    </section>
+        </section>
+      )}
+
+      {/* Articles Grid */}
+      <section className="pb-24 w-full flex justify-center bg-[var(--surface)]">
+        <div className="w-full max-w-[1280px] px-6 md:px-10">
+          {gridInsights.length > 0 ? (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                {gridInsights.map((insight) => (
+                  <article
+                    key={insight.id}
+                    className="flex flex-col group cursor-pointer"
+                  >
+                    <Link
+                      href={`/insights/${insight.slug}`}
+                      className="block"
+                      tabIndex={0}
+                      aria-label={`Read ${insight.title}`}
+                    >
+                      <div className="relative aspect-[4/3] overflow-hidden rounded-lg mb-6">
+                        <div
+                          className="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-500"
+                          style={{ backgroundImage: `url("${insight.imageUrl}")` }}
+                          role="img"
+                          aria-label={insight.title}
+                        />
+                        <div className="absolute top-4 left-4 bg-[var(--surface)]/90 backdrop-blur px-3 py-1 rounded border border-white/10">
+                          <span className="text-[10px] font-bold text-[var(--primary)] uppercase tracking-wider">
+                            {getCategoryLabel(insight.category)}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex flex-col gap-3">
+                        <h3 className="text-2xl font-serif font-bold text-white group-hover:text-[var(--primary)] transition-colors leading-snug">
+                          {insight.title}
+                        </h3>
+                        <p className="text-[var(--text-secondary)] text-sm font-light leading-relaxed line-clamp-3">
+                          {insight.excerpt}
+                        </p>
+                        <div className="pt-2 flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider group-hover:text-[var(--primary)] transition-colors">
+                          Read Article
+                        </div>
+                      </div>
+                    </Link>
+                  </article>
+                ))}
+              </div>
+
+              <div className="mt-20 flex justify-center">
+                <button
+                  className="px-8 py-3 border border-white/10 rounded-full text-sm font-bold uppercase tracking-widest text-white hover:bg-white hover:text-[var(--background)] transition-all duration-300"
+                  tabIndex={0}
+                  aria-label="Load more insights"
+                >
+                  Load More Insights
+                </button>
+              </div>
+            </>
+          ) : (
+            <div className="text-center py-16">
+              <p className="text-[var(--text-secondary)]">
+                No articles found. Try a different search or category.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
   );
 };
-

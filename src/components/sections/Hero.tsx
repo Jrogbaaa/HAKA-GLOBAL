@@ -90,7 +90,7 @@ export const Hero = ({
           {primaryCta && (
             <Link href={primaryCta.href} tabIndex={0}>
               <button
-                className="flex h-12 min-w-[160px] items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-6 text-base font-bold text-[var(--background)] transition-all hover:bg-white hover:text-[var(--background)]"
+                className="flex h-12 min-w-[160px] items-center justify-center gap-2 rounded-lg bg-[#eebd2b] px-6 text-base font-bold text-[#181611] transition-all hover:bg-white hover:text-[#181611]"
                 tabIndex={-1}
                 aria-label={primaryCta.label}
               >

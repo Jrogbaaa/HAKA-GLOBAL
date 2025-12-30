@@ -40,8 +40,8 @@ export const MarketplaceGrid = ({ items }: MarketplaceGridProps) => {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-[var(--background)]">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+    <section className="w-full flex justify-center py-24 lg:py-32 bg-[var(--background)]">
+      <div className="w-full max-w-[1280px] px-6 lg:px-10">
         {/* Category Filter */}
         <div className="flex flex-wrap gap-3 mb-12">
           {MARKETPLACE_CATEGORIES.map((category) => (

@@ -41,8 +41,8 @@ export const CTASection = ({
   };
 
   return (
-    <section className="w-full border-t border-[var(--border)] bg-[var(--surface-elevated)] py-20">
-      <div className="mx-auto max-w-4xl px-6 text-center">
+    <section className="w-full flex justify-center border-t border-[var(--border)] bg-[var(--surface-elevated)] py-20">
+      <div className="w-full max-w-4xl px-6 text-center">
         <span className="material-symbols-outlined mb-6 text-5xl text-[var(--primary)]">
           mark_email_read
         </span>

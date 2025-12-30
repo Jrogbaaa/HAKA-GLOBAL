@@ -66,8 +66,8 @@ export const ServiceGrid = ({
   sectionDescription = "We bridge the gap between capital and lifestyle. Haka Global is the architect of your international footprint.",
 }: ServiceGridProps) => {
   return (
-    <section className="w-full bg-[var(--background)] py-24">
-      <div className="mx-auto flex max-w-[1280px] flex-col gap-16 px-6 lg:px-10">
+    <section className="w-full flex justify-center bg-[var(--background)] py-24">
+      <div className="w-full flex max-w-[1280px] flex-col gap-16 px-6 lg:px-10">
         {/* Section Header */}
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">

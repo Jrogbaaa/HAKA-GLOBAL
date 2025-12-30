@@ -46,12 +46,12 @@ export const Navigation = () => {
     <>
       <header
         className={`
-          sticky top-0 z-50 w-full border-b border-[var(--border)]
+          sticky top-0 z-50 w-full flex justify-center border-b border-[var(--border)]
           transition-all duration-300
           ${isScrolled ? "bg-[var(--background)]/90 backdrop-blur-md" : "bg-[var(--background)]/80 backdrop-blur-md"}
         `}
       >
-        <div className="mx-auto flex h-20 max-w-[1280px] items-center justify-between px-6 lg:px-10">
+        <div className="w-full flex h-20 max-w-[1280px] items-center justify-between px-6 lg:px-10">
           {/* Logo */}
           <Link
             href="/"

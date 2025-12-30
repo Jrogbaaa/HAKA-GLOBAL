@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   description:
     "Personal Branding. Global Real Estate. Strategic Investments. Luxury Access.",
   url: process.env.NEXT_PUBLIC_APP_URL || "https://hakaglobal.com",
-  email: "contact@hakaglobal.com",
+  email: "info@hakaglobal.com",
 };
 
 // Navigation Links

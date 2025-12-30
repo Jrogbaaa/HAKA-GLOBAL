@@ -28,7 +28,8 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
 | **Styling** | Tailwind CSS v4 |
 | **Animations** | Framer Motion |
 | **Forms** | React Hook Form + Zod |
-| **Icons** | Lucide React |
+| **Icons** | Lucide React, Material Symbols |
+| **Fonts** | Inter (body), Playfair Display (headings) |
 | **Deployment** | Vercel |
 
 ## 🎨 Design System
@@ -37,16 +38,26 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
 - **Headings**: Playfair Display (elegant serif)
 - **Body**: Inter (clean sans-serif)
 
-### Color Palette
-- **Background**: `#0a0a0a` (near black)
-- **Foreground**: `#ededed` (off-white)
-- **Accent**: `#c9a55c` (gold)
+### Color Palette (Premium Dark Theme)
+
+| Variable | Value | Usage |
+|----------|-------|-------|
+| `--background` | `#181611` | Page background |
+| `--surface` | `#232018` | Cards, elevated surfaces |
+| `--surface-elevated` | `#1a1812` | Modal backgrounds |
+| `--border` | `#393528` | Borders |
+| `--foreground` | `#ffffff` | Primary text |
+| `--text-secondary` | `#b9b29d` | Secondary text |
+| `--text-muted` | `#737368` | Muted text |
+| `--primary` / `--accent` | `#eebd2b` | Gold accent color |
 
 ### Design Principles
-- Dark mode first
-- Max width: 1200-1400px
-- Large hero sections (80-100vh)
-- Smooth scroll and subtle animations
+- Dark mode first with luxury gold accent
+- Max content width: 1280px
+- Consistent padding: 24px mobile, 40px desktop
+- Full-width sections with centered content (`flex justify-center`)
+- Large hero sections with background images
+- Smooth scroll and subtle animations (Framer Motion)
 - Minimal borders, spacing-based hierarchy
 - Hover states for all interactive elements
 
@@ -124,28 +135,50 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
 src/
 ├── app/                        # Next.js App Router pages
 │   ├── about/                  # About Haka Global
+│   │   ├── AboutContent.tsx    # Mission, Values, Stats sections
+│   │   └── page.tsx
 │   ├── contact/                # Contact form & Private Access
+│   │   ├── ContactForm.tsx
+│   │   └── page.tsx
 │   ├── insights/               # Articles & thought leadership
-│   │   └── [slug]/             # Dynamic article pages
+│   │   ├── InsightsGrid.tsx    # Filterable article grid
+│   │   ├── [slug]/             # Dynamic article pages
+│   │   └── page.tsx
 │   ├── marketplace/            # Luxury marketplace
-│   │   └── [id]/               # Individual item pages
+│   │   ├── MarketplaceGrid.tsx # Category filter & items
+│   │   ├── [id]/               # Individual item pages
+│   │   └── page.tsx
 │   ├── services/               # Service hub
-│   │   └── [slug]/             # Individual service pages
-│   ├── globals.css             # Global styles & Tailwind
-│   ├── layout.tsx              # Root layout
+│   │   ├── [slug]/             # Individual service pages
+│   │   └── page.tsx            # Services overview with sections
+│   ├── globals.css             # Global styles & CSS variables
+│   ├── layout.tsx              # Root layout with fonts
 │   ├── not-found.tsx           # 404 page
 │   └── page.tsx                # Homepage
 ├── components/
-│   ├── layout/                 # Navigation, Footer
-│   ├── sections/               # Hero, ServiceGrid, CTA, FeaturedMarketplace
-│   └── ui/                     # Button, Card, Input, Modal, Badge
-├── generated/
-│   └── prisma/                 # Generated Prisma client
+│   ├── layout/
+│   │   ├── Navigation.tsx      # Sticky header with gold CTA
+│   │   └── Footer.tsx          # Multi-column footer
+│   ├── sections/
+│   │   ├── Hero.tsx            # Full-bleed hero with background
+│   │   ├── ServiceGrid.tsx     # "Core Four" service cards
+│   │   ├── StatsSection.tsx    # Trust/stats bar
+│   │   ├── CTASection.tsx      # Newsletter subscription
+│   │   └── FeaturedMarketplace.tsx
+│   └── ui/
+│       ├── Button.tsx          # Primary/secondary/ghost variants
+│       ├── Card.tsx            # Item cards with hover effects
+│       ├── Input.tsx           # Form inputs with validation
+│       ├── Badge.tsx           # Category badges
+│       └── Modal.tsx           # Overlay modals
 └── lib/
-    ├── actions/                # Server actions (contact, insights, marketplace)
-    ├── constants.ts            # Site configuration & navigation
+    ├── actions/                # Server actions
+    │   ├── contact.ts          # Form submission
+    │   ├── insights.ts         # Article fetching
+    │   └── marketplace.ts      # Item fetching
+    ├── constants.ts            # Site config & navigation
     ├── db.ts                   # Prisma client singleton
-    └── validations.ts          # Zod validation schemas
+    └── validations.ts          # Zod schemas
 
 prisma/
 ├── schema.prisma               # Database schema
@@ -198,50 +231,21 @@ prisma/
    - Vercel automatically deploys on every push to `main`
    - Build command runs `prisma generate` automatically
 
-### Automatic Deployments
+## 📧 Contact
 
-Every push to the `main` branch triggers a new deployment:
-- Vercel detects changes via GitHub webhook
-- Runs build process with `prisma generate`
-- Deploys to production
-
-## ✅ Testing Checklist
-
-### Mobile (375px) ✓
-- [x] Responsive navigation with hamburger menu
-- [x] Hero section with stacked content
-- [x] Service grid single column layout
-- [x] Marketplace items responsive
-- [x] Contact form full-width inputs
-- [x] Modal system works correctly
-- [x] Form validation displays errors
-- [x] Success states display properly
-
-### Desktop (1440px) ✓
-- [x] Horizontal navigation bar
-- [x] Multi-column service grid
-- [x] Marketplace filter/sort controls
-- [x] Inquiry modal centered overlay
-- [x] Footer multi-column layout
-
-### Functionality ✓
-- [x] Database connection (Neon PostgreSQL)
-- [x] Form submissions save to database
-- [x] Dynamic routing for items/articles
-- [x] Image optimization with Next.js
-- [x] SEO meta tags configured
+For inquiries: **info@hakaglobal.com**
 
 ## 📄 Pages
 
 | Route | Description |
 |-------|-------------|
-| `/` | Homepage with hero, services, featured items |
-| `/about` | Company mission, values, approach |
-| `/services` | Service hub with all offerings |
+| `/` | Homepage with hero, stats, services, newsletter |
+| `/about` | Company mission, values, stats |
+| `/services` | Service hub with detailed sections |
 | `/services/[slug]` | Individual service detail pages |
 | `/marketplace` | Filterable luxury item listings |
 | `/marketplace/[id]` | Item detail with inquiry modal |
-| `/insights` | Article/blog listing |
+| `/insights` | Filterable article listing with featured |
 | `/insights/[slug]` | Individual article pages |
 | `/contact` | Contact form and information |
 
