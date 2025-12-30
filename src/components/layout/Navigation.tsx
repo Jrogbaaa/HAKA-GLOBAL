@@ -55,14 +55,30 @@ export const Navigation = () => {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 text-white"
+            className="flex items-center gap-3"
             aria-label={`${SITE_CONFIG.name} Home`}
             tabIndex={0}
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded bg-[var(--primary-20)] text-[var(--primary)]">
-              <span className="material-symbols-outlined">diamond</span>
+            <div className="flex h-10 w-10 items-center justify-center">
+              <svg
+                viewBox="0 0 40 40"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-10 w-10"
+              >
+                <circle cx="20" cy="20" r="18" stroke="#eebd2b" strokeWidth="2" fill="none" />
+                <circle cx="20" cy="20" r="12" stroke="#eebd2b" strokeWidth="1.5" fill="none" />
+                <circle cx="20" cy="20" r="6" fill="#eebd2b" />
+                <line x1="20" y1="2" x2="20" y2="8" stroke="#eebd2b" strokeWidth="1.5" />
+                <line x1="20" y1="32" x2="20" y2="38" stroke="#eebd2b" strokeWidth="1.5" />
+                <line x1="2" y1="20" x2="8" y2="20" stroke="#eebd2b" strokeWidth="1.5" />
+                <line x1="32" y1="20" x2="38" y2="20" stroke="#eebd2b" strokeWidth="1.5" />
+              </svg>
             </div>
-            <h2 className="font-serif text-xl font-bold tracking-tight text-white">
+            <h2 
+              className="text-xl font-semibold tracking-widest text-[var(--primary)] uppercase"
+              style={{ fontFamily: 'var(--font-display), serif' }}
+            >
               {SITE_CONFIG.name}
             </h2>
           </Link>

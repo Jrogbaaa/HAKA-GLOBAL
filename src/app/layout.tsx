@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Cinzel } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
@@ -16,6 +16,13 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "600", "700"],
+});
+
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -71,7 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased min-h-screen w-full flex flex-col bg-[var(--background)] text-white overflow-x-hidden`}
+        className={`${inter.variable} ${playfair.variable} ${cinzel.variable} antialiased min-h-screen w-full flex flex-col bg-[var(--background)] text-white overflow-x-hidden`}
       >
         <Navigation />
         <main className="flex-1 w-full overflow-x-hidden">{children}</main>
