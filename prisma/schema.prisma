@@ -1,0 +1,81 @@
+// Haka Global Database Schema
+// PostgreSQL with Neon
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// Marketplace Items - Luxury goods and experiences
+model MarketplaceItem {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  category    String   // watches, vehicles, art, property, experiences, jewelry
+  imageUrl    String
+  price       Decimal? @db.Decimal(12, 2) // Optional - "Price on Request"
+  featured    Boolean  @default(false)
+  available   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  inquiries MarketplaceInquiry[]
+
+  @@index([category])
+  @@index([featured])
+}
+
+// Insights - Articles and thought leadership
+model Insight {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  excerpt     String
+  content     String    @db.Text
+  imageUrl    String?
+  category    String    // strategy, market-trends, lifestyle, investments
+  author      String    @default("Haka Global")
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+  @@index([category])
+  @@index([published])
+}
+
+// Contact Form Submissions
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  interest  String   // personal-branding, real-estate, investments, marketplace, general
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([read])
+  @@index([createdAt])
+}
+
+// Marketplace Inquiries - Specific item interest
+model MarketplaceInquiry {
+  id        String          @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String?         @db.Text
+  item      MarketplaceItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId    String
+  read      Boolean         @default(false)
+  createdAt DateTime        @default(now())
+
+  @@index([itemId])
+  @@index([read])
+}
