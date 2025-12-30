@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,35 +23,33 @@ export const Card = ({
   className = "",
 }: CardProps) => {
   const content = (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
+    <div
       className={`
-        group relative overflow-hidden
-        bg-[var(--surface)] border border-[var(--border)]
+        group relative overflow-hidden rounded-xl
+        bg-[var(--surface)] border border-white/10
         transition-all duration-300
-        hover:border-[var(--accent)]
+        hover:border-[var(--primary)]/50 hover:bg-[var(--border-subtle)]
         ${className}
       `}
     >
       {imageUrl && (
-        <div className="relative aspect-[4/3] overflow-hidden">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg m-2">
           <Image
             src={imageUrl}
             alt={title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60" />
           {badge && (
-            <span className="absolute top-4 left-4 px-3 py-1 text-xs font-medium uppercase tracking-wider bg-[var(--accent)] text-[var(--background)]">
+            <span className="absolute top-4 left-4 px-3 py-1 text-xs font-medium uppercase tracking-wider bg-[var(--primary)] text-[var(--background)] rounded">
               {badge}
             </span>
           )}
         </div>
       )}
-      <div className="p-6">
-        <h3 className="font-serif text-xl font-medium text-[var(--foreground)] mb-2 group-hover:text-[var(--accent)] transition-colors duration-300">
+      <div className="p-4 px-5">
+        <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-[var(--primary)] transition-colors duration-300">
           {title}
         </h3>
         {description && (
@@ -62,10 +59,7 @@ export const Card = ({
         )}
         {children}
       </div>
-      {href && (
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--accent)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-      )}
-    </motion.div>
+    </div>
   );
 
   if (href) {
@@ -94,20 +88,16 @@ export const FeatureCard = ({
   href,
 }: FeatureCardProps) => {
   const content = (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-      className="group relative p-8 bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-300"
-    >
-      <div className="mb-6 text-[var(--accent)]">{icon}</div>
-      <h3 className="font-serif text-2xl font-medium text-[var(--foreground)] mb-3 group-hover:text-[var(--accent)] transition-colors duration-300">
+    <div className="group relative p-8 rounded-xl bg-[var(--surface)] border border-white/10 hover:border-[var(--primary)]/50 hover:bg-[var(--border-subtle)] transition-all duration-300">
+      <div className="mb-6 text-[var(--primary)]">{icon}</div>
+      <h3 className="font-serif text-2xl font-bold text-white mb-3 group-hover:text-[var(--primary)] transition-colors duration-300">
         {title}
       </h3>
       <p className="text-[var(--text-secondary)] leading-relaxed">
         {description}
       </p>
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--accent)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-    </motion.div>
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--primary)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-xl" />
+    </div>
   );
 
   if (href) {
@@ -120,4 +110,3 @@ export const FeatureCard = ({
 
   return content;
 };
-

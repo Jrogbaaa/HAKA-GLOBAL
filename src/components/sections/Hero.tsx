@@ -1,11 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
 
 interface HeroProps {
-  title: string;
+  title?: string;
   subtitle?: string;
   description?: string;
   primaryCta?: {
@@ -16,157 +14,103 @@ interface HeroProps {
     label: string;
     href: string;
   };
-  showScrollIndicator?: boolean;
-  size?: "full" | "large" | "medium";
   backgroundImage?: string;
+  badgeText?: string;
 }
 
 export const Hero = ({
-  title,
+  title = "Orchestrating Wealth & Influence",
   subtitle,
-  description,
-  primaryCta,
-  secondaryCta,
-  showScrollIndicator = true,
-  size = "full",
-  backgroundImage,
+  description = "Exclusive access to elite real estate, financial advisory, and personal branding strategies for the modern visionary.",
+  primaryCta = {
+    label: "Request Access",
+    href: "/contact",
+  },
+  secondaryCta = {
+    label: "Explore Services",
+    href: "/services",
+  },
+  backgroundImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuD4dhCRCqE-Y3T1FbFvTduZ01YG3bpTec5P-t5ESU5ukY2aw4d4ROrx4e2Wb6_DcCIFPkS5efD_R5YPV55ZL9moxJDAsPQvTzqO03Hw3Ijq3VeJxNNHi7mensbSMA9Fr730gdD8GXcT-aUR5TfyG7iuoFfeC-dRd-szDPzXTbc3dU--3xmxwIllyBpKFlycG4UMzejEjpzQ79EZStET82kQMwjguNHcNw40QU41qM9vSBESGRT91WS1PXtR0AaISbOXjJc1E-pRDJs",
+  badgeText = "Global Membership Open",
 }: HeroProps) => {
-  const heights = {
-    full: "min-h-screen",
-    large: "min-h-[85vh]",
-    medium: "min-h-[60vh]",
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.4, 0.25, 1],
-      },
-    },
-  };
-
   return (
-    <section
-      className={`
-        relative ${heights[size]} flex items-center justify-center
-        overflow-hidden
-      `}
-    >
-      {/* Background */}
-      {backgroundImage ? (
+    <section className="relative flex min-h-[85vh] w-full items-center justify-center overflow-hidden bg-[var(--background)] px-4 py-20 lg:px-10">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0 h-full w-full">
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--background)]/80 via-[var(--background)]/50 to-[var(--background)] z-10" />
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
-        >
-          <div className="absolute inset-0 bg-[var(--background)]/80" />
-        </div>
-      ) : (
-        <div className="absolute inset-0">
-          {/* Gradient Background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--background)] via-[var(--surface)] to-[var(--background)]" />
-          
-          {/* Subtle Grid Pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: `linear-gradient(var(--foreground) 1px, transparent 1px),
-                               linear-gradient(90deg, var(--foreground) 1px, transparent 1px)`,
-              backgroundSize: "100px 100px",
-            }}
-          />
-          
-          {/* Gold Accent Glow */}
-          <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-[var(--accent)] opacity-[0.03] blur-[150px] rounded-full" />
-          <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-[var(--accent)] opacity-[0.03] blur-[150px] rounded-full" />
-        </div>
-      )}
+          className="h-full w-full bg-cover bg-center bg-no-repeat opacity-60"
+          style={{ backgroundImage: `url("${backgroundImage}")` }}
+          role="img"
+          aria-label="Modern high-rise skyscrapers reaching into a dark sky"
+        />
+      </div>
 
       {/* Content */}
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative z-10 max-w-[1200px] mx-auto px-6 lg:px-8 text-center"
-      >
+      <div className="relative z-20 flex max-w-[960px] flex-col items-center gap-8 text-center fade-up">
+        {/* Badge */}
+        {badgeText && (
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
+            <span className="h-2 w-2 rounded-full bg-[var(--primary)] animate-pulse" />
+            <span className="text-xs font-medium uppercase tracking-widest text-white/80">
+              {badgeText}
+            </span>
+          </div>
+        )}
+
+        {/* Subtitle */}
         {subtitle && (
-          <motion.p
-            variants={itemVariants}
-            className="text-xs sm:text-sm font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-6"
-          >
+          <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.3em] text-[var(--primary)]">
             {subtitle}
-          </motion.p>
+          </p>
         )}
 
-        <motion.h1
-          variants={itemVariants}
-          className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-[var(--foreground)] leading-[1.1] tracking-tight"
-        >
-          {title}
-        </motion.h1>
+        {/* Title */}
+        <h1 className="font-serif text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
+          {title.includes("&") ? (
+            <>
+              {title.split("&")[0]}
+              <span className="text-[var(--primary)]">&</span>
+              {title.split("&")[1]}
+            </>
+          ) : (
+            title
+          )}
+        </h1>
 
+        {/* Description */}
         {description && (
-          <motion.p
-            variants={itemVariants}
-            className="mt-8 max-w-2xl mx-auto text-lg sm:text-xl text-[var(--text-secondary)] leading-relaxed"
-          >
+          <p className="max-w-2xl text-lg font-light leading-relaxed text-white/80 md:text-xl">
             {description}
-          </motion.p>
+          </p>
         )}
 
-        {(primaryCta || secondaryCta) && (
-          <motion.div
-            variants={itemVariants}
-            className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            {primaryCta && (
-              <Link href={primaryCta.href} tabIndex={0}>
-                <Button variant="primary" size="lg">
-                  {primaryCta.label}
-                </Button>
-              </Link>
-            )}
-            {secondaryCta && (
-              <Link href={secondaryCta.href} tabIndex={0}>
-                <Button variant="secondary" size="lg">
-                  {secondaryCta.label}
-                </Button>
-              </Link>
-            )}
-          </motion.div>
-        )}
-      </motion.div>
-
-      {/* Scroll Indicator */}
-      {showScrollIndicator && size === "full" && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-[1px] h-16 bg-gradient-to-b from-transparent via-[var(--accent)] to-transparent"
-          />
-        </motion.div>
-      )}
+        {/* CTAs */}
+        <div className="flex flex-col gap-4 sm:flex-row">
+          {primaryCta && (
+            <Link href={primaryCta.href} tabIndex={0}>
+              <button
+                className="flex h-12 min-w-[160px] items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-6 text-base font-bold text-[var(--background)] transition-all hover:bg-white hover:text-[var(--background)]"
+                tabIndex={-1}
+                aria-label={primaryCta.label}
+              >
+                {primaryCta.label}
+              </button>
+            </Link>
+          )}
+          {secondaryCta && (
+            <Link href={secondaryCta.href} tabIndex={0}>
+              <button
+                className="flex h-12 min-w-[160px] items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 text-base font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10"
+                tabIndex={-1}
+                aria-label={secondaryCta.label}
+              >
+                {secondaryCta.label}
+              </button>
+            </Link>
+          )}
+        </div>
+      </div>
     </section>
   );
 };
-

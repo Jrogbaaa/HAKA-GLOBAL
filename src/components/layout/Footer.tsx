@@ -1,126 +1,149 @@
 "use client";
 
 import Link from "next/link";
-import { SITE_CONFIG, NAV_LINKS, SERVICES } from "@/lib/constants";
+import { SITE_CONFIG } from "@/lib/constants";
+
+const companyLinks = [
+  { href: "/about", label: "About Us" },
+  { href: "/careers", label: "Careers" },
+  { href: "/press", label: "Press" },
+  { href: "/contact", label: "Contact" },
+];
+
+const serviceLinks = [
+  { href: "/services/personal-branding", label: "Personal Branding" },
+  { href: "/services/real-estate", label: "Real Estate" },
+  { href: "/services/financial-advisory", label: "Investment" },
+  { href: "/marketplace", label: "Marketplace" },
+];
+
+const legalLinks = [
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
+  { href: "/disclaimer", label: "Disclaimer" },
+];
+
+const locations = ["New York", "London", "Dubai"];
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-[var(--border)] bg-[var(--surface)]">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-        {/* Main Footer */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="w-full border-t border-[var(--border)] bg-[var(--background)] pt-16 pb-8">
+      <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
+        <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="max-w-sm">
             <Link
               href="/"
-              className="font-serif text-2xl font-medium text-[var(--foreground)] hover:text-[var(--accent)] transition-colors duration-300"
+              className="flex items-center gap-3 text-white mb-6"
               tabIndex={0}
-              aria-label="Haka Global Home"
+              aria-label={`${SITE_CONFIG.name} Home`}
             >
-              {SITE_CONFIG.name}
+              <div className="flex h-6 w-6 items-center justify-center rounded bg-[var(--primary-20)] text-[var(--primary)]">
+                <span className="material-symbols-outlined text-sm">
+                  diamond
+                </span>
+              </div>
+              <h2 className="font-serif text-lg font-bold">
+                {SITE_CONFIG.name}
+              </h2>
             </Link>
-            <p className="mt-4 text-sm text-[var(--text-secondary)] leading-relaxed">
-              {SITE_CONFIG.tagline}
+            <p className="text-sm leading-relaxed text-[var(--text-secondary)]">
+              Redefining wealth management and influence for the global elite.
+              Headquartered in New York with offices in London, Dubai, and
+              Singapore.
             </p>
-            <p className="mt-6 text-sm text-[var(--text-muted)]">
-              {SITE_CONFIG.description}
-            </p>
+            <div className="mt-6 flex gap-4">
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white transition-colors hover:bg-[var(--primary)] hover:text-[var(--background)]"
+                tabIndex={0}
+                aria-label="Visit our website"
+              >
+                <span className="material-symbols-outlined text-lg">
+                  public
+                </span>
+              </a>
+              <a
+                href={`mailto:${SITE_CONFIG.email}`}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white transition-colors hover:bg-[var(--primary)] hover:text-[var(--background)]"
+                tabIndex={0}
+                aria-label="Email us"
+              >
+                <span className="material-symbols-outlined text-lg">
+                  alternate_email
+                </span>
+              </a>
+            </div>
           </div>
 
-          {/* Navigation */}
-          <div>
-            <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)] mb-6">
-              Navigation
-            </h3>
-            <ul className="space-y-4">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-300"
-                    tabIndex={0}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)] mb-6">
-              Services
-            </h3>
-            <ul className="space-y-4">
-              {SERVICES.map((service) => (
-                <li key={service.id}>
-                  <Link
-                    href={`/services/${service.id}`}
-                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-300"
-                    tabIndex={0}
-                  >
-                    {service.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-xs font-medium uppercase tracking-wider text-[var(--text-muted)] mb-6">
-              Contact
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href={`mailto:${SITE_CONFIG.email}`}
-                  className="text-sm text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors duration-300"
-                  tabIndex={0}
-                >
-                  {SITE_CONFIG.email}
-                </a>
-              </li>
-              <li>
+          {/* Links Columns */}
+          <div className="grid grid-cols-2 gap-12 sm:grid-cols-3 lg:gap-20">
+            {/* Company */}
+            <div className="flex flex-col gap-4">
+              <h4 className="font-serif font-bold text-white">Company</h4>
+              {companyLinks.map((link) => (
                 <Link
-                  href="/contact"
-                  className="inline-block mt-2 px-6 py-3 text-sm font-medium uppercase tracking-wider border border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--background)] transition-all duration-300"
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
                   tabIndex={0}
                 >
-                  Private Access
+                  {link.label}
                 </Link>
-              </li>
-            </ul>
+              ))}
+            </div>
+
+            {/* Services */}
+            <div className="flex flex-col gap-4">
+              <h4 className="font-serif font-bold text-white">Services</h4>
+              {serviceLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
+                  tabIndex={0}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Legal */}
+            <div className="flex flex-col gap-4">
+              <h4 className="font-serif font-bold text-white">Legal</h4>
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
+                  tabIndex={0}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-[var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[var(--text-muted)]">
+        <div className="mt-16 border-t border-[var(--border)] pt-8 text-center text-xs text-[var(--text-secondary)] flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>
             © {currentYear} {SITE_CONFIG.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/privacy"
-              className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors duration-300"
-              tabIndex={0}
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-xs text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors duration-300"
-              tabIndex={0}
-            >
-              Terms of Service
-            </Link>
+          <div className="flex gap-6">
+            {locations.map((location) => (
+              <span key={location} className="flex items-center gap-1">
+                <span className="material-symbols-outlined text-[14px]">
+                  location_on
+                </span>
+                {location}
+              </span>
+            ))}
           </div>
         </div>
       </div>
     </footer>
   );
 };
-

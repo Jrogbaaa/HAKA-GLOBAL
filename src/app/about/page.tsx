@@ -16,8 +16,6 @@ export default function AboutPage() {
         subtitle="About Us"
         title="Excellence Without Compromise"
         description="A distinguished advisory firm serving those who demand the extraordinary in every facet of their lives."
-        size="large"
-        showScrollIndicator={false}
       />
 
       <AboutContent />

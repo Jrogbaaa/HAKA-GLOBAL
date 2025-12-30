@@ -45,8 +45,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
         subtitle="Our Services"
         title={service.title}
         description={service.shortDescription}
-        size="large"
-        showScrollIndicator={false}
       />
 
       <ServiceDetail service={service} />
@@ -54,7 +52,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <CTASection
         title={`Explore ${service.title}`}
         description="Ready to take the next step? Connect with our team for a personalized consultation."
-        ctaLabel="Get Started"
       />
     </>
   );

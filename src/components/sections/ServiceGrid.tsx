@@ -1,115 +1,136 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { Crown, Building, TrendingUp, Diamond } from "lucide-react";
-import { SERVICES } from "@/lib/constants";
 
-const iconMap: Record<string, React.ReactNode> = {
-  crown: <Crown className="w-8 h-8" />,
-  building: <Building className="w-8 h-8" />,
-  "trending-up": <TrendingUp className="w-8 h-8" />,
-  diamond: <Diamond className="w-8 h-8" />,
-};
+interface ServiceCard {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  imageUrl: string;
+  imageAlt: string;
+}
 
-export const ServiceGrid = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
+interface ServiceGridProps {
+  services?: ServiceCard[];
+  sectionTitle?: string;
+  sectionDescription?: string;
+}
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+const defaultServices: ServiceCard[] = [
+  {
+    id: "personal-branding",
+    title: "Personal Branding",
+    description:
+      "Curating the narrative of the world's most influential leaders and visionaries.",
+    icon: "campaign",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAWPNP3XOpTg_r6MeDT2GC1XNVl8dMnoR_uP4YAGBR4LWkEYZYE4jJz3_R6962pH6eF2M816DtGOtR797lBYrn4CYQHbjqamWCUv_4j0DMJwT2i_y9-qyi-ujoggMQC81AbjR1VNabjHa5IiUkDEfoJPEy1w5gJoGJuxoj0ZHPuGmyWfs6Wa0kVHedEc74eh5w8CbeL3yb5rmOFaFW9HB7fLl2vTR8gpU8bRJ2aegeuihtZj2z-zTxH3v-dE7dLODLSPuhH6vX2-Vs",
+    imageAlt: "Confident executive giving a presentation in a modern office",
+  },
+  {
+    id: "real-estate",
+    title: "Global Real Estate",
+    description:
+      "Acquisition, management, and development of prime global assets.",
+    icon: "apartment",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAyeotCyPoodTDrhk_achk3y70LFOeLrHfnwvt60zUS2pMh77xL44YaP7b84kd5VjaDJfU5MzH0LF6zB7dRTiXe7kYGGE87PtUkDZMkaoNEj3R26n3ZyyvbBdp0Q3JZ08uG60nTUlqj0STPoDk9x3r24Ns4muAS0KDgHDksTEe8lejEwKmIFp5m4K3qtQCGmbQlgss2Kbkj5CAB6nQQYBUUfEWfM2wdvILTxqSd0EB7gpWj9WdAFOhFnywrzkrvKMWvYY3-Ro0szCA",
+    imageAlt: "Luxury modern real estate interior with floor to ceiling windows",
+  },
+  {
+    id: "financial-advisory",
+    title: "Financial Advisory",
+    description:
+      "Strategic wealth preservation and aggressive growth portfolios.",
+    icon: "monitoring",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuC4jyFkWNqHUPEUn9mp3nOFGjKPALTWZjWx88V-8zz1VwRSL2uyFYqkB1lg5N6oZQutgweNr3fMmVmuh1ussjKv7n2f0t7ATnZwhqHU5l9GXWrL_tj5CeHE-0J7Vgo-j93WBDY6dQ_Nsn8wJ_6kbKfvyqpXiiBeluUEQmP2xuBMQeWiHB2LRQZXP3M0EFE0Xhoi5ZFFJl8_dTMSfN4tflRFH_VZPLBo6UdbMtXB5vzdKy-ALpXk42MV2lMFuJwrzigHAOXaGVsMT7U",
+    imageAlt: "Abstract financial data visualization graphs on dark background",
+  },
+  {
+    id: "luxury-marketplace",
+    title: "Luxury Marketplace",
+    description:
+      "Sourcing the unobtainable for the discerning few. From art to aviation.",
+    icon: "diamond",
+    imageUrl:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCXX8u70ZCCy1qkfoq8z4uDGcfmDrpiujdpCkm8BEcBzFsRcATqXdXotrABN0CbZW9IHhaNOmqY5eV_Ogt9QrtxcHlVCS-bc8tLQKA_mLdAy6iP4uG5Qb5T0J2IQ5T5sm9j5sdakwPwnZfwpD7bMK7m36bIb6GjztcBxOGtLpnHGHbl9PLEjNCv_YsIUYVMfMuziwQ3XNbpS4Jw7ETDrYy4jqzjs0iXwSVdXEhd4VzVtouGN_5oLnP281w-KHRZk_fImyTEAms3MHc",
+    imageAlt: "Luxury watch and premium leather accessories",
+  },
+];
 
+export const ServiceGrid = ({
+  services = defaultServices,
+  sectionTitle = "The Core Four",
+  sectionDescription = "We bridge the gap between capital and lifestyle. Haka Global is the architect of your international footprint.",
+}: ServiceGridProps) => {
   return (
-    <section className="py-24 lg:py-32 bg-[var(--background)]">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
-            Our Services
-          </p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--foreground)]">
-            Comprehensive Advisory
-          </h2>
-          <p className="mt-6 max-w-2xl mx-auto text-[var(--text-secondary)]">
-            Tailored solutions for discerning individuals seeking excellence in
-            every aspect of their professional and personal lives.
-          </p>
-        </motion.div>
+    <section className="w-full bg-[var(--background)] py-24">
+      <div className="mx-auto flex max-w-[1280px] flex-col gap-16 px-6 lg:px-10">
+        {/* Section Header */}
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="font-serif text-4xl font-bold leading-tight text-white md:text-5xl">
+              {sectionTitle}
+            </h2>
+            <p className="mt-4 text-lg text-white/70">{sectionDescription}</p>
+          </div>
+          <Link
+            href="/services"
+            className="group flex items-center gap-2 text-[var(--primary)] transition-opacity hover:opacity-80"
+            tabIndex={0}
+            aria-label="View all services"
+          >
+            <span className="text-sm font-bold uppercase tracking-wider">
+              View All Services
+            </span>
+            <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
+              arrow_forward
+            </span>
+          </Link>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
-          {SERVICES.map((service) => (
-            <motion.div key={service.id} variants={itemVariants}>
-              <Link
-                href={`/services/${service.id}`}
-                className="block group"
-                tabIndex={0}
-                aria-label={`Learn more about ${service.title}`}
-              >
-                <div className="relative p-8 lg:p-10 bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)] transition-all duration-500 h-full">
-                  <div className="flex items-start gap-6">
-                    <div className="flex-shrink-0 p-4 bg-[var(--accent-muted)] text-[var(--accent)] transition-colors duration-300 group-hover:bg-[var(--accent)] group-hover:text-[var(--background)]">
-                      {iconMap[service.icon]}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-serif text-2xl font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="mt-3 text-[var(--text-secondary)] leading-relaxed">
-                        {service.shortDescription}
-                      </p>
-                      <div className="mt-6 flex items-center gap-2 text-sm font-medium uppercase tracking-wider text-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span>Learn More</span>
-                        <svg
-                          className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--accent)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        {/* Cards Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service) => (
+            <Link
+              key={service.id}
+              href={`/services/${service.id}`}
+              className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-white/10 bg-[var(--surface)] p-2 transition-all hover:border-[var(--primary)]/50 hover:bg-[var(--border-subtle)]"
+              tabIndex={0}
+              aria-label={`Learn more about ${service.title}`}
+            >
+              {/* Image Container */}
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 z-10" />
+                <div
+                  className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url("${service.imageUrl}")` }}
+                  role="img"
+                  aria-label={service.imageAlt}
+                />
+                {/* Icon */}
+                <div className="absolute bottom-4 left-4 z-20">
+                  <span className="material-symbols-outlined text-white mb-2 text-3xl">
+                    {service.icon}
+                  </span>
                 </div>
-              </Link>
-            </motion.div>
+              </div>
+
+              {/* Text Content */}
+              <div className="px-3 pb-4">
+                <h3 className="font-serif text-xl font-bold text-white group-hover:text-[var(--primary)] transition-colors">
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                  {service.description}
+                </p>
+              </div>
+            </Link>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
-

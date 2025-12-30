@@ -8,21 +8,23 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "700"],
 });
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Haka Global | Luxury Advisory & Marketplace",
+    default: "Haka Global | Premium Services",
     template: "%s | Haka Global",
   },
   description:
-    "A Private Gateway to Influence, Assets, and Opportunity. Personal Branding, Global Real Estate, Strategic Investments, and Luxury Access.",
+    "Orchestrating Wealth & Influence. Exclusive access to elite real estate, financial advisory, and personal branding strategies for the modern visionary.",
   keywords: [
     "luxury advisory",
     "personal branding",
@@ -31,12 +33,13 @@ export const metadata: Metadata = {
     "luxury marketplace",
     "executive coaching",
     "high net worth",
+    "financial advisory",
   ],
   authors: [{ name: "Haka Global" }],
   openGraph: {
-    title: "Haka Global | Luxury Advisory & Marketplace",
+    title: "Haka Global | Premium Services",
     description:
-      "A Private Gateway to Influence, Assets, and Opportunity.",
+      "Orchestrating Wealth & Influence. Exclusive access to elite real estate, financial advisory, and personal branding strategies.",
     url: "https://hakaglobal.com",
     siteName: "Haka Global",
     type: "website",
@@ -44,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Haka Global | Luxury Advisory & Marketplace",
+    title: "Haka Global | Premium Services",
     description:
-      "A Private Gateway to Influence, Assets, and Opportunity.",
+      "Orchestrating Wealth & Influence. Exclusive access to elite real estate, financial advisory, and personal branding strategies.",
   },
   robots: {
     index: true,
@@ -61,8 +64,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased min-h-screen flex flex-col`}
+        className={`${inter.variable} ${playfair.variable} antialiased min-h-screen flex flex-col bg-[var(--background)] text-white`}
       >
         <Navigation />
         <main className="flex-1">{children}</main>

@@ -15,8 +15,6 @@ export default function ContactPage() {
         subtitle="Private Access"
         title="Connect With Us"
         description="Begin a confidential conversation with our advisory team."
-        size="large"
-        showScrollIndicator={false}
       />
 
       <ContactForm />

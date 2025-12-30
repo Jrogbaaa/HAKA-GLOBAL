@@ -16,8 +16,6 @@ export default function ServicesPage() {
         subtitle="Our Services"
         title="Comprehensive Advisory Excellence"
         description="Tailored solutions for discerning individuals seeking excellence in every aspect of their professional and personal lives."
-        size="large"
-        showScrollIndicator={false}
       />
 
       <ServiceGrid />
@@ -25,7 +23,6 @@ export default function ServicesPage() {
       <CTASection
         title="Discuss Your Needs"
         description="Every client's journey is unique. Schedule a confidential consultation to explore how we can serve your specific objectives."
-        ctaLabel="Schedule Consultation"
       />
     </>
   );

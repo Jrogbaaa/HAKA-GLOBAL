@@ -18,6 +18,8 @@ const getDemoItem = (id: string) => {
     price: number | null;
     featured: boolean;
     available: boolean;
+    createdAt: Date;
+    updatedAt: Date;
   }> = {
     "1": {
       id: "1",
@@ -28,6 +30,8 @@ const getDemoItem = (id: string) => {
       price: 185000,
       featured: true,
       available: true,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     "2": {
       id: "2",
@@ -38,6 +42,8 @@ const getDemoItem = (id: string) => {
       price: 245000,
       featured: true,
       available: true,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     "3": {
       id: "3",
@@ -48,6 +54,8 @@ const getDemoItem = (id: string) => {
       price: null,
       featured: true,
       available: true,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
   };
   return items[id] || null;
@@ -60,7 +68,8 @@ export async function generateMetadata({
   
   // Try database first, then demo
   const result = await getMarketplaceItem(id);
-  const item = result.success ? result.data : getDemoItem(id);
+  const dbItem = result.success ? result.data : null;
+  const item = dbItem || getDemoItem(id);
 
   if (!item) {
     return { title: "Item Not Found" };
@@ -79,11 +88,10 @@ export default async function MarketplaceItemPage({
   
   // Try database first, then demo
   const result = await getMarketplaceItem(id);
-  let item = result.success ? result.data : null;
+  const dbItem = result.success ? result.data : null;
+  const demoItem = getDemoItem(id);
   
-  if (!item) {
-    item = getDemoItem(id);
-  }
+  const item = dbItem || demoItem;
 
   if (!item) {
     notFound();

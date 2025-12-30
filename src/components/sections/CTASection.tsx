@@ -1,63 +1,92 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+import { useState } from "react";
 
 interface CTASectionProps {
   title?: string;
   description?: string;
-  ctaLabel?: string;
-  ctaHref?: string;
+  placeholder?: string;
+  buttonText?: string;
 }
 
 export const CTASection = ({
-  title = "Begin Your Journey",
-  description = "Connect with our team for a confidential consultation and discover how we can elevate your position in the global marketplace.",
-  ctaLabel = "Request Private Access",
-  ctaHref = "/contact",
+  title = "Join the Inner Circle",
+  description = "Receive curated insights on global markets, emerging real estate opportunities, and personal brand management.",
+  placeholder = "Enter your email address",
+  buttonText = "Subscribe",
 }: CTASectionProps) => {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    setEmail("");
+
+    // Reset success message after 3 seconds
+    setTimeout(() => setIsSuccess(false), 3000);
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
   return (
-    <section className="py-24 lg:py-32 bg-[var(--surface)] relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-1/2 h-1/2 bg-[var(--accent)] opacity-[0.02] blur-[150px] rounded-full" />
-        <div className="absolute bottom-0 right-1/4 w-1/2 h-1/2 bg-[var(--accent)] opacity-[0.02] blur-[150px] rounded-full" />
-      </div>
+    <section className="w-full border-t border-[var(--border)] bg-[var(--surface-elevated)] py-20">
+      <div className="mx-auto max-w-4xl px-6 text-center">
+        <span className="material-symbols-outlined mb-6 text-5xl text-[var(--primary)]">
+          mark_email_read
+        </span>
 
-      <div className="relative z-10 max-w-[900px] mx-auto px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+        <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
+          {title}
+        </h2>
+
+        <p className="mx-auto mt-4 max-w-xl text-[var(--text-secondary)]">
+          {description}
+        </p>
+
+        <form
+          onSubmit={handleSubmit}
+          className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
         >
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-6">
-            Private Access
-          </p>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--foreground)] leading-tight">
-            {title}
-          </h2>
-          <p className="mt-6 text-lg text-[var(--text-secondary)] leading-relaxed max-w-2xl mx-auto">
-            {description}
-          </p>
-          <div className="mt-10">
-            <Link href={ctaHref} tabIndex={0}>
-              <Button variant="outline" size="lg">
-                {ctaLabel}
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder={placeholder}
+            required
+            disabled={isSubmitting}
+            className="flex-1 rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-white placeholder-white/40 focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)] disabled:opacity-50 transition-colors"
+            aria-label="Email address"
+            tabIndex={0}
+          />
+          <button
+            type="submit"
+            disabled={isSubmitting || !email}
+            className="rounded-lg bg-[var(--primary)] px-6 py-3 font-bold text-[var(--background)] transition-colors hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+            tabIndex={0}
+            aria-label={buttonText}
+          >
+            {isSubmitting ? "Subscribing..." : buttonText}
+          </button>
+        </form>
 
-        {/* Decorative Lines */}
-        <div className="mt-16 flex items-center justify-center gap-4">
-          <div className="w-12 h-[1px] bg-[var(--border)]" />
-          <div className="w-2 h-2 rotate-45 border border-[var(--accent)]" />
-          <div className="w-12 h-[1px] bg-[var(--border)]" />
-        </div>
+        {isSuccess && (
+          <p className="mt-4 text-sm text-green-400 animate-fade-in">
+            Thank you for subscribing! Check your inbox for confirmation.
+          </p>
+        )}
       </div>
     </section>
   );
 };
-

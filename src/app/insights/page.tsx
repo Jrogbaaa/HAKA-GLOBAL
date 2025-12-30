@@ -94,8 +94,6 @@ export default async function InsightsPage() {
         subtitle="Thought Leadership"
         title="Insights"
         description="Expert perspectives on wealth, influence, and opportunity from our global advisory team."
-        size="large"
-        showScrollIndicator={false}
       />
 
       <InsightsGrid insights={insights} />

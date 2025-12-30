@@ -100,8 +100,6 @@ export default async function MarketplacePage() {
         subtitle="Curated Collection"
         title="Luxury Marketplace"
         description="Discover exceptional assets and experiences curated for the most discerning collectors."
-        size="large"
-        showScrollIndicator={false}
       />
 
       <MarketplaceGrid items={items} />

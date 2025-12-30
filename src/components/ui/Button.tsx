@@ -1,7 +1,6 @@
 "use client";
 
 import { forwardRef, type ButtonHTMLAttributes } from "react";
-import { motion } from "framer-motion";
 
 type ButtonVariant = "primary" | "secondary" | "ghost" | "outline";
 type ButtonSize = "sm" | "md" | "lg";
@@ -15,17 +14,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--foreground)] text-[var(--background)] hover:bg-[var(--accent)] hover:text-[var(--background)]",
+    "bg-[var(--primary)] text-[var(--background)] hover:bg-white hover:text-[var(--background)]",
   secondary:
-    "bg-transparent border border-[var(--border)] text-[var(--foreground)] hover:border-[var(--accent)] hover:text-[var(--accent)]",
+    "bg-transparent border border-white/20 bg-white/5 text-white backdrop-blur-sm hover:bg-white/10",
   ghost:
-    "bg-transparent text-[var(--foreground)] hover:bg-[var(--surface)] hover:text-[var(--accent)]",
+    "bg-transparent text-white hover:bg-white/5 hover:text-[var(--primary)]",
   outline:
-    "bg-transparent border border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-[var(--background)]",
+    "bg-transparent border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-[var(--background)]",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
+  sm: "px-5 py-2.5 text-sm",
   md: "px-6 py-3 text-base",
   lg: "px-8 py-4 text-lg",
 };
@@ -44,23 +43,23 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     return (
-      <motion.button
+      <button
         ref={ref}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
         className={`
           inline-flex items-center justify-center gap-2
-          font-medium tracking-wide uppercase
-          transition-colors duration-300 ease-out
-          disabled:opacity-50 disabled:cursor-not-allowed
+          font-bold tracking-wide rounded-lg
+          transition-all duration-300 ease-out
+          hover:scale-105 active:scale-95
+          disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
           focus-visible:outline-none focus-visible:ring-2 
-          focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2
+          focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2
           focus-visible:ring-offset-[var(--background)]
           ${variants[variant]}
           ${sizes[size]}
           ${className}
         `}
         disabled={disabled || isLoading}
+        tabIndex={0}
         {...props}
       >
         {isLoading ? (
@@ -91,10 +90,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         ) : (
           children
         )}
-      </motion.button>
+      </button>
     );
   }
 );
 
 Button.displayName = "Button";
-

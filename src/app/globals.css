@@ -1,23 +1,25 @@
 @import "tailwindcss";
 
-/* Haka Global - Luxury Design System */
+/* Haka Global - Premium Dark Design System */
 :root {
-  /* Core Colors - Dark Mode First */
-  --background: #0A0A0A;
-  --surface: #141414;
-  --surface-elevated: #1A1A1A;
-  --border: #262626;
-  --border-subtle: #1F1F1F;
+  /* Core Colors - Dark Theme */
+  --background: #181611;
+  --background-light: #f8f7f6;
+  --surface: #232018;
+  --surface-elevated: #1a1812;
+  --border: #393528;
+  --border-subtle: #2a261d;
   
   /* Text */
-  --foreground: #FAFAFA;
-  --text-secondary: #A3A3A3;
-  --text-muted: #737373;
+  --foreground: #ffffff;
+  --text-secondary: #b9b29d;
+  --text-muted: #737368;
   
-  /* Accent - Luxury Gold */
-  --accent: #C9A55C;
-  --accent-hover: #D4B872;
-  --accent-muted: rgba(201, 165, 92, 0.1);
+  /* Primary - Luxury Gold */
+  --primary: #eebd2b;
+  --primary-hover: #ffffff;
+  --primary-muted: rgba(238, 189, 43, 0.1);
+  --primary-20: rgba(238, 189, 43, 0.2);
   
   /* Semantic */
   --success: #22C55E;
@@ -26,6 +28,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-light: var(--background-light);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
@@ -33,9 +36,10 @@
   --color-border-subtle: var(--border-subtle);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-accent-muted: var(--accent-muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-20: var(--primary-20);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 }
@@ -63,14 +67,14 @@ body {
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif), Georgia, serif;
-  font-weight: 500;
-  line-height: 1.2;
+  font-weight: 700;
+  line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
 /* Selection */
 ::selection {
-  background: var(--accent);
+  background: var(--primary);
   color: var(--background);
 }
 
@@ -81,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--surface);
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -90,12 +94,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: var(--primary);
 }
 
 /* Focus States */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
@@ -105,28 +109,8 @@ a {
   text-decoration: none;
 }
 
-/* Custom Utilities */
-.text-gradient {
-  background: linear-gradient(135deg, var(--foreground) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.border-gradient {
-  border: 1px solid transparent;
-  background: 
-    linear-gradient(var(--surface), var(--surface)) padding-box,
-    linear-gradient(135deg, var(--border) 0%, var(--accent) 100%) border-box;
-}
-
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
+@keyframes fadeUp {
   from { 
     opacity: 0;
     transform: translateY(20px);
@@ -137,22 +121,42 @@ a {
   }
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .animate-fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-.animate-slide-up {
-  animation: slideUp 0.6s ease-out forwards;
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* Stagger delays for animations */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}

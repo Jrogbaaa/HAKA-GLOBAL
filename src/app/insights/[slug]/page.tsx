@@ -14,10 +14,13 @@ const demoInsights: Record<string, {
   slug: string;
   excerpt: string;
   content: string;
-  imageUrl: string;
+  imageUrl: string | null;
   category: string;
   author: string;
-  publishedAt: Date;
+  publishedAt: Date | null;
+  createdAt: Date;
+  updatedAt: Date;
+  published: boolean;
 }> = {
   "strategic-positioning-global-markets": {
     id: "1",
@@ -25,6 +28,9 @@ const demoInsights: Record<string, {
     slug: "strategic-positioning-global-markets",
     excerpt:
       "How high-net-worth individuals are leveraging market volatility to build diversified portfolios across emerging and established economies.",
+    createdAt: new Date("2024-12-15"),
+    updatedAt: new Date("2024-12-15"),
+    published: true,
     content: `
 ## Understanding the Current Landscape
 
@@ -68,6 +74,9 @@ The coming years will present both challenges and opportunities for global inves
     slug: "real-estate-monaco-dubai",
     excerpt:
       "Exploring the shifting dynamics of ultra-luxury property markets in the world's most prestigious destinations.",
+    createdAt: new Date("2024-12-01"),
+    updatedAt: new Date("2024-12-01"),
+    published: true,
     content: `
 ## The Premium Property Paradox
 
@@ -115,6 +124,9 @@ Haka Global maintains exclusive relationships with developers and private seller
     slug: "building-influence-executive-brand",
     excerpt:
       "Why personal branding has become essential for C-suite executives and how to cultivate authentic authority.",
+    createdAt: new Date("2024-11-20"),
+    updatedAt: new Date("2024-11-20"),
+    published: true,
     content: `
 ## The Evolution of Executive Presence
 
@@ -166,7 +178,8 @@ export async function generateMetadata({
   const { slug } = await params;
   
   const result = await getInsightBySlug(slug);
-  const insight = result.success ? result.data : demoInsights[slug];
+  const dbInsight = result.success ? result.data : null;
+  const insight = dbInsight || demoInsights[slug];
 
   if (!insight) {
     return { title: "Article Not Found" };
@@ -182,11 +195,10 @@ export default async function InsightPage({ params }: InsightPageProps) {
   const { slug } = await params;
   
   const result = await getInsightBySlug(slug);
-  let insight = result.success ? result.data : null;
+  const dbInsight = result.success ? result.data : null;
+  const demoInsight = demoInsights[slug];
   
-  if (!insight) {
-    insight = demoInsights[slug];
-  }
+  const insight = dbInsight || demoInsight;
 
   if (!insight) {
     notFound();
