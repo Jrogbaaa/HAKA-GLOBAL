@@ -66,19 +66,19 @@ export const ServiceGrid = ({
   sectionDescription = "We bridge the gap between capital and lifestyle. Haka Global is the architect of your international footprint.",
 }: ServiceGridProps) => {
   return (
-    <section className="w-full flex justify-center bg-[var(--background)] py-24">
-      <div className="w-full flex max-w-[1280px] flex-col gap-16 px-6 lg:px-10">
+    <section className="w-full flex justify-center bg-[var(--background)] py-24 lg:py-32">
+      <div className="w-full flex max-w-[1280px] flex-col gap-12 lg:gap-16 px-6 lg:px-10">
         {/* Section Header */}
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <h2 className="font-serif text-4xl font-bold leading-tight text-white md:text-5xl">
               {sectionTitle}
             </h2>
-            <p className="mt-4 text-lg text-white/70">{sectionDescription}</p>
+            <p className="mt-5 text-lg text-white/70 leading-relaxed">{sectionDescription}</p>
           </div>
           <Link
             href="/services"
-            className="group flex items-center gap-2 text-[var(--primary)] transition-opacity hover:opacity-80"
+            className="group flex items-center gap-3 text-[var(--primary)] transition-opacity hover:opacity-80"
             tabIndex={0}
             aria-label="View all services"
           >
@@ -92,7 +92,7 @@ export const ServiceGrid = ({
         </div>
 
         {/* Cards Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
             <Link
               key={service.id}
@@ -119,11 +119,11 @@ export const ServiceGrid = ({
               </div>
 
               {/* Text Content */}
-              <div className="px-3 pb-4">
+              <div className="px-4 py-5">
                 <h3 className="font-serif text-xl font-bold text-white group-hover:text-[var(--primary)] transition-colors">
                   {service.title}
                 </h3>
-                <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                <p className="mt-3 text-sm text-[var(--text-secondary)] leading-relaxed">
                   {service.description}
                 </p>
               </div>

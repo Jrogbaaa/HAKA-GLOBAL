@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2024-12-30
+
+### Changed
+- **Major Spacing & Layout Overhaul**
+  - Button component: Increased padding across all sizes (sm/md/lg), added `whitespace-nowrap` to prevent text wrapping, reduced hover scale effect
+  - Hero section: Larger CTA buttons with better padding (`h-14 px-10`), added spacing between elements
+  - Navigation: Increased header button height (`h-11`) with improved padding
+  - StatsSection: Moved border inside with proper inner padding (`py-10 lg:py-12`), responsive border separators
+  - CTASection: Border moved inside with significant top padding (`pt-16 lg:pt-20`), larger form inputs, better element spacing
+  - ServiceGrid: Increased section padding (`py-24 lg:py-32`), better gap between header and cards (`gap-12 lg:gap-16`)
+  - Footer: Top border now inside with proper padding (`pt-16 lg:pt-20`), bottom bar separated with `pt-10`
+  - AboutContent: Complete spacing overhaul
+    - Mission section: `py-28 lg:py-40` with larger grid gap
+    - Values section: Border-top with `pt-20 lg:pt-28` internal padding, larger card padding (`p-10 lg:p-12`)
+    - Stats section: Border-y with internal padding, larger gaps between items
+  - Services page: Increased section padding (`py-24 md:py-36`), better button sizing
+  - FeaturedMarketplace: More generous section padding, better card content spacing
+  - Card component: Increased content padding
+  - Badge component: Added padding and `whitespace-nowrap`
+
+### Fixed
+- Buttons not fitting text properly - now have proper padding and prevent wrapping
+- Crowded section layouts - all sections now have generous vertical padding
+- Text appearing directly under border lines - borders now have proper internal spacing
+- Inconsistent spacing between sections across all pages
+
 ## [1.3.0] - 2024-12-30
 
 ### Added

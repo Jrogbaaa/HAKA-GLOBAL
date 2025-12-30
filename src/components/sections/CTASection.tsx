@@ -41,51 +41,55 @@ export const CTASection = ({
   };
 
   return (
-    <section className="w-full flex justify-center border-t border-[var(--border)] bg-[var(--surface-elevated)] py-20">
-      <div className="w-full max-w-4xl px-6 text-center">
-        <span className="material-symbols-outlined mb-6 text-5xl text-[var(--primary)]">
-          mark_email_read
-        </span>
+    <section className="w-full flex justify-center bg-[var(--surface-elevated)]">
+      <div className="w-full max-w-[1280px] px-6 lg:px-10 py-20 lg:py-28">
+        <div className="border-t border-[var(--border)] pt-16 lg:pt-20">
+          <div className="max-w-2xl mx-auto text-center">
+            <span className="material-symbols-outlined mb-8 text-5xl text-[var(--primary)]">
+              mark_email_read
+            </span>
 
-        <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
-          {title}
-        </h2>
+            <h2 className="font-serif text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+              {title}
+            </h2>
 
-        <p className="mx-auto mt-4 max-w-xl text-[var(--text-secondary)]">
-          {description}
-        </p>
+            <p className="mx-auto mt-6 max-w-xl text-lg text-[var(--text-secondary)] leading-relaxed">
+              {description}
+            </p>
 
-        <form
-          onSubmit={handleSubmit}
-          className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
-        >
-          <input
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-            placeholder={placeholder}
-            required
-            disabled={isSubmitting}
-            className="flex-1 rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-white placeholder-white/40 focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)] disabled:opacity-50 transition-colors"
-            aria-label="Email address"
-            tabIndex={0}
-          />
-          <button
-            type="submit"
-            disabled={isSubmitting || !email}
-            className="rounded-lg bg-[var(--primary)] px-6 py-3 font-bold text-[var(--background)] transition-colors hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
-            tabIndex={0}
-            aria-label={buttonText}
-          >
-            {isSubmitting ? "Subscribing..." : buttonText}
-          </button>
-        </form>
+            <form
+              onSubmit={handleSubmit}
+              className="mx-auto mt-10 flex max-w-lg flex-col gap-4 sm:flex-row"
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder={placeholder}
+                required
+                disabled={isSubmitting}
+                className="flex-1 rounded-lg border border-[var(--border)] bg-[var(--background)] px-5 py-4 text-white placeholder-white/40 focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)] disabled:opacity-50 transition-colors"
+                aria-label="Email address"
+                tabIndex={0}
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting || !email}
+                className="rounded-lg bg-[var(--primary)] px-8 py-4 font-bold text-[var(--background)] transition-colors hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                tabIndex={0}
+                aria-label={buttonText}
+              >
+                {isSubmitting ? "Subscribing..." : buttonText}
+              </button>
+            </form>
 
-        {isSuccess && (
-          <p className="mt-4 text-sm text-green-400 animate-fade-in">
-            Thank you for subscribing! Check your inbox for confirmation.
-          </p>
-        )}
+            {isSuccess && (
+              <p className="mt-6 text-sm text-green-400 animate-fade-in">
+                Thank you for subscribing! Check your inbox for confirmation.
+              </p>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

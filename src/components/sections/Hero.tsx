@@ -47,7 +47,7 @@ export const Hero = ({
       </div>
 
       {/* Content */}
-      <div className="relative z-20 flex max-w-[960px] flex-col items-center gap-8 text-center fade-up">
+      <div className="relative z-20 flex max-w-[960px] flex-col items-center gap-6 text-center fade-up">
         {/* Badge */}
         {badgeText && (
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
@@ -86,11 +86,11 @@ export const Hero = ({
         )}
 
         {/* CTAs */}
-        <div className="flex flex-col gap-4 sm:flex-row">
+        <div className="flex flex-col gap-4 sm:flex-row mt-4">
           {primaryCta && (
             <Link href={primaryCta.href} tabIndex={0}>
               <button
-                className="flex h-12 min-w-[160px] items-center justify-center gap-2 rounded-lg bg-[#eebd2b] px-6 text-base font-bold text-[#181611] transition-all hover:bg-white hover:text-[#181611]"
+                className="flex h-14 items-center justify-center gap-2.5 rounded-lg bg-[#eebd2b] px-10 text-base font-bold text-[#181611] transition-all hover:bg-white hover:text-[#181611] whitespace-nowrap"
                 tabIndex={-1}
                 aria-label={primaryCta.label}
               >
@@ -101,7 +101,7 @@ export const Hero = ({
           {secondaryCta && (
             <Link href={secondaryCta.href} tabIndex={0}>
               <button
-                className="flex h-12 min-w-[160px] items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 text-base font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10"
+                className="flex h-14 items-center justify-center gap-2.5 rounded-lg border border-white/20 bg-white/5 px-10 text-base font-medium text-white backdrop-blur-sm transition-all hover:bg-white/10 whitespace-nowrap"
                 tabIndex={-1}
                 aria-label={secondaryCta.label}
               >

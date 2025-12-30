@@ -29,9 +29,10 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full flex justify-center border-t border-[var(--border)] bg-[var(--background)] pt-16 pb-8">
+    <footer className="w-full flex justify-center bg-[var(--background)] py-20 lg:py-24">
       <div className="w-full max-w-[1280px] px-6 lg:px-10">
-        <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
+        <div className="border-t border-[var(--border)] pt-16 lg:pt-20">
+          <div className="flex flex-col gap-12 lg:flex-row lg:justify-between">
           {/* Brand Column */}
           <div className="max-w-sm">
             <Link
@@ -125,22 +126,23 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-        </div>
+          </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 border-t border-[var(--border)] pt-8 text-center text-xs text-[var(--text-secondary)] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p>
-            © {currentYear} {SITE_CONFIG.name}. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            {locations.map((location) => (
-              <span key={location} className="flex items-center gap-1">
-                <span className="material-symbols-outlined text-[14px]">
-                  location_on
+          {/* Bottom Bar */}
+          <div className="mt-16 lg:mt-20 border-t border-[var(--border)] pt-10 text-center text-xs text-[var(--text-secondary)] flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>
+              © {currentYear} {SITE_CONFIG.name}. All rights reserved.
+            </p>
+            <div className="flex gap-6">
+              {locations.map((location) => (
+                <span key={location} className="flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[14px]">
+                    location_on
+                  </span>
+                  {location}
                 </span>
-                {location}
-              </span>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

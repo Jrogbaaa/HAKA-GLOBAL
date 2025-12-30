@@ -93,7 +93,7 @@ export const Navigation = () => {
             </div>
             <Link href="/contact" tabIndex={0}>
               <button
-                className="flex h-10 items-center justify-center gap-2 rounded border border-[var(--primary)] bg-transparent px-5 text-sm font-semibold text-[var(--primary)] transition-all duration-200 hover:bg-[var(--primary)] hover:text-[var(--background)]"
+                className="flex h-11 items-center justify-center gap-2.5 rounded-lg border border-[var(--primary)] bg-transparent px-6 text-sm font-semibold text-[var(--primary)] transition-all duration-200 hover:bg-[var(--primary)] hover:text-[var(--background)] whitespace-nowrap"
                 tabIndex={-1}
               >
                 <span>Request Access</span>
@@ -146,7 +146,7 @@ export const Navigation = () => {
             ))}
             <Link
               href="/contact"
-              className="mt-4 flex h-12 items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-8 text-base font-bold text-[var(--background)] transition-transform hover:scale-105"
+              className="mt-6 flex h-14 items-center justify-center gap-2.5 rounded-lg bg-[var(--primary)] px-10 text-base font-bold text-[var(--background)] transition-transform hover:scale-[1.02] whitespace-nowrap"
               tabIndex={0}
             >
               Request Access

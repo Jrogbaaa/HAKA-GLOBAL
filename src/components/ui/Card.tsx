@@ -48,8 +48,8 @@ export const Card = ({
           )}
         </div>
       )}
-      <div className="p-4 px-5">
-        <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-[var(--primary)] transition-colors duration-300">
+      <div className="p-5 py-6">
+        <h3 className="font-serif text-xl font-bold text-white mb-3 group-hover:text-[var(--primary)] transition-colors duration-300">
           {title}
         </h3>
         {description && (

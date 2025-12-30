@@ -51,17 +51,17 @@ export const FeaturedMarketplace = ({ items }: FeaturedMarketplaceProps) => {
   };
 
   return (
-    <section className="py-24 lg:py-32 bg-[var(--background)]">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
+    <section className="py-24 lg:py-36 bg-[var(--background)]">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-16"
+          className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-8 mb-16 lg:mb-20"
         >
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-5">
               Curated Collection
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--foreground)]">
@@ -103,11 +103,11 @@ export const FeaturedMarketplace = ({ items }: FeaturedMarketplaceProps) => {
                       <Badge variant="gold">{item.category}</Badge>
                     </div>
                   </div>
-                  <div className="p-6">
+                  <div className="p-7">
                     <h3 className="font-serif text-xl font-medium text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors duration-300">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm text-[var(--text-secondary)]">
+                    <p className="mt-3 text-sm text-[var(--text-secondary)]">
                       {formatPrice(item.price)}
                     </p>
                   </div>

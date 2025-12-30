@@ -56,16 +56,16 @@ export const AboutContent = () => {
   return (
     <>
       {/* Mission Section */}
-      <section className="w-full flex justify-center py-24 lg:py-32 bg-[var(--background)]">
+      <section className="w-full flex justify-center py-28 lg:py-40 bg-[var(--background)]">
         <div className="w-full max-w-[1280px] px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-6">
                 Our Mission
               </p>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--foreground)] leading-tight">
@@ -78,7 +78,7 @@ export const AboutContent = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-8"
             >
               <p className="text-lg text-[var(--text-secondary)] leading-relaxed">
                 Haka Global was founded on a singular belief: that exceptional
@@ -99,82 +99,86 @@ export const AboutContent = () => {
       </section>
 
       {/* Values Section */}
-      <section className="w-full flex justify-center py-20 lg:py-28 bg-[var(--surface)] border-t border-b border-[var(--border)]">
-        <div className="w-full max-w-[1280px] px-6 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12 lg:mb-16"
-          >
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
-              Our Values
-            </p>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--foreground)]">
-              Principles That Guide Us
-            </h2>
-          </motion.div>
+      <section className="w-full flex justify-center bg-[var(--surface)]">
+        <div className="w-full max-w-[1280px] px-6 lg:px-10 py-28 lg:py-40">
+          <div className="border-t border-[var(--border)] pt-20 lg:pt-28">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16 lg:mb-20"
+            >
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-6">
+                Our Values
+              </p>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-[var(--foreground)]">
+                Principles That Guide Us
+              </h2>
+            </motion.div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6"
-          >
-            {values.map((value) => (
-              <motion.div
-                key={value.title}
-                variants={itemVariants}
-                className="flex flex-col p-7 lg:p-9 bg-[var(--background)] border-l-2 border-[var(--accent)]/30 hover:border-[var(--accent)] transition-colors duration-300"
-              >
-                <div className="mb-5 text-[var(--accent)]">{value.icon}</div>
-                <h3 className="font-serif text-xl lg:text-2xl font-medium text-[var(--foreground)] mb-3">
-                  {value.title}
-                </h3>
-                <p className="text-[var(--text-secondary)] leading-relaxed text-sm lg:text-base">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10"
+            >
+              {values.map((value) => (
+                <motion.div
+                  key={value.title}
+                  variants={itemVariants}
+                  className="flex flex-col p-10 lg:p-12 bg-[var(--background)] border-l-2 border-[var(--accent)]/30 hover:border-[var(--accent)] transition-colors duration-300"
+                >
+                  <div className="mb-8 text-[var(--accent)]">{value.icon}</div>
+                  <h3 className="font-serif text-xl lg:text-2xl font-medium text-[var(--foreground)] mb-5">
+                    {value.title}
+                  </h3>
+                  <p className="text-[var(--text-secondary)] leading-relaxed text-sm lg:text-base">
+                    {value.description}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="w-full flex justify-center py-16 lg:py-20 bg-[var(--background)]">
-        <div className="w-full max-w-[1280px] px-6 lg:px-10">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
-          >
-            {[
-              { value: "$2B+", label: "Assets Managed" },
-              { value: "40+", label: "Countries Served" },
-              { value: "500+", label: "Elite Clients" },
-              { value: "15+", label: "Years of Excellence" },
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center py-4"
-              >
-                <p className="font-serif text-3xl lg:text-4xl font-medium text-[var(--accent)]">
-                  {stat.value}
-                </p>
-                <p className="mt-2 text-xs lg:text-sm uppercase tracking-wider text-[var(--text-secondary)]">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+      <section className="w-full flex justify-center bg-[var(--background)]">
+        <div className="w-full max-w-[1280px] px-6 lg:px-10 py-24 lg:py-32">
+          <div className="border-y border-[var(--border)] py-16 lg:py-20">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12"
+            >
+              {[
+                { value: "$2B+", label: "Assets Managed" },
+                { value: "40+", label: "Countries Served" },
+                { value: "500+", label: "Elite Clients" },
+                { value: "15+", label: "Years of Excellence" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center py-6"
+                >
+                  <p className="font-serif text-3xl lg:text-4xl font-medium text-[var(--accent)]">
+                    {stat.value}
+                  </p>
+                  <p className="mt-4 text-xs lg:text-sm uppercase tracking-wider text-[var(--text-secondary)]">
+                    {stat.label}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
     </>

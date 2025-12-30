@@ -98,9 +98,9 @@ export default function ServicesPage() {
             Elevating life and legacy through global excellence. We provide a
             sanctuary for your wealth, reputation, and lifestyle.
           </h2>
-          <div className="pt-4 flex justify-center">
+          <div className="pt-6 flex justify-center">
             <button
-              className="group flex items-center gap-2 cursor-pointer justify-center overflow-hidden rounded-full h-12 px-8 bg-[var(--primary)] text-[var(--background)] text-base font-bold leading-normal tracking-wide hover:bg-white transition-all duration-300"
+              className="group flex items-center gap-2.5 cursor-pointer justify-center overflow-hidden rounded-full h-14 px-10 bg-[var(--primary)] text-[var(--background)] text-base font-bold leading-normal tracking-wide hover:bg-white transition-all duration-300 whitespace-nowrap"
               tabIndex={0}
               aria-label="Explore Offerings"
             >
@@ -117,7 +117,7 @@ export default function ServicesPage() {
       {services.map((service, index) => (
         <section
           key={service.id}
-          className={`w-full flex justify-center py-20 md:py-32 ${
+          className={`w-full flex justify-center py-24 md:py-36 ${
             service.bgDark
               ? "bg-[var(--surface)]"
               : "bg-[var(--background)]"
@@ -180,7 +180,7 @@ export default function ServicesPage() {
               <div
                 className={`${
                   service.reverse ? "md:order-1" : "order-1 md:order-2"
-                } flex flex-col gap-6 md:gap-8`}
+                } flex flex-col gap-5`}
               >
                 <div className="flex items-center gap-3 text-[var(--primary)]/80">
                   <span className="material-symbols-outlined">
@@ -191,11 +191,11 @@ export default function ServicesPage() {
                   </span>
                 </div>
 
-                <h2 className="text-white text-3xl md:text-5xl font-serif font-bold leading-tight">
+                <h2 className="text-white text-3xl md:text-5xl font-serif font-bold leading-tight mt-1">
                   {service.title}
                 </h2>
 
-                <p className="text-[var(--text-secondary)] text-lg leading-relaxed font-light">
+                <p className="text-[var(--text-secondary)] text-lg leading-relaxed font-light mt-2">
                   {service.description}
                 </p>
 
@@ -246,10 +246,10 @@ export default function ServicesPage() {
                   </div>
                 )}
 
-                <div className="pt-4">
+                <div className="pt-6">
                   <Link href={`/services/${service.id}`} tabIndex={0}>
                     <button
-                      className="flex w-fit cursor-pointer items-center justify-center rounded-full h-12 px-8 border border-white/20 hover:border-[var(--primary)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-all duration-300 text-sm font-bold tracking-wider uppercase"
+                      className="flex w-fit cursor-pointer items-center justify-center rounded-full h-13 px-10 border border-white/20 hover:border-[var(--primary)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-all duration-300 text-sm font-bold tracking-wider uppercase whitespace-nowrap"
                       tabIndex={-1}
                     >
                       {service.cta}
