@@ -68,8 +68,8 @@ export const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden flex-1 justify-end gap-8 lg:flex">
-            <div className="flex items-center gap-8">
+          <nav className="hidden flex-1 items-center justify-end lg:flex">
+            <div className="flex items-center gap-10 mr-8">
               {NAV_LINKS.filter((link) => link.href !== "/contact").map(
                 (link) => (
                   <Link
@@ -93,7 +93,7 @@ export const Navigation = () => {
             </div>
             <Link href="/contact" tabIndex={0}>
               <button
-                className="flex h-10 items-center justify-center gap-2 overflow-hidden rounded-lg bg-[var(--primary)] px-5 text-sm font-bold tracking-wide text-[var(--background)] transition-transform hover:scale-105 active:scale-95"
+                className="flex h-10 items-center justify-center gap-2 rounded border border-[var(--primary)] bg-transparent px-5 text-sm font-semibold text-[var(--primary)] transition-all duration-200 hover:bg-[var(--primary)] hover:text-[var(--background)]"
                 tabIndex={-1}
               >
                 <span>Request Access</span>
@@ -102,7 +102,7 @@ export const Navigation = () => {
                 </span>
               </button>
             </Link>
-          </div>
+          </nav>
 
           {/* Mobile Menu Button */}
           <button

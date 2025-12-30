@@ -94,6 +94,9 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
    
    # Application URL
    NEXT_PUBLIC_APP_URL="http://localhost:3000"
+   
+   # Email notifications (Resend)
+   RESEND_API_KEY="re_your_api_key"
    ```
 
 4. **Set up the database:**
@@ -123,6 +126,10 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
 | `npm run build` | Build for production |
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint |
+| `npm run test` | Run Playwright E2E tests |
+| `npm run test:ui` | Run E2E tests with UI |
+| `npm run test:headed` | Run E2E tests in headed mode |
+| `npm run test:report` | View Playwright test report |
 | `npm run db:generate` | Generate Prisma client |
 | `npm run db:push` | Push schema to database |
 | `npm run db:migrate` | Run database migrations |
@@ -226,6 +233,7 @@ prisma/
    | `DATABASE_URL` | `postgresql://neondb_owner:PASSWORD@ep-xxx-pooler.region.aws.neon.tech/neondb?sslmode=require` |
    | `DIRECT_URL` | `postgresql://neondb_owner:PASSWORD@ep-xxx.region.aws.neon.tech/neondb?sslmode=require` |
    | `NEXT_PUBLIC_APP_URL` | `https://your-domain.vercel.app` |
+   | `RESEND_API_KEY` | `re_your_api_key` |
 
 4. **Deploy**
    - Vercel automatically deploys on every push to `main`

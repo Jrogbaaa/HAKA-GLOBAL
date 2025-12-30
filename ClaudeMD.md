@@ -102,13 +102,46 @@ Using Zod schemas in `src/lib/validations.ts`
 ### Demo Data
 Pages include demo data arrays that display when database is unavailable.
 
-## Recent Changes (v1.2.0)
+## Recent Changes (v1.3.0)
 
-1. Contact email changed to `info@hakaglobal.com`
-2. Added `--accent` CSS variable
-3. Consistent spacing/padding across all pages using `flex justify-center` pattern
-4. Max content width standardized to 1280px
-5. Horizontal padding: 24px (mobile), 40px (desktop)
+1. **E2E Testing**: Added Playwright E2E test suite with GitHub Actions CI/CD
+2. **Email Notifications**: Contact form submissions now send:
+   - Notification email to `info@hakaglobal.com` (team)
+   - Confirmation email to the user
+3. **UI Fixes**:
+   - Navigation Request Access button restyled with proper spacing
+   - Values section on About page with improved card design (left gold accent border)
+   - Reduced padding/spacing in Stats section
+
+## Testing
+
+### E2E Tests (Playwright)
+
+```bash
+# Run all tests
+npm run test
+
+# Run tests with UI
+npm run test:ui
+
+# Run tests in headed mode
+npm run test:headed
+
+# View test report
+npm run test:report
+```
+
+Test coverage:
+- Navigation and routing
+- Contact form validation and submission
+- About page content verification
+- Mobile responsive behavior
+
+### GitHub Actions
+
+E2E tests run automatically on:
+- Push to `main`, `master`, or `develop` branches
+- Pull requests to these branches
 
 ## Development Notes
 
@@ -116,4 +149,5 @@ Pages include demo data arrays that display when database is unavailable.
 - Prisma errors for marketplace/insights are expected without database - demo data displays instead
 - Material Symbols font is loaded from Google Fonts
 - All interactive elements should have `tabIndex={0}` and proper `aria-*` attributes
+- Email notifications require `RESEND_API_KEY` environment variable
 

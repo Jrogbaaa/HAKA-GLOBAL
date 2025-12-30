@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2024-12-30
+
+### Added
+- **E2E Testing with Playwright**
+  - Navigation and routing tests
+  - Contact form validation tests
+  - About page content verification
+  - Mobile responsive tests
+- **GitHub Actions CI/CD**
+  - E2E tests run automatically on push/PR to main, master, develop branches
+  - Test artifacts uploaded (reports on failure)
+- **Email Notifications (Resend)**
+  - Contact form submissions now send notification email to `info@hakaglobal.com`
+  - Automatic confirmation email sent to users who submit the contact form
+  - Professional HTML email templates with Haka Global branding
+
+### Changed
+- **Navigation**: Request Access button restyled with bordered outline style for better visual hierarchy
+- **About Page Values Section**: 
+  - Cards now have left gold accent border instead of full border
+  - Improved spacing and padding
+  - Hover effect on card border
+- **Stats Section**: Reduced vertical padding for better content flow
+
+### Fixed
+- Navigation button spacing issues
+- Values section card alignment and spacing
+- Inconsistent padding between sections on About page
+
 ## [1.2.0] - 2024-12-30
 
 ### Added

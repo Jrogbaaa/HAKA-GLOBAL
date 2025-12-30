@@ -23,11 +23,16 @@ export const ContactForm = () => {
     resolver: zodResolver(contactFormSchema),
   });
 
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const handleFormSubmit = async (data: ContactFormData) => {
+    setSubmitError(null);
     const result = await submitContactForm(data);
     if (result.success) {
       setIsSubmitted(true);
       reset();
+    } else {
+      setSubmitError(result.error || "Something went wrong. Please try again.");
     }
   };
 
@@ -186,6 +191,12 @@ export const ContactForm = () => {
                     {...register("message")}
                     error={errors.message?.message}
                   />
+
+                  {submitError && (
+                    <div className="p-4 bg-red-500/10 border border-red-500/30 rounded text-center">
+                      <p className="text-sm text-red-400">{submitError}</p>
+                    </div>
+                  )}
 
                   <Button
                     type="submit"
