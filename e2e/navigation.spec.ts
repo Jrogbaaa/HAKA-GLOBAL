@@ -3,29 +3,56 @@ import { test, expect } from "@playwright/test";
 test.describe("Navigation", () => {
   test("should navigate to home page", async ({ page }) => {
     await page.goto("/");
-    await expect(page).toHaveTitle(/Haka Global/);
+    await expect(page).toHaveTitle(/Haka/);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   });
 
-  test("should navigate to about page", async ({ page }) => {
+  test("should navigate to about page", async ({ page, isMobile }) => {
     await page.goto("/");
-    // Use nav element to scope the selector to navigation links only
-    await page.locator("nav").getByRole("link", { name: "About" }).click();
+    
+    if (isMobile) {
+      // On mobile, open the hamburger menu first
+      const menuButton = page.getByRole("button", { name: /menu/i });
+      await menuButton.click();
+      await page.getByRole("link", { name: "About", exact: true }).click();
+    } else {
+      // Desktop: Use nav element to scope the selector to navigation links only
+      await page.locator("nav").getByRole("link", { name: "About" }).click();
+    }
+    
     await expect(page).toHaveURL("/about");
     await expect(page.getByRole("heading", { name: /Excellence Without Compromise/i })).toBeVisible();
   });
 
-  test("should navigate to services page", async ({ page }) => {
+  test("should navigate to services page", async ({ page, isMobile }) => {
     await page.goto("/");
-    // Use nav element to scope the selector to navigation links only
-    await page.locator("nav").getByRole("link", { name: /Services/i }).click();
+    
+    if (isMobile) {
+      // On mobile, open the hamburger menu first
+      const menuButton = page.getByRole("button", { name: /menu/i });
+      await menuButton.click();
+      await page.getByRole("link", { name: "Services", exact: true }).click();
+    } else {
+      // Desktop: Use nav element to scope the selector to navigation links only
+      await page.locator("nav").getByRole("link", { name: /Services/i }).click();
+    }
+    
     await expect(page).toHaveURL("/services");
   });
 
-  test("should navigate to contact page via Request Access button", async ({ page }) => {
+  test("should navigate to contact page via Contact Us button", async ({ page, isMobile }) => {
     await page.goto("/");
-    // Use nav element to scope the selector to navigation button only
-    await page.locator("nav").getByRole("link", { name: /Request Access/i }).click();
+    
+    if (isMobile) {
+      // On mobile, open the hamburger menu first
+      const menuButton = page.getByRole("button", { name: /menu/i });
+      await menuButton.click();
+      await page.getByRole("link", { name: /Contact/i }).click();
+    } else {
+      // Desktop: Use nav element to scope the selector to navigation button only
+      await page.locator("nav").getByRole("link", { name: /Contact Us/i }).click();
+    }
+    
     await expect(page).toHaveURL("/contact");
   });
 
