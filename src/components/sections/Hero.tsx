@@ -19,7 +19,7 @@ interface HeroProps {
 }
 
 export const Hero = ({
-  title = "Orchestrating Wealth & Influence",
+  title = "Pre Shift Strike.",
   subtitle,
   description = "Exclusive access to elite real estate, financial advisory, and personal branding strategies for the modern visionary.",
   primaryCta = {
@@ -90,7 +90,7 @@ export const Hero = ({
           {primaryCta && (
             <Link href={primaryCta.href} tabIndex={0}>
               <button
-                className="flex h-14 items-center justify-center gap-2.5 rounded-lg bg-[#eebd2b] px-10 text-base font-bold text-[#181611] transition-all hover:bg-white hover:text-[#181611] whitespace-nowrap"
+                className="flex h-14 items-center justify-center gap-2.5 rounded-lg bg-[#eebd2b] px-10 text-base font-bold text-[#1A191A] transition-all hover:bg-white hover:text-[#1A191A] whitespace-nowrap"
                 tabIndex={-1}
                 aria-label={primaryCta.label}
               >

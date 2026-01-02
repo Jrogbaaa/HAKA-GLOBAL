@@ -51,41 +51,24 @@ export const Navigation = () => {
           ${isScrolled ? "bg-[var(--background)]/90 backdrop-blur-md" : "bg-[var(--background)]/80 backdrop-blur-md"}
         `}
       >
-        <div className="w-full flex h-20 max-w-[1280px] items-center justify-between px-6 lg:px-10">
+        <div className="w-full flex h-20 max-w-[1280px] items-center justify-between px-4 lg:px-8">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3"
+            className="flex items-center"
             aria-label={`${SITE_CONFIG.name} Home`}
             tabIndex={0}
           >
-            <div className="flex h-10 w-10 items-center justify-center">
-              <svg
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-10 w-10"
-              >
-                <circle cx="20" cy="20" r="18" stroke="#eebd2b" strokeWidth="2" fill="none" />
-                <circle cx="20" cy="20" r="12" stroke="#eebd2b" strokeWidth="1.5" fill="none" />
-                <circle cx="20" cy="20" r="6" fill="#eebd2b" />
-                <line x1="20" y1="2" x2="20" y2="8" stroke="#eebd2b" strokeWidth="1.5" />
-                <line x1="20" y1="32" x2="20" y2="38" stroke="#eebd2b" strokeWidth="1.5" />
-                <line x1="2" y1="20" x2="8" y2="20" stroke="#eebd2b" strokeWidth="1.5" />
-                <line x1="32" y1="20" x2="38" y2="20" stroke="#eebd2b" strokeWidth="1.5" />
-              </svg>
-            </div>
-            <h2 
-              className="text-xl font-semibold tracking-widest text-[var(--primary)] uppercase"
-              style={{ fontFamily: 'var(--font-display), serif' }}
-            >
-              {SITE_CONFIG.name}
-            </h2>
+            <img
+              src="/haka-logo.svg"
+              alt={`${SITE_CONFIG.name} Logo`}
+              className="h-16 w-auto logo-fade"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden flex-1 items-center justify-end lg:flex">
-            <div className="flex items-center gap-10 mr-12">
+          <nav className="hidden flex-1 items-center justify-end gap-10 lg:flex">
+            <div className="flex items-center gap-8">
               {NAV_LINKS.filter((link) => link.href !== "/contact").map(
                 (link) => (
                   <Link

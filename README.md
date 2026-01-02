@@ -1,9 +1,11 @@
-# Haka Global
+# Haka
 
 ![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000)
+
+**Pre Shift Strike.**
 
 A Private Gateway to Influence, Assets, and Opportunity.
 
@@ -43,7 +45,7 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
 
 | Variable | Value | Usage |
 |----------|-------|-------|
-| `--background` | `#181611` | Page background |
+| `--background` | `#1A191A` | Page background |
 | `--surface` | `#232018` | Cards, elevated surfaces |
 | `--surface-elevated` | `#1a1812` | Modal backgrounds |
 | `--border` | `#393528` | Borders |

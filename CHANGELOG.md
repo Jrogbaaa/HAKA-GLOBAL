@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2025-01-02
+
+### Changed
+- **Logo Rebrand**
+  - New custom SVG logo (`/public/haka-logo.svg`) replaces previous inline SVG icon + text
+  - Site name simplified from "Haka Global" to "Haka"
+  - Logo displayed standalone without accompanying text
+  - Added CSS mask gradient effect (`.logo-fade`) for smooth edge blending with background
+  - Increased logo size: Navigation `h-16`, Footer `h-14`
+
+- **Hero Section**
+  - Updated headline to "Pre Shift Strike." for marketing campaign
+
+- **Navigation**
+  - Reduced header height from `h-24` to `h-20` for tighter layout
+  - Reduced horizontal padding (`px-4 lg:px-8`)
+  - Fixed spacing between nav links and Contact Us button using flex gap
+  - Nav link gap reduced from `gap-10` to `gap-8`
+
+- **Design System**
+  - Background color updated from `#181611` to `#1A191A` to match logo SVG background
+  - All hardcoded color references updated for consistency
+
+### Added
+- `.logo-fade` CSS class for gradient mask edge blending effect
+- Custom logo SVG file at `/public/haka-logo.svg`
+
 ## [1.6.0] - 2024-12-30
 
 ### Changed

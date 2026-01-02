@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-/* Haka Global - Premium Dark Design System */
+/* Haka - Premium Dark Design System */
 :root {
   /* Core Colors - Dark Theme */
-  --background: #181611;
+  --background: #1A191A;
   --background-light: #f8f7f6;
   --surface: #232018;
   --surface-elevated: #1a1812;
@@ -166,4 +166,16 @@ a {
     'wght' 400,
     'GRAD' 0,
     'opsz' 24;
+}
+
+/* Logo fade effect */
+.logo-fade {
+  -webkit-mask-image: 
+    linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: 
+    linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-composite: intersect;
 }

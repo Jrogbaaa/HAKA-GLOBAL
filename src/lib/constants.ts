@@ -1,6 +1,6 @@
 // Site Configuration
 export const SITE_CONFIG = {
-  name: "Haka Global",
+  name: "Haka",
   tagline: "A Private Gateway to Influence, Assets, and Opportunity",
   description:
     "Personal Branding. Global Real Estate. Strategic Investments. Luxury Access.",

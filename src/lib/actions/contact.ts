@@ -48,7 +48,7 @@ const sendNotificationEmail = async (data: {
             <style>
               body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
               .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-              .header { background: #181611; color: #eebd2b; padding: 24px; text-align: center; }
+              .header { background: #1A191A; color: #eebd2b; padding: 24px; text-align: center; }
               .header h1 { margin: 0; font-size: 24px; }
               .content { padding: 24px; background: #f9f9f9; }
               .field { margin-bottom: 16px; }
@@ -138,7 +138,7 @@ const sendConfirmationEmail = async (data: {
             <style>
               body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
               .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-              .header { background: #181611; color: #eebd2b; padding: 32px; text-align: center; }
+              .header { background: #1A191A; color: #eebd2b; padding: 32px; text-align: center; }
               .header h1 { margin: 0; font-size: 28px; font-weight: 700; }
               .content { padding: 32px; background: #ffffff; }
               .content p { margin: 0 0 16px; }

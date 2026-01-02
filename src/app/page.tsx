@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
       <Hero
-        title="Orchestrating Wealth & Influence"
+        title="Pre Shift Strike."
         description="Exclusive access to elite real estate, financial advisory, and personal branding strategies for the modern visionary."
         primaryCta={{
           label: "Request Access",
