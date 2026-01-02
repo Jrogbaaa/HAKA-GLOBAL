@@ -47,7 +47,8 @@ test.describe("Navigation", () => {
       // On mobile, open the hamburger menu first
       const menuButton = page.getByRole("button", { name: /menu/i });
       await menuButton.click();
-      await page.getByRole("link", { name: /Contact/i }).click();
+      // Use exact match to avoid matching footer "Contact" link, and first() to get the nav link
+      await page.getByRole("link", { name: "Contact", exact: true }).first().click();
     } else {
       // Desktop: Use nav element to scope the selector to navigation button only
       await page.locator("nav").getByRole("link", { name: /Contact Us/i }).click();
