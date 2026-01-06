@@ -4,27 +4,27 @@ import { CTASection } from "@/components/sections/CTASection";
 import { AboutContent } from "./AboutContent";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About HAKA",
   description:
-    "Discover Haka Global - a distinguished advisory firm serving high-net-worth individuals and global professionals with personalized luxury services.",
+    "HAKA operates where decisions take shape, before they become public or formalized. Anticipation · Affairs · Influence.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader
-        subtitle="About Us"
-        title="Excellence Without Compromise"
-        description="A distinguished advisory firm serving those who demand the extraordinary in every facet of their lives."
+        subtitle="About HAKA"
+        title="Anticipation · Affairs · Influence"
+        description="HAKA operates where decisions take shape, before they become public or formalized."
       />
 
       <AboutContent />
 
       <CTASection
-        title="Partner With Us"
-        description="Join a select clientele who trust Haka Global to navigate the complexities of wealth, influence, and opportunity."
+        subtitle="Start a Conversation"
+        title="Discretion starts here."
+        description="HAKA engages selectively. If context, timing, and access are critical to your decisions, you may initiate a conversation."
       />
     </>
   );
 }
-

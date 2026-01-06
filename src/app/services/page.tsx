@@ -1,81 +1,12 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { SERVICES } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Advisory Services",
   description:
-    "Our Expertise - Personal Branding, Global Real Estate, Financial Advisory, and Luxury Marketplace access.",
+    "Strategic advisory for people and companies operating where decisions take shape. We advise at decision level, aligning strategy, reputation, and context.",
 };
-
-const services = [
-  {
-    id: "personal-branding",
-    category: "Reputation Management",
-    icon: "person",
-    title: "Defining the Narrative",
-    description:
-      "We craft bespoke personal branding strategies for executives and public figures. In a world of noise, we ensure your reputation precedes you with elegance, authority, and clarity.",
-    features: [
-      "Digital Presence Optimization",
-      "Crisis Management & PR",
-      "Thought Leadership Development",
-    ],
-    cta: "Start Your Journey",
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBjVntMkMHHMNY3TOWGwCKXSuE52G2u46LPYjVH0C4M1pZTArGVtIex0jPirzuJTZYUqDonXtfmpTicPq__1HwUSVGmCnCjmkZgEso-xHqY_LjCPvf5sUKH6wwkLRH1uuU60hPS966wOmSnX_P4AYMsjtY24A1BdI1wBNpbM6Z6KISYrUw1jAVCkv4B67uN3Lp1zo1ux2WgFz9aunSXm7z_Ta5IiY4wJ760oPnjn-5ulEdKUe9so-DISVdK9ua0Gbv8nlt8zLQzbO8",
-    imageAlt: "Executive portrait in modern office",
-    reverse: false,
-    bgDark: true,
-  },
-  {
-    id: "real-estate",
-    category: "Real Estate",
-    icon: "villa",
-    title: "Global Sanctuaries",
-    description:
-      "Exclusive access to off-market real estate and luxury estates worldwide. From urban penthouses in New York to secluded island retreats in the Mediterranean, we find the exceptional.",
-    stats: [
-      { value: "40+", label: "Countries" },
-      { value: "$2B+", label: "Portfolio Value" },
-    ],
-    cta: "View Portfolio",
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAADPByCw6acvB4Qx5xtuFP-dvN7EeIHq1yyOgTalG6yY23KYZkHv8vBGQkwoXgzDtlRZnVIkoSya0bEKYEAjeyWPb9wp-SdHYBQ9OdR8zDbUZzrdkEyACzgzwuXVgt0JkqItX8Yoy6bwD-X7Qz0KQ3IERuM1m7lwpS8-Rx4tow_b-u6qyNd5LPEkq-jqsEWjw2qiT29atsJ4klKzwkSlHuug6th6viuYBHyqJax6Ii8D2PCH_yDZtYbr11Xf_Ar49Ya4OBDqtzrgE",
-    imageAlt: "Modern luxury penthouse interior",
-    reverse: true,
-    bgDark: false,
-  },
-  {
-    id: "financial-advisory",
-    category: "Wealth Architecture",
-    icon: "account_balance",
-    title: "Advisory & Investment",
-    description:
-      "Strategic asset allocation and multigenerational planning designed for ultra-high-net-worth individuals. We don't just manage wealth; we engineer its future through private equity, venture capital, and traditional markets.",
-    cta: "Consult an Advisor",
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCTrgbpv6xb2b1bI8hRrdOmjsd35EJzCL-KiI2_h09cMl8D_Dx89YrpCvQPeRFzwMCZSjMfllLSBH9cU3j5uGCmC_OYFGRIVkiGN342AQMj95YotHloh7ZIdK9PtdaVD-EXvmkhzTRQ6HLsQa9beMXY5-fbBQVpeMdtsmkRoyEfH3XLkSUGradjbB9Zzp-p9GUWommuqMP5qlhhxHDMr03nvOoDXuCD9EDjWNVBuTIk1PvUcuhmYl7pZyna27G6WHtTs3Itv6XBBCw",
-    imageAlt: "Golden topographic map symbolizing wealth growth",
-    reverse: false,
-    bgDark: true,
-    overlay: true,
-  },
-  {
-    id: "luxury-marketplace",
-    category: "Marketplace",
-    icon: "diamond",
-    title: "Curated Excellence",
-    description:
-      "Access a vetted selection of rare assets. From fine art and horology to classic automobiles and yachts, our marketplace connects discerning buyers with timeless masterpieces.",
-    tags: ["Fine Art", "Horology", "Automotive"],
-    cta: "Request Access",
-    imageUrl:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDJS9hkR03JjBvCKU3EQEae7ROhxUgMrHEQXZe6Kl1XD3hjT8eQaBxYDlEJ_m4J8vYFpFSvBSOFU98jPdTuuFc-pjODHPhflEB4huFk8u7gk4rbeJ7VAuEVh4LNx8ORHLlPQPUOoth6JAlw2rOIJ97mFJbVszt4w7a9zh7_xKFgd98PLNEzjvKv7k22DzYoBHCvnJMWyOFlfYQxSDd9jgbYDulvCGbYv6MuuIAorzGulNWm3iTQl4iooz7PgkLE7WmPbUqdPOJHGjw",
-    imageAlt: "Luxury mechanical watch movement",
-    reverse: true,
-    bgDark: false,
-  },
-];
 
 export default function ServicesPage() {
   return (
@@ -88,179 +19,235 @@ export default function ServicesPage() {
             backgroundImage: `linear-gradient(rgba(24, 22, 17, 0.7) 0%, rgba(24, 22, 17, 0.9) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCnxEkcjhjYkzHjwFSLLW7Q21i9AEgnDVvMNGGUvmQxyqweUJJz93duzjL5OF3GairMOe0uUzrdAriPyzx9k-xRMCxJkSTyid5Ivl7HA3rrZijT20XZTLGyxeSXGfnCW0LdG05csu_3cMbXdaMxwk8LRkVqkv7jsU7XOeS1Mzer6nzdTFCbtdya1N0MYu9Qmx4JyQT6UbnJgm3Sea5Da-shxnvY2uWo6diNoMrNwgvy6CLKBaw3zG0h-AcNX7hGlanLkzLzlcX7Smw")`,
           }}
           role="img"
-          aria-label="Abstract dark luxury texture with gold dust particles"
+          aria-label="Abstract dark luxury texture"
         />
         <div className="relative z-10 flex flex-col gap-6 text-center max-w-4xl mx-auto fade-up">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--primary)]">
+            HAKA Global Consulting
+          </p>
           <h1 className="text-white text-5xl md:text-7xl font-black font-serif leading-tight tracking-tight">
-            Our Expertise
+            Areas of Advisory
           </h1>
           <h2 className="text-[var(--text-secondary)] text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-            Elevating life and legacy through global excellence. We provide a
-            sanctuary for your wealth, reputation, and lifestyle.
+            Strategic advisory for people and companies operating where
+            decisions take shape. We advise at decision level, aligning
+            strategy, reputation, and context.
           </h2>
-          <div className="pt-6 flex justify-center">
-            <button
-              className="group flex items-center gap-2.5 cursor-pointer justify-center overflow-hidden rounded-full h-14 px-10 bg-[var(--primary)] text-[var(--background)] text-base font-bold leading-normal tracking-wide hover:bg-white transition-all duration-300 whitespace-nowrap"
-              tabIndex={0}
-              aria-label="Explore Offerings"
-            >
-              <span>Explore Offerings</span>
-              <span className="material-symbols-outlined text-lg group-hover:translate-y-1 transition-transform">
-                arrow_downward
-              </span>
-            </button>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="w-full flex justify-center py-24 md:py-32 bg-[var(--background)]">
+        <div className="w-full max-w-[1280px] px-6 md:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {SERVICES.map((service, index) => (
+              <Link
+                key={service.id}
+                href={`/services/${service.id}`}
+                className={`group relative flex flex-col p-8 lg:p-10 bg-[var(--surface)] border border-white/10 hover:border-[var(--primary)]/50 transition-all duration-300 ${
+                  index === SERVICES.length - 1 && SERVICES.length % 3 === 1
+                    ? "lg:col-start-2"
+                    : ""
+                }`}
+                tabIndex={0}
+                aria-label={`Learn more about ${service.title}`}
+              >
+                {/* Number */}
+                <span className="font-serif text-5xl font-bold text-[var(--primary)]/20 mb-6">
+                  0{index + 1}
+                </span>
+
+                {/* Icon */}
+                <div className="flex items-center justify-center w-14 h-14 rounded-lg bg-[var(--primary)]/10 mb-6">
+                  <span className="material-symbols-outlined text-[var(--primary)] text-2xl">
+                    {service.icon}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <h3 className="font-serif text-xl lg:text-2xl font-bold text-white group-hover:text-[var(--primary)] transition-colors mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
+                  {service.shortDescription}
+                </p>
+
+                {/* Arrow */}
+                <div className="mt-auto pt-4 flex items-center gap-2 text-white/40 group-hover:text-[var(--primary)] transition-colors">
+                  <span className="text-sm font-medium uppercase tracking-wider">
+                    Learn More
+                  </span>
+                  <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">
+                    arrow_forward
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Service Sections */}
-      {services.map((service, index) => (
-        <section
-          key={service.id}
-          className={`w-full flex justify-center py-24 md:py-36 ${
-            service.bgDark
-              ? "bg-[var(--surface)]"
-              : "bg-[var(--background)]"
-          } ${index === services.length - 1 ? "relative overflow-hidden" : ""}`}
-        >
-          {/* Decorative gradient for last section */}
-          {index === services.length - 1 && (
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-[var(--primary)]/5 to-transparent pointer-events-none" />
-          )}
+      {/* How We Work Section */}
+      <section className="w-full flex justify-center py-24 md:py-32 bg-[var(--surface)]">
+        <div className="w-full max-w-[1280px] px-6 md:px-10">
+          <div className="text-center mb-16">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--primary)] mb-4">
+              Engagement Model
+            </p>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold text-white">
+              How We Work
+            </h2>
+          </div>
 
-          <div className="w-full max-w-[1280px] px-6 md:px-10 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
-              {/* Image Side */}
-              <div
-                className={`${
-                  service.reverse ? "md:order-2" : "order-2 md:order-1"
-                } relative group`}
-              >
-                <div className="absolute -inset-2 bg-[var(--primary)]/20 rounded-lg blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-700" />
-                <div
-                  className={`relative ${
-                    service.id === "real-estate"
-                      ? "aspect-[16/10]"
-                      : service.id === "luxury-marketplace"
-                      ? "aspect-[16/9]"
-                      : "aspect-[4/5]"
-                  } w-full overflow-hidden rounded-lg`}
-                >
-                  <div
-                    className="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-700"
-                    style={{ backgroundImage: `url("${service.imageUrl}")` }}
-                    role="img"
-                    aria-label={service.imageAlt}
-                  />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="p-8 bg-[var(--background)] border border-white/10">
+              <h3 className="font-serif text-xl font-medium text-white mb-4">
+                We work selectively
+              </h3>
+              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                We prioritize mandates where our capabilities create meaningful
+                advantage for our clients.
+              </p>
+            </div>
 
-                  {/* Overlay for Financial Advisory */}
-                  {service.overlay && (
-                    <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 to-transparent">
-                      <div className="flex gap-4 items-center">
-                        <div className="size-12 rounded-full bg-[var(--primary)]/20 flex items-center justify-center backdrop-blur-sm border border-[var(--primary)]/30">
-                          <span className="material-symbols-outlined text-[var(--primary)]">
-                            trending_up
-                          </span>
-                        </div>
-                        <div>
-                          <p className="text-white font-medium">
-                            Sustainable Growth
-                          </p>
-                          <p className="text-xs text-[var(--text-secondary)]">
-                            Long-term vision
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
+            <div className="p-8 bg-[var(--background)] border border-white/10">
+              <h3 className="font-serif text-xl font-medium text-white mb-4">
+                We operate with discretion
+              </h3>
+              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                Confidential by default. We do not seek visibility. We operate
+                where relevance is decided.
+              </p>
+            </div>
 
-              {/* Content Side */}
-              <div
-                className={`${
-                  service.reverse ? "md:order-1" : "order-1 md:order-2"
-                } flex flex-col gap-5`}
-              >
-                <div className="flex items-center gap-3 text-[var(--primary)]/80">
-                  <span className="material-symbols-outlined">
-                    {service.icon}
-                  </span>
-                  <span className="text-sm font-bold tracking-widest uppercase">
-                    {service.category}
-                  </span>
-                </div>
+            <div className="p-8 bg-[var(--background)] border border-white/10">
+              <h3 className="font-serif text-xl font-medium text-white mb-4">
+                We prioritize judgment
+              </h3>
+              <p className="text-[var(--text-secondary)] text-sm leading-relaxed">
+                Advisory is not execution support. It is strategic clarity under
+                complexity.
+              </p>
+            </div>
+          </div>
 
-                <h2 className="text-white text-3xl md:text-5xl font-serif font-bold leading-tight mt-1">
-                  {service.title}
-                </h2>
-
-                <p className="text-[var(--text-secondary)] text-lg leading-relaxed font-light mt-2">
-                  {service.description}
+          {/* When Clients Engage Us */}
+          <div className="p-10 lg:p-12 border border-white/10 bg-[var(--background)]">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--primary)] mb-8">
+              When Clients Engage Us
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="flex items-start gap-3">
+                <span className="text-[var(--primary)]">•</span>
+                <p className="text-[var(--text-secondary)]">
+                  When visibility, access, and timing matter
                 </p>
-
-                {/* Features List */}
-                {service.features && (
-                  <ul className="flex flex-col gap-3 text-gray-300">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3">
-                        <span className="material-symbols-outlined text-[var(--primary)] text-sm">
-                          check_circle
-                        </span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {/* Stats Grid */}
-                {service.stats && (
-                  <div className="grid grid-cols-2 gap-4 text-gray-300 pt-2">
-                    {service.stats.map((stat) => (
-                      <div
-                        key={stat.label}
-                        className="bg-[var(--surface)] p-4 rounded border border-white/5"
-                      >
-                        <span className="block text-2xl font-serif text-white mb-1">
-                          {stat.value}
-                        </span>
-                        <span className="text-xs text-[var(--text-muted)] uppercase">
-                          {stat.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Tags */}
-                {service.tags && (
-                  <div className="flex gap-4 mt-2">
-                    {service.tags.map((tag) => (
-                      <div
-                        key={tag}
-                        className="px-4 py-2 bg-[var(--surface)] rounded-full border border-white/10 text-xs text-gray-300"
-                      >
-                        {tag}
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                <div className="pt-6">
-                  <Link href={`/services/${service.id}`} tabIndex={0}>
-                    <button
-                      className="flex w-fit cursor-pointer items-center justify-center rounded-full h-13 px-10 border border-white/20 hover:border-[var(--primary)] hover:bg-[var(--primary)]/10 hover:text-[var(--primary)] transition-all duration-300 text-sm font-bold tracking-wider uppercase whitespace-nowrap"
-                      tabIndex={-1}
-                    >
-                      {service.cta}
-                    </button>
-                  </Link>
-                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-[var(--primary)]">•</span>
+                <p className="text-[var(--text-secondary)]">
+                  When influence is necessary
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-[var(--primary)]">•</span>
+                <p className="text-[var(--text-secondary)]">
+                  When decisions cannot be improvised
+                </p>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-[var(--primary)]">•</span>
+                <p className="text-[var(--text-secondary)]">
+                  When context is as important as capital
+                </p>
               </div>
             </div>
           </div>
-        </section>
-      ))}
+        </div>
+      </section>
+
+      {/* Relationship Model */}
+      <section className="w-full flex justify-center py-24 md:py-32 bg-[var(--background)]">
+        <div className="w-full max-w-[1280px] px-6 md:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--primary)] mb-4">
+                Relationship Model
+              </p>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-8">
+                From Advisory to Investment
+              </h2>
+              <div className="space-y-6 text-[var(--text-secondary)] leading-relaxed">
+                <p>
+                  Our engagements are mandate-based, bespoke, and confidential
+                  by default.
+                </p>
+                <p>
+                  Strategic advisory often leads to capital decisions. When
+                  appropriate, our work extends into{" "}
+                  <span className="text-white">HAKA Global Investment</span>.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-6">
+              <div className="p-6 border-l-2 border-[var(--primary)]/30">
+                <h3 className="font-serif text-lg font-medium text-white mb-2">
+                  Mandate-based
+                </h3>
+                <p className="text-sm text-[var(--text-secondary)]">
+                  Clear scope and objectives aligned with client needs.
+                </p>
+              </div>
+              <div className="p-6 border-l-2 border-[var(--primary)]/30">
+                <h3 className="font-serif text-lg font-medium text-white mb-2">
+                  Bespoke engagements
+                </h3>
+                <p className="text-sm text-[var(--text-secondary)]">
+                  Tailored approach for each unique situation.
+                </p>
+              </div>
+              <div className="p-6 border-l-2 border-[var(--primary)]/30">
+                <h3 className="font-serif text-lg font-medium text-white mb-2">
+                  Confidential by default
+                </h3>
+                <p className="text-sm text-[var(--text-secondary)]">
+                  Discretion is fundamental to our operations.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="w-full flex justify-center py-24 md:py-32 bg-[var(--surface)]">
+        <div className="w-full max-w-[1280px] px-6 md:px-10 text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--primary)] mb-6">
+            Start a Conversation
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-6">
+            Discretion starts here.
+          </h2>
+          <p className="max-w-2xl mx-auto text-lg text-[var(--text-secondary)] leading-relaxed mb-10">
+            HAKA engages selectively. If context, timing, and access are
+            critical to your decisions, you may initiate a conversation.
+          </p>
+          <Link href="/contact" tabIndex={0}>
+            <button
+              className="rounded-lg bg-[var(--primary)] px-10 py-4 font-bold text-[var(--background)] transition-colors hover:bg-white"
+              tabIndex={-1}
+              aria-label="Initiate a Conversation"
+            >
+              Initiate a Conversation
+            </button>
+          </Link>
+          <p className="mt-8 text-sm text-[var(--text-muted)] italic">
+            Not every conversation leads to engagement. But every engagement
+            starts with the right conversation.
+          </p>
+        </div>
+      </section>
     </>
   );
 }

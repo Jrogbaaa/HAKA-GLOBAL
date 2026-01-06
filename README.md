@@ -1,24 +1,23 @@
-# Haka
+# HAKA Global
 
 ![Next.js](https://img.shields.io/badge/Next.js-16.1.1-black)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000000)
 
-**Pre Shift Strike.**
+**Pre-Shift Strike.**
 
-A Private Gateway to Influence, Assets, and Opportunity.
+Strategic advisory and investment for people and companies operating where decisions take shape — before they become public.
 
-Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CSS, Prisma, and PostgreSQL (Neon).
+## ✨ Overview
 
-## ✨ Features
+HAKA Global operates where decisions take shape, before they become public or formalized. We work within complex personal, corporate, and institutional environments, supporting individuals and organizations whose outcomes depend on context, alignment, and timing.
 
-- **Personal Branding** - Executive presence and strategic positioning
-- **Real Estate** - Luxury properties and global investment opportunities
-- **Financial Advisory** - Strategic wealth growth and portfolio optimization
-- **Luxury Marketplace** - Curated high-end assets and exclusive experiences
-- **Insights** - Thought leadership articles and industry perspectives
-- **Private Access** - Confidential inquiry and consultation system
+### HAKA Global Consulting
+Strategic advisory across seven areas: Strategic Advisory & Positioning, C-Level & Executive Advisory, Personal & Corporate Affairs, Non-Market Strategy, Public Reputation & Trust, AI-Driven Strategic Intelligence, and Financial Advisory.
+
+### HAKA Global Investment
+Selective, opportunity-driven investment across: Worldwide Real Estate, Private & Strategic Investments, Precious Metals, and Luxury Assets & Collectibles.
 
 ## 🛠 Tech Stack
 
@@ -145,23 +144,25 @@ Luxury global advisory & marketplace platform built with Next.js 16, Tailwind CS
 ```
 src/
 ├── app/                        # Next.js App Router pages
-│   ├── about/                  # About Haka Global
-│   │   ├── AboutContent.tsx    # Mission, Values, Stats sections
+│   ├── about/                  # About HAKA - Anticipation, Affairs, Influence
+│   │   ├── AboutContent.tsx    # Mission, AI Leverage, Values, How We Work
 │   │   └── page.tsx
-│   ├── contact/                # Contact form & Private Access
-│   │   ├── ContactForm.tsx
+│   ├── contact/                # Start a Conversation
+│   │   ├── ContactForm.tsx     # Inquiry form with locations
 │   │   └── page.tsx
-│   ├── insights/               # Articles & thought leadership
+│   ├── insights/               # Strategic perspectives
 │   │   ├── InsightsGrid.tsx    # Filterable article grid
 │   │   ├── [slug]/             # Dynamic article pages
 │   │   └── page.tsx
-│   ├── marketplace/            # Luxury marketplace
+│   ├── investment/             # HAKA Global Investment
+│   │   └── page.tsx            # Investment areas & philosophy
+│   ├── marketplace/            # Luxury Assets & Collectibles
 │   │   ├── MarketplaceGrid.tsx # Category filter & items
 │   │   ├── [id]/               # Individual item pages
 │   │   └── page.tsx
-│   ├── services/               # Service hub
-│   │   ├── [slug]/             # Individual service pages
-│   │   └── page.tsx            # Services overview with sections
+│   ├── services/               # Areas of Advisory
+│   │   ├── [slug]/             # Individual advisory area pages
+│   │   └── page.tsx            # Advisory overview
 │   ├── globals.css             # Global styles & CSS variables
 │   ├── layout.tsx              # Root layout with fonts
 │   ├── not-found.tsx           # 404 page
@@ -173,9 +174,9 @@ src/
 │   ├── sections/
 │   │   ├── Hero.tsx            # Full-bleed hero (homepage only)
 │   │   ├── PageHeader.tsx      # Compact header for subpages
-│   │   ├── ServiceGrid.tsx     # "Core Four" service cards
+│   │   ├── ServiceGrid.tsx     # Advisory areas cards
 │   │   ├── StatsSection.tsx    # Trust/stats bar
-│   │   ├── CTASection.tsx      # Newsletter subscription
+│   │   ├── CTASection.tsx      # Start a Conversation CTA
 │   │   └── FeaturedMarketplace.tsx
 │   └── ui/
 │       ├── Button.tsx          # Primary/secondary/ghost variants
@@ -188,7 +189,7 @@ src/
     │   ├── contact.ts          # Form submission
     │   ├── insights.ts         # Article fetching
     │   └── marketplace.ts      # Item fetching
-    ├── constants.ts            # Site config & navigation
+    ├── constants.ts            # Site config, services, investment areas
     ├── db.ts                   # Prisma client singleton
     └── validations.ts          # Zod schemas
 
@@ -202,16 +203,16 @@ prisma/
 ### Models
 
 **MarketplaceItem**
-- Luxury items for sale (watches, vehicles, properties, art, experiences)
+- Luxury assets for investment (watches, jewelry, handbags, accessories)
 - Fields: title, description, category, imageUrl, price, featured, available
 
 **Insight**
-- Thought leadership articles
+- Strategic perspectives and analysis
 - Fields: title, slug, category, imageUrl, content, author, publishedAt
 
 **ContactInquiry**
-- Form submissions from users
-- Fields: name, email, phone, interest, message
+- Conversation initiation requests
+- Fields: name, organization, email, interest, message
 
 ## 🌐 Deployment
 
@@ -248,19 +249,25 @@ prisma/
 
 For inquiries: **info@hakaglobal.com**
 
+### Locations
+- **Madrid** - Calle Hermosilla 7, 28001
+- **Barcelona** - Carrer de Sant Gervasi de Cassoles, 59
+- **Rome** - Via Tripoli 5, 00199
+
 ## 📄 Pages
 
 | Route | Description |
 |-------|-------------|
-| `/` | Homepage with hero, stats, services, newsletter |
-| `/about` | Company mission, values, stats |
-| `/services` | Service hub with detailed sections |
-| `/services/[slug]` | Individual service detail pages |
-| `/marketplace` | Filterable luxury item listings |
+| `/` | Homepage with hero, advisory areas, CTA |
+| `/about` | Anticipation, Affairs, Influence - AI as Strategic Leverage |
+| `/services` | Areas of Advisory with engagement model |
+| `/services/[slug]` | Individual advisory area detail pages |
+| `/investment` | HAKA Global Investment philosophy & areas |
+| `/marketplace` | Luxury Assets & Collectibles |
 | `/marketplace/[id]` | Item detail with inquiry modal |
-| `/insights` | Filterable article listing with featured |
+| `/insights` | Strategic perspectives and analysis |
 | `/insights/[slug]` | Individual article pages |
-| `/contact` | Contact form and information |
+| `/contact` | Start a Conversation - inquiry form |
 
 ## 🔒 Security Notes
 
@@ -268,7 +275,8 @@ For inquiries: **info@hakaglobal.com**
 - Database credentials stored securely in Vercel
 - Form validation on both client and server
 - HTTPS enforced in production
+- All inquiries treated with discretion
 
 ## 📝 License
 
-Private - All rights reserved © 2025 Haka Global
+Private - All rights reserved © 2025 HAKA Global

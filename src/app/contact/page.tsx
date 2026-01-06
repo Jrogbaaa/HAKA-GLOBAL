@@ -5,20 +5,19 @@ import { ContactForm } from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Connect with Haka Global for a confidential consultation. Private access to luxury advisory services.",
+    "Discretion starts here. HAKA engages selectively. If context, timing, and access are critical to your decisions, you may initiate a conversation.",
 };
 
 export default function ContactPage() {
   return (
     <>
       <PageHeader
-        subtitle="Private Access"
-        title="Connect With Us"
-        description="Begin a confidential conversation with our advisory team."
+        subtitle="Start a Conversation"
+        title="Discretion starts here."
+        description="HAKA engages selectively. If context, timing, and access are critical to your decisions, you may initiate a conversation. All inquiries are treated with discretion."
       />
 
       <ContactForm />
     </>
   );
 }
-

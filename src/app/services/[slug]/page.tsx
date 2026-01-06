@@ -42,7 +42,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
   return (
     <>
       <PageHeader
-        subtitle="Our Services"
+        subtitle="Areas of Advisory"
         title={service.title}
         description={service.shortDescription}
       />
@@ -50,10 +50,10 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <ServiceDetail service={service} />
 
       <CTASection
-        title={`Explore ${service.title}`}
-        description="Ready to take the next step? Connect with our team for a personalized consultation."
+        subtitle="Start a Conversation"
+        title="Discretion starts here."
+        description="If context, timing, and access are critical to your decisions, you may initiate a conversation. All inquiries are treated with discretion."
       />
     </>
   );
 }
-

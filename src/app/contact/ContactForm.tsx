@@ -4,12 +4,12 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Input, Textarea, Select } from "@/components/ui/Input";
 import { contactFormSchema, type ContactFormData } from "@/lib/validations";
 import { submitContactForm } from "@/lib/actions/contact";
-import { INTEREST_OPTIONS, SITE_CONFIG } from "@/lib/constants";
+import { INTEREST_OPTIONS, SITE_CONFIG, LOCATIONS } from "@/lib/constants";
 
 export const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -48,15 +48,14 @@ export const ContactForm = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--accent)] mb-4">
-              Get in Touch
+              Contact
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl font-medium text-[var(--foreground)] mb-6">
-              We&apos;re Here to Help
+              Initiate a Conversation
             </h2>
             <p className="text-[var(--text-secondary)] leading-relaxed mb-12">
-              Whether you&apos;re seeking advisory services, exploring investment
-              opportunities, or interested in our luxury marketplace, our team
-              is ready to assist with complete discretion.
+              Not every conversation leads to engagement. But every engagement
+              starts with the right conversation.
             </p>
 
             <div className="space-y-8">
@@ -78,31 +77,29 @@ export const ContactForm = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 p-3 bg-[var(--surface)] text-[var(--accent)]">
-                  <MapPin className="w-5 h-5" />
+              {/* Locations */}
+              <div className="pt-4">
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="flex-shrink-0 p-3 bg-[var(--surface)] text-[var(--accent)]">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-[var(--foreground)] mb-1">
+                      Locations
+                    </h3>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-medium text-[var(--foreground)] mb-1">
-                    Global Presence
-                  </h3>
-                  <p className="text-[var(--text-secondary)]">
-                    London • Monaco • Dubai • Singapore
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 p-3 bg-[var(--surface)] text-[var(--accent)]">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="font-medium text-[var(--foreground)] mb-1">
-                    Response Time
-                  </h3>
-                  <p className="text-[var(--text-secondary)]">
-                    We respond to all inquiries within 24 hours
-                  </p>
+                <div className="space-y-6 pl-16">
+                  {LOCATIONS.map((location) => (
+                    <div key={location.city}>
+                      <h4 className="font-medium text-[var(--foreground)] mb-1">
+                        {location.city}
+                      </h4>
+                      <p className="text-sm text-[var(--text-secondary)]">
+                        {location.address}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -137,8 +134,8 @@ export const ContactForm = () => {
                     Message Received
                   </h3>
                   <p className="text-[var(--text-secondary)] max-w-md">
-                    Thank you for reaching out. A member of our team will be in
-                    touch within 24 hours.
+                    Thank you for reaching out. Your inquiry will be reviewed
+                    with discretion. We will respond if there is alignment.
                   </p>
                   <Button
                     variant="secondary"
@@ -151,9 +148,12 @@ export const ContactForm = () => {
               </div>
             ) : (
               <div className="bg-[var(--surface)] border border-[var(--border)] p-8 lg:p-10">
-                <h3 className="font-serif text-2xl font-medium text-[var(--foreground)] mb-6">
-                  Send a Message
+                <h3 className="font-serif text-2xl font-medium text-[var(--foreground)] mb-2">
+                  Initiate a Conversation
                 </h3>
+                <p className="text-sm text-[var(--text-muted)] mb-8">
+                  All inquiries are treated with discretion.
+                </p>
 
                 <form
                   onSubmit={handleSubmit(handleFormSubmit)}
@@ -161,13 +161,19 @@ export const ContactForm = () => {
                 >
                   <Input
                     label="Name"
-                    placeholder="Your full name"
+                    placeholder="Your name"
                     {...register("name")}
                     error={errors.name?.message}
                   />
 
                   <Input
-                    label="Email"
+                    label="Organization"
+                    placeholder="Organization (optional)"
+                    {...register("organization")}
+                  />
+
+                  <Input
+                    label="Contact Details"
                     type="email"
                     placeholder="your@email.com"
                     {...register("email")}
@@ -185,8 +191,8 @@ export const ContactForm = () => {
                   />
 
                   <Textarea
-                    label="Message"
-                    placeholder="Tell us about your needs and how we can assist..."
+                    label="Context / Message"
+                    placeholder="Describe the context of your inquiry..."
                     rows={5}
                     {...register("message")}
                     error={errors.message?.message}
@@ -220,4 +226,3 @@ export const ContactForm = () => {
     </section>
   );
 };
-

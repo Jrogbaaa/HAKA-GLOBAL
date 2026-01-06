@@ -15,23 +15,21 @@ interface HeroProps {
     href: string;
   };
   backgroundImage?: string;
-  badgeText?: string;
 }
 
 export const Hero = ({
-  title = "Pre Shift Strike.",
-  subtitle,
-  description = "Exclusive access to elite real estate, financial advisory, and personal branding strategies for the modern visionary.",
+  title = "Pre-Shift Strike.",
+  subtitle = "HAKA Global",
+  description = "Strategic advisory and investment for people and companies operating where decisions take shape — before they become public.",
   primaryCta = {
-    label: "Request Access",
+    label: "Start a Conversation",
     href: "/contact",
   },
   secondaryCta = {
-    label: "Explore Services",
+    label: "Our Advisory",
     href: "/services",
   },
   backgroundImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuD4dhCRCqE-Y3T1FbFvTduZ01YG3bpTec5P-t5ESU5ukY2aw4d4ROrx4e2Wb6_DcCIFPkS5efD_R5YPV55ZL9moxJDAsPQvTzqO03Hw3Ijq3VeJxNNHi7mensbSMA9Fr730gdD8GXcT-aUR5TfyG7iuoFfeC-dRd-szDPzXTbc3dU--3xmxwIllyBpKFlycG4UMzejEjpzQ79EZStET82kQMwjguNHcNw40QU41qM9vSBESGRT91WS1PXtR0AaISbOXjJc1E-pRDJs",
-  badgeText = "Global Membership Open",
 }: HeroProps) => {
   return (
     <section className="relative flex min-h-[85vh] w-full items-center justify-center overflow-hidden bg-[var(--background)] px-4 py-20 lg:px-10">
@@ -48,16 +46,6 @@ export const Hero = ({
 
       {/* Content */}
       <div className="relative z-20 flex max-w-[960px] flex-col items-center gap-6 text-center fade-up">
-        {/* Badge */}
-        {badgeText && (
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
-            <span className="h-2 w-2 rounded-full bg-[var(--primary)] animate-pulse" />
-            <span className="text-xs font-medium uppercase tracking-widest text-white/80">
-              {badgeText}
-            </span>
-          </div>
-        )}
-
         {/* Subtitle */}
         {subtitle && (
           <p className="text-xs sm:text-sm font-medium uppercase tracking-[0.3em] text-[var(--primary)]">
@@ -67,15 +55,7 @@ export const Hero = ({
 
         {/* Title */}
         <h1 className="font-serif text-5xl font-bold leading-tight tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-          {title.includes("&") ? (
-            <>
-              {title.split("&")[0]}
-              <span className="text-[var(--primary)]">&</span>
-              {title.split("&")[1]}
-            </>
-          ) : (
-            title
-          )}
+          {title}
         </h1>
 
         {/* Description */}

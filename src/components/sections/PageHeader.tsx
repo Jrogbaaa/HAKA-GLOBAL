@@ -10,7 +10,7 @@ interface PageHeaderProps {
 
 export const PageHeader = ({ subtitle, title, description }: PageHeaderProps) => {
   return (
-    <section className="w-full flex justify-center bg-[var(--background)] pt-16 pb-12 lg:pt-20 lg:pb-16">
+    <section className="w-full flex justify-center bg-[var(--background)] pt-24 pb-16 lg:pt-32 lg:pb-20">
       <div className="w-full max-w-[1280px] px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

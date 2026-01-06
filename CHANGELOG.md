@@ -1,11 +1,89 @@
 # Changelog
 
-All notable changes to the Haka Global project will be documented in this file.
+All notable changes to the HAKA Global project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [2.0.0] - 2025-01-06
+
+### Changed
+- **Complete Brand Repositioning** - Shifted from "luxury wealth management" to "strategic advisory and investment"
+  - New tagline: "Pre-Shift Strike"
+  - New positioning: "Strategic advisory and investment for people and companies operating where decisions take shape — before they become public."
+  - Core themes: Anticipation, Affairs, Influence
+
+- **Site Configuration** (`constants.ts`)
+  - Updated site name to "HAKA Global"
+  - New tagline and description
+  - Navigation restructured: Home, About, Advisory, Investment, Insights, Contact
+  - New locations: Madrid, Barcelona, Rome (replaced NY, London, Dubai, Singapore)
+  - 7 new advisory services replacing previous 4
+  - 4 new investment areas
+  - Updated interest options for forms
+
+- **Homepage**
+  - Hero updated with Pre-Shift Strike messaging
+  - Removed badge/stats section
+  - ServiceGrid now shows "Areas of Advisory" with first 4 services
+  - Added "How We Work" philosophy statement
+  - CTASection changed to "Start a Conversation / Discretion starts here"
+
+- **About Page** - Complete rewrite
+  - New header: "Anticipation · Affairs · Influence"
+  - Mission section: "Where Decisions Take Shape"
+  - Values section with 4 core principles: Anticipation, Affairs, Influence, Pre-Shift Strike
+  - New "AI as Strategic Leverage" section
+  - "How We Work" section with engagement model
+  - "When Clients Engage Us" criteria
+
+- **Services Page** - Restructured as "Areas of Advisory"
+  - 7 advisory areas: Strategic Advisory & Positioning, C-Level & Executive Advisory, Personal & Corporate Affairs, Non-Market Strategy, Public Reputation Trust & Consensus, AI-Driven Strategic Intelligence, Financial Advisory
+  - "How We Work" section
+  - "When Clients Engage Us" section
+  - "Relationship Model" section explaining path to investment
+
+- **Contact Page**
+  - Header: "Start a Conversation / Discretion starts here"
+  - New locations with addresses (Madrid, Barcelona, Rome)
+  - Added optional Organization field to form
+  - Updated copy throughout
+
+- **Footer**
+  - Updated tagline display
+  - New service links reflecting advisory structure
+  - New locations (Madrid, Barcelona, Rome)
+  - Removed social icons except email
+
+- **Insights Page**
+  - Updated demo content to align with new brand themes (affairs, intelligence, strategy, investment)
+  - Changed newsletter to CTA section
+
+- **Marketplace Page**
+  - Repositioned as "Luxury Assets & Collectibles" under HAKA Global Investment
+  - Updated demo items to focus on watches, handbags, and jewelry from luxury maisons
+
+### Added
+- **Investment Page** (`/investment`) - New dedicated page for HAKA Global Investment
+  - Overview section
+  - Investment Philosophy (Conviction Over Volume)
+  - 4 Investment Areas: Worldwide Real Estate, Private & Strategic Investments, Precious Metals, Luxury Assets & Collectibles
+  - Intelligence & Timing section
+
+- **New Constants**
+  - `LOCATIONS` array with city addresses
+  - `INVESTMENT_AREAS` array with 4 investment categories
+  - `INVESTMENT_CATEGORIES` for filtering
+
+- **Form Updates**
+  - Optional `organization` field added to contact form schema
+
+### Removed
+- StatsSection from homepage (statistics not part of new positioning)
+- Badge component from Hero
+- Previous service structure (Personal Branding, Real Estate, Financial Advisory, Luxury Marketplace)
 
 ## [1.7.0] - 2025-01-02
 
@@ -132,7 +210,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Cards now have left gold accent border instead of full border
   - Improved spacing and padding
   - Hover effect on card border
-- **Stats Section**: Reduced vertical padding for better content flow
 
 ### Fixed
 - Navigation button spacing issues
@@ -148,18 +225,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **Contact email** updated from `contact@hakaglobal.com` to `info@hakaglobal.com`
-- **Spacing/Padding improvements** across all pages for better visual consistency:
-  - `AboutContent.tsx` - Mission, Values, and Stats sections
-  - `ContactForm.tsx` - Contact form section  
-  - `MarketplaceGrid.tsx` - Marketplace items grid
-  - `Navigation.tsx` - Header navigation centering
-  - `Services page.tsx` - Service sections
-  - `Insights page.tsx` - Newsletter section
-  - `InsightsGrid.tsx` - Filter bar, featured article, articles grid
-  - `StatsSection.tsx` - Homepage stats bar
-  - `ServiceGrid.tsx` - Homepage services section
-  - `CTASection.tsx` - Call-to-action sections
-  - `Footer.tsx` - Site footer
+- **Spacing/Padding improvements** across all pages for better visual consistency
 
 ### Fixed
 - Content alignment issues on wider viewports (1440px+)
@@ -170,32 +236,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Premium dark theme redesign with luxury gold accent (#eebd2b)
-- New homepage design with:
-  - Full-bleed hero section with background image and gradient overlay
-  - "Global Membership Open" badge with pulse animation
-  - Trust/stats bar showing key metrics
-  - "Core Four" service cards with images and icons
-  - Newsletter subscription CTA section
-- Redesigned Services page with:
-  - Detailed sections for each service (Personal Branding, Real Estate, Financial Advisory, Luxury Marketplace)
-  - Alternating image layouts
-  - Feature lists and statistics
-- Redesigned Insights page with:
-  - "The Journal" hero section
-  - Sticky category filter bar
-  - Featured article highlight
-  - Article grid with category badges
-  - Newsletter subscription section
+- New homepage design with full-bleed hero, stats bar, service cards, newsletter CTA
+- Redesigned Services page with detailed sections
+- Redesigned Insights page with "The Journal" hero and category filters
 - New `StatsSection` component for homepage
 - Updated Navigation with diamond logo icon and gold CTA button
 - Updated Footer with multi-column layout and location indicators
 
 ### Changed
-- Color scheme updated to premium dark theme:
-  - Background: `#181611`
-  - Surface: `#232018`
-  - Primary/Accent: `#eebd2b` (gold)
-  - Text secondary: `#b9b29d`
+- Color scheme updated to premium dark theme
 - Typography updated with Playfair Display for headings, Inter for body
 - Button variants updated to match new design system
 - Card components updated with new hover effects and borders
@@ -208,7 +257,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2024-12-29
 
 ### Added
-- Initial release of Haka Global platform
+- Initial release of HAKA Global platform
 - Next.js 16.1.1 with App Router and Turbopack
 - Tailwind CSS v4 styling
 - Prisma ORM with PostgreSQL (Neon) database
@@ -218,4 +267,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Responsive design for mobile and desktop
 - SEO metadata configuration
 - Vercel deployment configuration
-
