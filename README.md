@@ -30,14 +30,13 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 | **Animations** | Framer Motion |
 | **Forms** | React Hook Form + Zod |
 | **Icons** | Lucide React, Material Symbols |
-| **Fonts** | Inter (body), Playfair Display (headings), Cinzel (logo/display) |
+| **Fonts** | Inter (body), Cormorant Garamond (headings) |
 | **Deployment** | Vercel |
 
 ## 🎨 Design System
 
 ### Typography
-- **Logo/Display**: Cinzel (Roman-inspired luxury font)
-- **Headings**: Playfair Display (elegant serif)
+- **Headings**: Cormorant Garamond (elegant serif)
 - **Body**: Inter (clean sans-serif)
 
 ### Color Palette (Premium Dark Theme)
@@ -55,7 +54,7 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 
 ### Design Principles
 - Dark mode first with luxury gold accent
-- Max content width: 1280px
+- Max content width: 1400px
 - Consistent padding: 24px mobile, 40px desktop
 - Full-width sections with centered content (`flex justify-center`)
 - Hero section on homepage only; compact PageHeader on subpages

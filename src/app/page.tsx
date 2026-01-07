@@ -1,127 +1,41 @@
-import {
-  Hero,
-  LogoBar,
-  ProductSection,
-  StatsBar,
-  CTABanner,
-} from "@/components/sections";
+import Link from "next/link";
 
-const ADVISORY_SERVICES = [
+const SERVICE_CARDS = [
   {
-    icon: "person_celebrate",
-    title: "C-Level Advisory",
+    title: "Personal Branding",
     description:
-      "Strategic counsel for executives navigating complex decisions, transitions, and high-stakes opportunities.",
-    href: "/services/c-level-advisory",
-    gradient:
-      "linear-gradient(135deg, rgba(238, 189, 43, 0.15), rgba(238, 189, 43, 0.05))",
+      "Curating the narrative of the world's most influential leaders and visionaries.",
+    image:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80",
+    icon: "campaign",
+    href: "/advisory",
   },
   {
-    icon: "groups",
-    title: "Leadership Development",
+    title: "Global Real Estate",
     description:
-      "Build and optimize high-performing executive teams with proven methodologies and frameworks.",
-    href: "/services/leadership-development",
-    gradient:
-      "linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05))",
+      "Acquisition, management, and development of prime global assets.",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+    icon: "domain",
+    href: "/investment",
   },
   {
-    icon: "autorenew",
-    title: "Change Advisory",
+    title: "Strategic Advisory",
     description:
-      "Navigate organizational transformation with strategic insight and operational excellence.",
-    href: "/services/change-advisory",
-    gradient:
-      "linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05))",
+      "Strategic counsel for executives navigating complex decisions and transitions.",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    icon: "insights",
+    href: "/advisory",
   },
   {
-    icon: "star",
-    title: "Brand Strategy",
+    title: "Luxury Marketplace",
     description:
-      "Position your personal and corporate brand for maximum impact and market differentiation.",
-    href: "/services/personal-branding",
-    gradient:
-      "linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))",
-  },
-  {
-    icon: "handshake",
-    title: "Deal Advisory",
-    description:
-      "Expert guidance through M&A transactions, negotiations, and strategic partnerships.",
-    href: "/services/deal-advisory",
-    gradient:
-      "linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05))",
-  },
-  {
-    icon: "policy",
-    title: "Non-Market Strategy",
-    description:
-      "Navigate regulatory landscapes and political environments with precision and foresight.",
-    href: "/services/non-market-strategy",
-    gradient:
-      "linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05))",
-  },
-];
-
-const INVESTMENT_AREAS = [
-  {
-    icon: "home_work",
-    title: "Real Estate",
-    description:
-      "Prime residential and commercial opportunities in strategic global markets.",
-    href: "/investment#real-estate",
-    gradient:
-      "linear-gradient(135deg, rgba(238, 189, 43, 0.15), rgba(238, 189, 43, 0.05))",
-  },
-  {
-    icon: "trending_up",
-    title: "Private Equity",
-    description:
-      "Direct investments in high-growth companies across diverse sectors.",
-    href: "/investment#private-equity",
-    gradient:
-      "linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(139, 92, 246, 0.05))",
-  },
-  {
+      "Sourcing the unobtainable for the discerning few. From art to aviation.",
+    image:
+      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
     icon: "diamond",
-    title: "Luxury Assets",
-    description:
-      "Collectibles, art, and tangible investments with appreciation potential.",
-    href: "/investment#luxury-assets",
-    gradient:
-      "linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05))",
-  },
-  {
-    icon: "rocket_launch",
-    title: "Venture Capital",
-    description:
-      "Early-stage investments in innovative companies shaping the future.",
-    href: "/investment#venture-capital",
-    gradient:
-      "linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(236, 72, 153, 0.05))",
-  },
-];
-
-const STATS = [
-  {
-    value: "$2.4B+",
-    label: "Assets Advised",
-    description: "Total value of transactions and portfolios advised",
-  },
-  {
-    value: "147+",
-    label: "Active Clients",
-    description: "Executives and institutions served globally",
-  },
-  {
-    value: "3",
-    label: "Global Offices",
-    description: "Strategic presence across key markets",
-  },
-  {
-    value: "98%",
-    label: "Success Rate",
-    description: "Client satisfaction and retention",
+    href: "/marketplace",
   },
 ];
 
@@ -129,148 +43,214 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <Hero
-        badge="Pre-Shift Strike"
-        title="Strategic advisory where decisions"
-        titleHighlight="take shape."
-        description="Position before the shift. We provide strategic advisory and investment services for executives and institutions seeking asymmetric advantage."
-        primaryCta={{ text: "Start a Conversation", href: "/contact" }}
-        secondaryCta={{ text: "Explore Services", href: "/services" }}
-        showDashboard={true}
-      />
-
-      {/* Logo Bar */}
-      <LogoBar />
-
-      {/* Advisory Services Section */}
-      <ProductSection
-        badge="Advisory Services"
-        title="Strategic counsel for"
-        titleHighlight="critical moments"
-        description="Our advisory practice serves C-level executives and boards navigating complex strategic decisions, organizational transformation, and high-stakes opportunities."
-        products={ADVISORY_SERVICES}
-        columns={3}
-      />
-
-      {/* Stats Section */}
-      <StatsBar stats={STATS} variant="default" />
-
-      {/* Investment Section */}
-      <ProductSection
-        badge="Investment"
-        title="Opportunities across"
-        titleHighlight="asset classes"
-        description="Access exclusive investment opportunities in real estate, private equity, luxury assets, and venture capital through our global network."
-        products={INVESTMENT_AREAS}
-        columns={4}
-      />
-
-      {/* Insights Preview */}
-      <section className="py-20 lg:py-32 bg-[var(--surface)]">
-        <div className="max-w-[1280px] mx-auto px-4 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-6 mb-12">
+      <section className="min-h-[65vh] flex items-center">
+        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--background)] border border-[var(--border)] mb-6">
-                <span className="text-sm font-medium text-[var(--primary)]">
-                  Insights
-                </span>
-              </div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-white">
-                Strategic perspectives
-              </h2>
+              <h1 className="text-[var(--foreground)] leading-[0.95] mb-8">
+                Pre-Shift
+                <br />
+                Strike.
+              </h1>
             </div>
-            <a
-              href="/insights"
-              className="inline-flex items-center gap-2 text-[var(--primary)] font-medium hover:gap-3 transition-all"
-            >
-              View all insights
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
+            <div className="lg:pl-12">
+              <p className="text-lg lg:text-xl text-[var(--foreground-muted)] leading-relaxed">
+                Strategic advisory and investment for people and companies
+                operating where decisions take shape — before they become
+                public.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
 
-          {/* Insights Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                category: "Strategy",
-                title: "The Art of Pre-Shift Positioning",
-                description:
-                  "How leading organizations identify and capitalize on market shifts before they become apparent.",
-                readTime: "8 min read",
-              },
-              {
-                category: "Leadership",
-                title: "Building Resilient Executive Teams",
-                description:
-                  "Key frameworks for developing leadership capability that thrives under pressure.",
-                readTime: "6 min read",
-              },
-              {
-                category: "Investment",
-                title: "Alternative Assets in 2024",
-                description:
-                  "Emerging opportunities across real estate, private equity, and collectibles.",
-                readTime: "10 min read",
-              },
-            ].map((insight, index) => (
-              <a
+      {/* Services Cards Section */}
+      <section className="py-16 lg:py-24">
+        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {SERVICE_CARDS.map((card, index) => (
+              <Link
                 key={index}
-                href="/insights"
-                className="group bg-[var(--background)] border border-[var(--border)] rounded-2xl p-6 transition-all hover:border-[var(--border-hover)] hover:-translate-y-1"
+                href={card.href}
+                className="group block"
+                tabIndex={0}
+                aria-label={`Learn more about ${card.title}`}
               >
-                <div className="text-xs font-medium text-[var(--primary)] uppercase tracking-wider mb-4">
-                  {insight.category}
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-[var(--surface)]">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-[var(--surface)]/90 backdrop-blur-sm flex items-center justify-center">
+                    <span className="material-symbols-outlined text-[var(--foreground)] text-xl">
+                      {card.icon}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-[var(--primary)] transition-colors">
-                  {insight.title}
+                <h3 className="text-lg font-serif text-[var(--foreground)] mb-2 group-hover:text-[var(--foreground-muted)] transition-colors">
+                  {card.title}
                 </h3>
-                <p className="text-sm text-[var(--text-muted)] mb-4 line-clamp-2">
-                  {insight.description}
+                <p className="text-sm text-[var(--foreground-muted)] leading-relaxed">
+                  {card.description}
                 </p>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-[var(--text-muted)]">
-                    {insight.readTime}
-                  </span>
-                  <svg
-                    className="w-5 h-5 text-[var(--primary)] opacity-0 group-hover:opacity-100 transition-opacity"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <CTABanner
-        title="Ready to position ahead?"
-        description="Start a confidential conversation about your strategic objectives."
-        primaryCta={{ text: "Get Started", href: "/contact" }}
-        secondaryCta={{ text: "Learn About Us", href: "/about" }}
-        variant="gradient"
-      />
+      {/* Divider */}
+      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
+        <div className="divider" />
+      </div>
+
+      {/* Philosophy Brief */}
+      <section className="py-24 lg:py-32">
+        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
+                Philosophy
+              </p>
+              <blockquote className="font-serif text-2xl lg:text-3xl text-[var(--foreground)] leading-snug italic">
+                "Knowing when to move, where to stand, and who needs to be in
+                the room — before the shift happens."
+              </blockquote>
+            </div>
+            <div className="lg:pt-10 space-y-6">
+              <p className="text-[var(--foreground-muted)] leading-relaxed">
+                We read context, influence outcomes, and position people and
+                companies where it matters most. Strategy, reputation, and
+                capital move together.
+              </p>
+              <p className="text-[var(--foreground)] leading-relaxed">
+                We advise with clarity. We invest with conviction. We act with
+                access.
+              </p>
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-[var(--foreground)] hover:text-[var(--foreground-muted)] transition-colors group"
+                tabIndex={0}
+              >
+                <span>Learn about our approach</span>
+                <svg
+                  className="w-4 h-4 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
+        <div className="divider" />
+      </div>
+
+      {/* Contact Section */}
+      <section className="py-24 lg:py-32">
+        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
+                Contact
+              </p>
+              <h2 className="text-[var(--foreground)] mb-4">
+                Start a Conversation
+              </h2>
+              <p className="text-[var(--foreground-muted)] leading-relaxed">
+                Discretion starts here. HAKA engages selectively. If context,
+                timing, and access are critical to your decisions, you may
+                initiate a conversation.
+              </p>
+            </div>
+            <div className="space-y-8">
+              <div className="grid sm:grid-cols-3 gap-6">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.15em] text-[var(--foreground-muted)] mb-2">
+                    Madrid
+                  </p>
+                  <p className="text-sm text-[var(--foreground)]">
+                    Calle Hermosilla 7
+                    <br />
+                    28001
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.15em] text-[var(--foreground-muted)] mb-2">
+                    Barcelona
+                  </p>
+                  <p className="text-sm text-[var(--foreground)]">
+                    C/ Sant Gervasi
+                    <br />
+                    de Cassoles, 59
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.15em] text-[var(--foreground-muted)] mb-2">
+                    Rome
+                  </p>
+                  <p className="text-sm text-[var(--foreground)]">
+                    Via Tripoli 5<br />
+                    00199
+                  </p>
+                </div>
+              </div>
+              <div>
+                <Link
+                  href="mailto:info@hakaglobal.com"
+                  className="inline-flex items-center gap-3 text-[var(--foreground)] hover:text-[var(--foreground-muted)] transition-colors group"
+                  tabIndex={0}
+                  aria-label="Send email to info@hakaglobal.com"
+                >
+                  <span className="text-lg">info@hakaglobal.com</span>
+                  <svg
+                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-[var(--border)]">
+        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            <p className="text-xs text-[var(--foreground-muted)]">
+              © {new Date().getFullYear()} HAKA Global. All rights reserved.
+            </p>
+            <p className="text-xs text-[var(--foreground-muted)]">
+              Confidential by default.
+            </p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

@@ -7,6 +7,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-01-07
+
+### Changed
+- **Complete Minimalist UI Redesign**
+  - Redesigned homepage with two-column hero layout
+  - Larger HAKA logo in navigation (h-14)
+  - "Pre-Shift Strike." now includes period for emphasis
+  - Increased max-width to 1400px for better page fill
+  - Updated padding and spacing throughout for balanced layout
+
+- **Content Integration from Brand Guidelines**
+  - Homepage: Updated tagline "Strategic advisory and investment for people and companies operating where decisions take shape — before they become public."
+  - Homepage: Added philosophy quote "Knowing when to move, where to stand, and who needs to be in the room — before the shift happens."
+  - Homepage: Added "We advise with clarity. We invest with conviction. We act with access."
+  - Homepage: Added office locations (Madrid, Barcelona, Rome) in contact section
+  - Homepage: Added "Discretion starts here" messaging
+
+- **About Page Overhaul**
+  - New hero: "Anticipation · Affairs · Influence"
+  - Personal & Corporate Affairs section with detailed content
+  - Anticipation section with "before narratives settle...", "before consensus becomes public...", "before the shift occurs."
+  - Principle section with "Pre-Shift Strike is not a slogan..." quote
+  - Values section: Selectivity, Discretion, Judgment
+
+- **Advisory Page Restructure**
+  - New hero: "Strategic advisory at decision level"
+  - 6 Areas of Advisory with updated descriptions from brand guidelines
+  - "When Clients Engage Us" section with contextual triggers
+  - "Relationship Model" section: "Mandate-based. Bespoke. Confidential."
+  - Added "Not every conversation leads to engagement. But every engagement starts with the right conversation."
+
+- **Investment Page Updates**
+  - New hero: "Capital deployed with conviction"
+  - Investment Philosophy: "We do not chase trends. We position before they form."
+  - 4 Investment Areas: Worldwide Real Estate, Private & Strategic Investments, Precious Metals, Luxury Assets & Collectibles
+  - "AI as strategic leverage" section with "Capital follows insight. Insight comes before opportunity."
+  - "How We Operate" section: "Direct investments. No open vehicles."
+
+- **Marketplace Page Updates**
+  - New hero: "Access defines value"
+  - 6 luxury categories with detailed descriptions
+  - Maisons section listing premium brands (Patek Philippe, Audemars Piguet, Rolex, Hermès, Chanel, Goyard, Cartier, Van Cleef & Arpels)
+  - Process section with discretion emphasis
+
+- **Global Updates**
+  - Standardized contact email to info@hakaglobal.com across all pages
+  - Navigation header height increased to h-20 for larger logo
+  - Consistent "Confidential by default." footer messaging
+
+### Fixed
+- Homepage layout too far left - now properly centered with two-column layout
+- Navigation mobile menu email updated to info@hakaglobal.com
+
 ## [2.1.0] - 2025-01-07
 
 ### Changed

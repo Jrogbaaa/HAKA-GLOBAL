@@ -2,47 +2,63 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Investment",
+  title: "Advisory",
   description:
-    "Strategic investments shaped by access, timing, and conviction.",
+    "Strategic advisory for people and companies operating where decisions take shape.",
 };
 
-const INVESTMENT_AREAS = [
+const ADVISORY_SERVICES = [
   {
-    title: "Worldwide Real Estate",
+    title: "Strategic Advisory & Positioning",
     description:
-      "Strategic real estate investments across key global locations, focused on scarcity, positioning, and long-term relevance rather than short-term cycles.",
+      "Defining and refining strategic positioning where relevance, authority, and long-term advantage are built — beyond visibility or messaging.",
     image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    icon: "domain",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    icon: "my_location",
   },
   {
-    title: "Private & Strategic Investments",
+    title: "C-Level & Executive Advisory",
     description:
-      "Direct investments in companies and structures where governance, strategy, and long-term vision are aligned. Includes access to startups and early-stage opportunities typically unavailable to the broader market.",
+      "Confidential counsel for founders, executives, and decision-makers operating under high stakes, public exposure, and institutional complexity.",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    icon: "trending_up",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
+    icon: "verified",
   },
   {
-    title: "Precious Metals",
+    title: "Personal & Corporate Affairs",
     description:
-      "Targeted exposure to precious metals as instruments of capital preservation, optionality, and portfolio balance — approached with strategic timing and discipline.",
+      "Strategic advisory on personal and corporate interests, aligning reputation, relationships, and positioning within decision-making environments.",
     image:
-      "https://images.unsplash.com/photo-1610375461246-83df859d849d?w=800&q=80",
-    icon: "paid",
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
+    icon: "policy",
   },
   {
-    title: "Luxury Assets & Collectibles",
+    title: "Non-Market Strategy",
     description:
-      "Luxury goods treated as investment-grade assets, driven by scarcity, demand, and access. Sourcing and resale of highly sought-after pieces from Patek Philippe, Hermès, Chanel, and other selective maisons.",
+      "Strategy beyond markets: institutions, regulation, public perception, and power dynamics that shape outcomes outside traditional competitive frameworks.",
     image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
-    icon: "diamond",
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80",
+    icon: "account_balance",
+  },
+  {
+    title: "Public Reputation & Consensus",
+    description:
+      "Building, protecting, and reinforcing reputational capital, legitimacy, and trust among key stakeholders — before consensus becomes public.",
+    image:
+      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80",
+    icon: "handshake",
+  },
+  {
+    title: "AI-Driven Strategic Intelligence",
+    description:
+      "Advanced intelligence systems applied to context analysis, scenario anticipation, and decision support across personal, corporate, and non-market environments.",
+    image:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    icon: "psychology",
   },
 ];
 
-export default function InvestmentPage() {
+export default function AdvisoryPage() {
   return (
     <>
       {/* Hero Section */}
@@ -51,23 +67,23 @@ export default function InvestmentPage() {
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
-                Investment
+                Advisory
               </p>
               <h1 className="text-[var(--foreground)] text-4xl lg:text-5xl leading-tight">
-                Capital deployed
+                Strategic advisory
                 <br />
-                with conviction
+                at decision level
               </h1>
             </div>
             <div className="lg:pt-12">
               <p className="text-[var(--foreground-muted)] leading-[1.9] mb-6">
-                HAKA Global Investment operates where information asymmetry,
-                scarcity, and strategic access generate long-term value.
+                We advise at decision level, aligning strategy, reputation, and
+                context. Our work spans Personal and Corporate Affairs,
+                non-market dynamics, and financial decision-making.
               </p>
               <p className="text-[var(--foreground-muted)] leading-[1.9]">
-                Our activity is selective and opportunity-driven, often emerging
-                from insights developed within HAKA Global Consulting. We deploy
-                capital where anticipation creates advantage.
+                We help clients anticipate shifts, shape consensus, and act with
+                clarity — before moves become public.
               </p>
             </div>
           </div>
@@ -79,67 +95,35 @@ export default function InvestmentPage() {
         <div className="divider" />
       </div>
 
-      {/* Philosophy Section */}
-      <section className="py-24 lg:py-32">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
-                Investment Philosophy
-              </p>
-              <h2 className="text-[var(--foreground)]">
-                We do not chase trends.
-                <br />
-                We position before they form.
-              </h2>
-            </div>
-            <div className="lg:pt-8 space-y-6">
-              <p className="text-[var(--foreground-muted)] leading-[1.9]">
-                Our approach combines contextual intelligence, disciplined risk
-                assessment, and access to non-obvious opportunities.
-              </p>
-              <p className="text-[var(--foreground)] leading-[1.9]">
-                Conviction matters more than volume.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-        <div className="divider" />
-      </div>
-
-      {/* Investment Areas Grid */}
+      {/* Services Grid */}
       <section className="py-24 lg:py-32">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
           <div className="mb-16">
             <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
-              Investment Areas
+              Areas of Advisory
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
-            {INVESTMENT_AREAS.map((area, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+            {ADVISORY_SERVICES.map((service, index) => (
               <div key={index} className="group">
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-5 bg-[var(--surface)]">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-[var(--surface)]">
                   <img
-                    src={area.image}
-                    alt={area.title}
+                    src={service.image}
+                    alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                   <div className="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-[var(--surface)]/90 backdrop-blur-sm flex items-center justify-center">
                     <span className="material-symbols-outlined text-[var(--foreground)] text-xl">
-                      {area.icon}
+                      {service.icon}
                     </span>
                   </div>
                 </div>
                 <h3 className="text-xl font-serif text-[var(--foreground)] mb-3">
-                  {area.title}
+                  {service.title}
                 </h3>
                 <p className="text-sm text-[var(--foreground-muted)] leading-relaxed">
-                  {area.description}
+                  {service.description}
                 </p>
               </div>
             ))}
@@ -152,30 +136,39 @@ export default function InvestmentPage() {
         <div className="divider" />
       </div>
 
-      {/* AI Integration Section */}
+      {/* How We Work Section */}
       <section className="py-24 lg:py-32">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
-                Intelligence & Timing
+                When Clients Engage Us
               </p>
               <h2 className="text-[var(--foreground)]">
-                AI as strategic
+                Context matters
                 <br />
-                leverage
+                as much as capital
               </h2>
             </div>
-            <div className="lg:pt-8 space-y-6">
-              <p className="text-[var(--foreground-muted)] leading-[1.9]">
-                Investment decisions are supported by AI-driven strategic
-                intelligence, applied to context analysis, scenario
-                anticipation, and decision support across market and non-market
-                environments.
-              </p>
-              <p className="text-[var(--foreground)] leading-[1.9]">
-                Capital follows insight. Insight comes before opportunity.
-              </p>
+            <div className="lg:pt-8">
+              <ul className="space-y-4 text-[var(--foreground-muted)]">
+                <li className="flex items-start gap-3">
+                  <span className="text-[var(--foreground)]">—</span>
+                  <span>When visibility, access, and timing matter</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[var(--foreground)]">—</span>
+                  <span>When influence is necessary</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[var(--foreground)]">—</span>
+                  <span>When decisions cannot be improvised</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[var(--foreground)]">—</span>
+                  <span>When context is as important as capital</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -186,39 +179,29 @@ export default function InvestmentPage() {
         <div className="divider" />
       </div>
 
-      {/* How We Operate */}
+      {/* Relationship Model */}
       <section className="py-24 lg:py-32">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
-                How We Operate
+                Relationship Model
               </p>
               <h2 className="text-[var(--foreground)]">
-                Direct investments.
+                Mandate-based.
                 <br />
-                No open vehicles.
+                Bespoke. Confidential.
               </h2>
             </div>
-            <div className="lg:pt-8">
-              <ul className="space-y-4 text-[var(--foreground-muted)]">
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>Direct investments or mandate-based activity</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>No open vehicles</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>No mass exposure</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>Discretion and selectivity are fundamental</span>
-                </li>
-              </ul>
+            <div className="lg:pt-8 space-y-6">
+              <p className="text-[var(--foreground-muted)] leading-[1.9]">
+                Strategic advisory often leads to capital decisions. When
+                appropriate, our work extends into HAKA Global Investment.
+              </p>
+              <p className="text-[var(--foreground)] leading-[1.9]">
+                Not every conversation leads to engagement. But every engagement
+                starts with the right conversation.
+              </p>
             </div>
           </div>
         </div>
@@ -238,7 +221,7 @@ export default function InvestmentPage() {
                 Contact
               </p>
               <h2 className="text-[var(--foreground)]">
-                Explore opportunities
+                Begin a conversation
               </h2>
             </div>
             <div className="lg:text-right">
