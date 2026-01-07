@@ -3,8 +3,22 @@
 import { db } from "@/lib/db";
 import { revalidatePath } from "next/cache";
 
+// Check if database is properly configured
+const isDatabaseConfigured = () => {
+  const dbUrl = process.env.DATABASE_URL;
+  if (!dbUrl || dbUrl.length === 0) return false;
+  if (dbUrl.includes("placeholder")) return false;
+  // Skip local Prisma dev proxy URLs that aren't running
+  if (dbUrl.includes("prisma+postgres://localhost")) return false;
+  return true;
+};
+
 // Get all marketplace items
 export const getMarketplaceItems = async (category?: string) => {
+  if (!isDatabaseConfigured()) {
+    return { success: false, error: "Database not configured" };
+  }
+
   try {
     const items = await db.marketplaceItem.findMany({
       where: {
@@ -14,14 +28,17 @@ export const getMarketplaceItems = async (category?: string) => {
       orderBy: [{ featured: "desc" }, { createdAt: "desc" }],
     });
     return { success: true, data: items };
-  } catch (error) {
-    console.error("Error fetching marketplace items:", error);
+  } catch {
     return { success: false, error: "Failed to fetch items" };
   }
 };
 
 // Get featured marketplace items
 export const getFeaturedMarketplaceItems = async (limit = 3) => {
+  if (!isDatabaseConfigured()) {
+    return { success: false, error: "Database not configured" };
+  }
+
   try {
     const items = await db.marketplaceItem.findMany({
       where: {
@@ -32,14 +49,17 @@ export const getFeaturedMarketplaceItems = async (limit = 3) => {
       orderBy: { createdAt: "desc" },
     });
     return { success: true, data: items };
-  } catch (error) {
-    console.error("Error fetching featured items:", error);
+  } catch {
     return { success: false, error: "Failed to fetch featured items" };
   }
 };
 
 // Get single marketplace item
 export const getMarketplaceItem = async (id: string) => {
+  if (!isDatabaseConfigured()) {
+    return { success: false, error: "Database not configured" };
+  }
+
   try {
     const item = await db.marketplaceItem.findUnique({
       where: { id },
@@ -48,8 +68,7 @@ export const getMarketplaceItem = async (id: string) => {
       return { success: false, error: "Item not found" };
     }
     return { success: true, data: item };
-  } catch (error) {
-    console.error("Error fetching marketplace item:", error);
+  } catch {
     return { success: false, error: "Failed to fetch item" };
   }
 };
@@ -62,6 +81,10 @@ export const submitMarketplaceInquiry = async (data: {
   message?: string;
   itemId: string;
 }) => {
+  if (!isDatabaseConfigured()) {
+    return { success: false, error: "Database not configured" };
+  }
+
   try {
     const inquiry = await db.marketplaceInquiry.create({
       data: {
@@ -74,9 +97,7 @@ export const submitMarketplaceInquiry = async (data: {
     });
     revalidatePath("/marketplace");
     return { success: true, data: inquiry };
-  } catch (error) {
-    console.error("Error submitting inquiry:", error);
+  } catch {
     return { success: false, error: "Failed to submit inquiry" };
   }
 };
-

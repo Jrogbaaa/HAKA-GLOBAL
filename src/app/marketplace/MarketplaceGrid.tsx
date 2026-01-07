@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
-import { MARKETPLACE_CATEGORIES } from "@/lib/constants";
+import { INVESTMENT_CATEGORIES } from "@/lib/constants";
 
 interface MarketplaceItem {
   id: string;
@@ -44,7 +44,7 @@ export const MarketplaceGrid = ({ items }: MarketplaceGridProps) => {
       <div className="w-full max-w-[1280px] px-6 lg:px-10">
         {/* Category Filter */}
         <div className="flex flex-wrap gap-3 mb-12">
-          {MARKETPLACE_CATEGORIES.map((category) => (
+          {INVESTMENT_CATEGORIES.map((category) => (
             <button
               key={category.value}
               onClick={() => setSelectedCategory(category.value)}

@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
-/* Haka - Premium Dark Design System */
+/* Haka - Premium Dark Design System (Stripe-inspired contrast) */
 :root {
   /* Core Colors - Dark Theme */
-  --background: #1A191A;
+  --background: #0A0A0A;
   --background-light: #f8f7f6;
-  --surface: #232018;
-  --surface-elevated: #1a1812;
-  --border: #393528;
-  --border-subtle: #2a261d;
+  --surface: #141414;
+  --surface-elevated: #1F1F1F;
+  --border: #2D2D2D;
+  --border-subtle: #1A1A1A;
   
   /* Text */
   --foreground: #ffffff;
-  --text-secondary: #b9b29d;
-  --text-muted: #737368;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
   
   /* Primary - Luxury Gold */
   --primary: #eebd2b;
@@ -136,6 +136,11 @@ a {
 @keyframes pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .fade-up {

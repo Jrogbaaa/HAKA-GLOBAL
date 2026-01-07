@@ -22,10 +22,10 @@ interface InsightsGridProps {
 
 const categories = [
   { value: "all", label: "All Stories" },
-  { value: "strategy", label: "Personal Branding" },
-  { value: "market-trends", label: "Real Estate" },
-  { value: "investments", label: "Finance" },
-  { value: "lifestyle", label: "Marketplace" },
+  { value: "strategy", label: "Strategy" },
+  { value: "affairs", label: "Affairs" },
+  { value: "intelligence", label: "Intelligence" },
+  { value: "investment", label: "Investment" },
 ];
 
 export const InsightsGrid = ({ insights }: InsightsGridProps) => {
@@ -37,8 +37,7 @@ export const InsightsGrid = ({ insights }: InsightsGridProps) => {
       selectedCategory === "all" || insight.category === selectedCategory;
     const matchesSearch =
       searchQuery === "" ||
-      insight.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      insight.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+      insight.title.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -61,7 +60,7 @@ export const InsightsGrid = ({ insights }: InsightsGridProps) => {
   return (
     <div className="w-full">
       {/* Sticky Filter Bar */}
-      <section className="sticky top-[80px] z-40 w-full flex justify-center bg-[var(--surface)]/95 backdrop-blur border-b border-white/5">
+      <section className="sticky top-[80px] z-40 w-full flex justify-center bg-[var(--surface)]/95 backdrop-blur border-b border-[var(--border)]">
         <div className="w-full max-w-[1280px] px-6 md:px-10 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-hide">
@@ -86,7 +85,7 @@ export const InsightsGrid = ({ insights }: InsightsGridProps) => {
                 type="text"
                 value={searchQuery}
                 onChange={handleSearchChange}
-                className="w-full bg-white/5 border border-white/10 rounded-full py-2 pl-4 pr-10 text-sm text-white focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 placeholder-[var(--text-muted)] transition-all"
+                className="w-full bg-white/5 border border-[var(--border)] rounded-full py-2 pl-4 pr-10 text-sm text-white focus:outline-none focus:border-[var(--primary)]/50 focus:ring-1 focus:ring-[var(--primary)]/50 placeholder-[var(--text-muted)] transition-all"
                 placeholder="Search insights..."
                 aria-label="Search insights"
                 tabIndex={0}
@@ -101,7 +100,7 @@ export const InsightsGrid = ({ insights }: InsightsGridProps) => {
 
       {/* Featured Article */}
       {featuredInsight && (
-        <section className="py-12 md:py-16 w-full flex justify-center bg-[var(--surface)]">
+        <section className="py-16 md:py-24 w-full flex justify-center bg-[var(--surface)]">
           <div className="w-full max-w-[1280px] px-6 md:px-10">
             <Link
               href={`/insights/${featuredInsight.slug}`}
@@ -121,7 +120,7 @@ export const InsightsGrid = ({ insights }: InsightsGridProps) => {
               <div className="flex flex-col gap-6">
                 <div className="flex items-center gap-3">
                   <span className="text-[var(--primary)] text-xs font-bold tracking-widest uppercase">
-                    Editor&apos;s Pick
+                    Featured
                   </span>
                   <span className="w-12 h-[1px] bg-white/20" />
                   <span className="text-[var(--text-secondary)] text-xs font-medium uppercase tracking-wider">
@@ -131,11 +130,8 @@ export const InsightsGrid = ({ insights }: InsightsGridProps) => {
                 <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight group-hover:text-[var(--primary)] transition-colors duration-300">
                   {featuredInsight.title}
                 </h2>
-                <p className="text-[var(--text-secondary)] text-lg font-light leading-relaxed line-clamp-3">
-                  {featuredInsight.excerpt}
-                </p>
-                <div className="flex items-center gap-2 text-white font-bold text-sm tracking-wide uppercase mt-2 group-hover:translate-x-2 transition-transform duration-300">
-                  Read Full Report{" "}
+                <div className="flex items-center gap-2 text-white font-bold text-sm tracking-wide uppercase group-hover:translate-x-2 transition-transform duration-300">
+                  Read{" "}
                   <span className="material-symbols-outlined text-[var(--primary)]">
                     arrow_forward
                   </span>
@@ -147,65 +143,53 @@ export const InsightsGrid = ({ insights }: InsightsGridProps) => {
       )}
 
       {/* Articles Grid */}
-      <section className="pb-24 w-full flex justify-center bg-[var(--surface)]">
+      <section className="pb-32 w-full flex justify-center bg-[var(--surface)]">
         <div className="w-full max-w-[1280px] px-6 md:px-10">
           {gridInsights.length > 0 ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-                {gridInsights.map((insight) => (
-                  <article
-                    key={insight.id}
-                    className="flex flex-col group cursor-pointer"
-                  >
-                    <Link
-                      href={`/insights/${insight.slug}`}
-                      className="block"
-                      tabIndex={0}
-                      aria-label={`Read ${insight.title}`}
-                    >
-                      <div className="relative aspect-[4/3] overflow-hidden rounded-lg mb-6">
-                        <div
-                          className="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-500"
-                          style={{ backgroundImage: `url("${insight.imageUrl}")` }}
-                          role="img"
-                          aria-label={insight.title}
-                        />
-                        <div className="absolute top-4 left-4 bg-[var(--surface)]/90 backdrop-blur px-3 py-1 rounded border border-white/10">
-                          <span className="text-[10px] font-bold text-[var(--primary)] uppercase tracking-wider">
-                            {getCategoryLabel(insight.category)}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="flex flex-col gap-3">
-                        <h3 className="text-2xl font-serif font-bold text-white group-hover:text-[var(--primary)] transition-colors leading-snug">
-                          {insight.title}
-                        </h3>
-                        <p className="text-[var(--text-secondary)] text-sm font-light leading-relaxed line-clamp-3">
-                          {insight.excerpt}
-                        </p>
-                        <div className="pt-2 flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider group-hover:text-[var(--primary)] transition-colors">
-                          Read Article
-                        </div>
-                      </div>
-                    </Link>
-                  </article>
-                ))}
-              </div>
-
-              <div className="mt-20 flex justify-center">
-                <button
-                  className="px-8 py-3 border border-white/10 rounded-full text-sm font-bold uppercase tracking-widest text-white hover:bg-white hover:text-[var(--background)] transition-all duration-300"
-                  tabIndex={0}
-                  aria-label="Load more insights"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+              {gridInsights.map((insight) => (
+                <article
+                  key={insight.id}
+                  className="flex flex-col group cursor-pointer"
                 >
-                  Load More Insights
-                </button>
-              </div>
-            </>
+                  <Link
+                    href={`/insights/${insight.slug}`}
+                    className="block"
+                    tabIndex={0}
+                    aria-label={`Read ${insight.title}`}
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg mb-6">
+                      <div
+                        className="w-full h-full bg-cover bg-center transform group-hover:scale-105 transition-transform duration-500"
+                        style={{ backgroundImage: `url("${insight.imageUrl}")` }}
+                        role="img"
+                        aria-label={insight.title}
+                      />
+                      <div className="absolute top-4 left-4 bg-[var(--background)]/90 backdrop-blur px-3 py-1 rounded border border-[var(--border)]">
+                        <span className="text-[10px] font-bold text-[var(--primary)] uppercase tracking-wider">
+                          {getCategoryLabel(insight.category)}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                      <h3 className="text-xl font-serif font-bold text-white group-hover:text-[var(--primary)] transition-colors leading-snug">
+                        {insight.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-xs font-bold text-white/60 uppercase tracking-wider group-hover:text-[var(--primary)] transition-colors">
+                        Read
+                        <span className="material-symbols-outlined text-sm">
+                          arrow_forward
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </article>
+              ))}
+            </div>
           ) : (
             <div className="text-center py-16">
               <p className="text-[var(--text-secondary)]">
-                No articles found. Try a different search or category.
+                No articles found.
               </p>
             </div>
           )}

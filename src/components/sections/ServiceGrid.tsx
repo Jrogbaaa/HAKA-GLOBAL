@@ -6,33 +6,31 @@ import { SERVICES } from "@/lib/constants";
 interface ServiceGridProps {
   sectionTitle?: string;
   sectionSubtitle?: string;
-  sectionDescription?: string;
 }
 
 export const ServiceGrid = ({
   sectionSubtitle = "What We Do",
   sectionTitle = "Areas of Advisory",
-  sectionDescription = "Strategic advisory for people and companies operating where decisions take shape. We advise at decision level, aligning strategy, reputation, and context.",
 }: ServiceGridProps) => {
   return (
-    <section className="w-full flex justify-center bg-[var(--background)] py-24 lg:py-32">
-      <div className="w-full flex max-w-[1280px] flex-col gap-12 lg:gap-16 px-6 lg:px-10">
+    <section className="relative w-full flex justify-center bg-[var(--background)] py-24 lg:py-32 overflow-hidden">
+      <div className="relative w-full flex max-w-[1280px] flex-col gap-16 lg:gap-20 px-6 lg:px-10">
         {/* Section Header */}
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div className="max-w-2xl">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--primary)] mb-4">
-              {sectionSubtitle}
-            </p>
-            <h2 className="font-serif text-4xl font-bold leading-tight text-white md:text-5xl">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="h-px w-12 bg-[var(--primary)]/60" />
+              <p className="text-xs font-medium uppercase tracking-[0.35em] text-[var(--primary)]">
+                {sectionSubtitle}
+              </p>
+            </div>
+            <h2 className="font-serif text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
               {sectionTitle}
             </h2>
-            <p className="mt-5 text-lg text-white/70 leading-relaxed">
-              {sectionDescription}
-            </p>
           </div>
           <Link
             href="/services"
-            className="group flex items-center gap-3 text-[var(--primary)] transition-opacity hover:opacity-80"
+            className="group flex items-center gap-3 text-[var(--primary)] transition-all hover:gap-4"
             tabIndex={0}
             aria-label="View all advisory services"
           >
@@ -46,55 +44,39 @@ export const ServiceGrid = ({
         </div>
 
         {/* Cards Grid - Show first 4 services */}
-        <div className="grid gap-6 lg:gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICES.slice(0, 4).map((service) => (
+        <div className="grid gap-8 lg:gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          {SERVICES.slice(0, 4).map((service, index) => (
             <Link
               key={service.id}
               href={`/services/${service.id}`}
-              className="group relative flex flex-col gap-4 overflow-hidden rounded-xl border border-white/10 bg-[var(--surface)] p-6 transition-all hover:border-[var(--primary)]/50 hover:bg-[var(--border-subtle)]"
+              className="group relative flex flex-col overflow-hidden rounded-xl bg-[var(--surface)] p-8 lg:p-10 transition-all duration-300 border border-[var(--border)] hover:border-[var(--primary)]/30"
+              style={{ animationDelay: `${index * 100}ms` }}
               tabIndex={0}
               aria-label={`Learn more about ${service.title}`}
             >
               {/* Icon */}
-              <div className="flex items-center justify-center w-14 h-14 rounded-lg bg-[var(--primary)]/10">
+              <div className="relative flex items-center justify-center w-14 h-14 rounded-xl bg-[var(--primary)]/10 group-hover:bg-[var(--primary)]/20 transition-colors duration-300 mb-8">
                 <span className="material-symbols-outlined text-[var(--primary)] text-2xl">
                   {service.icon}
                 </span>
               </div>
 
-              {/* Text Content */}
-              <div className="flex flex-col gap-3">
-                <h3 className="font-serif text-xl font-bold text-white group-hover:text-[var(--primary)] transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
-                  {service.shortDescription}
-                </p>
-              </div>
+              {/* Title Only */}
+              <h3 className="font-serif text-xl font-bold text-white group-hover:text-[var(--primary)] transition-colors duration-300 leading-snug">
+                {service.title}
+              </h3>
 
               {/* Arrow indicator */}
-              <div className="mt-auto pt-4">
-                <span className="material-symbols-outlined text-white/40 group-hover:text-[var(--primary)] transition-colors">
+              <div className="mt-auto pt-8 flex items-center justify-between">
+                <span className="text-xs uppercase tracking-wider text-white/30 group-hover:text-[var(--primary)]/70 transition-colors duration-300">
+                  Explore
+                </span>
+                <span className="material-symbols-outlined text-white/30 group-hover:text-[var(--primary)] transition-all duration-300 group-hover:translate-x-1">
                   arrow_forward
                 </span>
               </div>
             </Link>
           ))}
-        </div>
-
-        {/* Philosophy Statement */}
-        <div className="mt-8 p-8 lg:p-12 border border-white/10 bg-[var(--surface)]">
-          <div className="max-w-3xl">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[var(--primary)] mb-4">
-              How We Work
-            </p>
-            <p className="text-lg text-white/80 leading-relaxed mb-6">
-              We work selectively. We operate with discretion. We prioritize judgment over process.
-            </p>
-            <p className="text-[var(--text-secondary)] leading-relaxed">
-              Advisory is not execution support. It is strategic clarity under complexity.
-            </p>
-          </div>
         </div>
       </div>
     </section>

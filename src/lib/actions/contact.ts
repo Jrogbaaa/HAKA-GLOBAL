@@ -4,6 +4,16 @@ import { db } from "@/lib/db";
 import { Resend } from "resend";
 import { SITE_CONFIG } from "@/lib/constants";
 
+// Check if database is properly configured
+const isDatabaseConfigured = () => {
+  const dbUrl = process.env.DATABASE_URL;
+  if (!dbUrl || dbUrl.length === 0) return false;
+  if (dbUrl.includes("placeholder")) return false;
+  // Skip local Prisma dev proxy URLs that aren't running
+  if (dbUrl.includes("prisma+postgres://localhost")) return false;
+  return true;
+};
+
 const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
   : null;
@@ -230,21 +240,22 @@ export const submitContactForm = async (data: {
   }
 
   // 3. Try to save to database (non-blocking)
-  try {
-    await db.contactSubmission.create({
-      data: {
-        name: data.name,
-        email: data.email,
-        interest: data.interest,
-        message: data.message,
-      },
-    });
-    dbSaveSuccess = true;
-    console.log("✓ Contact submission saved to database");
-  } catch (error) {
-    console.warn("✗ Failed to save to database (will retry later):", error);
-    // Don't fail the form submission if database is unavailable
-    // The email notification ensures the team still receives the inquiry
+  if (isDatabaseConfigured()) {
+    try {
+      await db.contactSubmission.create({
+        data: {
+          name: data.name,
+          email: data.email,
+          interest: data.interest,
+          message: data.message,
+        },
+      });
+      dbSaveSuccess = true;
+      console.log("✓ Contact submission saved to database");
+    } catch {
+      // Don't fail the form submission if database is unavailable
+      // The email notification ensures the team still receives the inquiry
+    }
   }
 
   // Success if at least one email was sent OR database was saved

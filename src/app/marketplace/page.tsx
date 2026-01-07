@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { PageHeader } from "@/components/sections/PageHeader";
-import { getMarketplaceItems } from "@/lib/actions/marketplace";
 import { MarketplaceGrid } from "./MarketplaceGrid";
 
 export const metadata: Metadata = {
@@ -9,7 +8,7 @@ export const metadata: Metadata = {
     "Luxury goods treated as investment-grade assets, driven by scarcity, demand, and access. Sourcing, access, and resale of highly sought-after pieces.",
 };
 
-// Demo items for initial display
+// Demo items for display
 const demoItems = [
   {
     id: "1",
@@ -85,36 +84,17 @@ const demoItems = [
   },
 ];
 
-export default async function MarketplacePage() {
-  // Try to fetch from database, fallback to demo items
-  let items = demoItems;
-  try {
-    const result = await getMarketplaceItems();
-    if (result.success && result.data && result.data.length > 0) {
-      items = result.data.map((item) => ({
-        id: item.id,
-        title: item.title,
-        description: item.description,
-        category: item.category,
-        imageUrl: item.imageUrl,
-        price: item.price ? Number(item.price) : null,
-        featured: item.featured,
-        available: item.available,
-      }));
-    }
-  } catch {
-    // Use demo items on error
-  }
-
+export default function MarketplacePage() {
+  // Using demo data - database integration can be re-enabled when configured
   return (
     <>
       <PageHeader
         subtitle="HAKA Global Investment"
         title="Luxury Assets & Collectibles"
-        description="Luxury goods treated as investment-grade assets, driven by scarcity, demand, and access. We provide sourcing, access, and resale of highly sought-after and often inaccessible pieces."
+        description="Luxury goods treated as investment-grade assets, driven by scarcity, demand, and access."
       />
 
-      <MarketplaceGrid items={items} />
+      <MarketplaceGrid items={demoItems} />
     </>
   );
 }
