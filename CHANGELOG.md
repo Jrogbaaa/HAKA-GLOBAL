@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] - 2025-01-07
+
+### Changed
+- **Stripe-Inspired UI Redesign**
+  - Updated color palette for better contrast (darker backgrounds, clearer text hierarchy)
+  - Increased section spacing throughout all pages for a more spacious feel
+  - Reduced text density across About, Services, Investment, and Insights pages
+  - Simplified service/investment cards to show only titles and icons (removed descriptions)
+  - Enhanced PageHeader component with larger typography and increased padding
+  - Improved Hero section with decorative elements and scroll indicator
+  - Refined CTASection with gradient backgrounds and animated button effects
+  - Updated ServiceGrid with cleaner card design and hover states
+
+- **Database Configuration**
+  - Switched from local Prisma dev proxy to Neon PostgreSQL cloud database
+  - Added `isDatabaseConfigured()` helper to gracefully handle missing database connections
+  - Pages now fallback to demo data when database is unavailable
+  - Fixed Prisma connection errors that were causing page crashes
+
+### Fixed
+- **Insights page error resilience** - Restored try-catch block around `getInsights()` call to prevent page crashes on database errors
+- **MarketplaceGrid import error** - Fixed `MARKETPLACE_CATEGORIES` to use correct `INVESTMENT_CATEGORIES` export
+- **Turbopack cache corruption** - Cleared `.next` cache to resolve persisting build errors
+
+### Added
+- `DIRECT_URL` environment variable for Prisma migrations
+- Demo data fallback for Insights and Marketplace pages when database is not configured
+
 ## [2.0.0] - 2025-01-06
 
 ### Changed

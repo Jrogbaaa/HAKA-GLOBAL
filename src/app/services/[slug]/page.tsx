@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SERVICES } from "@/lib/constants";
 import { PageHeader } from "@/components/sections/PageHeader";
-import { CTASection } from "@/components/sections/CTASection";
 import { ServiceDetail } from "./ServiceDetail";
 
 interface ServicePageProps {
@@ -27,7 +26,7 @@ export async function generateMetadata({
 
   return {
     title: service.title,
-    description: service.description,
+    description: service.shortDescription,
   };
 }
 
@@ -48,12 +47,6 @@ export default async function ServicePage({ params }: ServicePageProps) {
       />
 
       <ServiceDetail service={service} />
-
-      <CTASection
-        subtitle="Start a Conversation"
-        title="Discretion starts here."
-        description="If context, timing, and access are critical to your decisions, you may initiate a conversation. All inquiries are treated with discretion."
-      />
     </>
   );
 }

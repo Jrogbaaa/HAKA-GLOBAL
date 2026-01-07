@@ -61,22 +61,26 @@ const demoInsights = [
 export default async function InsightsPage() {
   // Try to fetch from database, fallback to demo insights
   let insights = demoInsights;
-  
-  const result = await getInsights();
-  if (result.success && result.data && result.data.length > 0) {
-    insights = result.data.map((insight) => ({
-      id: insight.id,
-      title: insight.title,
-      slug: insight.slug,
-      excerpt: insight.excerpt,
-      content: insight.content,
-      imageUrl: insight.imageUrl || "",
-      category: insight.category,
-      author: insight.author,
-      published: insight.published,
-      publishedAt: insight.publishedAt || new Date(),
-      featured: false,
-    }));
+
+  try {
+    const result = await getInsights();
+    if (result.success && result.data && result.data.length > 0) {
+      insights = result.data.map((insight) => ({
+        id: insight.id,
+        title: insight.title,
+        slug: insight.slug,
+        excerpt: insight.excerpt,
+        content: insight.content,
+        imageUrl: insight.imageUrl || "",
+        category: insight.category,
+        author: insight.author,
+        published: insight.published,
+        publishedAt: insight.publishedAt || new Date(),
+        featured: false,
+      }));
+    }
+  } catch {
+    // Use demo insights on error - graceful fallback
   }
 
   return (

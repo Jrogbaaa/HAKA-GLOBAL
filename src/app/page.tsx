@@ -1,6 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
 import { ServiceGrid } from "@/components/sections/ServiceGrid";
-import { CTASection } from "@/components/sections/CTASection";
 
 export default function HomePage() {
   return (
@@ -8,7 +7,7 @@ export default function HomePage() {
       <Hero
         subtitle="HAKA Global"
         title="Pre-Shift Strike."
-        description="Strategic advisory and investment for people and companies operating where decisions take shape — before they become public."
+        description="Strategic advisory and investment where decisions take shape — before they become public."
         primaryCta={{
           label: "Start a Conversation",
           href: "/contact",
@@ -20,8 +19,6 @@ export default function HomePage() {
       />
 
       <ServiceGrid />
-
-      <CTASection />
     </>
   );
 }
