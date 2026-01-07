@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import { PageHeader } from "@/components/sections/PageHeader";
+import Link from "next/link";
+import { CTABanner } from "@/components/sections";
 import { getInsights } from "@/lib/actions/insights";
 import { InsightsGrid } from "./InsightsGrid";
 
@@ -85,13 +86,106 @@ export default async function InsightsPage() {
 
   return (
     <>
-      <PageHeader
-        subtitle="Perspectives"
-        title="Strategic Insights"
-        description="Context for decision-makers."
-      />
+      {/* Hero Section */}
+      <section className="relative py-24 lg:py-32 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-[var(--background)]">
+          <div
+            className="absolute top-0 right-0 w-[600px] h-[600px] opacity-20"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, rgba(59, 130, 246, 0.3) 0%, transparent 70%)",
+              transform: "translate(20%, -30%)",
+            }}
+          />
+        </div>
 
+        <div className="relative max-w-[1280px] mx-auto px-4 lg:px-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--surface)] border border-[var(--border)] mb-6">
+              <span className="text-sm font-medium text-[var(--primary)]">
+                Insights
+              </span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              Strategic
+              <br />
+              <span className="gradient-text">perspectives.</span>
+            </h1>
+
+            <p className="text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl">
+              Context and analysis for decision-makers. Perspectives on affairs,
+              intelligence, investment, and the dynamics that shape outcomes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="py-8 border-b border-[var(--border)]">
+        <div className="max-w-[1280px] mx-auto px-4 lg:px-8">
+          <div className="flex flex-wrap items-center gap-3">
+            {["All", "Strategy", "Intelligence", "Affairs", "Investment"].map(
+              (category) => (
+                <button
+                  key={category}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
+                    category === "All"
+                      ? "bg-[var(--primary)] text-[var(--background)]"
+                      : "text-[var(--text-secondary)] hover:text-white hover:bg-[var(--surface)]"
+                  }`}
+                  tabIndex={0}
+                >
+                  {category}
+                </button>
+              )
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Insights Grid */}
       <InsightsGrid insights={insights} />
+
+      {/* Newsletter Section */}
+      <section className="py-20 lg:py-32 bg-[var(--surface)]">
+        <div className="max-w-[1280px] mx-auto px-4 lg:px-8">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              Stay informed
+            </h2>
+            <p className="text-lg text-[var(--text-secondary)] mb-8">
+              Receive our latest insights and perspectives directly.
+              Discrete, infrequent, valuable.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 bg-[var(--background)] border border-[var(--border)] rounded-lg text-white placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--primary)]"
+                aria-label="Email address"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 bg-[var(--primary)] text-[var(--background)] font-semibold rounded-lg hover:bg-[var(--primary-hover)] transition-colors whitespace-nowrap"
+                tabIndex={0}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <CTABanner
+        title="Need strategic counsel?"
+        description="Our advisory team provides context and guidance for complex decisions."
+        primaryCta={{ text: "Start a Conversation", href: "/contact" }}
+        secondaryCta={{ text: "View Services", href: "/services" }}
+        variant="minimal"
+      />
     </>
   );
 }

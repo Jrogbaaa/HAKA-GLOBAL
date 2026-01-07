@@ -1,62 +1,54 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Cinzel } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500", "700"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "600", "700"],
-});
-
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Haka Global | Premium Services",
-    template: "%s | Haka Global",
+    default: "HAKA Global | Strategic Advisory & Investment",
+    template: "%s | HAKA Global",
   },
   description:
-    "Orchestrating Wealth & Influence. Exclusive access to elite real estate, financial advisory, and personal branding strategies for the modern visionary.",
+    "Strategic advisory and investment where decisions take shape — before they become public. Pre-Shift Strike.",
   keywords: [
-    "luxury advisory",
-    "personal branding",
-    "real estate investment",
+    "strategic advisory",
+    "executive advisory",
+    "investment",
+    "real estate",
+    "private equity",
+    "luxury assets",
     "wealth management",
-    "luxury marketplace",
-    "executive coaching",
-    "high net worth",
-    "financial advisory",
+    "C-level advisory",
+    "non-market strategy",
   ],
-  authors: [{ name: "Haka Global" }],
+  authors: [{ name: "HAKA Global" }],
   openGraph: {
-    title: "Haka Global | Premium Services",
+    title: "HAKA Global | Strategic Advisory & Investment",
     description:
-      "Orchestrating Wealth & Influence. Exclusive access to elite real estate, financial advisory, and personal branding strategies.",
+      "Strategic advisory and investment where decisions take shape — before they become public.",
     url: "https://hakaglobal.com",
-    siteName: "Haka Global",
+    siteName: "HAKA Global",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Haka Global | Premium Services",
+    title: "HAKA Global | Strategic Advisory & Investment",
     description:
-      "Orchestrating Wealth & Influence. Exclusive access to elite real estate, financial advisory, and personal branding strategies.",
+      "Strategic advisory and investment where decisions take shape — before they become public.",
   },
   robots: {
     index: true,
@@ -78,7 +70,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${playfair.variable} ${cinzel.variable} antialiased min-h-screen w-full flex flex-col bg-[var(--background)] text-white overflow-x-hidden`}
+        className={`${geist.variable} ${geistMono.variable} antialiased min-h-screen w-full flex flex-col bg-[var(--background)] text-white overflow-x-hidden`}
       >
         <Navigation />
         <main className="flex-1 w-full overflow-x-hidden">{children}</main>

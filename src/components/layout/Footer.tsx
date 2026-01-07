@@ -1,141 +1,162 @@
-"use client";
-
 import Link from "next/link";
-import { SITE_CONFIG, LOCATIONS } from "@/lib/constants";
+import { SITE_CONFIG } from "@/lib/constants";
 
-const companyLinks = [
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Advisory" },
-  { href: "/investment", label: "Investment" },
-  { href: "/contact", label: "Contact" },
-];
+const FOOTER_LINKS = {
+  advisory: {
+    title: "Advisory",
+    links: [
+      { label: "C-Level Advisory", href: "/services/c-level-advisory" },
+      { label: "Leadership Development", href: "/services/leadership-development" },
+      { label: "Change Advisory", href: "/services/change-advisory" },
+      { label: "Brand Strategy", href: "/services/personal-branding" },
+      { label: "Deal Advisory", href: "/services/deal-advisory" },
+      { label: "Non-Market Strategy", href: "/services/non-market-strategy" },
+    ],
+  },
+  investment: {
+    title: "Investment",
+    links: [
+      { label: "Real Estate", href: "/investment#real-estate" },
+      { label: "Private Equity", href: "/investment#private-equity" },
+      { label: "Luxury Assets", href: "/investment#luxury-assets" },
+      { label: "Venture Capital", href: "/investment#venture-capital" },
+      { label: "Marketplace", href: "/marketplace" },
+    ],
+  },
+  company: {
+    title: "Company",
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Insights", href: "/insights" },
+      { label: "Careers", href: "/about#careers" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  resources: {
+    title: "Resources",
+    links: [
+      { label: "Documentation", href: "/insights" },
+      { label: "Case Studies", href: "/insights" },
+      { label: "Press", href: "/about#press" },
+      { label: "Partners", href: "/about#partners" },
+    ],
+  },
+};
 
-const advisoryLinks = [
-  { href: "/services/strategic-advisory", label: "Strategic Advisory" },
-  { href: "/services/executive-advisory", label: "Executive Advisory" },
-  { href: "/services/personal-corporate-affairs", label: "Personal & Corporate Affairs" },
-  { href: "/services/financial-advisory", label: "Financial Advisory" },
-];
-
-const legalLinks = [
-  { href: "/privacy", label: "Privacy Policy" },
-  { href: "/terms", label: "Terms of Service" },
-  { href: "/disclaimer", label: "Disclaimer" },
+const SOCIAL_LINKS = [
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/company/hakaglobal",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+      </svg>
+    ),
+  },
+  {
+    name: "Twitter",
+    href: "https://twitter.com/hakaglobal",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+      </svg>
+    ),
+  },
 ];
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full flex justify-center bg-[var(--background)] pt-24 pb-16 lg:pt-32 lg:pb-20 overflow-hidden">
-      <div className="relative w-full max-w-[1280px] px-6 lg:px-10">
-        {/* Top border */}
-        <div className="absolute left-6 lg:left-10 right-6 lg:right-10 top-0 h-px bg-[var(--border)]" />
-
-        <div className="flex flex-col gap-16 lg:flex-row lg:justify-between pt-16 lg:pt-20">
-          {/* Brand Column */}
-          <div className="max-w-sm">
-            <Link
-              href="/"
-              className="inline-flex items-center mb-8 group"
-              tabIndex={0}
-              aria-label={`${SITE_CONFIG.name} Home`}
-            >
+    <footer className="bg-[var(--background)] border-t border-[var(--border)]">
+      {/* Main Footer */}
+      <div className="max-w-[1280px] mx-auto px-4 lg:px-8 py-16 lg:py-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
+          {/* Logo Column */}
+          <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
+            <Link href="/" className="inline-block mb-6" tabIndex={0}>
               <img
                 src="/haka-logo.svg"
                 alt={`${SITE_CONFIG.name} Logo`}
-                className="h-14 w-auto logo-fade transition-opacity group-hover:opacity-80"
+                className="h-10 w-auto"
               />
             </Link>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="h-px w-6 bg-[var(--primary)]/50" />
-              <p className="text-xs font-medium uppercase tracking-[0.35em] text-[var(--primary)]">
-                {SITE_CONFIG.tagline}
-              </p>
-            </div>
-            <div className="mt-8 flex gap-4">
-              <a
-                href={`mailto:${SITE_CONFIG.email}`}
-                className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--surface)] border border-[var(--border)] text-white/60 transition-all duration-300 hover:bg-[var(--primary)] hover:border-[var(--primary)] hover:text-[var(--background)]"
-                tabIndex={0}
-                aria-label="Email us"
-              >
-                <span className="material-symbols-outlined text-lg">
-                  alternate_email
-                </span>
-              </a>
-            </div>
-          </div>
-
-          {/* Links Columns */}
-          <div className="grid grid-cols-2 gap-12 sm:grid-cols-3 lg:gap-20">
-            {/* Company */}
-            <div className="flex flex-col gap-6">
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">Company</h4>
-              <div className="flex flex-col gap-4">
-                {companyLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
-                    tabIndex={0}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Advisory */}
-            <div className="flex flex-col gap-6">
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">Advisory</h4>
-              <div className="flex flex-col gap-4">
-                {advisoryLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
-                    tabIndex={0}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Legal */}
-            <div className="flex flex-col gap-6">
-              <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">Legal</h4>
-              <div className="flex flex-col gap-4">
-                {legalLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-sm text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
-                    tabIndex={0}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
+            <p className="text-sm text-[var(--text-muted)] mb-6 max-w-xs">
+              Strategic advisory and investment where decisions take shape — before
+              they become public.
+            </p>
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
+                  aria-label={social.name}
+                  tabIndex={0}
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
+
+          {/* Link Columns */}
+          {Object.values(FOOTER_LINKS).map((section) => (
+            <div key={section.title}>
+              <h4 className="text-sm font-semibold text-white mb-4">
+                {section.title}
+              </h4>
+              <ul className="space-y-3">
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
+                      tabIndex={0}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-20 lg:mt-24 pt-8 border-t border-[var(--border)] text-xs text-[var(--text-muted)] flex flex-col md:flex-row justify-between items-center gap-6">
-          <p>
-            © {currentYear} {SITE_CONFIG.name}. All rights reserved.
-          </p>
-          <div className="flex gap-8">
-            {LOCATIONS.map((location) => (
-              <span key={location.city} className="flex items-center gap-2 text-[var(--text-muted)]">
-                <span className="material-symbols-outlined text-[12px] text-[var(--primary)]/50">
-                  location_on
-                </span>
-                {location.city}
-              </span>
-            ))}
+      {/* Bottom Bar */}
+      <div className="border-t border-[var(--border)]">
+        <div className="max-w-[1280px] mx-auto px-4 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-[var(--text-muted)]">
+              © {currentYear} {SITE_CONFIG.name}. All rights reserved.
+            </p>
+            <div className="flex items-center gap-6">
+              <Link
+                href="/privacy"
+                className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
+                tabIndex={0}
+              >
+                Privacy
+              </Link>
+              <Link
+                href="/terms"
+                className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
+                tabIndex={0}
+              >
+                Terms
+              </Link>
+              <Link
+                href="/cookies"
+                className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
+                tabIndex={0}
+              >
+                Cookies
+              </Link>
+            </div>
           </div>
         </div>
       </div>
