@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.4.0] - 2026-01-08
+
+### Changed
+- **About Page Complete Redesign**
+  - New minimalist document-style layout with centered content
+  - Title "ABOUT HAKA" centered at top
+  - Bold tagline "Anticipation · Affairs · Influence"
+  - Content organized into logical sections with double-spacing
+  - Simplified bullet points for key messaging
+  - Email input field (no subscribe button) at bottom
+  - Footer with "© 2026. All rights reserved", "Privacy Policy", "Legal Notice" links
+
+- **Homepage Updates**
+  - Kept Subscribe button for email subscription
+  - Footer retains "Confidential by default." messaging
+
+- **E2E Tests Updated**
+  - `about.spec.ts` - Updated to match new About page structure
+  - `navigation.spec.ts` - Updated for current page elements
+  - `contact.spec.ts` - Simplified to essential form tests
+
+### Fixed
+- Scroll issues on About page resolved with proper flex container structure
+- Text centering on About page
+- Consistent font sizes across About page body text
+
 ## [2.3.0] - 2026-01-08
 
 ### Changed

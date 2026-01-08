@@ -1,227 +1,170 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "HAKA Global operates where decisions take shape — before they become public.",
-};
+import { useState } from "react";
+import Link from "next/link";
 
 export default function AboutPage() {
+  const [email, setEmail] = useState("");
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
   return (
-    <>
-      {/* Hero Section */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div className="pl-6 sm:pl-12 lg:pl-24 xl:pl-32">
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                About HAKA
-              </p>
-              <h1 className="text-[var(--foreground)] text-4xl lg:text-6xl leading-tight mb-8">
-                Anticipation · Affairs · Influence
-              </h1>
-            </div>
-            <div className="lg:pt-12">
-              <p className="text-xl lg:text-2xl text-[var(--foreground-muted)] leading-relaxed max-w-2xl">
-                HAKA operates where decisions take shape — before they become
-                public or formalized.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="flex flex-col min-h-screen w-full">
+      <main className="flex-1 w-full py-24 lg:py-32 flex flex-col items-center">
+        <div className="w-full max-w-[850px] px-8 lg:px-12">
+          {/* Title */}
+          <h1
+            className="text-[var(--foreground)] font-medium tracking-tight text-center"
+            style={{ fontSize: "1.5rem", lineHeight: "1.2" }}
+          >
+            ABOUT HAKA
+          </h1>
 
-      {/* What We Do Section */}
-      <section className="min-h-[80vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                What We Do
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                Personal &<br />
-                Corporate Affairs
-              </h2>
-            </div>
-            <div className="lg:pt-10 space-y-8">
-              <p className="text-lg text-[var(--foreground-muted)] leading-[1.9]">
-                We work within complex personal, corporate, and institutional
-                environments, supporting individuals and organizations whose
-                outcomes depend on context, alignment, and timing — not only on
-                market dynamics.
-              </p>
-              <p className="text-lg text-[var(--foreground-muted)] leading-[1.9]">
-                Our activity sits within Personal and Corporate Affairs: the
-                management of positioning, relationships, and credibility in
-                environments where power, interests, and perception converge.
-              </p>
-              <p className="text-lg text-[var(--foreground-muted)] leading-[1.9]">
-                We help navigate groups of influence, shape alignment among key
-                actors, and build consensus before positions harden. Influence,
-                for us, is not pressure — it is strategic alignment achieved
-                early.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+          {/* Content */}
+          <article
+            className="text-[var(--foreground)] mt-6"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            {/* Tagline */}
+            <p className="font-semibold">Anticipation · Affairs · Influence</p>
 
-      {/* Anticipation Section */}
-      <section className="min-h-[80vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Our Advantage
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                Anticipation defines
-                <br />
-                our advantage
-              </h2>
-            </div>
-            <div className="lg:pt-10 space-y-8">
-              <p className="text-lg text-[var(--foreground-muted)] leading-[1.9]">
-                By combining contextual judgment with AI-driven strategic
-                intelligence, we analyze decision-making environments, identify
-                early signals, and anticipate scenarios before they become
-                visible.
-              </p>
-              <p className="text-lg text-[var(--foreground)] leading-[1.9]">
-                This allows our clients to move:
-              </p>
-              <ul className="space-y-4 text-lg text-[var(--foreground-muted)]">
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>before narratives settle,</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>before consensus becomes public,</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>before the shift occurs.</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+            {/* Space after tagline */}
+            <div className="h-6" />
 
-      {/* Principle Section */}
-      <section className="py-48 lg:py-64">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-10">
-              Principle
+            {/* Introduction paragraphs */}
+            <p>
+              HAKA operates where{" "}
+              <strong className="font-semibold">decisions take shape</strong>,
+              before they become public or formalized.
             </p>
-            <blockquote className="font-serif text-3xl lg:text-5xl text-[var(--foreground)] leading-snug italic mb-10">
-              "Pre-Shift Strike is not a slogan. It is knowing when to move,
-              where to stand, and who needs to be in the room — before the shift
-              happens."
-            </blockquote>
-            <p className="text-base text-[var(--foreground-muted)]">
-              Pre-Shift Strike is how we operate.
+            <p>
+              We work within complex{" "}
+              <strong className="font-semibold">
+                personal, corporate and institutional environments
+              </strong>
+              , supporting individuals and organizations whose outcomes depend on{" "}
+              <strong className="font-semibold">
+                context, alignment and timing
+              </strong>
+              , not only on market dynamics.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* How We Work */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="mb-20">
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-              How We Work
+            <p>
+              Our activity sits within{" "}
+              <strong className="font-semibold">
+                Personal and Corporate Affairs
+              </strong>
+              : the management of positioning, relationships and credibility in
+              environments where{" "}
+              <strong className="font-semibold">
+                power, interests and perception converge.
+              </strong>
             </p>
-            <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">Values</h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-16 lg:gap-20">
-            <div>
-              <h3 className="text-xl font-serif text-[var(--foreground)] mb-4">
-                Selectivity
-              </h3>
-              <p className="text-base text-[var(--foreground-muted)] leading-relaxed">
-                We work selectively. HAKA does not seek visibility. We operate
-                where relevance is decided.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-serif text-[var(--foreground)] mb-4">
-                Discretion
-              </h3>
-              <p className="text-base text-[var(--foreground-muted)] leading-relaxed">
-                We operate with discretion. Confidential by default. Our work
-                and our clients remain private.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-serif text-[var(--foreground)] mb-4">
-                Judgment
-              </h3>
-              <p className="text-base text-[var(--foreground-muted)] leading-relaxed">
-                We prioritize judgment over process. Advisory is not execution
-                support — it is strategic clarity under complexity.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Contact Section */}
-      <section className="min-h-[50vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-end">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Contact
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">Begin a conversation</h2>
-            </div>
-            <div className="lg:text-right">
+            {/* Double space before influence section */}
+            <div className="h-6" />
+
+            <p>
+              We help navigate groups of influence, shape alignment among key
+              actors and{" "}
+              <strong className="font-semibold">
+                build consensus before positions harden
+              </strong>
+              . Influence, for us, is not pressure — it is strategic alignment
+              achieved early.
+            </p>
+            <p>
+              Anticipation defines our advantage. By combining contextual judgment
+              with{" "}
+              <strong className="font-semibold">
+                AI-driven strategic intelligence
+              </strong>
+              , we analyze decision-making environments, identify early signals
+              and anticipate scenarios before they become visible.
+            </p>
+            <p>This allows our clients to move:</p>
+            <ul className="ml-1">
+              <li>• before narratives settle,</li>
+              <li>• before consensus becomes public,</li>
+              <li>• before the shift occurs.</li>
+            </ul>
+
+            {/* Double space before Pre-Shift Strike */}
+            <div className="h-6" />
+
+            <p>
+              <strong className="font-semibold">Pre-Shift Strike</strong> is how
+              we operate. HAKA works selectively and with discretion. We do not
+              seek visibility. We operate where relevance is decided.
+            </p>
+
+            {/* Double space before AI section */}
+            <div className="h-6" />
+
+            <p className="font-semibold">AI as Strategic Leverage</p>
+            <p>
+              At HAKA, artificial intelligence is not a product, a toolset or a
+              standalone service.
+            </p>
+            <p>
+              It is a{" "}
+              <strong className="font-semibold">strategic leverage layer</strong>{" "}
+              embedded into our judgment and advisory processes. We use AI to
+              enhance contextual analysis, map complex decision-making
+              environments, detect weak signals and simulate scenarios before they
+              materialize. The objective is not automation, but{" "}
+              <strong className="font-semibold">clarity</strong>: reducing
+              uncertainty, improving timing and supporting higher-quality
+              decisions at critical moments. AI amplifies human judgment. It does
+              not replace it.
+            </p>
+          </article>
+        </div>
+
+        {/* Email Section - No Subscribe Button */}
+        <section className="w-full flex justify-center pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-28">
+          <div className="w-full max-w-md px-6 text-center">
+            <p className="text-base md:text-lg text-[var(--foreground)] mb-8">
+              Enter your email address
+            </p>
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              placeholder=""
+              className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center focus:outline-none focus:ring-2 focus:ring-[var(--gold)] focus:border-transparent transition-all duration-200"
+              aria-label="Email address"
+              tabIndex={0}
+            />
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="w-full bg-[var(--surface)] py-8 mt-auto">
+        <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[var(--foreground-muted)] text-sm">
+            <p>© {new Date().getFullYear()}. All rights reserved</p>
+            <div className="flex items-center gap-8">
               <Link
-                href="mailto:info@hakaglobal.com"
-                className="inline-flex items-center gap-3 text-[var(--foreground)] hover:text-[var(--foreground-muted)] transition-colors group"
+                href="/privacy"
+                className="hover:text-[var(--foreground)] transition-colors"
                 tabIndex={0}
-                aria-label="Send email to info@hakaglobal.com"
               >
-                <span className="text-xl">info@hakaglobal.com</span>
-                <svg
-                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                Privacy Policy
+              </Link>
+              <Link
+                href="/legal"
+                className="hover:text-[var(--foreground)] transition-colors"
+                tabIndex={0}
+              >
+                Legal Notice
               </Link>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-16 lg:py-20 border-t border-[var(--border)]">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-            <p className="text-sm text-[var(--foreground-muted)]">
-              © {new Date().getFullYear()} HAKA Global. All rights reserved.
-            </p>
-            <p className="text-sm text-[var(--foreground-muted)]">
-              Confidential by default.
-            </p>
-          </div>
-        </div>
       </footer>
-    </>
+    </div>
   );
 }

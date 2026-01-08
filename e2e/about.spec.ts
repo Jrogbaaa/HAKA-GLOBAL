@@ -6,38 +6,35 @@ test.describe("About Page", () => {
   });
 
   test("should display about page correctly", async ({ page }) => {
-    await expect(page).toHaveTitle(/About/);
-    await expect(page.getByRole("heading", { name: /Excellence Without Compromise/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /ABOUT HAKA/i })).toBeVisible();
   });
 
-  test("should display mission section", async ({ page }) => {
-    await expect(page.getByText(/Our Mission/i)).toBeVisible();
-    await expect(page.getByRole("heading", { name: /Empowering Extraordinary Lives/i })).toBeVisible();
+  test("should display tagline", async ({ page }) => {
+    await expect(page.getByText(/Anticipation · Affairs · Influence/i)).toBeVisible();
   });
 
-  test("should display values section with all values", async ({ page }) => {
-    await expect(page.getByText(/Our Values/i)).toBeVisible();
-    await expect(page.getByRole("heading", { name: /Principles That Guide Us/i })).toBeVisible();
-    
-    // Check all four values - use exact: true to avoid matching "Excellence Without Compromise"
-    await expect(page.getByRole("heading", { name: "Discretion", exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Global Reach", exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Personalization", exact: true })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Excellence", exact: true })).toBeVisible();
+  test("should display main content sections", async ({ page }) => {
+    // Check key content is present
+    await expect(page.getByText(/decisions take shape/i)).toBeVisible();
+    await expect(page.getByText(/Personal and Corporate Affairs/i)).toBeVisible();
+    await expect(page.getByText(/Pre-Shift Strike/i)).toBeVisible();
+    await expect(page.getByText(/AI as Strategic Leverage/i)).toBeVisible();
   });
 
-  test("should display stats section", async ({ page }) => {
-    await expect(page.getByText("$2B+")).toBeVisible();
-    await expect(page.getByText("Assets Managed")).toBeVisible();
-    await expect(page.getByText("40+")).toBeVisible();
-    await expect(page.getByText("Countries Served")).toBeVisible();
-    await expect(page.getByText("500+")).toBeVisible();
-    await expect(page.getByText("Elite Clients")).toBeVisible();
-    await expect(page.getByText("15+")).toBeVisible();
-    await expect(page.getByText("Years of Excellence")).toBeVisible();
+  test("should display bullet points", async ({ page }) => {
+    await expect(page.getByText(/before narratives settle/i)).toBeVisible();
+    await expect(page.getByText(/before consensus becomes public/i)).toBeVisible();
+    await expect(page.getByText(/before the shift occurs/i)).toBeVisible();
   });
 
-  test("should have CTA section", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: /Partner With Us/i })).toBeVisible();
+  test("should have email input section", async ({ page }) => {
+    await expect(page.getByText(/Enter your email address/i)).toBeVisible();
+    await expect(page.getByRole("textbox", { name: /email/i })).toBeVisible();
+  });
+
+  test("should have footer with links", async ({ page }) => {
+    await expect(page.getByText(/All rights reserved/i)).toBeVisible();
+    await expect(page.getByRole("link", { name: /Privacy Policy/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Legal Notice/i })).toBeVisible();
   });
 });
