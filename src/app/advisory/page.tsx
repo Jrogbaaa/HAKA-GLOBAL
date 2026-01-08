@@ -1,250 +1,274 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Advisory",
-  description:
-    "Strategic advisory for people and companies operating where decisions take shape.",
-};
+export default function ConsultingPage() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-const ADVISORY_SERVICES = [
-  {
-    title: "Strategic Advisory & Positioning",
-    description:
-      "Defining and refining strategic positioning where relevance, authority, and long-term advantage are built — beyond visibility or messaging.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-    icon: "my_location",
-  },
-  {
-    title: "C-Level & Executive Advisory",
-    description:
-      "Confidential counsel for founders, executives, and decision-makers operating under high stakes, public exposure, and institutional complexity.",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80",
-    icon: "verified",
-  },
-  {
-    title: "Personal & Corporate Affairs",
-    description:
-      "Strategic advisory on personal and corporate interests, aligning reputation, relationships, and positioning within decision-making environments.",
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
-    icon: "policy",
-  },
-  {
-    title: "Non-Market Strategy",
-    description:
-      "Strategy beyond markets: institutions, regulation, public perception, and power dynamics that shape outcomes outside traditional competitive frameworks.",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80",
-    icon: "account_balance",
-  },
-  {
-    title: "Public Reputation & Consensus",
-    description:
-      "Building, protecting, and reinforcing reputational capital, legitimacy, and trust among key stakeholders — before consensus becomes public.",
-    image:
-      "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&q=80",
-    icon: "handshake",
-  },
-  {
-    title: "AI-Driven Strategic Intelligence",
-    description:
-      "Advanced intelligence systems applied to context analysis, scenario anticipation, and decision support across personal, corporate, and non-market environments.",
-    image:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
-    icon: "psychology",
-  },
-];
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
 
-export default function AdvisoryPage() {
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setSubmitStatus("success");
+      setEmail("");
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <>
-      {/* Hero Section */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div className="pl-6 sm:pl-12 lg:pl-24 xl:pl-32">
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Advisory
-              </p>
-              <h1 className="text-[var(--foreground)] text-4xl lg:text-6xl leading-tight">
-                Strategic advisory
-                <br />
-                at decision level
-              </h1>
-            </div>
-            <div className="lg:pt-14">
-              <p className="text-xl lg:text-2xl text-[var(--foreground-muted)] leading-[1.9] mb-8 max-w-2xl">
-                We advise at decision level, aligning strategy, reputation, and
-                context. Our work spans Personal and Corporate Affairs,
-                non-market dynamics, and financial decision-making.
-              </p>
-              <p className="text-xl lg:text-2xl text-[var(--foreground-muted)] leading-[1.9] max-w-2xl">
-                We help clients anticipate shifts, shape consensus, and act with
-                clarity — before moves become public.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-40 lg:py-56">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="mb-20">
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-              Areas of Advisory
+    <div className="flex flex-col min-h-screen w-full max-w-full">
+      <main className="flex-1 w-full max-w-full">
+        {/* Hero Section */}
+        <section className="w-full flex justify-center pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[var(--foreground)] mb-10">
+              HAKA GLOBAL CONSULTING
+            </h1>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-relaxed">
+              Strategic advisory for people and companies operating where decisions take shape.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-14">
-            {ADVISORY_SERVICES.map((service, index) => (
-              <div key={index} className="group">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-[var(--surface)]">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-[var(--surface)]/90 backdrop-blur-sm flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[var(--foreground)] text-xl">
-                      {service.icon}
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-serif text-[var(--foreground)] mb-4">
-                  {service.title}
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* What We Do Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-8">
+              What We Do
+            </h2>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9]">
+              We advise at decision level, aligning strategy, reputation and context. Our work sits across{" "}
+              <strong className="text-[var(--foreground)] font-semibold">Personal and Corporate Affairs</strong>, non-market dynamics and financial decision-making. We help clients anticipate shifts, shape consensus and act with clarity — before moves become public.
+            </p>
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Areas of Advisory Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-12">
+              Areas of Advisory
+            </h2>
+
+            <div className="space-y-12 text-left">
+              {/* 1. Strategic Advisory & Positioning */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  1. Strategic Advisory &amp; Positioning
                 </h3>
-                <p className="text-base text-[var(--foreground-muted)] leading-relaxed">
-                  {service.description}
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  We define and refine strategic positioning where relevance, authority and long-term advantage are built — beyond visibility or messaging.
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* How We Work Section */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                When Clients Engage Us
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                Context matters
-                <br />
-                as much as capital
-              </h2>
-            </div>
-            <div className="lg:pt-10">
-              <ul className="space-y-6 text-lg text-[var(--foreground-muted)]">
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>When visibility, access, and timing matter</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>When influence is necessary</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>When decisions cannot be improvised</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>When context is as important as capital</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+              {/* 2. C-Level & Executive Advisory */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  2. C-Level &amp; Executive Advisory
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  Confidential counsel for founders, executives and decision-makers operating under high stakes, public exposure and institutional complexity.
+                </p>
+              </div>
 
-      {/* Relationship Model */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Relationship Model
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                Mandate-based.
-                <br />
-                Bespoke. Confidential.
-              </h2>
-            </div>
-            <div className="lg:pt-10 space-y-8">
-              <p className="text-lg text-[var(--foreground-muted)] leading-[1.9]">
-                Strategic advisory often leads to capital decisions. When
-                appropriate, our work extends into HAKA Global Investment.
-              </p>
-              <p className="text-lg text-[var(--foreground)] leading-[1.9]">
-                Not every conversation leads to engagement. But every engagement
-                starts with the right conversation.
-              </p>
+              {/* 3. Personal & Corporate Affairs */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  3. Personal &amp; Corporate Affairs
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  Strategic advisory on personal and corporate interests, aligning reputation, relationships and positioning within decision-making environments.
+                </p>
+              </div>
+
+              {/* 4. Non-Market Strategy */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  4. Non-Market Strategy
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  Strategy beyond markets: institutions, regulation, public perception and power dynamics that shape outcomes outside traditional competitive frameworks.
+                </p>
+              </div>
+
+              {/* 5. Public Reputation, Trust & Consensus */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  5. Public Reputation, Trust &amp; Consensus
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  We help build, protect and reinforce reputational capital, legitimacy and trust, ensuring credibility among key stakeholders before consensus becomes public.
+                </p>
+              </div>
+
+              {/* 6. AI-Driven Strategic Intelligence */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  6. AI-Driven Strategic Intelligence
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  Advanced intelligence systems applied to context analysis, scenario anticipation and decision support across personal, corporate and non-market environments.
+                </p>
+              </div>
+
+              {/* 7. Financial Advisory */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  7. Financial Advisory
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  Strategic financial counsel supporting growth, restructuring, transactions and capital decisions, often acting as a bridge toward investment activity.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="min-h-[50vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-end">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Contact
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                Begin a conversation
-              </h2>
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* How We Work Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-12">
+              How We Work
+            </h2>
+            <div className="space-y-4 text-base md:text-lg text-[var(--foreground-muted)]">
+              <p>We work selectively.</p>
+              <p>We operate with discretion.</p>
+              <p>We prioritize judgment over process.</p>
+              <p>Advisory is not execution support.</p>
+              <p>It is strategic clarity under complexity.</p>
             </div>
-            <div className="lg:text-right">
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* When Clients Engage Us Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-12">
+              When Clients Engage Us
+            </h2>
+            <div className="space-y-4 text-base md:text-lg text-[var(--foreground-muted)]">
+              <p>When visibility, access and timing matter.</p>
+              <p>When influence is necessary.</p>
+              <p>When decisions cannot be improvised.</p>
+              <p>When context is as important as capital.</p>
+            </div>
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Relationship Model Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-12">
+              Relationship Model
+            </h2>
+            <div className="space-y-4 text-base md:text-lg text-[var(--foreground-muted)]">
+              <p>Mandate-based.</p>
+              <p>Bespoke engagements.</p>
+              <p>Confidential by default.</p>
+            </div>
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Investment Bridge Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9] mb-6">
+              Strategic advisory often leads to capital decisions.
+            </p>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9]">
+              When appropriate, our work extends into{" "}
               <Link
-                href="mailto:info@hakaglobal.com"
-                className="inline-flex items-center gap-3 text-[var(--foreground)] hover:text-[var(--foreground-muted)] transition-colors group"
+                href="/investment"
+                className="text-[var(--foreground)] font-semibold hover:text-[var(--gold)] transition-colors duration-300"
                 tabIndex={0}
-                aria-label="Send email to info@hakaglobal.com"
+                aria-label="Learn about Haka Global Investment"
               >
-                <span className="text-xl">info@hakaglobal.com</span>
-                <svg
-                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+                Haka Global Investment
               </Link>
-            </div>
+              .
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Email Subscription Section */}
+        <section className="w-full flex justify-center pb-24 md:pb-36 lg:pb-44">
+          <div className="w-full max-w-md px-6 text-left">
+            <p className="text-base md:text-lg text-[var(--foreground)] mb-8">
+              Enter your email address
+            </p>
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-4">
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder=""
+                className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center focus:outline-none focus:ring-2 focus:ring-[var(--gold)] focus:border-transparent transition-all duration-200"
+                aria-label="Email address"
+                tabIndex={0}
+                required
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center uppercase tracking-widest text-sm hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Subscribe to newsletter"
+                tabIndex={0}
+              >
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
+              </button>
+            </form>
+            {submitStatus === "success" && (
+              <p className="mt-5 text-green-500 text-sm">
+                Thank you for subscribing!
+              </p>
+            )}
+            {submitStatus === "error" && (
+              <p className="mt-5 text-red-500 text-sm">
+                Something went wrong. Please try again.
+              </p>
+            )}
+          </div>
+        </section>
+      </main>
 
       {/* Footer */}
-      <footer className="py-16 lg:py-20 border-t border-[var(--border)]">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-            <p className="text-sm text-[var(--foreground-muted)]">
-              © {new Date().getFullYear()} HAKA Global. All rights reserved.
-            </p>
-            <p className="text-sm text-[var(--foreground-muted)]">
-              Confidential by default.
-            </p>
+      <footer className="w-full max-w-full bg-[var(--surface)] py-6 mt-auto">
+        <div className="w-full max-w-full px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-[var(--foreground-muted)] text-sm">
+            <p>© {new Date().getFullYear()} HAKA Global. All rights reserved.</p>
+            <p>Confidential by default.</p>
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }

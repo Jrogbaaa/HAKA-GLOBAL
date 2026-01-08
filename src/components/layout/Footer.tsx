@@ -75,11 +75,16 @@ export const Footer = () => {
           {/* Logo Column */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
             <Link href="/" className="inline-block mb-6" tabIndex={0}>
-              <img
-                src="/haka-logo.svg"
-                alt={`${SITE_CONFIG.name} Logo`}
-                className="h-10 w-auto"
-              />
+              <div className="flex flex-col items-end">
+                <img
+                  src="/haka-logo-gold.svg"
+                  alt={`${SITE_CONFIG.name} Logo`}
+                  className="h-10 md:h-12 w-auto"
+                />
+                <span className="text-xs text-[var(--text-muted)] tracking-wide mt-0.5 text-right whitespace-nowrap">
+                  pre-shift strike.
+                </span>
+              </div>
             </Link>
             <p className="text-sm text-[var(--text-muted)] mb-6 max-w-xs">
               Strategic advisory and investment where decisions take shape — before

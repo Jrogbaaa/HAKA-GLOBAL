@@ -70,25 +70,27 @@ export const Navigation = () => {
           : "bg-[#1A191A]"
       }`}
     >
-      <div className="w-full flex h-28 md:h-32 items-center justify-between px-6 md:px-12 lg:px-16">
-        {/* Logo with tagline below - centered tagline */}
+      <div className="w-full flex h-20 md:h-28 lg:h-32 items-center justify-between px-4 md:px-12 lg:px-16">
+        {/* Logo with tagline below */}
         <Link
           href="/"
-          className="flex flex-col items-center shrink-0 group"
+          className="inline-block shrink-0 group"
           aria-label="HAKA Global Home"
           tabIndex={0}
         >
-          <Image
-            src="/haka-logo.svg"
-            alt="HAKA"
-            width={180}
-            height={65}
-            className="h-16 md:h-20 w-auto object-contain object-center"
-            priority
-          />
-          <span className="text-xs md:text-sm text-[var(--foreground-muted)] mt-2 tracking-wide">
-            pre-shift strike.
-          </span>
+          <div className="flex flex-col items-end">
+            <Image
+              src="/haka-logo-gold.svg"
+              alt="HAKA"
+              width={280}
+              height={80}
+              className="h-14 md:h-20 lg:h-24 w-auto object-contain"
+              priority
+            />
+            <span className="hidden sm:block text-xs md:text-sm lg:text-base text-[var(--foreground-muted)] tracking-wide mt-0.5 md:mt-1 text-right whitespace-nowrap">
+              pre-shift strike.
+            </span>
+          </div>
         </Link>
 
         {/* Three-line Hamburger Menu Button */}

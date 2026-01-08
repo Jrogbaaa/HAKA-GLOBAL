@@ -34,27 +34,6 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen w-full max-w-full">
       {/* Main Content - Full Width */}
       <main className="flex-1 w-full max-w-full">
-        {/* Description Section - Centered Tagline */}
-        <section className="w-full flex justify-center pt-12 pb-16 md:pt-16 md:pb-20 lg:pt-20 lg:pb-24">
-          <div className="w-full max-w-4xl px-6 text-center">
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)]">
-              <strong className="font-semibold">We support Personal and Corporate Affairs</strong> with anticipation, strategic clarity, access and long-term vision. We operate where decisions take shape, before they become public.
-            </p>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
-              We read context, influence outcomes and position people and companies where it matters most. Strategy, reputation and capital move together.
-            </p>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
-              We create opinions and build consensus.
-            </p>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
-              We advise with clarity. We invest with conviction. We act with access.
-            </p>
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
-              <strong className="font-semibold">Pre-Shift Strike</strong> is not a slogan. It&apos;s knowing when to move, where to stand, and who needs to be in the room. Before the shift happens.
-            </p>
-          </div>
-        </section>
-
         {/* Two Card Grid - Full Width */}
         <section className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
@@ -87,6 +66,27 @@ export default function HomePage() {
                 INVESTING
               </h2>
             </Link>
+          </div>
+        </section>
+
+        {/* Description Section - Below boxes with spacing */}
+        <section className="w-full flex justify-center pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
+          <div className="w-full max-w-4xl px-6 text-center">
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)]">
+              <strong className="font-semibold">We support Personal and Corporate Affairs</strong> with anticipation, strategic clarity, access and long-term vision. We operate where decisions take shape, before they become public.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              We read context, influence outcomes and position people and companies where it matters most. Strategy, reputation and capital move together.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              We create opinions and build consensus.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              We advise with clarity. We invest with conviction. We act with access.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              <strong className="font-semibold">Pre-Shift Strike</strong> is not a slogan. It&apos;s knowing when to move, where to stand, and who needs to be in the room. Before the shift happens.
+            </p>
           </div>
         </section>
 
