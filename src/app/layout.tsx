@@ -1,20 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
-});
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -33,17 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body
-        className={`${inter.variable} ${cormorant.variable} antialiased min-h-screen w-full flex flex-col bg-[var(--background)]`}
+        className={`${dmSans.variable} antialiased min-h-screen w-full max-w-full flex flex-col bg-[var(--background)] overflow-x-hidden`}
       >
         <Navigation />
-        <main className="flex-1 w-full">{children}</main>
+        {children}
       </body>
     </html>
   );

@@ -1,256 +1,145 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
-const SERVICE_CARDS = [
-  {
-    title: "Personal Branding",
-    description:
-      "Curating the narrative of the world's most influential leaders and visionaries.",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80",
-    icon: "campaign",
-    href: "/advisory",
-  },
-  {
-    title: "Global Real Estate",
-    description:
-      "Acquisition, management, and development of prime global assets.",
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    icon: "domain",
-    href: "/investment",
-  },
-  {
-    title: "Strategic Advisory",
-    description:
-      "Strategic counsel for executives navigating complex decisions and transitions.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    icon: "insights",
-    href: "/advisory",
-  },
-  {
-    title: "Luxury Marketplace",
-    description:
-      "Sourcing the unobtainable for the discerning few. From art to aviation.",
-    image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
-    icon: "diamond",
-    href: "/marketplace",
-  },
-];
-
 export default function HomePage() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setSubmitStatus("success");
+      setEmail("");
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <>
-      {/* Hero Section */}
-      <section className="min-h-[65vh] flex items-center">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-[var(--foreground)] leading-[0.95] mb-8">
-                Pre-Shift
-                <br />
-                Strike.
-              </h1>
-            </div>
-            <div className="lg:pl-12">
-              <p className="text-lg lg:text-xl text-[var(--foreground-muted)] leading-relaxed">
-                Strategic advisory and investment for people and companies
-                operating where decisions take shape — before they become
-                public.
-              </p>
-            </div>
+    <div className="flex flex-col min-h-screen w-full max-w-full">
+      {/* Main Content - Full Width */}
+      <main className="flex-1 w-full max-w-full">
+        {/* Description Section - Centered Tagline */}
+        <section className="w-full flex justify-center pt-12 pb-16 md:pt-16 md:pb-20 lg:pt-20 lg:pb-24">
+          <div className="w-full max-w-4xl px-6 text-center">
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)]">
+              <strong className="font-semibold">We support Personal and Corporate Affairs</strong> with anticipation, strategic clarity, access and long-term vision. We operate where decisions take shape, before they become public.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              We read context, influence outcomes and position people and companies where it matters most. Strategy, reputation and capital move together.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              We create opinions and build consensus.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              We advise with clarity. We invest with conviction. We act with access.
+            </p>
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              <strong className="font-semibold">Pre-Shift Strike</strong> is not a slogan. It&apos;s knowing when to move, where to stand, and who needs to be in the room. Before the shift happens.
+            </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Services Cards Section */}
-      <section className="py-16 lg:py-24">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {SERVICE_CARDS.map((card, index) => (
-              <Link
-                key={index}
-                href={card.href}
-                className="group block"
-                tabIndex={0}
-                aria-label={`Learn more about ${card.title}`}
+        {/* Two Card Grid - Full Width */}
+        <section className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+            {/* Consulting Card - Black Background */}
+            <Link
+              href="/advisory"
+              className="group relative flex items-center justify-center min-h-[300px] md:min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl bg-black border border-[var(--border)] hover:border-[var(--gold)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--gold)]/10"
+              tabIndex={0}
+              aria-label="Explore Consulting services"
+            >
+              <h2 
+                className="text-[var(--gold)] font-light tracking-tight text-center group-hover:scale-105 transition-transform duration-500"
+                style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: '1' }}
               >
-                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden mb-4 bg-[var(--surface)]">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-[var(--surface)]/90 backdrop-blur-sm flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[var(--foreground)] text-xl">
-                      {card.icon}
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-lg font-serif text-[var(--foreground)] mb-2 group-hover:text-[var(--foreground-muted)] transition-colors">
-                  {card.title}
-                </h3>
-                <p className="text-sm text-[var(--foreground-muted)] leading-relaxed">
-                  {card.description}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-        <div className="divider" />
-      </div>
-
-      {/* Philosophy Brief */}
-      <section className="py-24 lg:py-32">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
-                Philosophy
-              </p>
-              <blockquote className="font-serif text-2xl lg:text-3xl text-[var(--foreground)] leading-snug italic">
-                "Knowing when to move, where to stand, and who needs to be in
-                the room — before the shift happens."
-              </blockquote>
-            </div>
-            <div className="lg:pt-10 space-y-6">
-              <p className="text-[var(--foreground-muted)] leading-relaxed">
-                We read context, influence outcomes, and position people and
-                companies where it matters most. Strategy, reputation, and
-                capital move together.
-              </p>
-              <p className="text-[var(--foreground)] leading-relaxed">
-                We advise with clarity. We invest with conviction. We act with
-                access.
-              </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 text-[var(--foreground)] hover:text-[var(--foreground-muted)] transition-colors group"
-                tabIndex={0}
-              >
-                <span>Learn about our approach</span>
-                <svg
-                  className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divider */}
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-        <div className="divider" />
-      </div>
-
-      {/* Contact Section */}
-      <section className="py-24 lg:py-32">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
-                Contact
-              </p>
-              <h2 className="text-[var(--foreground)] mb-4">
-                Start a Conversation
+                CONSULTING
               </h2>
-              <p className="text-[var(--foreground-muted)] leading-relaxed">
-                Discretion starts here. HAKA engages selectively. If context,
-                timing, and access are critical to your decisions, you may
-                initiate a conversation.
-              </p>
-            </div>
-            <div className="space-y-8">
-              <div className="grid sm:grid-cols-3 gap-6">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.15em] text-[var(--foreground-muted)] mb-2">
-                    Madrid
-                  </p>
-                  <p className="text-sm text-[var(--foreground)]">
-                    Calle Hermosilla 7
-                    <br />
-                    28001
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.15em] text-[var(--foreground-muted)] mb-2">
-                    Barcelona
-                  </p>
-                  <p className="text-sm text-[var(--foreground)]">
-                    C/ Sant Gervasi
-                    <br />
-                    de Cassoles, 59
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.15em] text-[var(--foreground-muted)] mb-2">
-                    Rome
-                  </p>
-                  <p className="text-sm text-[var(--foreground)]">
-                    Via Tripoli 5<br />
-                    00199
-                  </p>
-                </div>
-              </div>
-              <div>
-                <Link
-                  href="mailto:info@hakaglobal.com"
-                  className="inline-flex items-center gap-3 text-[var(--foreground)] hover:text-[var(--foreground-muted)] transition-colors group"
-                  tabIndex={0}
-                  aria-label="Send email to info@hakaglobal.com"
-                >
-                  <span className="text-lg">info@hakaglobal.com</span>
-                  <svg
-                    className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </div>
+            </Link>
+
+            {/* Investing Card - Black Background */}
+            <Link
+              href="/investment"
+              className="group relative flex items-center justify-center min-h-[300px] md:min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl bg-black border border-[var(--border)] hover:border-[var(--foreground-muted)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-white/5"
+              tabIndex={0}
+              aria-label="Explore Investing services"
+            >
+              <h2 
+                className="text-[var(--foreground-muted)] font-light tracking-tight text-center group-hover:scale-105 transition-transform duration-500"
+                style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: '1' }}
+              >
+                INVESTING
+              </h2>
+            </Link>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* Email Subscription Section */}
+        <section className="w-full flex justify-center pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-28">
+          <div className="w-full max-w-md px-6 text-center">
+            <p className="text-base md:text-lg text-[var(--foreground)] mb-8">
+              Enter your email address
+            </p>
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-4">
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder=""
+                className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center focus:outline-none focus:ring-2 focus:ring-[var(--gold)] focus:border-transparent transition-all duration-200"
+                aria-label="Email address"
+                tabIndex={0}
+                required
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center uppercase tracking-widest text-sm hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Subscribe to newsletter"
+                tabIndex={0}
+              >
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
+              </button>
+            </form>
+            {submitStatus === "success" && (
+              <p className="mt-5 text-green-500 text-sm">
+                Thank you for subscribing!
+              </p>
+            )}
+            {submitStatus === "error" && (
+              <p className="mt-5 text-red-500 text-sm">
+                Something went wrong. Please try again.
+              </p>
+            )}
+          </div>
+        </section>
+      </main>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-[var(--border)]">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-            <p className="text-xs text-[var(--foreground-muted)]">
-              © {new Date().getFullYear()} HAKA Global. All rights reserved.
-            </p>
-            <p className="text-xs text-[var(--foreground-muted)]">
-              Confidential by default.
-            </p>
+      <footer className="w-full max-w-full bg-[var(--surface)] py-6 mt-auto">
+        <div className="w-full max-w-full px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-[var(--foreground-muted)] text-sm">
+            <p>© {new Date().getFullYear()} HAKA Global. All rights reserved.</p>
+            <p>Confidential by default.</p>
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }

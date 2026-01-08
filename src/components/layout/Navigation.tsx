@@ -1,19 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
-  { label: "Advisory", href: "/advisory" },
-  { label: "Investment", href: "/investment" },
-  { label: "Marketplace", href: "/marketplace" },
+  { label: "Consulting", href: "/advisory" },
+  { label: "Investing", href: "/investment" },
   { label: "About", href: "/about" },
+  { label: "Start a Conversation", href: "/contact" },
 ];
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -26,146 +29,111 @@ export const Navigation = () => {
   }, []);
 
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    setIsMenuOpen(false);
   }, [pathname]);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [isMobileMenuOpen]);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
 
-  const handleToggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      handleToggleMobileMenu();
+      handleToggleMenu();
+    }
+    if (event.key === "Escape") {
+      setIsMenuOpen(false);
     }
   };
 
   return (
-    <>
-      <header
-        className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-          isScrolled
-            ? "bg-[var(--background)]/95 backdrop-blur-md border-b border-[var(--border)]"
-            : "bg-transparent"
-        }`}
-      >
-        <div className="w-full max-w-[1400px] mx-auto flex h-20 items-center justify-between px-8 lg:px-16">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center shrink-0"
-            aria-label="HAKA Global Home"
-            tabIndex={0}
-          >
-            <img
-              src="/haka-logo.svg"
-              alt="HAKA Global Logo"
-              className="h-14 w-auto"
-            />
-          </Link>
+    <header
+      className={`sticky top-0 z-50 w-full max-w-full transition-all duration-300 ${
+        isScrolled
+          ? "bg-[#1A191A]/95 backdrop-blur-md border-b border-[var(--border)]"
+          : "bg-[#1A191A]"
+      }`}
+    >
+      <div className="w-full flex h-28 md:h-32 items-center justify-between px-6 md:px-12 lg:px-16">
+        {/* Logo with tagline below - centered tagline */}
+        <Link
+          href="/"
+          className="flex flex-col items-center shrink-0 group"
+          aria-label="HAKA Global Home"
+          tabIndex={0}
+        >
+          <Image
+            src="/haka-logo.svg"
+            alt="HAKA"
+            width={180}
+            height={65}
+            className="h-16 md:h-20 w-auto object-contain object-center"
+            priority
+          />
+          <span className="text-xs md:text-sm text-[var(--foreground-muted)] mt-2 tracking-wide">
+            pre-shift strike.
+          </span>
+        </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm transition-colors ${
-                  pathname === link.href
-                    ? "text-[var(--foreground)]"
-                    : "text-[var(--foreground-muted)] hover:text-[var(--foreground)]"
-                }`}
-                tabIndex={0}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Mobile Menu Button */}
+        {/* Three-line Hamburger Menu Button */}
+        <div className="relative">
           <button
-            onClick={handleToggleMobileMenu}
+            ref={buttonRef}
+            onClick={handleToggleMenu}
             onKeyDown={handleKeyDown}
-            className="flex items-center text-[var(--foreground)] lg:hidden p-2"
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={isMobileMenuOpen}
+            className="flex flex-col items-center justify-center w-10 h-10 gap-1.5 rounded-lg hover:bg-[var(--surface)] transition-colors duration-200"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+            aria-haspopup="true"
             tabIndex={0}
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
-        </div>
-      </header>
 
-      {/* Mobile Menu */}
-      <div
-        className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-300 ${
-          isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="absolute inset-0 bg-[var(--background)]" />
-        <nav className="relative h-full flex flex-col pt-28 pb-8 px-8">
-          <div className="space-y-1">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block py-4 text-2xl font-serif transition-colors border-b border-[var(--border)] ${
-                  pathname === link.href
-                    ? "text-[var(--foreground)]"
-                    : "text-[var(--foreground-muted)]"
-                }`}
-                tabIndex={0}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-auto">
-            <Link
-              href="mailto:info@hakaglobal.com"
-              className="text-sm text-[var(--foreground-muted)]"
-              tabIndex={0}
+          {/* Dropdown Menu */}
+          {isMenuOpen && (
+            <div
+              ref={menuRef}
+              className="absolute right-0 top-full mt-3 w-72 bg-[var(--surface)] rounded-xl shadow-2xl border border-[var(--border)] py-3 animate-fade-in-up"
+              role="menu"
             >
-              info@hakaglobal.com
-            </Link>
-          </div>
-        </nav>
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block px-6 py-3.5 text-base transition-colors hover:bg-[var(--background)] ${
+                    pathname === link.href
+                      ? "text-[var(--gold)] font-medium"
+                      : "text-[var(--foreground)]"
+                  }`}
+                  role="menuitem"
+                  tabIndex={0}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-
-      {/* Spacer for fixed header */}
-      <div className="h-20" />
-    </>
+    </header>
   );
 };

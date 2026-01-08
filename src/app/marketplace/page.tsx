@@ -62,23 +62,23 @@ export default function MarketplacePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-16 pb-24 lg:pt-24 lg:pb-32">
+      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
+          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
+            <div className="pl-6 sm:pl-12 lg:pl-24 xl:pl-32">
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
                 Marketplace
               </p>
-              <h1 className="text-[var(--foreground)] text-4xl lg:text-5xl leading-tight">
+              <h1 className="text-[var(--foreground)] text-4xl lg:text-6xl leading-tight">
                 Access defines value
               </h1>
             </div>
-            <div className="lg:pt-12">
-              <p className="text-[var(--foreground-muted)] leading-[1.9] mb-6">
+            <div className="lg:pt-14">
+              <p className="text-xl lg:text-2xl text-[var(--foreground-muted)] leading-[1.9] mb-8 max-w-2xl">
                 Luxury goods treated as investment-grade assets, driven by
                 scarcity, demand, and access.
               </p>
-              <p className="text-[var(--foreground-muted)] leading-[1.9]">
+              <p className="text-xl lg:text-2xl text-[var(--foreground-muted)] leading-[1.9] max-w-2xl">
                 We provide sourcing, access, and resale of highly sought-after
                 and often inaccessible pieces — through private networks and
                 proprietary intelligence.
@@ -88,23 +88,18 @@ export default function MarketplacePage() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-        <div className="divider" />
-      </div>
-
       {/* Categories Grid */}
-      <section className="py-24 lg:py-32">
+      <section className="py-40 lg:py-56">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="mb-16">
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
+          <div className="mb-20">
+            <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
               Categories
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-14">
             {MARKETPLACE_CATEGORIES.map((category, index) => (
               <div key={index} className="group">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-[var(--surface)]">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 bg-[var(--surface)]">
                   <img
                     src={category.image}
                     alt={category.title}
@@ -117,10 +112,10 @@ export default function MarketplacePage() {
                     </span>
                   </div>
                 </div>
-                <h3 className="text-xl font-serif text-[var(--foreground)] mb-3">
+                <h3 className="text-xl font-serif text-[var(--foreground)] mb-4">
                   {category.title}
                 </h3>
-                <p className="text-sm text-[var(--foreground-muted)] leading-relaxed">
+                <p className="text-base text-[var(--foreground-muted)] leading-relaxed">
                   {category.description}
                 </p>
               </div>
@@ -129,31 +124,26 @@ export default function MarketplacePage() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-        <div className="divider" />
-      </div>
-
       {/* Featured Maisons */}
-      <section className="py-24 lg:py-32">
+      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
                 Maisons & Partners
               </p>
-              <h2 className="text-[var(--foreground)]">
+              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
                 Selective access to
                 <br />
                 exceptional pieces
               </h2>
             </div>
-            <div className="lg:pt-8">
-              <p className="text-[var(--foreground-muted)] leading-[1.9] mb-8">
+            <div className="lg:pt-10">
+              <p className="text-lg text-[var(--foreground-muted)] leading-[1.9] mb-10">
                 We work with highly selective brands and private sources,
                 including:
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-[var(--foreground)]">
+              <div className="flex flex-wrap gap-x-6 gap-y-4 text-base text-[var(--foreground)]">
                 <span>Patek Philippe</span>
                 <span className="text-[var(--foreground-muted)]">·</span>
                 <span>Audemars Piguet</span>
@@ -175,40 +165,35 @@ export default function MarketplacePage() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-        <div className="divider" />
-      </div>
-
       {/* How It Works */}
-      <section className="py-24 lg:py-32">
+      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
                 Process
               </p>
-              <h2 className="text-[var(--foreground)]">
+              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
                 Discretion and
                 <br />
                 selectivity
               </h2>
             </div>
-            <div className="lg:pt-8">
-              <ul className="space-y-4 text-[var(--foreground-muted)]">
-                <li className="flex items-start gap-3">
+            <div className="lg:pt-10">
+              <ul className="space-y-6 text-lg text-[var(--foreground-muted)]">
+                <li className="flex items-start gap-4">
                   <span className="text-[var(--foreground)]">—</span>
                   <span>Mandate-based sourcing or consignment</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-4">
                   <span className="text-[var(--foreground)]">—</span>
                   <span>Private transactions, no public listings</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-4">
                   <span className="text-[var(--foreground)]">—</span>
                   <span>Authentication and provenance verification</span>
                 </li>
-                <li className="flex items-start gap-3">
+                <li className="flex items-start gap-4">
                   <span className="text-[var(--foreground)]">—</span>
                   <span>Confidential by default</span>
                 </li>
@@ -218,20 +203,15 @@ export default function MarketplacePage() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-        <div className="divider" />
-      </div>
-
       {/* CTA Section */}
-      <section className="py-24 lg:py-32">
+      <section className="min-h-[50vh] flex items-center py-32 lg:py-40">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-end">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-end">
             <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
                 Inquiries
               </p>
-              <h2 className="text-[var(--foreground)]">
+              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
                 Source or consign
               </h2>
             </div>
@@ -242,7 +222,7 @@ export default function MarketplacePage() {
                 tabIndex={0}
                 aria-label="Send email to info@hakaglobal.com"
               >
-                <span className="text-lg">info@hakaglobal.com</span>
+                <span className="text-xl">info@hakaglobal.com</span>
                 <svg
                   className="w-5 h-5 transition-transform group-hover:translate-x-1"
                   fill="none"
@@ -264,13 +244,13 @@ export default function MarketplacePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-[var(--border)]">
+      <footer className="py-16 lg:py-20 border-t border-[var(--border)]">
         <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-            <p className="text-xs text-[var(--foreground-muted)]">
+            <p className="text-sm text-[var(--foreground-muted)]">
               © {new Date().getFullYear()} HAKA Global. All rights reserved.
             </p>
-            <p className="text-xs text-[var(--foreground-muted)]">
+            <p className="text-sm text-[var(--foreground-muted)]">
               Confidential by default.
             </p>
           </div>

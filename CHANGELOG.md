@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.3.0] - 2026-01-08
+
+### Changed
+- **Homepage Layout Refinements**
+  - CONSULTING and INVESTING cards now have pure black backgrounds (`bg-black`) for stronger contrast
+  - Description/tagline section is now properly centered using `flex justify-center`
+  - Email subscription section moved to center of page with increased top spacing (`pt-32 md:pt-40 lg:pt-48`)
+  - All text content properly centered on the page
+
+- **Navigation & Branding**
+  - HAKA logo increased in size (`h-16 md:h-20`)
+  - "pre-shift strike." tagline now centered under the logo
+  - Header height increased to `h-28 md:h-32` to accommodate larger logo
+
+- **Full-Width Layout Fixes**
+  - Added `max-w-full` and `overflow-x: hidden` to html, body, header, main, and footer
+  - Ensures page content extends properly to all edges without cutoff
+  - Fixed body background to use `var(--background)` instead of white
+
+### Fixed
+- Description text not appearing centered on page
+- Email subscription section misaligned to the left
+- Page content being cut off on the right side
+- "pre-shift strike." text not centered under HAKA logo
+
 ## [2.2.0] - 2026-01-07
 
 ### Changed

@@ -35,7 +35,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-24 lg:py-32 overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center py-32 lg:py-40 overflow-hidden">
         {/* Background */}
         <div className="absolute inset-0 bg-[var(--background)]">
           <div
@@ -48,21 +48,21 @@ export default function ContactPage() {
           />
         </div>
 
-        <div className="relative max-w-[1280px] mx-auto px-4 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--surface)] border border-[var(--border)] mb-6">
+        <div className="relative max-w-[1400px] mx-auto px-8 lg:px-16 w-full">
+          <div className="max-w-3xl pl-6 sm:pl-12 lg:pl-24 xl:pl-32">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--surface)] border border-[var(--border)] mb-8">
               <span className="text-sm font-medium text-[var(--primary)]">
                 Contact
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
               Start a
               <br />
               <span className="gradient-text">conversation.</span>
             </h1>
 
-            <p className="text-xl text-[var(--text-secondary)] leading-relaxed max-w-2xl">
+            <p className="text-xl lg:text-2xl text-[var(--text-secondary)] leading-relaxed max-w-2xl">
               HAKA engages selectively. If context, timing, and access are
               critical to your decisions, you may initiate a conversation. All
               inquiries are treated with discretion.
@@ -72,12 +72,12 @@ export default function ContactPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-[1280px] mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+      <section className="py-32 lg:py-48">
+        <div className="max-w-[1400px] mx-auto px-8 lg:px-16">
+          <div className="grid lg:grid-cols-5 gap-16 lg:gap-24">
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <h2 className="text-2xl font-bold text-white mb-8">
+              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-10">
                 Send us a message
               </h2>
               <ContactForm />
@@ -86,11 +86,11 @@ export default function ContactPage() {
             {/* Sidebar */}
             <div className="lg:col-span-2">
               {/* Offices */}
-              <div className="mb-12">
-                <h3 className="text-lg font-semibold text-white mb-6">
+              <div className="mb-16">
+                <h3 className="text-xl font-semibold text-white mb-8">
                   Our Offices
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {OFFICES.map((office, index) => (
                     <div
                       key={index}
@@ -125,11 +125,11 @@ export default function ContactPage() {
               </div>
 
               {/* Engagement Types */}
-              <div className="mb-12">
-                <h3 className="text-lg font-semibold text-white mb-6">
+              <div className="mb-16">
+                <h3 className="text-xl font-semibold text-white mb-8">
                   Engagement Types
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {[
                     {
                       title: "Advisory Mandate",

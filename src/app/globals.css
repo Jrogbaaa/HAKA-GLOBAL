@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  /* Core Colors - Matching HAKA logo background */
+  /* Dark theme - matching the HAKA logo background */
   --background: #1A191A;
-  --foreground: #A19B8F;
-  --foreground-muted: #6B6660;
-  --border: #2A2928;
-  --surface: #222121;
+  --foreground: #E8E4DC;
+  --foreground-muted: #9A958D;
+  --border: #2E2D2E;
+  --surface: #242324;
+  --gold: #D4A84B;
+  --gold-light: #E8C068;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
 }
 
 * {
@@ -24,27 +25,28 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  font-weight: 400;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* Serif Typography */
-.font-serif {
-  font-family: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 h1, h2, h3 {
-  font-family: var(--font-serif), "Cormorant Garamond", Georgia, serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   color: var(--foreground);
 }
 
@@ -61,19 +63,19 @@ h3 {
 }
 
 p {
-  color: var(--foreground-muted);
+  color: var(--foreground);
   line-height: 1.8;
   font-size: 1rem;
 }
 
 ::selection {
-  background: var(--foreground);
+  background: var(--gold);
   color: var(--background);
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -82,7 +84,7 @@ p {
 
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -106,11 +108,11 @@ a {
   width: 100%;
 }
 
-/* Animate on scroll */
+/* Animate dropdown */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -119,5 +121,23 @@ a {
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.2s ease-out forwards;
+}
+
+/* Large display typography */
+.display-text {
+  font-size: clamp(4rem, 12vw, 10rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+/* Gold text color */
+.text-gold {
+  color: var(--gold);
+}
+
+/* Gray muted text */
+.text-gray-muted {
+  color: #9CA3AF;
 }
