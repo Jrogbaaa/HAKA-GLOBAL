@@ -87,7 +87,7 @@ export const Navigation = () => {
               className="h-14 md:h-20 lg:h-24 w-auto object-contain"
               priority
             />
-            <span className="hidden sm:block text-xs md:text-sm lg:text-base text-[var(--foreground-muted)] tracking-wide mt-0.5 md:mt-1 text-right whitespace-nowrap">
+            <span className="hidden sm:block text-xs md:text-sm lg:text-base text-[var(--foreground-muted)] tracking-wide whitespace-nowrap -translate-x-2 -translate-y-7">
               pre-shift strike.
             </span>
           </div>

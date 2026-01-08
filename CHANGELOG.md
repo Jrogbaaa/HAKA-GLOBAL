@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.4.1] - 2026-01-08
+
+### Fixed
+- **Navigation Tagline Alignment** - "pre-shift strike." text now properly aligned with the HAKA logo
+  - Fixed horizontal alignment using CSS transform (`-translate-x-2`)
+  - Fixed vertical positioning using CSS transform (`-translate-y-7`) to sit closer to logo
+  - Resolved issue where margin-based positioning wasn't working due to flex container constraints
+
 ## [2.4.0] - 2026-01-08
 
 ### Changed

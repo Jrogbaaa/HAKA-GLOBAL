@@ -1,262 +1,255 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Investment",
-  description:
-    "Strategic investments shaped by access, timing, and conviction.",
-};
-
-const INVESTMENT_AREAS = [
-  {
-    title: "Worldwide Real Estate",
-    description:
-      "Strategic real estate investments across key global locations, focused on scarcity, positioning, and long-term relevance rather than short-term cycles.",
-    image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-    icon: "domain",
-  },
-  {
-    title: "Private & Strategic Investments",
-    description:
-      "Direct investments in companies and structures where governance, strategy, and long-term vision are aligned. Includes access to startups and early-stage opportunities typically unavailable to the broader market.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    icon: "trending_up",
-  },
-  {
-    title: "Precious Metals",
-    description:
-      "Targeted exposure to precious metals as instruments of capital preservation, optionality, and portfolio balance — approached with strategic timing and discipline.",
-    image:
-      "https://images.unsplash.com/photo-1610375461246-83df859d849d?w=800&q=80",
-    icon: "paid",
-  },
-  {
-    title: "Luxury Assets & Collectibles",
-    description:
-      "Luxury goods treated as investment-grade assets, driven by scarcity, demand, and access. Sourcing and resale of highly sought-after pieces from Patek Philippe, Hermès, Chanel, and other selective maisons.",
-    image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&q=80",
-    icon: "diamond",
-  },
-];
 
 export default function InvestmentPage() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setSubmitStatus("success");
+      setEmail("");
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <>
-      {/* Hero Section */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div className="pl-6 sm:pl-12 lg:pl-24 xl:pl-32">
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Investment
-              </p>
-              <h1 className="text-[var(--foreground)] text-4xl lg:text-6xl leading-tight">
-                Capital deployed
-                <br />
-                with conviction
-              </h1>
-            </div>
-            <div className="lg:pt-14">
-              <p className="text-xl lg:text-2xl text-[var(--foreground-muted)] leading-[1.9] mb-8 max-w-2xl">
-                HAKA Global Investment operates where information asymmetry,
-                scarcity, and strategic access generate long-term value.
-              </p>
-              <p className="text-xl lg:text-2xl text-[var(--foreground-muted)] leading-[1.9] max-w-2xl">
-                Our activity is selective and opportunity-driven, often emerging
-                from insights developed within HAKA Global Consulting. We deploy
-                capital where anticipation creates advantage.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Philosophy Section */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Investment Philosophy
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                We do not chase trends.
-                <br />
-                We position before they form.
-              </h2>
-            </div>
-            <div className="lg:pt-10 space-y-8">
-              <p className="text-lg text-[var(--foreground-muted)] leading-[1.9]">
-                Our approach combines contextual intelligence, disciplined risk
-                assessment, and access to non-obvious opportunities.
-              </p>
-              <p className="text-lg text-[var(--foreground)] leading-[1.9]">
-                Conviction matters more than volume.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Investment Areas Grid */}
-      <section className="py-40 lg:py-56">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="mb-20">
-            <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-              Investment Areas
+    <div className="flex flex-col min-h-screen w-full max-w-full">
+      <main className="flex-1 w-full max-w-full">
+        {/* Hero Section */}
+        <section className="w-full flex justify-center pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[var(--foreground)] mb-10">
+              HAKA GLOBAL INVESTMENT
+            </h1>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-relaxed">
+              Strategic investments shaped by access, timing and conviction.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-            {INVESTMENT_AREAS.map((area, index) => (
-              <div key={index} className="group">
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-6 bg-[var(--surface)]">
-                  <img
-                    src={area.image}
-                    alt={area.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-10 h-10 rounded-lg bg-[var(--surface)]/90 backdrop-blur-sm flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[var(--foreground)] text-xl">
-                      {area.icon}
-                    </span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-serif text-[var(--foreground)] mb-4">
-                  {area.title}
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Overview Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-8">
+              Overview
+            </h2>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9] mb-6">
+              HAKA Global Investment operates where{" "}
+              <strong className="text-[var(--foreground)] font-semibold">information asymmetry, scarcity and strategic access</strong>{" "}
+              generate long-term value. Our activity is selective and opportunity-driven, often emerging from insights developed within{" "}
+              <Link
+                href="/advisory"
+                className="text-[var(--foreground)] font-semibold hover:text-[var(--gold)] transition-colors duration-300"
+                tabIndex={0}
+                aria-label="Learn about HAKA Global Consulting"
+              >
+                HAKA Global Consulting
+              </Link>.
+            </p>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9]">
+              We deploy capital where anticipation creates advantage.
+            </p>
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Investment Philosophy Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-8">
+              Investment Philosophy
+            </h2>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9] mb-6">
+              We do not chase trends. We position capital before they form.
+            </p>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9] mb-6">
+              Our approach combines contextual intelligence, disciplined risk assessment and access to non-obvious opportunities.
+            </p>
+            <p className="text-base md:text-lg text-[var(--foreground)] leading-[1.9] font-medium">
+              Conviction matters more than volume.
+            </p>
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Investment Areas Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-12">
+              Investment Areas
+            </h2>
+
+            <div className="space-y-12 text-left">
+              {/* 1. Worldwide Real Estate */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  1. Worldwide Real Estate
                 </h3>
-                <p className="text-base text-[var(--foreground-muted)] leading-relaxed">
-                  {area.description}
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  Strategic real estate investments across key global locations, focused on scarcity, positioning and long-term relevance rather than short-term cycles.
                 </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* AI Integration Section */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Intelligence & Timing
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                AI as strategic
-                <br />
-                leverage
-              </h2>
-            </div>
-            <div className="lg:pt-10 space-y-8">
-              <p className="text-lg text-[var(--foreground-muted)] leading-[1.9]">
-                Investment decisions are supported by AI-driven strategic
-                intelligence, applied to context analysis, scenario
-                anticipation, and decision support across market and non-market
-                environments.
-              </p>
-              <p className="text-lg text-[var(--foreground)] leading-[1.9]">
-                Capital follows insight. Insight comes before opportunity.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+              {/* 2. Private & Strategic Investments */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  2. Private &amp; Strategic Investments
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8] mb-4">
+                  Direct investments in companies and structures where governance, strategy and long-term vision are aligned.
+                </p>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  This includes access to{" "}
+                  <strong className="text-[var(--foreground)] font-semibold">startups and early-stage opportunities typically unavailable to the broader market</strong>, sourced through private networks and proprietary intelligence.
+                </p>
+              </div>
 
-      {/* How We Operate */}
-      <section className="min-h-[70vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                How We Operate
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                Direct investments.
-                <br />
-                No open vehicles.
-              </h2>
-            </div>
-            <div className="lg:pt-10">
-              <ul className="space-y-6 text-lg text-[var(--foreground-muted)]">
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>Direct investments or mandate-based activity</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>No open vehicles</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>No mass exposure</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <span className="text-[var(--foreground)]">—</span>
-                  <span>Discretion and selectivity are fundamental</span>
-                </li>
-              </ul>
+              {/* 3. Precious Metals */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  3. Precious Metals
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  Targeted exposure to precious metals as instruments of capital preservation, optionality and portfolio balance, approached with strategic timing and discipline.
+                </p>
+              </div>
+
+              {/* 4. Luxury Assets & Collectibles */}
+              <div>
+                <h3 className="text-base md:text-lg font-semibold text-[var(--foreground)] mb-2">
+                  4. Luxury Assets &amp; Collectibles
+                </h3>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8] mb-4">
+                  We treat luxury goods as{" "}
+                  <strong className="text-[var(--foreground)] font-semibold">investment-grade assets</strong>, driven by scarcity, demand and access.
+                </p>
+                <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
+                  We provide sourcing, access and resale of{" "}
+                  <strong className="text-[var(--foreground)] font-semibold">highly sought-after and often inaccessible pieces</strong>, including watches, handbags, accessories and fine jewelry from maisons such as Patek Philippe, Audemars Piguet, Rolex, Hermès, Chanel, Goyard, and other highly selective brands. We operate where access defines value.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="min-h-[50vh] flex items-center py-32 lg:py-40">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-end">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-[var(--foreground-muted)] mb-8">
-                Contact
-              </p>
-              <h2 className="text-[var(--foreground)] text-3xl lg:text-4xl">
-                Explore opportunities
-              </h2>
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Intelligence & Timing Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-8">
+              Intelligence &amp; Timing
+            </h2>
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9]">
+              Investment decisions are supported by{" "}
+              <strong className="text-[var(--foreground)] font-semibold">AI-driven strategic intelligence</strong>, applied to context analysis, scenario anticipation and decision support across market and non-market environments.
+            </p>
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* How We Operate Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <h2 className="text-xs md:text-sm uppercase tracking-[0.2em] text-[var(--foreground)] font-medium mb-12">
+              How We Operate
+            </h2>
+            <div className="space-y-4 text-base md:text-lg text-[var(--foreground-muted)]">
+              <p>Direct investments or mandate-based activity. No open vehicles. No mass exposure.</p>
+              <p>Discretion and selectivity are fundamental.</p>
             </div>
-            <div className="lg:text-right">
-              <Link
-                href="mailto:info@hakaglobal.com"
-                className="inline-flex items-center gap-3 text-[var(--foreground)] hover:text-[var(--foreground-muted)] transition-colors group"
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Consulting Bridge Section */}
+        <section className="w-full flex justify-center">
+          <div className="w-full max-w-3xl px-6 text-left">
+            <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9] mb-6">
+              Capital follows insight. Insight comes before opportunity.
+            </p>
+            <p className="text-base md:text-lg text-[var(--foreground)] leading-[1.9] font-medium">
+              Pre-Shift Strike.
+            </p>
+          </div>
+        </section>
+
+        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+
+        {/* Email Subscription Section */}
+        <section className="w-full flex justify-center pb-24 md:pb-36 lg:pb-44">
+          <div className="w-full max-w-md px-6 text-left">
+            <p className="text-base md:text-lg text-[var(--foreground)] mb-8">
+              Enter your email address
+            </p>
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-4">
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder=""
+                className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center focus:outline-none focus:ring-2 focus:ring-[var(--gold)] focus:border-transparent transition-all duration-200"
+                aria-label="Email address"
                 tabIndex={0}
-                aria-label="Send email to info@hakaglobal.com"
+                required
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center uppercase tracking-widest text-sm hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Subscribe to newsletter"
+                tabIndex={0}
               >
-                <span className="text-xl">info@hakaglobal.com</span>
-                <svg
-                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </div>
+                {isSubmitting ? "Subscribing..." : "Subscribe"}
+              </button>
+            </form>
+            {submitStatus === "success" && (
+              <p className="mt-5 text-green-500 text-sm">
+                Thank you for subscribing!
+              </p>
+            )}
+            {submitStatus === "error" && (
+              <p className="mt-5 text-red-500 text-sm">
+                Something went wrong. Please try again.
+              </p>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       {/* Footer */}
-      <footer className="py-16 lg:py-20 border-t border-[var(--border)]">
-        <div className="w-full max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
-            <p className="text-sm text-[var(--foreground-muted)]">
-              © {new Date().getFullYear()} HAKA Global. All rights reserved.
-            </p>
-            <p className="text-sm text-[var(--foreground-muted)]">
-              Confidential by default.
-            </p>
+      <footer className="w-full max-w-full bg-[var(--surface)] py-6 mt-auto">
+        <div className="w-full max-w-full px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-[var(--foreground-muted)] text-sm">
+            <p>© {new Date().getFullYear()} HAKA Global. All rights reserved.</p>
+            <p>Confidential by default.</p>
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
