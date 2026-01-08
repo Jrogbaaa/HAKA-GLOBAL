@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.4.2] - 2026-01-08
+
+### Changed
+- **Investment Page Redesign** - Updated to match consulting page style
+  - New minimalist document-style layout with centered content (max-w-3xl)
+  - Title "HAKA GLOBAL INVESTMENT" centered at top
+  - Content organized into logical sections: Overview, Investment Philosophy, Investment Areas, Intelligence & Timing, How We Operate
+  - Numbered list format for 4 Investment Areas matching consulting page style
+  - Bold emphasis on key terms (information asymmetry, startups/early-stage opportunities, investment-grade assets, AI-driven strategic intelligence)
+  - Added link to HAKA Global Consulting in Overview section
+  - Closing statement with "Pre-Shift Strike." tagline
+  - Email subscription form at bottom
+  - Consistent footer with consulting page
+
+### Fixed
+- Typo correction: "nsight comes before opportunity" → "Insight comes before opportunity"
+
 ## [2.4.1] - 2026-01-08
 
 ### Fixed
