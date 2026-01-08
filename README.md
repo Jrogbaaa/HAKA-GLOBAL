@@ -254,7 +254,7 @@ For inquiries: **info@hakaglobal.com**
 ### Locations
 - **Madrid** - Calle Hermosilla 7, 28001
 - **Barcelona** - Carrer de Sant Gervasi de Cassoles, 59
-- **Rome** - Via Tripoli 5, 00199
+- **Roma** - Via Tripoli 5, 00199
 
 ## 📄 Pages
 

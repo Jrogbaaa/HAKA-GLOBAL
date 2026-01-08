@@ -7,6 +7,49 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.0] - 2026-01-08
+
+### Changed
+- **Contact Page Complete Redesign** - "Start a Conversation" page updated with new design spec
+  - New layout with exact text: "START A CONVERSATION", "Discretion starts here.", full description
+  - Contact section with Madrid, Barcelona, Roma locations (city names now larger at 1.375rem)
+  - "Initiate a Conversation" form section with field list indicator
+  - Closing statement: "Not every conversation leads to engagement. But every engagement starts with the right conversation."
+  - Improved section spacing with larger margins between sections (my-14 dividers)
+  
+- **Contact Form Updates**
+  - New form fields: Name, Organization (optional), Contact details (email or phone), Context/Message
+  - Simplified input styling with border focus states
+  - Uppercase "SUBMIT" button matching site styling
+  
+- **Email Integration (Resend API)**
+  - Notification emails sent to info@hakaglobal.com on form submission
+  - Confirmation emails sent to users (if contact details is an email)
+  - Professional HTML email templates with HAKA Global branding
+  - Graceful fallback if email service unavailable
+
+- **Location Name Update**
+  - Changed "Rome" to "Roma" across the site for consistency with Italian naming
+
+## [2.4.3] - 2026-01-08
+
+### Changed
+- **Navigation Dropdown Menu Redesign**
+  - Menu items reordered: About → Investing → Consulting → Start a Conversation
+  - Significantly larger dropdown menu buttons with increased padding (py-6 md:py-7)
+  - Bold uppercase text styling with wider letter-spacing (tracking-wider)
+  - Larger font sizes (text-xl md:text-2xl) for better readability
+  - Wider dropdown container (340px mobile / 420px desktop)
+  - Larger hamburger menu button (w-14 h-14 md:w-16 md:h-16)
+  - Thicker hamburger lines (3px) with gold color
+  - "Start a Conversation" visually separated with border divider
+  - Hover animation slides menu items slightly right
+
+- **Navigation Header Sizing** (user adjustments)
+  - Increased header height (h-24 md:h-32 lg:h-40)
+  - Larger HAKA logo (h-20 md:h-28 lg:h-36)
+  - Adjusted tagline positioning to match larger logo
+
 ## [2.4.2] - 2026-01-08
 
 ### Changed

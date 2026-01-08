@@ -1,188 +1,165 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { ContactForm } from "./ContactForm";
+import { LOCATIONS, SITE_CONFIG } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Start a Conversation",
   description:
     "Discretion starts here. HAKA engages selectively. If context, timing, and access are critical to your decisions, you may initiate a conversation.",
 };
 
-const OFFICES = [
-  {
-    city: "London",
-    region: "EMEA Headquarters",
-    address: "Mayfair, London",
-    timezone: "GMT",
-    icon: "location_city",
-  },
-  {
-    city: "Dubai",
-    region: "Middle East",
-    address: "DIFC, Dubai",
-    timezone: "GMT+4",
-    icon: "apartment",
-  },
-  {
-    city: "Singapore",
-    region: "Asia Pacific",
-    address: "Marina Bay, Singapore",
-    timezone: "GMT+8",
-    icon: "business",
-  },
-];
-
 export default function ContactPage() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center py-32 lg:py-40 overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-[var(--background)]">
-          <div
-            className="absolute top-0 right-0 w-[600px] h-[600px] opacity-20"
-            style={{
-              background:
-                "radial-gradient(ellipse at center, rgba(238, 189, 43, 0.3) 0%, transparent 70%)",
-              transform: "translate(20%, -30%)",
-            }}
-          />
-        </div>
+    <div className="flex flex-col min-h-screen w-full">
+      <main className="flex-1 w-full py-24 lg:py-32 flex flex-col items-center">
+        <div className="w-full max-w-[850px] px-8 lg:px-12">
+          {/* Title */}
+          <h1
+            className="text-[var(--foreground)] font-medium tracking-tight text-center"
+            style={{ fontSize: "1.5rem", lineHeight: "1.2" }}
+          >
+            START A CONVERSATION
+          </h1>
 
-        <div className="relative max-w-[1400px] mx-auto px-8 lg:px-16 w-full">
-          <div className="max-w-3xl pl-6 sm:pl-12 lg:pl-24 xl:pl-32">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--surface)] border border-[var(--border)] mb-8">
-              <span className="text-sm font-medium text-[var(--primary)]">
-                Contact
-              </span>
-            </div>
+          {/* Subheading */}
+          <p
+            className="text-[var(--foreground)] font-semibold mt-12"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            Discretion starts here.
+          </p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
-              Start a
-              <br />
-              <span className="gradient-text">conversation.</span>
-            </h1>
+          {/* Divider */}
+          <div className="w-12 h-px bg-[var(--foreground)] my-8" />
 
-            <p className="text-xl lg:text-2xl text-[var(--text-secondary)] leading-relaxed max-w-2xl">
-              HAKA engages selectively. If context, timing, and access are
-              critical to your decisions, you may initiate a conversation. All
-              inquiries are treated with discretion.
-            </p>
-          </div>
-        </div>
-      </section>
+          {/* Description */}
+          <p
+            className="text-[var(--foreground)]"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            HAKA engages selectively. If context, timing and access are critical
+            to your decisions, you may initiate a conversation.
+          </p>
+          <p
+            className="text-[var(--foreground)] mt-4"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            All inquiries are treated with discretion.
+          </p>
 
-      {/* Main Content */}
-      <section className="py-32 lg:py-48">
-        <div className="max-w-[1400px] mx-auto px-8 lg:px-16">
-          <div className="grid lg:grid-cols-5 gap-16 lg:gap-24">
-            {/* Contact Form */}
-            <div className="lg:col-span-3">
-              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-10">
-                Send us a message
-              </h2>
-              <ContactForm />
-            </div>
+          {/* Divider */}
+          <div className="w-12 h-px bg-[var(--foreground)] my-14" />
 
-            {/* Sidebar */}
-            <div className="lg:col-span-2">
-              {/* Offices */}
-              <div className="mb-16">
-                <h3 className="text-xl font-semibold text-white mb-8">
-                  Our Offices
-                </h3>
-                <div className="space-y-5">
-                  {OFFICES.map((office, index) => (
-                    <div
-                      key={index}
-                      className="bg-[var(--surface)] border border-[var(--border)] rounded-xl p-5 hover:border-[var(--border-hover)] transition-colors"
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-lg bg-[var(--primary-muted)] flex items-center justify-center shrink-0">
-                          <span className="material-symbols-outlined text-[var(--primary)] text-xl">
-                            {office.icon}
-                          </span>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-white">
-                            {office.city}
-                          </h4>
-                          <p className="text-sm text-[var(--text-muted)]">
-                            {office.region}
-                          </p>
-                          <p className="text-sm text-[var(--text-muted)] mt-1">
-                            {office.address}
-                          </p>
-                        </div>
-                        <div className="ml-auto text-right">
-                          <span className="text-xs text-[var(--text-muted)]">
-                            {office.timezone}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          {/* Contact Section */}
+          <p
+            className="text-[var(--foreground)] font-semibold"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            Contact
+          </p>
 
-              {/* Engagement Types */}
-              <div className="mb-16">
-                <h3 className="text-xl font-semibold text-white mb-8">
-                  Engagement Types
-                </h3>
-                <div className="space-y-5">
-                  {[
-                    {
-                      title: "Advisory Mandate",
-                      description:
-                        "Ongoing strategic counsel for executives and boards",
-                    },
-                    {
-                      title: "Project Engagement",
-                      description:
-                        "Focused support for specific transactions or initiatives",
-                    },
-                    {
-                      title: "Investment Inquiry",
-                      description:
-                        "Discussion of co-investment or deal flow opportunities",
-                    },
-                  ].map((type, index) => (
-                    <div
-                      key={index}
-                      className="bg-[var(--surface)] border border-[var(--border)] rounded-xl p-5"
-                    >
-                      <h4 className="font-medium text-white mb-1">
-                        {type.title}
-                      </h4>
-                      <p className="text-sm text-[var(--text-muted)]">
-                        {type.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Discretion Note */}
-              <div className="bg-[var(--surface)] border border-[var(--primary-muted)] rounded-xl p-6">
-                <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-[var(--primary)]">
-                    shield
+          {/* Locations */}
+          <ul className="mt-6 space-y-6">
+            {LOCATIONS.map((location) => (
+              <li key={location.city}>
+                <p className="text-[var(--foreground)]">
+                  •{" "}
+                  <span
+                    className="underline underline-offset-4 font-medium"
+                    style={{ fontSize: "1.375rem" }}
+                  >
+                    {location.city}
                   </span>
-                  <div>
-                    <h4 className="font-medium text-white mb-2">
-                      Confidentiality
-                    </h4>
-                    <p className="text-sm text-[var(--text-muted)]">
-                      All inquiries are handled with strict confidentiality.
-                      Initial conversations are non-binding and exploratory.
-                    </p>
-                  </div>
-                </div>
-              </div>
+                </p>
+                <p
+                  className="text-[var(--foreground)] ml-4 mt-1"
+                  style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+                >
+                  {location.address}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          {/* Divider */}
+          <div className="w-12 h-px bg-[var(--foreground)] my-14" />
+
+          {/* Email */}
+          <p
+            className="text-[var(--foreground)] font-semibold"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            Email
+          </p>
+          <p
+            className="text-[var(--foreground)] mt-3"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            <Link
+              href={`mailto:${SITE_CONFIG.email}`}
+              className="hover:text-[var(--gold)] transition-colors"
+              tabIndex={0}
+              aria-label={`Send email to ${SITE_CONFIG.email}`}
+            >
+              {SITE_CONFIG.email}
+            </Link>
+          </p>
+
+          {/* Divider */}
+          <div className="w-12 h-px bg-[var(--foreground)] my-14" />
+
+          {/* Initiate a Conversation Form */}
+          <p
+            className="text-[var(--foreground)] font-semibold"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            Initiate a Conversation
+          </p>
+
+          {/* Form */}
+          <div className="mt-8">
+            <ContactForm />
+          </div>
+
+          {/* Divider */}
+          <div className="w-12 h-px bg-[var(--foreground)] my-14" />
+
+          {/* Closing Statement */}
+          <p
+            className="text-[var(--foreground)] italic"
+            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+          >
+            Not every conversation leads to engagement. But every engagement
+            starts with the right conversation.
+          </p>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="w-full bg-[var(--surface)] py-8 mt-auto">
+        <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[var(--foreground-muted)] text-sm">
+            <p>© {new Date().getFullYear()}. All rights reserved</p>
+            <div className="flex items-center gap-8">
+              <Link
+                href="/privacy"
+                className="hover:text-[var(--foreground)] transition-colors"
+                tabIndex={0}
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/legal"
+                className="hover:text-[var(--foreground)] transition-colors"
+                tabIndex={0}
+              >
+                Legal Notice
+              </Link>
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </footer>
+    </div>
   );
 }

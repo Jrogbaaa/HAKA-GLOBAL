@@ -5,16 +5,16 @@ import { submitContactForm } from "@/lib/actions/contact";
 
 type FormData = {
   name: string;
-  email: string;
-  interest: string;
+  organization: string;
+  contactDetails: string;
   message: string;
 };
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    email: "",
-    interest: "",
+    organization: "",
+    contactDetails: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,9 +24,7 @@ export const ContactForm = () => {
   }>({ type: null, message: "" });
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -40,8 +38,8 @@ export const ContactForm = () => {
     try {
       const result = await submitContactForm({
         name: formData.name,
-        email: formData.email,
-        interest: formData.interest,
+        organization: formData.organization,
+        contactDetails: formData.contactDetails,
         message: formData.message,
       });
 
@@ -53,8 +51,8 @@ export const ContactForm = () => {
         });
         setFormData({
           name: "",
-          email: "",
-          interest: "",
+          organization: "",
+          contactDetails: "",
           message: "",
         });
       } else {
@@ -73,92 +71,89 @@ export const ContactForm = () => {
     }
   };
 
-  return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Name & Email */}
-      <div className="grid md:grid-cols-2 gap-6">
-        <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-white mb-2"
-          >
-            Full Name *
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-white placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--primary)] transition-colors"
-            placeholder="John Smith"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-white mb-2"
-          >
-            Email *
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-3 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-white placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--primary)] transition-colors"
-            placeholder="john@company.com"
-          />
-        </div>
-      </div>
+  const inputStyles =
+    "w-full px-4 py-3 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] focus:border-[var(--gold)] transition-all duration-200";
 
-      {/* Interest */}
+  return (
+    <form onSubmit={handleSubmit} className="space-y-5">
+      {/* Form Fields Indicator */}
+      <p
+        className="text-[var(--foreground-muted)] text-sm"
+        style={{ lineHeight: "1.75" }}
+      >
+        (Form)
+      </p>
+
+      {/* Field Labels List */}
+      <ul className="space-y-1 mb-6">
+        <li className="text-[var(--foreground)] text-sm">• Name</li>
+        <li className="text-[var(--foreground)] text-sm">
+          • Organization (optional)
+        </li>
+        <li className="text-[var(--foreground)] text-sm">• Contact details</li>
+        <li className="text-[var(--foreground)] text-sm">• Context / Message</li>
+      </ul>
+
+      {/* Name */}
       <div>
-        <label
-          htmlFor="interest"
-          className="block text-sm font-medium text-white mb-2"
-        >
-          Area of Interest *
+        <label htmlFor="name" className="sr-only">
+          Name
         </label>
-        <select
-          id="interest"
-          name="interest"
-          value={formData.interest}
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-white focus:outline-none focus:border-[var(--primary)] transition-colors appearance-none cursor-pointer"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239CA3AF'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "right 1rem center",
-            backgroundSize: "1.25rem",
-          }}
-        >
-          <option value="" disabled>
-            Select area of interest
-          </option>
-          <option value="c-level-advisory">C-Level Advisory</option>
-          <option value="leadership-development">Leadership Development</option>
-          <option value="change-advisory">Change Advisory</option>
-          <option value="brand-strategy">Brand Strategy</option>
-          <option value="deal-advisory">Deal Advisory</option>
-          <option value="non-market-strategy">Non-Market Strategy</option>
-          <option value="investment">Investment Opportunities</option>
-          <option value="marketplace">Luxury Marketplace</option>
-          <option value="general">General Inquiry</option>
-        </select>
+          className={inputStyles}
+          placeholder="Name *"
+          aria-label="Your name"
+          tabIndex={0}
+        />
+      </div>
+
+      {/* Organization */}
+      <div>
+        <label htmlFor="organization" className="sr-only">
+          Organization
+        </label>
+        <input
+          type="text"
+          id="organization"
+          name="organization"
+          value={formData.organization}
+          onChange={handleChange}
+          className={inputStyles}
+          placeholder="Organization (optional)"
+          aria-label="Your organization"
+          tabIndex={0}
+        />
+      </div>
+
+      {/* Contact Details */}
+      <div>
+        <label htmlFor="contactDetails" className="sr-only">
+          Contact details
+        </label>
+        <input
+          type="text"
+          id="contactDetails"
+          name="contactDetails"
+          value={formData.contactDetails}
+          onChange={handleChange}
+          required
+          className={inputStyles}
+          placeholder="Contact details (email or phone) *"
+          aria-label="Your contact details"
+          tabIndex={0}
+        />
       </div>
 
       {/* Message */}
       <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-white mb-2"
-        >
-          Message *
+        <label htmlFor="message" className="sr-only">
+          Context / Message
         </label>
         <textarea
           id="message"
@@ -167,26 +162,23 @@ export const ContactForm = () => {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-3 bg-[var(--surface)] border border-[var(--border)] rounded-lg text-white placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--primary)] transition-colors resize-none"
-          placeholder="Please describe your situation and objectives. What context can you share about your needs?"
+          className={`${inputStyles} resize-none`}
+          placeholder="Context / Message *"
+          aria-label="Your message"
+          tabIndex={0}
         />
       </div>
 
       {/* Status Message */}
       {submitStatus.type && (
         <div
-          className={`p-4 rounded-lg ${
+          className={`p-4 border ${
             submitStatus.type === "success"
-              ? "bg-green-500/10 border border-green-500/20 text-green-400"
-              : "bg-red-500/10 border border-red-500/20 text-red-400"
+              ? "border-green-500/30 text-green-400"
+              : "border-red-500/30 text-red-400"
           }`}
         >
-          <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-xl">
-              {submitStatus.type === "success" ? "check_circle" : "error"}
-            </span>
-            <p className="text-sm">{submitStatus.message}</p>
-          </div>
+          <p className="text-sm">{submitStatus.message}</p>
         </div>
       )}
 
@@ -194,39 +186,12 @@ export const ContactForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-4 bg-[var(--primary)] text-[var(--background)] font-semibold rounded-lg hover:bg-[var(--primary-hover)] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center uppercase tracking-widest text-sm hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         tabIndex={0}
+        aria-label="Submit inquiry"
       >
-        {isSubmitting ? (
-          <>
-            <span className="w-5 h-5 border-2 border-[var(--background)] border-t-transparent rounded-full animate-spin" />
-            <span>Sending...</span>
-          </>
-        ) : (
-          <>
-            <span>Submit Inquiry</span>
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </>
-        )}
+        {isSubmitting ? "Submitting..." : "Submit"}
       </button>
-
-      {/* Disclaimer */}
-      <p className="text-xs text-[var(--text-muted)] text-center">
-        By submitting this form, you agree to our privacy policy. We will never
-        share your information with third parties.
-      </p>
     </form>
   );
 };

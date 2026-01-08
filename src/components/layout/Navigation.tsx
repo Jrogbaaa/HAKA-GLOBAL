@@ -70,7 +70,7 @@ export const Navigation = () => {
           : "bg-[#1A191A]"
       }`}
     >
-      <div className="w-full flex h-20 md:h-28 lg:h-32 items-center justify-between px-4 md:px-12 lg:px-16">
+      <div className="w-full flex h-24 md:h-32 lg:h-40 items-center justify-between px-4 md:px-12 lg:px-16">
         {/* Logo with tagline below */}
         <Link
           href="/"
@@ -82,12 +82,12 @@ export const Navigation = () => {
             <Image
               src="/haka-logo-gold.svg"
               alt="HAKA"
-              width={280}
-              height={80}
-              className="h-14 md:h-20 lg:h-24 w-auto object-contain"
+              width={400}
+              height={120}
+              className="h-20 md:h-28 lg:h-36 w-auto object-contain"
               priority
             />
-            <span className="hidden sm:block text-xs md:text-sm lg:text-base text-[var(--foreground-muted)] tracking-wide whitespace-nowrap -translate-x-2 -translate-y-7">
+            <span className="hidden sm:block text-xs md:text-sm lg:text-base text-[var(--foreground-muted)] tracking-wide whitespace-nowrap -translate-x-3 -translate-y-10">
               pre-shift strike.
             </span>
           </div>
@@ -114,20 +114,20 @@ export const Navigation = () => {
           {isMenuOpen && (
             <div
               ref={menuRef}
-              className="absolute right-0 top-full mt-4 w-80 md:w-96 bg-[#242324] rounded-2xl shadow-2xl border border-[var(--border)] py-4 animate-fade-in-up overflow-hidden"
+              className="absolute right-0 top-full mt-4 w-[340px] md:w-[420px] bg-[#242324] rounded-2xl shadow-2xl border border-[var(--border)] py-6 animate-fade-in-up overflow-hidden"
               role="menu"
             >
               {NAV_LINKS.map((link, index) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block px-8 py-5 text-lg md:text-xl font-medium transition-all duration-200 hover:bg-[var(--surface)] hover:pl-10 ${
+                  className={`block px-10 py-6 md:py-7 text-xl md:text-2xl font-bold uppercase tracking-wider transition-all duration-200 hover:bg-[var(--surface)] hover:pl-12 ${
                     pathname === link.href
                       ? "text-[var(--gold)] bg-[var(--surface)]"
                       : link.isAccent
                       ? "text-[var(--gold)]"
                       : "text-[var(--foreground)]"
-                  } ${index === NAV_LINKS.length - 1 ? "mt-2 border-t border-[var(--border)] pt-6" : ""}`}
+                  } ${index === NAV_LINKS.length - 1 ? "mt-3 border-t border-[var(--border)] pt-8" : ""}`}
                   role="menuitem"
                   tabIndex={0}
                 >

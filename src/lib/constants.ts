@@ -29,7 +29,7 @@ export const LOCATIONS = [
     address: "Carrer de Sant Gervasi de Cassoles, 59",
   },
   {
-    city: "Rome",
+    city: "Roma",
     address: "Via Tripoli 5, 00199",
   },
 ] as const;

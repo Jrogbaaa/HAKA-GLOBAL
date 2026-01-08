@@ -19,25 +19,14 @@ const resend = process.env.RESEND_API_KEY
   : null;
 
 // Use verified domain email in production, or your personal email for testing
-const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || "info@hakaglobal.com";
-
-// Format interest for display
-const formatInterest = (interest: string): string => {
-  const interestMap: Record<string, string> = {
-    "personal-branding": "Personal Branding",
-    "real-estate": "Real Estate",
-    investments: "Financial Investments",
-    marketplace: "Luxury Marketplace",
-    general: "General Inquiry",
-  };
-  return interestMap[interest] || interest;
-};
+const NOTIFICATION_EMAIL =
+  process.env.NOTIFICATION_EMAIL || "info@hakaglobal.com";
 
 // Send notification email to team
 const sendNotificationEmail = async (data: {
   name: string;
-  email: string;
-  interest: string;
+  organization: string;
+  contactDetails: string;
   message: string;
 }) => {
   if (!resend) {
@@ -49,8 +38,8 @@ const sendNotificationEmail = async (data: {
     const result = await resend.emails.send({
       from: `${SITE_CONFIG.name} <noreply@hakaglobal.com>`,
       to: [NOTIFICATION_EMAIL],
-      replyTo: data.email,
-      subject: `New Contact Form Submission - ${formatInterest(data.interest)}`,
+      replyTo: data.contactDetails.includes("@") ? data.contactDetails : undefined,
+      subject: `New Inquiry from ${data.name}${data.organization ? ` - ${data.organization}` : ""}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -58,12 +47,12 @@ const sendNotificationEmail = async (data: {
             <style>
               body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
               .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-              .header { background: #1A191A; color: #eebd2b; padding: 24px; text-align: center; }
-              .header h1 { margin: 0; font-size: 24px; }
+              .header { background: #1A191A; color: #D4A84B; padding: 24px; text-align: center; }
+              .header h1 { margin: 0; font-size: 24px; font-weight: 500; }
               .content { padding: 24px; background: #f9f9f9; }
               .field { margin-bottom: 16px; }
               .label { font-weight: 600; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-              .value { margin-top: 4px; padding: 12px; background: white; border-left: 3px solid #eebd2b; }
+              .value { margin-top: 4px; padding: 12px; background: white; border-left: 3px solid #D4A84B; }
               .message { white-space: pre-wrap; }
               .footer { padding: 16px 24px; text-align: center; font-size: 12px; color: #999; }
             </style>
@@ -71,20 +60,26 @@ const sendNotificationEmail = async (data: {
           <body>
             <div class="container">
               <div class="header">
-                <h1>New Contact Form Submission</h1>
+                <h1>New Conversation Request</h1>
               </div>
               <div class="content">
                 <div class="field">
                   <div class="label">Name</div>
                   <div class="value">${data.name}</div>
                 </div>
+                ${
+                  data.organization
+                    ? `
                 <div class="field">
-                  <div class="label">Email</div>
-                  <div class="value"><a href="mailto:${data.email}">${data.email}</a></div>
+                  <div class="label">Organization</div>
+                  <div class="value">${data.organization}</div>
                 </div>
+                `
+                    : ""
+                }
                 <div class="field">
-                  <div class="label">Area of Interest</div>
-                  <div class="value">${formatInterest(data.interest)}</div>
+                  <div class="label">Contact Details</div>
+                  <div class="value">${data.contactDetails}</div>
                 </div>
                 <div class="field">
                   <div class="label">Message</div>
@@ -92,24 +87,23 @@ const sendNotificationEmail = async (data: {
                 </div>
               </div>
               <div class="footer">
-                <p>This email was sent from the ${SITE_CONFIG.name} website contact form.</p>
+                <p>This inquiry was submitted via the ${SITE_CONFIG.name} website.</p>
               </div>
             </div>
           </body>
         </html>
       `,
       text: `
-New Contact Form Submission
+New Conversation Request
 
 Name: ${data.name}
-Email: ${data.email}
-Area of Interest: ${formatInterest(data.interest)}
+${data.organization ? `Organization: ${data.organization}\n` : ""}Contact Details: ${data.contactDetails}
 
 Message:
 ${data.message}
 
 ---
-This email was sent from the ${SITE_CONFIG.name} website contact form.
+This inquiry was submitted via the ${SITE_CONFIG.name} website.
       `.trim(),
     });
 
@@ -127,20 +121,23 @@ This email was sent from the ${SITE_CONFIG.name} website contact form.
   }
 };
 
-// Send confirmation email to user
-const sendConfirmationEmail = async (data: {
-  name: string;
-  email: string;
-}) => {
+// Send confirmation email to user (only if contact details is an email)
+const sendConfirmationEmail = async (data: { name: string; email: string }) => {
   if (!resend) {
     return { success: false, error: "Email service not configured" };
+  }
+
+  // Validate email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(data.email)) {
+    return { success: false, error: "Contact details is not an email address" };
   }
 
   try {
     const result = await resend.emails.send({
       from: `${SITE_CONFIG.name} <noreply@hakaglobal.com>`,
       to: [data.email],
-      subject: `Thank you for contacting ${SITE_CONFIG.name}`,
+      subject: `Thank you for reaching out - ${SITE_CONFIG.name}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -148,29 +145,29 @@ const sendConfirmationEmail = async (data: {
             <style>
               body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
               .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-              .header { background: #1A191A; color: #eebd2b; padding: 32px; text-align: center; }
-              .header h1 { margin: 0; font-size: 28px; font-weight: 700; }
+              .header { background: #1A191A; color: #D4A84B; padding: 32px; text-align: center; }
+              .header h1 { margin: 0; font-size: 28px; font-weight: 500; }
               .content { padding: 32px; background: #ffffff; }
               .content p { margin: 0 0 16px; }
-              .highlight { color: #eebd2b; font-weight: 600; }
+              .highlight { color: #D4A84B; font-weight: 600; }
               .footer { padding: 24px; text-align: center; font-size: 12px; color: #999; background: #f9f9f9; }
             </style>
           </head>
           <body>
             <div class="container">
               <div class="header">
-                <h1>Haka Global</h1>
+                <h1>HAKA Global</h1>
               </div>
               <div class="content">
                 <p>Dear ${data.name},</p>
-                <p>Thank you for reaching out to <span class="highlight">Haka Global</span>.</p>
-                <p>We have received your inquiry and a member of our team will review your message and respond within <strong>24 hours</strong>.</p>
-                <p>In the meantime, feel free to explore our services and insights on our website.</p>
-                <p>Best regards,<br><strong>The Haka Global Team</strong></p>
+                <p>Thank you for reaching out to <span class="highlight">HAKA Global</span>.</p>
+                <p>We have received your inquiry and a member of our team will review your message and respond within <strong>48 hours</strong>.</p>
+                <p>All conversations are treated with discretion.</p>
+                <p>Best regards,<br><strong>The HAKA Global Team</strong></p>
               </div>
               <div class="footer">
-                <p>© ${new Date().getFullYear()} Haka Global. All rights reserved.</p>
-                <p>This is an automated confirmation email. Please do not reply directly to this message.</p>
+                <p>© ${new Date().getFullYear()} HAKA Global. All rights reserved.</p>
+                <p>This is an automated confirmation. Please do not reply directly to this message.</p>
               </div>
             </div>
           </body>
@@ -179,18 +176,18 @@ const sendConfirmationEmail = async (data: {
       text: `
 Dear ${data.name},
 
-Thank you for reaching out to Haka Global.
+Thank you for reaching out to HAKA Global.
 
-We have received your inquiry and a member of our team will review your message and respond within 24 hours.
+We have received your inquiry and a member of our team will review your message and respond within 48 hours.
 
-In the meantime, feel free to explore our services and insights on our website.
+All conversations are treated with discretion.
 
 Best regards,
-The Haka Global Team
+The HAKA Global Team
 
 ---
-© ${new Date().getFullYear()} Haka Global. All rights reserved.
-This is an automated confirmation email. Please do not reply directly to this message.
+© ${new Date().getFullYear()} HAKA Global. All rights reserved.
+This is an automated confirmation. Please do not reply directly to this message.
       `.trim(),
     });
 
@@ -210,8 +207,8 @@ This is an automated confirmation email. Please do not reply directly to this me
 // Submit contact form
 export const submitContactForm = async (data: {
   name: string;
-  email: string;
-  interest: string;
+  organization: string;
+  contactDetails: string;
   message: string;
 }) => {
   let dbSaveSuccess = false;
@@ -224,19 +221,25 @@ export const submitContactForm = async (data: {
     notificationSent = true;
     console.log("✓ Notification email sent to", NOTIFICATION_EMAIL);
   } else {
-    console.warn("✗ Failed to send notification email:", notificationResult.error);
+    console.warn(
+      "✗ Failed to send notification email:",
+      notificationResult.error
+    );
   }
 
-  // 2. Send confirmation email to user
+  // 2. Send confirmation email to user (if contact details is an email)
   const confirmationResult = await sendConfirmationEmail({
     name: data.name,
-    email: data.email,
+    email: data.contactDetails,
   });
   if (confirmationResult.success) {
     confirmationSent = true;
-    console.log("✓ Confirmation email sent to", data.email);
+    console.log("✓ Confirmation email sent to", data.contactDetails);
   } else {
-    console.warn("✗ Failed to send confirmation email:", confirmationResult.error);
+    console.warn(
+      "✗ Failed to send confirmation email:",
+      confirmationResult.error
+    );
   }
 
   // 3. Try to save to database (non-blocking)
@@ -245,8 +248,8 @@ export const submitContactForm = async (data: {
       await db.contactSubmission.create({
         data: {
           name: data.name,
-          email: data.email,
-          interest: data.interest,
+          email: data.contactDetails,
+          interest: data.organization || "N/A",
           message: data.message,
         },
       });
@@ -260,22 +263,22 @@ export const submitContactForm = async (data: {
 
   // Success if at least one email was sent OR database was saved
   const emailSent = notificationSent || confirmationSent;
-  
+
   if (emailSent || dbSaveSuccess) {
-    return { 
-      success: true, 
-      data: { 
+    return {
+      success: true,
+      data: {
         notificationSent,
         confirmationSent,
-        dbSaved: dbSaveSuccess 
-      } 
+        dbSaved: dbSaveSuccess,
+      },
     };
   }
 
   // Only fail if ALL methods failed
-  return { 
-    success: false, 
-    error: "Failed to submit form. Please try again or contact us directly at info@hakaglobal.com" 
+  return {
+    success: false,
+    error:
+      "Failed to submit form. Please try again or contact us directly at info@hakaglobal.com",
   };
 };
-
