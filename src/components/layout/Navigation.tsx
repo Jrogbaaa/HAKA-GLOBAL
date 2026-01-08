@@ -6,10 +6,10 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
-  { label: "Consulting", href: "/advisory" },
-  { label: "Investing", href: "/investment" },
   { label: "About", href: "/about" },
-  { label: "Start a Conversation", href: "/contact" },
+  { label: "Investing", href: "/investment" },
+  { label: "Consulting", href: "/advisory" },
+  { label: "Start a Conversation", href: "/contact", isAccent: true },
 ];
 
 export const Navigation = () => {
@@ -99,33 +99,35 @@ export const Navigation = () => {
             ref={buttonRef}
             onClick={handleToggleMenu}
             onKeyDown={handleKeyDown}
-            className="flex flex-col items-center justify-center w-10 h-10 gap-1.5 rounded-lg hover:bg-[var(--surface)] transition-colors duration-200"
+            className="flex flex-col items-center justify-center w-14 h-14 md:w-16 md:h-16 gap-2 md:gap-2.5 rounded-xl hover:bg-[var(--surface)] border border-transparent hover:border-[var(--border)] transition-all duration-200"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-haspopup="true"
             tabIndex={0}
           >
-            <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-6 h-0.5 bg-[var(--foreground)] transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`block w-7 md:w-8 h-[3px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[11px] md:translate-y-[13px]' : ''}`} />
+            <span className={`block w-7 md:w-8 h-[3px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0 scale-0' : ''}`} />
+            <span className={`block w-7 md:w-8 h-[3px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[11px] md:-translate-y-[13px]' : ''}`} />
           </button>
 
           {/* Dropdown Menu */}
           {isMenuOpen && (
             <div
               ref={menuRef}
-              className="absolute right-0 top-full mt-3 w-72 bg-[var(--surface)] rounded-xl shadow-2xl border border-[var(--border)] py-3 animate-fade-in-up"
+              className="absolute right-0 top-full mt-4 w-80 md:w-96 bg-[#242324] rounded-2xl shadow-2xl border border-[var(--border)] py-4 animate-fade-in-up overflow-hidden"
               role="menu"
             >
-              {NAV_LINKS.map((link) => (
+              {NAV_LINKS.map((link, index) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block px-6 py-3.5 text-base transition-colors hover:bg-[var(--background)] ${
+                  className={`block px-8 py-5 text-lg md:text-xl font-medium transition-all duration-200 hover:bg-[var(--surface)] hover:pl-10 ${
                     pathname === link.href
-                      ? "text-[var(--gold)] font-medium"
+                      ? "text-[var(--gold)] bg-[var(--surface)]"
+                      : link.isAccent
+                      ? "text-[var(--gold)]"
                       : "text-[var(--foreground)]"
-                  }`}
+                  } ${index === NAV_LINKS.length - 1 ? "mt-2 border-t border-[var(--border)] pt-6" : ""}`}
                   role="menuitem"
                   tabIndex={0}
                 >

@@ -1,1 +1,1 @@
-Great, update all documentation and push changes to GitHub.
+Great, update all documentation (Read ME's as well) and push changes to GitHub.

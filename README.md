@@ -54,10 +54,11 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 
 ### Design Principles
 - Dark mode first with luxury gold accent
-- Max content width: 1400px
+- Max content width: 1400px (general pages), 768px/3xl (document-style pages)
 - Consistent padding: 24px mobile, 40px desktop
 - Full-width sections with centered content (`flex justify-center`)
 - Hero section on homepage only; compact PageHeader on subpages
+- **Document-style layout** for Advisory & Investment pages: centered content, uppercase section headers, numbered lists
 - Content-first layout approach on all pages
 - Smooth scroll and subtle animations (Framer Motion)
 - Minimal borders, spacing-based hierarchy
@@ -154,14 +155,16 @@ src/
 │   │   ├── [slug]/             # Dynamic article pages
 │   │   └── page.tsx
 │   ├── investment/             # HAKA Global Investment
-│   │   └── page.tsx            # Investment areas & philosophy
+│   │   └── page.tsx            # Document-style investment page
 │   ├── marketplace/            # Luxury Assets & Collectibles
 │   │   ├── MarketplaceGrid.tsx # Category filter & items
 │   │   ├── [id]/               # Individual item pages
 │   │   └── page.tsx
-│   ├── services/               # Areas of Advisory
-│   │   ├── [slug]/             # Individual advisory area pages
-│   │   └── page.tsx            # Advisory overview
+│   ├── advisory/              # HAKA Global Consulting
+│   │   └── page.tsx            # Document-style consulting page
+│   ├── services/               # Service detail pages
+│   │   ├── [slug]/             # Individual service pages
+│   │   └── page.tsx            # Services overview
 │   ├── globals.css             # Global styles & CSS variables
 │   ├── layout.tsx              # Root layout with fonts
 │   ├── not-found.tsx           # 404 page
@@ -259,9 +262,8 @@ For inquiries: **info@hakaglobal.com**
 |-------|-------------|
 | `/` | Homepage with hero, advisory areas, CTA |
 | `/about` | Anticipation, Affairs, Influence - AI as Strategic Leverage |
-| `/services` | Areas of Advisory with engagement model |
-| `/services/[slug]` | Individual advisory area detail pages |
-| `/investment` | HAKA Global Investment philosophy & areas |
+| `/advisory` | HAKA Global Consulting - document-style layout with 7 advisory areas |
+| `/investment` | HAKA Global Investment - document-style layout with 4 investment areas |
 | `/marketplace` | Luxury Assets & Collectibles |
 | `/marketplace/[id]` | Item detail with inquiry modal |
 | `/insights` | Strategic perspectives and analysis |
@@ -278,4 +280,4 @@ For inquiries: **info@hakaglobal.com**
 
 ## 📝 License
 
-Private - All rights reserved © 2025 HAKA Global
+Private - All rights reserved © 2026 HAKA Global
