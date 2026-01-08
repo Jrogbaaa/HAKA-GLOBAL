@@ -59,6 +59,7 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 - Full-width sections with centered content (`flex justify-center`)
 - Hero section on homepage only; compact PageHeader on subpages
 - **Document-style layout** for Advisory & Investment pages: centered content, uppercase section headers, numbered lists
+- **Strategic imagery** on About, Investment, and Advisory pages with low opacity (40-50%) and gradient overlays
 - Content-first layout approach on all pages
 - Smooth scroll and subtle animations (Framer Motion)
 - Minimal borders, spacing-based hierarchy
@@ -198,6 +199,17 @@ src/
 prisma/
 ├── schema.prisma               # Database schema
 └── seed.ts                     # Seed data script
+
+public/
+├── images/
+│   ├── about/                  # About page imagery
+│   │   ├── hero.jpg            # Hero banner (architecture)
+│   │   └── ai-section.jpg      # AI section accent image
+│   ├── investment/             # Investment page imagery
+│   │   └── hero.jpg            # Hero banner (city skyline)
+│   └── advisory/               # Advisory page imagery
+│       └── hero.jpg            # Hero banner (corporate interior)
+└── *.svg                       # Logo and icon assets
 ```
 
 ## 🗃 Database Schema

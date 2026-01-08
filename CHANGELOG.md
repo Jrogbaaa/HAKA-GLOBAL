@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.6.0] - 2026-01-08
+
+### Added
+- **Strategic Imagery Across Pages** - Professional images added to enhance visual appeal while maintaining the dark, minimal aesthetic
+  - **About Page**: Hero image (modern architecture) after title, AI section accent image alongside "AI as Strategic Leverage" content
+  - **Investment Page**: Full-width hero banner image (city skyline) between title and Overview section
+  - **Advisory Page**: Full-width hero banner image (corporate interior) for visual consistency with Investment page
+  - All images use `opacity-40`/`opacity-50` with gradient overlays to blend seamlessly with the dark theme
+  - Images sourced from Unsplash with professional, muted tones matching HAKA brand aesthetic
+
+- **Image Directory Structure** - New organized structure for page-specific images
+  ```
+  public/images/
+  ├── about/
+  │   ├── hero.jpg
+  │   └── ai-section.jpg
+  ├── investment/
+  │   └── hero.jpg
+  └── advisory/
+      └── hero.jpg
+  ```
+
+### Changed
+- **Home Page Spacing Fix** - Added vertical spacer (`h-12 md:h-16 lg:h-20`) between CONSULTING/INVESTING card grid and description text for improved visual separation
+
 ## [2.5.0] - 2026-01-08
 
 ### Changed

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function AboutPage() {
   const [email, setEmail] = useState("");
@@ -21,6 +22,18 @@ export default function AboutPage() {
           >
             ABOUT HAKA
           </h1>
+
+          {/* Hero Image */}
+          <div className="relative w-full h-[200px] md:h-[280px] lg:h-[320px] mt-10 mb-8 overflow-hidden rounded-lg">
+            <Image
+              src="/images/about/hero.jpg"
+              alt="HAKA Global - Strategic Advisory"
+              fill
+              className="object-cover opacity-50"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--background)]" />
+          </div>
 
           {/* Content */}
           <article
@@ -102,23 +115,37 @@ export default function AboutPage() {
             {/* Double space before AI section */}
             <div className="h-6" />
 
-            <p className="font-semibold">AI as Strategic Leverage</p>
-            <p>
-              At HAKA, artificial intelligence is not a product, a toolset or a
-              standalone service.
-            </p>
-            <p>
-              It is a{" "}
-              <strong className="font-semibold">strategic leverage layer</strong>{" "}
-              embedded into our judgment and advisory processes. We use AI to
-              enhance contextual analysis, map complex decision-making
-              environments, detect weak signals and simulate scenarios before they
-              materialize. The objective is not automation, but{" "}
-              <strong className="font-semibold">clarity</strong>: reducing
-              uncertainty, improving timing and supporting higher-quality
-              decisions at critical moments. AI amplifies human judgment. It does
-              not replace it.
-            </p>
+            {/* AI Section with Accent Image */}
+            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+              <div className="flex-1">
+                <p className="font-semibold">AI as Strategic Leverage</p>
+                <p>
+                  At HAKA, artificial intelligence is not a product, a toolset or a
+                  standalone service.
+                </p>
+                <p>
+                  It is a{" "}
+                  <strong className="font-semibold">strategic leverage layer</strong>{" "}
+                  embedded into our judgment and advisory processes. We use AI to
+                  enhance contextual analysis, map complex decision-making
+                  environments, detect weak signals and simulate scenarios before they
+                  materialize. The objective is not automation, but{" "}
+                  <strong className="font-semibold">clarity</strong>: reducing
+                  uncertainty, improving timing and supporting higher-quality
+                  decisions at critical moments. AI amplifies human judgment. It does
+                  not replace it.
+                </p>
+              </div>
+              <div className="relative w-full md:w-[200px] lg:w-[240px] h-[160px] md:h-[200px] flex-shrink-0 overflow-hidden rounded-lg">
+                <Image
+                  src="/images/about/ai-section.jpg"
+                  alt="AI-driven strategic intelligence"
+                  fill
+                  className="object-cover opacity-60"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--background)]/30 to-transparent" />
+              </div>
+            </div>
           </article>
         </div>
 

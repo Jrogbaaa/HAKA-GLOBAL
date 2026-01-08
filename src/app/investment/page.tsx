@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function InvestmentPage() {
   const [email, setEmail] = useState("");
@@ -34,7 +35,7 @@ export default function InvestmentPage() {
     <div className="flex flex-col min-h-screen w-full max-w-full">
       <main className="flex-1 w-full max-w-full">
         {/* Hero Section */}
-        <section className="w-full flex justify-center pt-24 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32">
+        <section className="w-full flex justify-center pt-24 pb-12 md:pt-32 md:pb-16 lg:pt-36 lg:pb-20">
           <div className="w-full max-w-3xl px-6 text-left">
             <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[var(--foreground)] mb-10">
               HAKA GLOBAL INVESTMENT
@@ -42,6 +43,20 @@ export default function InvestmentPage() {
             <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-relaxed">
               Strategic investments shaped by access, timing and conviction.
             </p>
+          </div>
+        </section>
+
+        {/* Hero Banner Image */}
+        <section className="w-full px-6 md:px-12 lg:px-16">
+          <div className="relative w-full h-[200px] md:h-[300px] lg:h-[360px] overflow-hidden rounded-lg">
+            <Image
+              src="/images/investment/hero.jpg"
+              alt="HAKA Global Investment - Strategic Capital"
+              fill
+              className="object-cover opacity-40"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)] via-transparent to-[var(--background)]/30" />
           </div>
         </section>
 

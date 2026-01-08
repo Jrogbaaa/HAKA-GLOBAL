@@ -69,6 +69,9 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Spacer between cards and description */}
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
+
         {/* Description Section - Below boxes with spacing */}
         <section className="w-full flex justify-center pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
           <div className="w-full max-w-4xl px-6 text-center">
