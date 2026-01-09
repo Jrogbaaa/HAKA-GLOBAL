@@ -6,160 +6,77 @@ import { LOCATIONS, SITE_CONFIG } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Start a Conversation",
   description:
-    "Discretion starts here. HAKA engages selectively. If context, timing, and access are critical to your decisions, you may initiate a conversation.",
+    "Discretion starts here. HAKA engages selectively.",
 };
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col min-h-screen w-full">
-      <main className="flex-1 w-full py-24 lg:py-32 flex flex-col items-center">
-        <div className="w-full max-w-[850px] px-8 lg:px-12">
-          {/* Title */}
-          <h1
-            className="text-[var(--foreground)] font-medium tracking-tight text-center"
-            style={{ fontSize: "1.5rem", lineHeight: "1.2" }}
-          >
-            START A CONVERSATION
+    <div className="flex flex-col min-h-screen bg-[var(--background)] overflow-x-hidden">
+      {/* Main Content */}
+      <main className="flex-1 w-full pb-8">
+        {/* Header */}
+        <div className="px-5 pt-6 pb-4">
+          <h1 className="text-[var(--foreground)] tracking-tight text-[28px] font-bold leading-tight mb-2">
+            Let&apos;s discuss how we can help your business grow.
           </h1>
-
-          {/* Subheading */}
-          <p
-            className="text-[var(--foreground)] font-semibold mt-12"
-            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
-          >
-            Discretion starts here.
+          <p className="text-[var(--foreground-muted)] text-sm font-medium">
+            Get in touch with our global team.
           </p>
+        </div>
 
-          {/* Divider */}
-          <div className="w-12 h-px bg-[var(--foreground)] my-8" />
+        {/* Contact Form */}
+        <div className="px-5">
+          <ContactForm />
+        </div>
 
-          {/* Description */}
-          <p
-            className="text-[var(--foreground)]"
-            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
-          >
-            HAKA engages selectively. If context, timing and access are critical
-            to your decisions, you may initiate a conversation.
-          </p>
-          <p
-            className="text-[var(--foreground)] mt-4"
-            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
-          >
-            All inquiries are treated with discretion.
-          </p>
+        {/* Divider */}
+        <div className="h-px bg-[var(--border)] mx-5 my-6" />
 
-          {/* Divider */}
-          <div className="w-12 h-px bg-[var(--foreground)] my-14" />
-
-          {/* Contact Section */}
-          <p
-            className="text-[var(--foreground)] font-semibold"
-            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
-          >
-            Contact
-          </p>
-
-          {/* Locations */}
-          <ul className="mt-6 space-y-6">
+        {/* Locations */}
+        <div className="px-5">
+          <h3 className="text-[var(--foreground)] text-base font-bold mb-4 flex items-center gap-2">
+            <span className="material-symbols-outlined text-[var(--primary)] text-lg">public</span>
+            Our Offices
+          </h3>
+          <div className="flex flex-col gap-3">
             {LOCATIONS.map((location) => (
-              <li key={location.city}>
-                <p className="text-[var(--foreground)]">
-                  •{" "}
-                  <span
-                    className="underline underline-offset-4 font-medium"
-                    style={{ fontSize: "1.375rem" }}
-                  >
+              <div
+                key={location.city}
+                className="flex items-start gap-3 p-3 rounded-xl bg-[var(--surface)] border border-[var(--border)] shadow-sm"
+              >
+                <div className="size-9 rounded-full bg-[var(--primary)]/10 flex items-center justify-center shrink-0 text-[var(--primary)]">
+                  <span className="material-symbols-outlined text-lg">location_on</span>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-[var(--foreground)] font-bold text-sm">
                     {location.city}
-                  </span>
-                </p>
-                <p
-                  className="text-[var(--foreground)] ml-4 mt-1"
-                  style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
-                >
-                  {location.address}
-                </p>
-              </li>
+                  </h4>
+                  <p className="text-[var(--foreground-muted)] text-xs mt-0.5">
+                    {location.address}
+                  </p>
+                </div>
+              </div>
             ))}
-          </ul>
-
-          {/* Divider */}
-          <div className="w-12 h-px bg-[var(--foreground)] my-14" />
-
-          {/* Email */}
-          <p
-            className="text-[var(--foreground)] font-semibold"
-            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
-          >
-            Email
-          </p>
-          <p
-            className="text-[var(--foreground)] mt-3"
-            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
-          >
-            <Link
-              href={`mailto:${SITE_CONFIG.email}`}
-              className="hover:text-[var(--gold)] transition-colors"
-              tabIndex={0}
-              aria-label={`Send email to ${SITE_CONFIG.email}`}
-            >
-              {SITE_CONFIG.email}
-            </Link>
-          </p>
-
-          {/* Divider */}
-          <div className="w-12 h-px bg-[var(--foreground)] my-14" />
-
-          {/* Initiate a Conversation Form */}
-          <p
-            className="text-[var(--foreground)] font-semibold"
-            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
-          >
-            Initiate a Conversation
-          </p>
-
-          {/* Form */}
-          <div className="mt-8">
-            <ContactForm />
           </div>
+        </div>
 
-          {/* Divider */}
-          <div className="w-12 h-px bg-[var(--foreground)] my-14" />
-
-          {/* Closing Statement */}
-          <p
-            className="text-[var(--foreground)] italic"
-            style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
+        {/* Email Link */}
+        <div className="px-5 pt-6 pb-4 text-center">
+          <Link
+            href={`mailto:${SITE_CONFIG.email}`}
+            className="inline-flex items-center gap-2 text-[var(--primary)] font-medium hover:underline text-sm"
+            tabIndex={0}
+            aria-label={`Email ${SITE_CONFIG.email}`}
           >
-            Not every conversation leads to engagement. But every engagement
-            starts with the right conversation.
+            <span className="material-symbols-outlined text-base">mail</span>
+            {SITE_CONFIG.email}
+          </Link>
+
+          <p className="text-[var(--foreground-muted)]/60 text-xs mt-4">
+            © {new Date().getFullYear()} HAKA Global. All rights reserved.
           </p>
         </div>
       </main>
-
-      {/* Footer */}
-      <footer className="w-full bg-[var(--surface)] py-8 mt-auto">
-        <div className="w-full max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[var(--foreground-muted)] text-sm">
-            <p>© {new Date().getFullYear()}. All rights reserved</p>
-            <div className="flex items-center gap-8">
-              <Link
-                href="/privacy"
-                className="hover:text-[var(--foreground)] transition-colors"
-                tabIndex={0}
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/legal"
-                className="hover:text-[var(--foreground)] transition-colors"
-                tabIndex={0}
-              >
-                Legal Notice
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

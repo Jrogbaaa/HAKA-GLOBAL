@@ -3,4 +3,8 @@ export { Input, Textarea, Select } from "./Input";
 export { Card, FeatureCard } from "./Card";
 export { Modal } from "./Modal";
 export { Badge } from "./Badge";
-
+export { Accordion, AccordionItem } from "./Accordion";
+export { Timeline, TimelineStep } from "./Timeline";
+export { FloatingCTA, FloatingCTAButton } from "./FloatingCTA";
+export { IconBadge } from "./IconBadge";
+export { NewsletterCard } from "./NewsletterCard";

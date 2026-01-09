@@ -3,7 +3,6 @@ export { PageHeader } from "./PageHeader";
 export { ServiceGrid } from "./ServiceGrid";
 export { CTASection } from "./CTASection";
 export { CTABanner } from "./CTABanner";
-export { FeaturedMarketplace } from "./FeaturedMarketplace";
 export { StatsSection } from "./StatsSection";
 export { StatsBar } from "./StatsBar";
 export { LogoBar } from "./LogoBar";

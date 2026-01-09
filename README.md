@@ -27,47 +27,34 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 | **Database** | PostgreSQL via Neon |
 | **ORM** | Prisma 6.19 |
 | **Styling** | Tailwind CSS v4 |
-| **Animations** | Framer Motion |
-| **Forms** | React Hook Form + Zod |
-| **Icons** | Lucide React, Material Symbols |
-| **Fonts** | Inter (body), Cormorant Garamond (headings) |
+| **Icons** | Material Symbols Outlined |
+| **Fonts** | Manrope (200-800 weights) |
 | **Deployment** | Vercel |
 
 ## 🎨 Design System
 
 ### Typography
-- **Headings**: Cormorant Garamond (elegant serif)
-- **Body**: Inter (clean sans-serif)
+- **Font**: Manrope (Google Fonts)
+- **Weights**: 200 (ExtraLight) to 800 (ExtraBold)
 
-### Color Palette (Premium Dark Theme)
+### Color Palette (Mobile-First Dark Theme)
 
 | Variable | Value | Usage |
 |----------|-------|-------|
-| `--background` | `#1A191A` | Page background |
-| `--surface` | `#232018` | Cards, elevated surfaces |
-| `--surface-elevated` | `#1a1812` | Modal backgrounds |
-| `--border` | `#393528` | Borders |
-| `--foreground` | `#ffffff` | Primary text |
-| `--text-secondary` | `#b9b29d` | Secondary text |
-| `--text-muted` | `#737368` | Muted text |
-| `--primary` / `--accent` | `#eebd2b` | Gold accent color |
+| `--color-primary` | `#1754cf` | Primary blue accent |
+| `--color-background-light` | `#f6f6f8` | Light mode background |
+| `--color-background-dark` | `#111621` | Dark mode background |
+| `--color-surface-dark` | `#1c222e` | Elevated surfaces, cards |
 
 ### Design Principles
-- Dark mode first with luxury gold accent
-- **Gold titles** - All h1, h2, h3 headings use gold color for brand consistency
-- **Bold text in gold** - All emphasized/bold text displays in gold across the site
-- **Left-aligned text** - Content is left-aligned for improved readability
-- Max content width: 1400px (general pages), 768px/3xl (document-style pages)
-- Consistent padding: 24px mobile, 40px desktop
-- Full-width sections with left-aligned content
-- Hero section on homepage only; compact PageHeader on subpages
-- **Document-style layout** for Advisory & Investment pages: left-aligned content, uppercase section headers, numbered lists
-- **Strategic imagery** on About, Investment, Advisory, and Homepage cards with low opacity (40-50%) and gradient overlays
-- Content-first layout approach on all pages
-- Smooth scroll and subtle animations (Framer Motion)
-- Minimal borders, spacing-based hierarchy
-- Hover states for all interactive elements
-- Refined hamburger menu aligned with logo
+- **Mobile-first design** - Optimized for mobile viewports (max-w-md centered)
+- **Dark mode by default** - Clean, modern dark aesthetic
+- **Blue primary accent** - Professional blue (#1754cf) for CTAs and highlights
+- **Card-based navigation** - Image cards with gradient overlays
+- **Sticky navigation** - Backdrop blur header with hamburger menu
+- **Material icons** - Google Material Symbols Outlined
+- **Smooth transitions** - Hover effects and subtle animations
+- **Newsletter CTA** - Email subscription section on all main pages
 
 ## 🚀 Getting Started
 
@@ -149,54 +136,36 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 ```
 src/
 ├── app/                        # Next.js App Router pages
-│   ├── about/                  # About HAKA - Anticipation, Affairs, Influence
-│   │   ├── AboutContent.tsx    # Mission, AI Leverage, Values, How We Work
+│   ├── about/                  # About HAKA
 │   │   └── page.tsx
 │   ├── contact/                # Start a Conversation
-│   │   ├── ContactForm.tsx     # Inquiry form with locations
-│   │   └── page.tsx
-│   ├── insights/               # Strategic perspectives
-│   │   ├── InsightsGrid.tsx    # Filterable article grid
-│   │   ├── [slug]/             # Dynamic article pages
+│   │   ├── ContactForm.tsx     # Inquiry form
 │   │   └── page.tsx
 │   ├── investment/             # HAKA Global Investment
-│   │   └── page.tsx            # Document-style investment page
-│   ├── marketplace/            # Luxury Assets & Collectibles
-│   │   ├── MarketplaceGrid.tsx # Category filter & items
-│   │   ├── [id]/               # Individual item pages
 │   │   └── page.tsx
-│   ├── advisory/              # HAKA Global Consulting
-│   │   └── page.tsx            # Document-style consulting page
-│   ├── services/               # Service detail pages
-│   │   ├── [slug]/             # Individual service pages
-│   │   └── page.tsx            # Services overview
+│   ├── advisory/               # HAKA Global Consulting
+│   │   └── page.tsx
+│   ├── api/
+│   │   └── newsletter/         # Newsletter subscription API
+│   │       └── route.ts
 │   ├── globals.css             # Global styles & CSS variables
 │   ├── layout.tsx              # Root layout with fonts
 │   ├── not-found.tsx           # 404 page
 │   └── page.tsx                # Homepage
 ├── components/
 │   ├── layout/
-│   │   ├── Navigation.tsx      # Sticky header with gold CTA
-│   │   └── Footer.tsx          # Multi-column footer
-│   ├── sections/
-│   │   ├── Hero.tsx            # Full-bleed hero (homepage only)
-│   │   ├── PageHeader.tsx      # Compact header for subpages
-│   │   ├── ServiceGrid.tsx     # Advisory areas cards
-│   │   ├── StatsSection.tsx    # Trust/stats bar
-│   │   ├── CTASection.tsx      # Start a Conversation CTA
-│   │   └── FeaturedMarketplace.tsx
-│   └── ui/
-│       ├── Button.tsx          # Primary/secondary/ghost variants
-│       ├── Card.tsx            # Item cards with hover effects
-│       ├── Input.tsx           # Form inputs with validation
-│       ├── Badge.tsx           # Category badges
-│       └── Modal.tsx           # Overlay modals
+│   │   ├── Navigation.tsx      # Sticky header with hamburger menu
+│   │   └── Footer.tsx          # Footer component
+│   ├── sections/               # Page section components
+│   └── ui/                     # Reusable UI components
+│       ├── Accordion.tsx       # Collapsible sections
+│       ├── Timeline.tsx        # Step-by-step timeline
+│       ├── FloatingCTA.tsx     # Sticky bottom CTA
+│       └── ...
 └── lib/
     ├── actions/                # Server actions
-    │   ├── contact.ts          # Form submission
-    │   ├── insights.ts         # Article fetching
-    │   └── marketplace.ts      # Item fetching
-    ├── constants.ts            # Site config, services, investment areas
+    │   └── contact.ts          # Form submission
+    ├── constants.ts            # Site config, services, locations
     ├── db.ts                   # Prisma client singleton
     └── validations.ts          # Zod schemas
 
@@ -207,26 +176,18 @@ prisma/
 public/
 ├── images/
 │   ├── about/                  # About page imagery
-│   │   ├── hero.jpg            # Hero banner (architecture)
-│   │   └── ai-section.jpg      # AI section accent image
+│   │   ├── hero.jpg
+│   │   └── ai-section.jpg
 │   ├── investment/             # Investment page imagery
-│   │   └── hero.jpg            # Hero banner (city skyline)
+│   │   └── hero.jpg
 │   └── advisory/               # Advisory page imagery
-│       └── hero.jpg            # Hero banner (corporate interior)
+│       └── hero.jpg
 └── *.svg                       # Logo and icon assets
 ```
 
 ## 🗃 Database Schema
 
 ### Models
-
-**MarketplaceItem**
-- Luxury assets for investment (watches, jewelry, handbags, accessories)
-- Fields: title, description, category, imageUrl, price, featured, available
-
-**Insight**
-- Strategic perspectives and analysis
-- Fields: title, slug, category, imageUrl, content, author, publishedAt
 
 **ContactInquiry**
 - Conversation initiation requests
@@ -276,14 +237,10 @@ For inquiries: **info@hakaglobal.com**
 
 | Route | Description |
 |-------|-------------|
-| `/` | Homepage with hero, advisory areas, CTA |
-| `/about` | Anticipation, Affairs, Influence - AI as Strategic Leverage |
-| `/advisory` | HAKA Global Consulting - document-style layout with 7 advisory areas |
-| `/investment` | HAKA Global Investment - document-style layout with 4 investment areas |
-| `/marketplace` | Luxury Assets & Collectibles |
-| `/marketplace/[id]` | Item detail with inquiry modal |
-| `/insights` | Strategic perspectives and analysis |
-| `/insights/[slug]` | Individual article pages |
+| `/` | Homepage with hero, navigation cards, newsletter CTA |
+| `/about` | About HAKA - Philosophy, Values, AI Leverage |
+| `/advisory` | HAKA Global Consulting - Advisory services |
+| `/investment` | HAKA Global Investment - Investment areas |
 | `/contact` | Start a Conversation - inquiry form |
 
 ## 🔒 Security Notes

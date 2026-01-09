@@ -7,6 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-01-09
+
+### Changed
+- **Complete Mobile-First UI Redesign** - Rebuilt the entire application with a mobile-first approach
+  - New design system based on Google Stitch mobile mockups
+  - Blue primary color (#1754cf) replacing gold accent
+  - Mobile-optimized layouts (max-w-md centered container)
+  - Dark theme by default with clean, modern aesthetic
+
+- **Homepage Overhaul**
+  - New animated logo representation with Material icon
+  - "pre-shift strike." hero tagline (italic, light weight)
+  - Navigation cards with image backgrounds and gradient overlays
+  - Newsletter subscription section with email input
+  - Minimal footer with social links
+
+- **Navigation Redesign**
+  - Sticky header with backdrop blur
+  - "HAKA" text logo (centered, bold, letter-spaced)
+  - Hamburger menu with dropdown navigation
+  - Clean dropdown menu with arrow icons
+
+- **Design System Updates**
+  - Font: Manrope (weights 200-800)
+  - Colors: Primary blue, dark backgrounds, surface colors
+  - Material Symbols Outlined icons
+  - Card-based UI with shadows and hover effects
+  - Smooth transitions and animations
+
+- **CSS Architecture**
+  - Tailwind CSS v4 with @theme directive
+  - CSS custom properties for theming
+  - Custom scrollbar styling
+  - Removed legacy gold/luxury theme styles
+
+### Removed
+- Insights page and marketplace pages (no longer needed)
+- Services page (merged into Advisory)
+- Gold/luxury color scheme
+- Cormorant Garamond and Inter fonts
+- Legacy section components
+
 ## [2.7.0] - 2026-01-09
 
 ### Changed

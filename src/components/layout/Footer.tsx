@@ -5,40 +5,26 @@ const FOOTER_LINKS = {
   advisory: {
     title: "Advisory",
     links: [
-      { label: "C-Level Advisory", href: "/services/c-level-advisory" },
-      { label: "Leadership Development", href: "/services/leadership-development" },
-      { label: "Change Advisory", href: "/services/change-advisory" },
-      { label: "Brand Strategy", href: "/services/personal-branding" },
-      { label: "Deal Advisory", href: "/services/deal-advisory" },
-      { label: "Non-Market Strategy", href: "/services/non-market-strategy" },
+      { label: "Strategic Advisory", href: "/advisory" },
+      { label: "C-Level Advisory", href: "/advisory" },
+      { label: "Non-Market Strategy", href: "/advisory" },
+      { label: "Financial Advisory", href: "/advisory" },
     ],
   },
   investment: {
     title: "Investment",
     links: [
-      { label: "Real Estate", href: "/investment#real-estate" },
-      { label: "Private Equity", href: "/investment#private-equity" },
-      { label: "Luxury Assets", href: "/investment#luxury-assets" },
-      { label: "Venture Capital", href: "/investment#venture-capital" },
-      { label: "Marketplace", href: "/marketplace" },
+      { label: "Real Estate", href: "/investment#areas" },
+      { label: "Private Equity", href: "/investment#areas" },
+      { label: "Precious Metals", href: "/investment#areas" },
+      { label: "Luxury Assets", href: "/investment#areas" },
     ],
   },
   company: {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Insights", href: "/insights" },
-      { label: "Careers", href: "/about#careers" },
       { label: "Contact", href: "/contact" },
-    ],
-  },
-  resources: {
-    title: "Resources",
-    links: [
-      { label: "Documentation", href: "/insights" },
-      { label: "Case Studies", href: "/insights" },
-      { label: "Press", href: "/about#press" },
-      { label: "Partners", href: "/about#partners" },
     ],
   },
 };
@@ -70,25 +56,24 @@ export const Footer = () => {
   return (
     <footer className="bg-[var(--background)] border-t border-[var(--border)]">
       {/* Main Footer */}
-      <div className="max-w-[1280px] mx-auto px-4 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
+      <div className="max-w-4xl mx-auto px-6 py-12 lg:py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Logo Column */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-8 lg:mb-0">
-            <Link href="/" className="inline-block mb-6" tabIndex={0}>
-              <div className="flex flex-col items-end">
+          <div className="col-span-2 md:col-span-1 mb-6 md:mb-0">
+            <Link href="/" className="inline-block mb-4" tabIndex={0}>
+              <div className="flex flex-col items-start">
                 <img
                   src="/haka-logo-gold.svg"
                   alt={`${SITE_CONFIG.name} Logo`}
-                  className="h-10 md:h-12 w-auto"
+                  className="h-8 w-auto"
                 />
-                <span className="text-xs text-[var(--text-muted)] tracking-wide mt-0.5 text-right whitespace-nowrap">
+                <span className="text-[10px] text-[var(--foreground-muted)] tracking-wide mt-1 whitespace-nowrap">
                   pre-shift strike.
                 </span>
               </div>
             </Link>
-            <p className="text-sm text-[var(--text-muted)] mb-6 max-w-xs">
-              Strategic advisory and investment where decisions take shape — before
-              they become public.
+            <p className="text-xs text-[var(--foreground-muted)] mb-4 max-w-[200px]">
+              Strategic advisory and investment where decisions take shape.
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-4">
@@ -98,7 +83,7 @@ export const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[var(--text-muted)] hover:text-[var(--primary)] transition-colors"
+                  className="text-[var(--foreground-muted)] hover:text-[var(--primary)] transition-colors"
                   aria-label={social.name}
                   tabIndex={0}
                 >
@@ -111,15 +96,15 @@ export const Footer = () => {
           {/* Link Columns */}
           {Object.values(FOOTER_LINKS).map((section) => (
             <div key={section.title}>
-              <h4 className="text-sm font-semibold text-white mb-4">
+              <h4 className="text-sm font-semibold text-[var(--foreground)] mb-3">
                 {section.title}
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {section.links.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
+                      className="text-xs text-[var(--foreground-muted)] hover:text-[var(--primary)] transition-colors"
                       tabIndex={0}
                     >
                       {link.label}
@@ -134,32 +119,25 @@ export const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-[var(--border)]">
-        <div className="max-w-[1280px] mx-auto px-4 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-[var(--text-muted)]">
+        <div className="max-w-4xl mx-auto px-6 py-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+            <p className="text-xs text-[var(--foreground-muted)]">
               © {currentYear} {SITE_CONFIG.name}. All rights reserved.
             </p>
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
               <Link
                 href="/privacy"
-                className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
+                className="text-xs text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors"
                 tabIndex={0}
               >
                 Privacy
               </Link>
               <Link
                 href="/terms"
-                className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
+                className="text-xs text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors"
                 tabIndex={0}
               >
                 Terms
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-sm text-[var(--text-muted)] hover:text-white transition-colors"
-                tabIndex={0}
-              >
-                Cookies
               </Link>
             </div>
           </div>

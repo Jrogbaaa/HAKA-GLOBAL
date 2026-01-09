@@ -71,127 +71,108 @@ export const ContactForm = () => {
     }
   };
 
-  const inputStyles =
-    "w-full px-4 py-3 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] focus:outline-none focus:ring-1 focus:ring-[var(--gold)] focus:border-[var(--gold)] transition-all duration-200";
-
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      {/* Form Fields Indicator */}
-      <p
-        className="text-[var(--foreground-muted)] text-sm"
-        style={{ lineHeight: "1.75" }}
-      >
-        (Form)
-      </p>
-
-      {/* Field Labels List */}
-      <ul className="space-y-1 mb-6">
-        <li className="text-[var(--foreground)] text-sm">• Name</li>
-        <li className="text-[var(--foreground)] text-sm">
-          • Organization (optional)
-        </li>
-        <li className="text-[var(--foreground)] text-sm">• Contact details</li>
-        <li className="text-[var(--foreground)] text-sm">• Context / Message</li>
-      </ul>
-
+    <form onSubmit={handleSubmit} className="flex flex-col gap-1">
       {/* Name */}
-      <div>
-        <label htmlFor="name" className="sr-only">
-          Name
+      <div className="flex flex-col py-2">
+        <label className="flex flex-col gap-2">
+          <p className="text-[var(--foreground)] text-sm font-medium">Name</p>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] h-12 px-4 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/50 transition-all"
+            placeholder="Your full name"
+            aria-label="Your name"
+            tabIndex={0}
+          />
         </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className={inputStyles}
-          placeholder="Name *"
-          aria-label="Your name"
-          tabIndex={0}
-        />
       </div>
 
       {/* Organization */}
-      <div>
-        <label htmlFor="organization" className="sr-only">
-          Organization
+      <div className="flex flex-col py-2">
+        <label className="flex flex-col gap-2">
+          <p className="text-[var(--foreground)] text-sm font-medium">
+            Organization <span className="text-[var(--foreground-muted)] font-normal text-xs">(Optional)</span>
+          </p>
+          <input
+            type="text"
+            name="organization"
+            value={formData.organization}
+            onChange={handleChange}
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] h-12 px-4 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/50 transition-all"
+            placeholder="Company name"
+            aria-label="Your organization"
+            tabIndex={0}
+          />
         </label>
-        <input
-          type="text"
-          id="organization"
-          name="organization"
-          value={formData.organization}
-          onChange={handleChange}
-          className={inputStyles}
-          placeholder="Organization (optional)"
-          aria-label="Your organization"
-          tabIndex={0}
-        />
       </div>
 
       {/* Contact Details */}
-      <div>
-        <label htmlFor="contactDetails" className="sr-only">
-          Contact details
+      <div className="flex flex-col py-2">
+        <label className="flex flex-col gap-2">
+          <p className="text-[var(--foreground)] text-sm font-medium">Contact Details</p>
+          <input
+            type="text"
+            name="contactDetails"
+            value={formData.contactDetails}
+            onChange={handleChange}
+            required
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] h-12 px-4 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/50 transition-all"
+            placeholder="Email or phone number"
+            aria-label="Your contact details"
+            tabIndex={0}
+          />
         </label>
-        <input
-          type="text"
-          id="contactDetails"
-          name="contactDetails"
-          value={formData.contactDetails}
-          onChange={handleChange}
-          required
-          className={inputStyles}
-          placeholder="Contact details (email or phone) *"
-          aria-label="Your contact details"
-          tabIndex={0}
-        />
       </div>
 
       {/* Message */}
-      <div>
-        <label htmlFor="message" className="sr-only">
-          Context / Message
+      <div className="flex flex-col py-2">
+        <label className="flex flex-col gap-2">
+          <p className="text-[var(--foreground)] text-sm font-medium">How can we help?</p>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] min-h-[120px] px-4 py-3 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/50 transition-all resize-none"
+            placeholder="Tell us about the context of your inquiry..."
+            aria-label="Your message"
+            tabIndex={0}
+          />
         </label>
-        <textarea
-          id="message"
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          rows={5}
-          className={`${inputStyles} resize-none`}
-          placeholder="Context / Message *"
-          aria-label="Your message"
-          tabIndex={0}
-        />
       </div>
 
       {/* Status Message */}
       {submitStatus.type && (
         <div
-          className={`p-4 border ${
+          className={`p-3 rounded-lg border mt-2 ${
             submitStatus.type === "success"
-              ? "border-green-500/30 text-green-400"
-              : "border-red-500/30 text-red-400"
+              ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+              : "border-red-500/30 bg-red-500/10 text-red-400"
           }`}
         >
-          <p className="text-sm">{submitStatus.message}</p>
+          <p className="text-xs">{submitStatus.message}</p>
         </div>
       )}
 
       {/* Submit Button */}
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full px-5 py-4 border border-[var(--foreground-muted)] bg-transparent text-[var(--foreground)] text-center uppercase tracking-widest text-sm hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-        tabIndex={0}
-        aria-label="Submit inquiry"
-      >
-        {isSubmitting ? "Submitting..." : "Submit"}
-      </button>
+      <div className="pt-4">
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-bold text-sm h-12 rounded-lg shadow-lg shadow-[var(--primary)]/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          tabIndex={0}
+          aria-label="Submit inquiry"
+        >
+          {isSubmitting ? "Sending..." : "Send Message"}
+          {!isSubmitting && (
+            <span className="material-symbols-outlined text-base">send</span>
+          )}
+        </button>
+      </div>
     </form>
   );
 };
