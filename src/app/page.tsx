@@ -7,11 +7,30 @@ export default function HomePage() {
     <div className="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center pt-12 pb-8 px-6">
-        {/* Animated Logo Representation */}
+        {/* Animated Network Graphic */}
         <div className="relative w-24 h-24 mb-6 flex items-center justify-center">
           <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
-          <div className="relative w-full h-full bg-surface-dark rounded-2xl border border-white/10 flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-500">
-            <span className="material-symbols-outlined text-primary text-5xl">change_history</span>
+          <div className="relative w-full h-full bg-surface-dark rounded-2xl border border-white/10 flex items-center justify-center shadow-lg overflow-hidden">
+            {/* Orbital rings */}
+            <div className="absolute w-16 h-16 border border-primary/30 rounded-full animate-[spin_8s_linear_infinite]" />
+            <div className="absolute w-12 h-12 border border-primary/20 rounded-full animate-[spin_6s_linear_infinite_reverse]" />
+            
+            {/* Central node */}
+            <div className="absolute w-3 h-3 bg-primary rounded-full shadow-[0_0_12px_rgba(23,84,207,0.6)] animate-pulse" />
+            
+            {/* Orbiting nodes */}
+            <div className="absolute w-full h-full animate-[spin_8s_linear_infinite]">
+              <div className="absolute top-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary/80 rounded-full shadow-[0_0_8px_rgba(23,84,207,0.5)] animate-pulse" />
+            </div>
+            <div className="absolute w-full h-full animate-[spin_6s_linear_infinite_reverse]">
+              <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-primary/60 rounded-full shadow-[0_0_6px_rgba(23,84,207,0.4)] animate-pulse [animation-delay:0.5s]" />
+            </div>
+            <div className="absolute w-full h-full animate-[spin_10s_linear_infinite]">
+              <div className="absolute top-1/2 right-1 -translate-y-1/2 w-2 h-2 bg-primary/70 rounded-full shadow-[0_0_8px_rgba(23,84,207,0.5)] animate-pulse [animation-delay:1s]" />
+            </div>
+            <div className="absolute w-full h-full animate-[spin_7s_linear_infinite_reverse]">
+              <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-primary/50 rounded-full shadow-[0_0_6px_rgba(23,84,207,0.3)] animate-pulse [animation-delay:1.5s]" />
+            </div>
           </div>
         </div>
         <h1 className="text-4xl font-light italic tracking-tight text-center mb-4 text-slate-900 dark:text-gray-200">

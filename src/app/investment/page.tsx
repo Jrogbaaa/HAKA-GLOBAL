@@ -37,9 +37,6 @@ export default function InvestmentPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent opacity-90" />
             {/* Content */}
             <div className="absolute inset-0 flex flex-col justify-end p-6">
-              <p className="text-primary font-bold tracking-wider text-xs mb-2 uppercase">
-                Global Consulting Firm
-              </p>
               <h1 className="text-white text-3xl font-extrabold leading-tight mb-1">
                 HAKA Global Investment
               </h1>

@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.3.0] - 2026-01-09
+
+### Changed
+- **Advisory Page Hero** - Added background image with gradient fade effect
+  - Uses `/images/advisory/hero.jpg` as hero background
+  - Gradient overlay fades from bottom to top (matching Investment page style)
+  - Improved visual consistency between Advisory and Investment pages
+
+- **Investment Page Hero** - Removed incorrect "GLOBAL CONSULTING FIRM" label
+  - Previously showed blue text above "HAKA Global Investment" title
+  - Hero now correctly displays only the Investment branding
+
+- **Navigation Logo** - Increased HAKA logo size from `h-10` to `h-14`
+  - 40% larger for better visibility and brand presence
+  - Consistent across all pages
+
+- **Home Page Animation** - Replaced static triangle icon with animated network graphic
+  - New pulsing network nodes design representing strategic connections
+  - Orbital rings spinning in opposite directions
+  - Central node with 4 orbiting satellite nodes
+  - Staggered pulse animations for dynamic effect
+  - CSS-only animation (no external dependencies)
+  - Same square form factor as original design
+
 ## [3.2.0] - 2026-01-09
 
 ### Changed

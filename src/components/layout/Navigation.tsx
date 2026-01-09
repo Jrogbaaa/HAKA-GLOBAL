@@ -56,7 +56,7 @@ export const Navigation = () => {
           <img 
             src="/haka-logo-gold.svg" 
             alt="HAKA Global" 
-            className="h-10 w-auto"
+            className="h-14 w-auto"
           />
         </Link>
       </div>

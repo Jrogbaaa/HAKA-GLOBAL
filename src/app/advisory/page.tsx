@@ -71,7 +71,13 @@ export default function ConsultingPage() {
     <div className="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
       {/* Hero Section */}
       <section className="relative p-6 pt-8 pb-10 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20 bg-gradient-to-br from-primary via-background-dark to-background-dark pointer-events-none" />
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/advisory/hero.jpg')" }}
+        />
+        {/* Gradient Overlay - fades from bottom to top like Investment page */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent opacity-90" />
         {/* Decorative circle glow */}
         <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none" />
 
