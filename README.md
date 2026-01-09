@@ -50,11 +50,21 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 - **Mobile-first design** - Optimized for mobile viewports (max-w-md centered)
 - **Dark mode by default** - Clean, modern dark aesthetic
 - **Blue primary accent** - Professional blue (#1754cf) for CTAs and highlights
-- **Card-based navigation** - Image cards with gradient overlays
+- **Card-based UI** - Cards with shadows, borders, and hover effects
 - **Sticky navigation** - Backdrop blur header with hamburger menu
 - **Material icons** - Google Material Symbols Outlined
 - **Smooth transitions** - Hover effects and subtle animations
-- **Newsletter CTA** - Email subscription section on all main pages
+- **Floating CTAs** - Fixed bottom action buttons with backdrop blur
+
+## 📄 Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage with hero, navigation cards, newsletter CTA |
+| `/about` | About HAKA - Philosophy cards, Strategic approach, Client engagement |
+| `/advisory` | HAKA Global Consulting - Accordions, timeline, engagement cards |
+| `/investment` | HAKA Global Investment - Tab navigation, focus areas, operation timeline |
+| `/contact` | Start a Conversation - Form with office locations |
 
 ## 🚀 Getting Started
 
@@ -136,22 +146,22 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 ```
 src/
 ├── app/                        # Next.js App Router pages
-│   ├── about/                  # About HAKA
+│   ├── about/                  # About HAKA - Philosophy, Strategic approach
 │   │   └── page.tsx
 │   ├── contact/                # Start a Conversation
-│   │   ├── ContactForm.tsx     # Inquiry form
+│   │   ├── ContactForm.tsx     # Inquiry form with validation
 │   │   └── page.tsx
-│   ├── investment/             # HAKA Global Investment
+│   ├── investment/             # HAKA Global Investment - Tabs, areas, timeline
 │   │   └── page.tsx
-│   ├── advisory/               # HAKA Global Consulting
+│   ├── advisory/               # HAKA Global Consulting - Accordions, timeline
 │   │   └── page.tsx
 │   ├── api/
 │   │   └── newsletter/         # Newsletter subscription API
 │   │       └── route.ts
 │   ├── globals.css             # Global styles & CSS variables
-│   ├── layout.tsx              # Root layout with fonts
+│   ├── layout.tsx              # Root layout with fonts & navigation
 │   ├── not-found.tsx           # 404 page
-│   └── page.tsx                # Homepage
+│   └── page.tsx                # Homepage with cards & newsletter
 ├── components/
 │   ├── layout/
 │   │   ├── Navigation.tsx      # Sticky header with hamburger menu
@@ -229,19 +239,9 @@ public/
 For inquiries: **info@hakaglobal.com**
 
 ### Locations
-- **Madrid** - Calle Hermosilla 7, 28001
-- **Barcelona** - Carrer de Sant Gervasi de Cassoles, 59
-- **Roma** - Via Tripoli 5, 00199
-
-## 📄 Pages
-
-| Route | Description |
-|-------|-------------|
-| `/` | Homepage with hero, navigation cards, newsletter CTA |
-| `/about` | About HAKA - Philosophy, Values, AI Leverage |
-| `/advisory` | HAKA Global Consulting - Advisory services |
-| `/investment` | HAKA Global Investment - Investment areas |
-| `/contact` | Start a Conversation - inquiry form |
+- **Madrid** - Calle de Velázquez 34, 28001 Madrid, Spain
+- **Barcelona** - Passeig de Gràcia 56, 08007 Barcelona, Spain
+- **Roma** - Via Veneto 112, 00187 Roma, Italy
 
 ## 🔒 Security Notes
 

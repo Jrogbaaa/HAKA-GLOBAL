@@ -72,75 +72,84 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-1">
-      {/* Name */}
-      <div className="flex flex-col py-2">
-        <label className="flex flex-col gap-2">
-          <p className="text-[var(--foreground)] text-sm font-medium">Name</p>
+    <form className="flex flex-col gap-1 mt-4" onSubmit={handleSubmit}>
+      {/* Name Field */}
+      <div className="flex flex-wrap items-end gap-4 px-5 py-2">
+        <label className="flex flex-col min-w-40 flex-1 group">
+          <p className="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">
+            Name
+          </p>
           <input
+            className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-gray-800 bg-white dark:bg-surface-dark h-14 placeholder:text-slate-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-slate-900 dark:text-white transition-all shadow-sm"
+            placeholder="Your full name"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] h-12 px-4 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/50 transition-all"
-            placeholder="Your full name"
-            aria-label="Your name"
             tabIndex={0}
+            aria-label="Your full name"
           />
         </label>
       </div>
 
-      {/* Organization */}
-      <div className="flex flex-col py-2">
-        <label className="flex flex-col gap-2">
-          <p className="text-[var(--foreground)] text-sm font-medium">
-            Organization <span className="text-[var(--foreground-muted)] font-normal text-xs">(Optional)</span>
+      {/* Organization Field */}
+      <div className="flex flex-wrap items-end gap-4 px-5 py-2">
+        <label className="flex flex-col min-w-40 flex-1 group">
+          <p className="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">
+            Organization{" "}
+            <span className="text-slate-400 dark:text-slate-600 font-normal text-sm ml-1">
+              (Optional)
+            </span>
           </p>
           <input
+            className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-gray-800 bg-white dark:bg-surface-dark h-14 placeholder:text-slate-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-slate-900 dark:text-white transition-all shadow-sm"
+            placeholder="Company name"
             type="text"
             name="organization"
             value={formData.organization}
             onChange={handleChange}
-            className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] h-12 px-4 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/50 transition-all"
-            placeholder="Company name"
-            aria-label="Your organization"
             tabIndex={0}
+            aria-label="Your organization"
           />
         </label>
       </div>
 
-      {/* Contact Details */}
-      <div className="flex flex-col py-2">
-        <label className="flex flex-col gap-2">
-          <p className="text-[var(--foreground)] text-sm font-medium">Contact Details</p>
+      {/* Contact Details Field */}
+      <div className="flex flex-wrap items-end gap-4 px-5 py-2">
+        <label className="flex flex-col min-w-40 flex-1 group">
+          <p className="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">
+            Contact Details
+          </p>
           <input
+            className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-gray-800 bg-white dark:bg-surface-dark h-14 placeholder:text-slate-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-slate-900 dark:text-white transition-all shadow-sm"
+            placeholder="Email or phone number"
             type="text"
             name="contactDetails"
             value={formData.contactDetails}
             onChange={handleChange}
             required
-            className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] h-12 px-4 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/50 transition-all"
-            placeholder="Email or phone number"
-            aria-label="Your contact details"
             tabIndex={0}
+            aria-label="Your contact details"
           />
         </label>
       </div>
 
-      {/* Message */}
-      <div className="flex flex-col py-2">
-        <label className="flex flex-col gap-2">
-          <p className="text-[var(--foreground)] text-sm font-medium">How can we help?</p>
+      {/* Context/Message Field */}
+      <div className="flex flex-wrap items-end gap-4 px-5 py-2">
+        <label className="flex flex-col min-w-40 flex-1 group">
+          <p className="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">
+            How can we help?
+          </p>
           <textarea
+            className="form-textarea flex w-full min-w-0 flex-1 resize-none rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-gray-800 bg-white dark:bg-surface-dark min-h-[140px] placeholder:text-slate-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-slate-900 dark:text-white transition-all shadow-sm"
+            placeholder="Tell us a little about the context of your inquiry..."
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
-            className="w-full rounded-lg border border-[var(--border)] bg-[var(--surface)] min-h-[120px] px-4 py-3 text-sm text-[var(--foreground)] placeholder:text-[var(--foreground-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--primary)]/50 transition-all resize-none"
-            placeholder="Tell us about the context of your inquiry..."
-            aria-label="Your message"
             tabIndex={0}
+            aria-label="Your message"
           />
         </label>
       </div>
@@ -148,28 +157,28 @@ export const ContactForm = () => {
       {/* Status Message */}
       {submitStatus.type && (
         <div
-          className={`p-3 rounded-lg border mt-2 ${
+          className={`mx-5 p-3 rounded-lg border mt-2 ${
             submitStatus.type === "success"
               ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
               : "border-red-500/30 bg-red-500/10 text-red-400"
           }`}
         >
-          <p className="text-xs">{submitStatus.message}</p>
+          <p className="text-sm">{submitStatus.message}</p>
         </div>
       )}
 
       {/* Submit Button */}
-      <div className="pt-4">
+      <div className="px-5 py-4">
         <button
+          className="w-full bg-primary hover:bg-blue-700 active:scale-[0.99] text-white font-bold text-base h-14 rounded-lg shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-bold text-sm h-12 rounded-lg shadow-lg shadow-[var(--primary)]/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
           tabIndex={0}
-          aria-label="Submit inquiry"
+          aria-label="Send message"
         >
           {isSubmitting ? "Sending..." : "Send Message"}
           {!isSubmitting && (
-            <span className="material-symbols-outlined text-base">send</span>
+            <span className="material-symbols-outlined text-[20px]">send</span>
           )}
         </button>
       </div>

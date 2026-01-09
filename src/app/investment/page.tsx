@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Timeline, TimelineStep } from "@/components/ui/Timeline";
 
 type TabId = "overview" | "philosophy" | "areas" | "operate";
 
@@ -19,99 +17,144 @@ export default function InvestmentPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--background)] overflow-x-hidden">
+    <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col overflow-x-hidden">
       {/* Main Content */}
       <main className="flex-1 flex flex-col pb-24">
         {/* Hero Section */}
         <div className="relative w-full px-4 pt-4 pb-2">
-          <div className="relative w-full h-[200px] rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/investment/hero.jpg"
-              alt="Modern glass skyscrapers"
-              fill
-              className="object-cover"
-              priority
+          <div className="relative w-full h-[240px] rounded-xl overflow-hidden shadow-lg group">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              style={{
+                backgroundImage:
+                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrMh97VMpZ8HS7eXlEokv_IjVKT1ueTmg5fUoTFKpZnbBdxS2EOY6VpH5TQ6403kobE2Zp98DtjW4laXwL8Gkq4jGSxEEFKjsCAB_wVfLbqtbDZQG4If8tYa8qgWDjGvLkL7CfLKGXl9Rc05MQiIHHAbZ_H0XerR5tTl807UAyI6hn_DbhBOD5ztNjjbGJnF6TD9WNk2mcVs4GjgJD6tn2y5w-fGwAUp_xWxWvgh5yf4qBrWOSy7XbhfnHiX3QlCyEvnW2guTvwvo')",
+              }}
+              role="img"
+              aria-label="Abstract view of modern glass skyscrapers looking up towards the sky"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--background)]/90 via-[var(--background)]/50 to-transparent" />
-            <div className="absolute inset-0 flex flex-col justify-end p-5">
-              <p className="text-[var(--primary)] font-bold tracking-wider text-[10px] mb-1 uppercase">
-                Global Investment Firm
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent opacity-90" />
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-end p-6">
+              <p className="text-primary font-bold tracking-wider text-xs mb-2 uppercase">
+                Global Consulting Firm
               </p>
-              <h1 className="text-[var(--foreground)] text-2xl font-extrabold leading-tight mb-0.5">
-                HAKA GLOBAL INVESTMENT
+              <h1 className="text-white text-3xl font-extrabold leading-tight mb-1">
+                Global Investment
               </h1>
-              <p className="text-[var(--foreground-muted)] text-xs font-medium">
-                Strategic investments shaped by access, timing and conviction.
+              <p className="text-gray-300 text-sm font-medium">
+                Preserving Wealth across Borders
               </p>
             </div>
           </div>
         </div>
 
         {/* Sticky Navigation Tabs */}
-        <div className="sticky top-[69px] z-40 bg-[var(--background)]/95 backdrop-blur-sm border-b border-[var(--border)]">
-          <div className="flex overflow-x-auto no-scrollbar px-4 space-x-5">
-            {[
-              { id: "overview" as TabId, label: "Overview" },
-              { id: "philosophy" as TabId, label: "Philosophy" },
-              { id: "areas" as TabId, label: "Areas" },
-              { id: "operate" as TabId, label: "Operate" },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => handleTabClick(tab.id)}
-                className={`whitespace-nowrap py-3 border-b-2 text-xs font-bold tracking-wide transition-colors ${
-                  activeTab === tab.id
-                    ? "border-[var(--primary)] text-[var(--primary)]"
-                    : "border-transparent text-[var(--foreground-muted)] hover:text-[var(--foreground)]"
-                }`}
-                tabIndex={0}
-              >
-                {tab.label}
-              </button>
-            ))}
+        <div className="sticky top-[69px] z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+          <div className="flex overflow-x-auto no-scrollbar px-4 space-x-6">
+            <button
+              onClick={() => handleTabClick("overview")}
+              className={`whitespace-nowrap py-3 border-b-[3px] text-sm font-bold tracking-wide transition-colors ${
+                activeTab === "overview"
+                  ? "border-primary text-primary"
+                  : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              }`}
+              tabIndex={0}
+              aria-label="Overview tab"
+            >
+              Overview
+            </button>
+            <button
+              onClick={() => handleTabClick("philosophy")}
+              className={`whitespace-nowrap py-3 border-b-[3px] text-sm font-bold tracking-wide transition-colors ${
+                activeTab === "philosophy"
+                  ? "border-primary text-primary"
+                  : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              }`}
+              tabIndex={0}
+              aria-label="Philosophy tab"
+            >
+              Philosophy
+            </button>
+            <button
+              onClick={() => handleTabClick("areas")}
+              className={`whitespace-nowrap py-3 border-b-[3px] text-sm font-bold tracking-wide transition-colors ${
+                activeTab === "areas"
+                  ? "border-primary text-primary"
+                  : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              }`}
+              tabIndex={0}
+              aria-label="Areas tab"
+            >
+              Areas
+            </button>
+            <button
+              onClick={() => handleTabClick("operate")}
+              className={`whitespace-nowrap py-3 border-b-[3px] text-sm font-bold tracking-wide transition-colors ${
+                activeTab === "operate"
+                  ? "border-primary text-primary"
+                  : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+              }`}
+              tabIndex={0}
+              aria-label="Operate tab"
+            >
+              Operate
+            </button>
           </div>
         </div>
 
         {/* Overview Content */}
-        <div className="px-5 py-5 scroll-mt-28" id="overview">
-          <p className="text-[var(--foreground-muted)] text-sm leading-relaxed">
-            HAKA Global Investment operates where information asymmetry, scarcity and strategic access generate long-term value.
+        <div className="px-6 py-6 scroll-mt-32" id="overview">
+          <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
+            HAKA is a global consulting and investment firm dedicated to
+            sustainable growth. We specialize in identifying unique opportunities
+            that preserve wealth while fostering innovation across international
+            borders.
           </p>
         </div>
 
         {/* Separator */}
-        <div className="h-2 bg-[var(--surface)] w-full" />
+        <div className="h-2 bg-gray-100 dark:bg-surface-dark w-full" />
 
         {/* Philosophy Section */}
-        <div className="px-5 py-6 scroll-mt-28" id="philosophy">
+        <div className="px-6 py-8 scroll-mt-32" id="philosophy">
           <div className="flex items-center gap-2 mb-4">
-            <span className="w-1 h-5 bg-[var(--primary)] rounded-full" />
-            <h2 className="text-lg font-bold tracking-tight uppercase text-[var(--foreground)]">Investment Philosophy</h2>
+            <span className="w-1 h-6 bg-primary rounded-full" />
+            <h2 className="text-xl font-bold tracking-tight uppercase">
+              Investment Philosophy
+            </h2>
           </div>
-          <div className="bg-[var(--surface)] rounded-xl p-5 shadow-sm border border-[var(--border)] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-[var(--primary)]/5 rounded-full blur-3xl -mr-8 -mt-8" />
+          <div className="bg-white dark:bg-surface-dark rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700/50 relative overflow-hidden">
+            {/* Decorative background element */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10" />
             <div className="relative z-10">
-              <h3 className="text-xl font-bold text-[var(--primary)] mb-2">Prudence. Patience. Precision.</h3>
-              <p className="text-[var(--foreground-muted)] text-xs leading-relaxed mb-3">
-                We position capital before trends form. Contextual intelligence and disciplined risk assessment.
+              <h3 className="text-2xl font-bold text-primary mb-3">
+                Prudence. Patience. Precision.
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                We believe that true wealth preservation requires a disciplined
+                approach to risk management. Our philosophy is rooted in long-term
+                value creation rather than short-term speculation.
               </p>
-              <p className="text-[var(--foreground)] text-xs font-medium mb-4">
-                Conviction matters more than volume.
-              </p>
-              {/* Strategy Indicator */}
-              <div className="flex items-center gap-3">
-                <div className="relative size-12 shrink-0">
-                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+              {/* Abstract Visualization of Portfolio */}
+              <div className="flex items-center gap-4">
+                <div className="relative size-16 shrink-0">
+                  {/* CSS Donut Chart */}
+                  <svg
+                    className="w-full h-full transform -rotate-90"
+                    viewBox="0 0 36 36"
+                  >
                     <path
-                      className="text-[var(--border)]"
+                      className="text-gray-700"
                       d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
                       stroke="currentColor"
-                      strokeOpacity="0.3"
+                      strokeOpacity="0.2"
                       strokeWidth="4"
                     />
                     <path
-                      className="text-[var(--primary)]"
+                      className="text-primary"
                       d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                       fill="none"
                       stroke="currentColor"
@@ -120,12 +163,18 @@ export default function InvestmentPage() {
                     />
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[var(--primary)] text-sm">pie_chart</span>
+                    <span className="material-symbols-outlined text-primary text-lg">
+                      pie_chart
+                    </span>
                   </div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-[var(--foreground-muted)] uppercase tracking-wider">Strategy</span>
-                  <span className="text-xs font-semibold text-[var(--foreground)]">Diversified Risk Management</span>
+                <div className="flex flex-col justify-center">
+                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    Strategy
+                  </span>
+                  <span className="text-sm font-semibold">
+                    Diversified Risk Management
+                  </span>
                 </div>
               </div>
             </div>
@@ -133,133 +182,198 @@ export default function InvestmentPage() {
         </div>
 
         {/* Separator */}
-        <div className="h-2 bg-[var(--surface)] w-full" />
+        <div className="h-2 bg-gray-100 dark:bg-surface-dark w-full" />
 
         {/* Areas Section */}
-        <div className="px-5 py-6 scroll-mt-28" id="areas">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-1 h-5 bg-[var(--primary)] rounded-full" />
-            <h2 className="text-lg font-bold tracking-tight uppercase text-[var(--foreground)]">Investment Areas</h2>
+        <div className="px-6 py-8 scroll-mt-32" id="areas">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-1 h-6 bg-primary rounded-full" />
+            <h2 className="text-xl font-bold tracking-tight uppercase">
+              Focus Areas
+            </h2>
           </div>
-          <div className="flex flex-col gap-3">
-            {/* Real Estate */}
-            <div className="group flex flex-col bg-[var(--surface)] rounded-xl overflow-hidden border border-[var(--border)] shadow-sm">
-              <div className="h-28 bg-cover bg-center relative overflow-hidden">
-                <Image
-                  src="/images/investment/hero.jpg"
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black/40" />
-                <div className="absolute bottom-2 left-3 p-1.5 bg-[var(--primary)]/90 rounded-lg text-white">
-                  <span className="material-symbols-outlined text-lg">apartment</span>
+          <div className="grid grid-cols-1 gap-4">
+            {/* Card 1: Real Estate */}
+            <div className="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700/50 shadow-sm hover:border-primary/50 transition-colors">
+              <div
+                className="h-32 bg-cover bg-center relative"
+                style={{
+                  backgroundImage:
+                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBrbdFFSXeypJEQSl6Y7gcDF2geATp-szCoib5FQIN3C4axyTd78qXZ_g3_hyC_9p7JGc1xGjQXr0sFo1yU1THWG5Tb88-hkYeh-b6huGqms7AG8LzNy_fIDCHK9_jgU4fKfEh0Chi0B8G2BRuODIAYY83UsCPpspi7V9bBKnaDMVG36Z-fl4GA_2hdpfsq1wD6djDwUDk7lRMBYukQBqFzYwUipL7SNpLDFRjqCiYSrIWg0x0kH1S7_OIGhGpVr-wOhdwdWZVvBE')",
+                }}
+                role="img"
+                aria-label="Modern architectural building facade detail"
+              >
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute bottom-3 left-4 p-2 bg-primary/90 rounded-lg text-white">
+                  <span className="material-symbols-outlined text-xl">
+                    apartment
+                  </span>
                 </div>
               </div>
-              <div className="p-3">
-                <h3 className="font-bold text-base mb-1 text-[var(--foreground)]">Worldwide Real Estate</h3>
-                <p className="text-[10px] text-[var(--foreground-muted)] leading-relaxed">
-                  Strategic investments across key global locations.
+              <div className="p-4">
+                <h3 className="font-bold text-lg mb-1">Worldwide Real Estate</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Commercial & Residential acquisitions in high-growth global
+                  markets.
                 </p>
               </div>
             </div>
 
-            {/* Private & Strategic */}
-            <div className="group flex flex-col bg-[var(--surface)] rounded-xl overflow-hidden border border-[var(--border)] shadow-sm">
-              <div className="h-28 bg-cover bg-center relative overflow-hidden">
-                <Image
-                  src="/images/advisory/hero.jpg"
-                  alt=""
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black/40" />
-                <div className="absolute bottom-2 left-3 p-1.5 bg-[var(--primary)]/90 rounded-lg text-white">
-                  <span className="material-symbols-outlined text-lg">handshake</span>
+            {/* Card 2: Private Equity */}
+            <div className="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700/50 shadow-sm hover:border-primary/50 transition-colors">
+              <div
+                className="h-32 bg-cover bg-center relative"
+                style={{
+                  backgroundImage:
+                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3FUiu6s88gf8pyR5ZR6qtSz4BPMUGkAnl4K7KwRR6NdbHebKf7Zz_kjEjGeSPOLT9kyuI4njrx2tizXFNPIbdi1zoHSYS4AmzEIspjkjc9Bt9IyHlhLoBByaCLgS7Ee5820KLweaJzP74n1q6n3JsY1Q8agjjJIFBhGIF38RJkF0PRJjdSTFwPQwHHt_ZGM0DzIz8J42Z7e9tRbQ4e05NAocb3U9rpVQ-z9isU8M3xRgYySQ4ZKiTawM73IjpfpPAMacYdDDSfkk')",
+                }}
+                role="img"
+                aria-label="Two professionals shaking hands in a meeting room"
+              >
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+                <div className="absolute bottom-3 left-4 p-2 bg-primary/90 rounded-lg text-white">
+                  <span className="material-symbols-outlined text-xl">
+                    handshake
+                  </span>
                 </div>
               </div>
-              <div className="p-3">
-                <h3 className="font-bold text-base mb-1 text-[var(--foreground)]">Private &amp; Strategic</h3>
-                <p className="text-[10px] text-[var(--foreground-muted)] leading-relaxed">
-                  Direct investments with aligned vision. Access to startups and early-stage opportunities.
+              <div className="p-4">
+                <h3 className="font-bold text-lg mb-1">Private & Strategic</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Direct equity investments in scalable technologies and
+                  established firms.
                 </p>
               </div>
             </div>
 
-            {/* Small Cards Grid */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-[var(--surface)] rounded-xl p-3 border border-[var(--border)] shadow-sm flex flex-col gap-2">
-                <div className="p-1.5 bg-yellow-500/20 text-yellow-500 rounded-lg w-fit">
-                  <span className="material-symbols-outlined text-lg">monetization_on</span>
+            {/* Card 3 & 4 (Grid) */}
+            <div className="grid grid-cols-2 gap-4">
+              {/* Precious Metals */}
+              <div className="bg-white dark:bg-surface-dark rounded-xl p-4 border border-gray-100 dark:border-gray-700/50 shadow-sm flex flex-col items-start gap-3">
+                <div className="p-2 bg-yellow-500/20 text-yellow-500 rounded-lg">
+                  <span className="material-symbols-outlined">
+                    monetization_on
+                  </span>
                 </div>
-                <h3 className="font-bold text-xs leading-tight text-[var(--foreground)]">Precious Metals</h3>
-                <p className="text-[9px] text-[var(--foreground-muted)] leading-tight">
-                  Capital preservation and portfolio balance.
-                </p>
+                <div>
+                  <h3 className="font-bold text-sm mb-1 leading-tight">
+                    Precious Metals
+                  </h3>
+                  <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-tight">
+                    Gold, Silver & Strategic reserves.
+                  </p>
+                </div>
               </div>
-              <div className="bg-[var(--surface)] rounded-xl p-3 border border-[var(--border)] shadow-sm flex flex-col gap-2">
-                <div className="p-1.5 bg-purple-500/20 text-purple-500 rounded-lg w-fit">
-                  <span className="material-symbols-outlined text-lg">diamond</span>
+              {/* Luxury Assets */}
+              <div className="bg-white dark:bg-surface-dark rounded-xl p-4 border border-gray-100 dark:border-gray-700/50 shadow-sm flex flex-col items-start gap-3">
+                <div className="p-2 bg-purple-500/20 text-purple-500 rounded-lg">
+                  <span className="material-symbols-outlined">diamond</span>
                 </div>
-                <h3 className="font-bold text-xs leading-tight text-[var(--foreground)]">Luxury Assets</h3>
-                <p className="text-[9px] text-[var(--foreground-muted)] leading-tight">
-                  Watches, handbags, fine jewelry.
-                </p>
+                <div>
+                  <h3 className="font-bold text-sm mb-1 leading-tight">
+                    Luxury Assets
+                  </h3>
+                  <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-tight">
+                    Collectibles, Art & rare Vehicles.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Separator */}
-        <div className="h-2 bg-[var(--surface)] w-full" />
+        <div className="h-2 bg-gray-100 dark:bg-surface-dark w-full" />
 
-        {/* How We Operate */}
-        <div className="px-5 py-6 scroll-mt-28" id="operate">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-1 h-5 bg-[var(--primary)] rounded-full" />
-            <h2 className="text-lg font-bold tracking-tight uppercase text-[var(--foreground)]">How We Operate</h2>
+        {/* How We Operate Section */}
+        <div className="px-6 py-8 scroll-mt-32" id="operate">
+          <div className="flex items-center gap-2 mb-6">
+            <span className="w-1 h-6 bg-primary rounded-full" />
+            <h2 className="text-xl font-bold tracking-tight uppercase">
+              How We Operate
+            </h2>
           </div>
           <div className="relative pl-2">
-            <Timeline>
-              <TimelineStep
-                step={1}
-                icon="search"
-                title="Discovery"
-                description="Understanding your financial landscape."
-                isActive
-              />
-              <TimelineStep
-                step={2}
-                icon="strategy"
-                title="Strategy"
-                description="Bespoke investment roadmap."
-              />
-              <TimelineStep
-                step={3}
-                icon="rocket_launch"
-                title="Execution"
-                description="Deploying capital with precision."
-              />
-              <TimelineStep
-                step={4}
-                icon="monitoring"
-                title="Management"
-                description="Continuous portfolio optimization."
-                isLast
-              />
-            </Timeline>
+            {/* Vertical Line */}
+            <div className="absolute left-[19px] top-2 bottom-4 w-[2px] bg-gray-200 dark:bg-gray-800" />
+            {/* Step 1 */}
+            <div className="relative flex gap-6 mb-8">
+              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-primary flex items-center justify-center shrink-0 shadow-lg">
+                <span className="material-symbols-outlined text-primary text-sm">
+                  search
+                </span>
+              </div>
+              <div className="pt-1">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                  Discovery
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  Understanding your unique financial landscape and objectives.
+                </p>
+              </div>
+            </div>
+            {/* Step 2 */}
+            <div className="relative flex gap-6 mb-8">
+              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-gray-500 dark:text-gray-400 text-sm">
+                  strategy
+                </span>
+              </div>
+              <div className="pt-1">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                  Strategy
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  Crafting a bespoke investment roadmap tailored to your needs.
+                </p>
+              </div>
+            </div>
+            {/* Step 3 */}
+            <div className="relative flex gap-6 mb-8">
+              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-gray-500 dark:text-gray-400 text-sm">
+                  rocket_launch
+                </span>
+              </div>
+              <div className="pt-1">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                  Execution
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  Deploying capital with precision into selected asset classes.
+                </p>
+              </div>
+            </div>
+            {/* Step 4 */}
+            <div className="relative flex gap-6">
+              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-gray-500 dark:text-gray-400 text-sm">
+                  monitoring
+                </span>
+              </div>
+              <div className="pt-1">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                  Management
+                </h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                  Continuous monitoring and optimization of your portfolio.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </main>
 
       {/* Floating Bottom CTA */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-[var(--background)]/90 backdrop-blur-md border-t border-[var(--border)] z-40">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 z-50">
         <Link
           href="/contact"
-          className="w-full bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-[var(--primary)]/20 transition-all flex items-center justify-center gap-2"
+          className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/25 transition-all active:scale-[0.98]"
           tabIndex={0}
+          aria-label="Request Consultation"
         >
-          Request Consultation
+          <span>Request Consultation</span>
           <span className="material-symbols-outlined text-sm">arrow_forward</span>
         </Link>
       </div>

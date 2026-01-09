@@ -7,6 +7,59 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-01-09
+
+### Changed
+- **Complete Page Redesign** - All 4 inner pages converted from new HTML designs to React/Next.js
+  - Mobile-first design with `max-w-md` centered container
+  - Consistent styling across all pages with new design system
+  - External image URLs for hero sections (Google hosted)
+
+- **About Page** (`/about`)
+  - New hero section with parallax background image and gradient overlay
+  - "Global Vision, Local Impact." headline
+  - Philosophy section with 2 feature cards (Long-term Value, Transparency)
+  - Strategic Approach section with 3 items (Data-Driven, Agile, Holistic)
+  - Client Engagement section with 2 grid cards (Partnership, Feedback Loops)
+  - Gradient floating CTA button
+
+- **Advisory/Consulting Page** (`/advisory`)
+  - Hero section with decorative glow effect and "Advisory Services" badge
+  - "Global Consulting" headline with description
+  - "What We Do" section with custom accordion components (Strategic Advisory, C-Level Advisory, Personal & Corporate Affairs)
+  - "How We Work" vertical timeline with 3 numbered steps (Assessment, Strategy Formulation, Execution & Oversight)
+  - "When Clients Engage Us" section with 4 scenario cards in different colors (M&A, Crisis, Global Expansion, Restructuring)
+  - "Relationship Model" section with Tailored Engagement info (Retainer Based, Project Based)
+  - Fixed bottom CTA with backdrop blur
+
+- **Investment Page** (`/investment`)
+  - Hero section with background image and "Global Consulting Firm" badge
+  - "Global Investment - Preserving Wealth across Borders" headline
+  - Sticky tab navigation (Overview, Philosophy, Areas, Operate)
+  - Investment Philosophy section with SVG donut chart visualization
+  - "Prudence. Patience. Precision." philosophy statement
+  - Focus Areas section with 4 cards (Worldwide Real Estate, Private & Strategic, Precious Metals, Luxury Assets)
+  - Image cards with hover effects and icon badges
+  - "How We Operate" vertical timeline with 4 icon steps (Discovery, Strategy, Execution, Management)
+  - Fixed bottom CTA
+
+- **Contact Page** (`/contact`)
+  - "Let's discuss how we can help your business grow." headline
+  - Form with 4 fields (Name, Organization, Contact Details, Message)
+  - Form validation and submission handling preserved
+  - Focus states with primary color highlighting
+  - Locations section with 3 offices (Madrid, Barcelona, Roma) with updated addresses
+  - Email link with copyright footer
+  - Removed fixed bottom CTA (form submit button inline)
+
+### Technical
+- Inline accordion component in Advisory page (no external dependency)
+- Tab navigation state management in Investment page
+- All pages use direct Tailwind classes instead of CSS variables
+- Consistent `shadow-2xl` on main containers for depth
+- Material Symbols icons throughout
+- Proper accessibility attributes (tabIndex, aria-labels, roles)
+
 ## [3.0.0] - 2026-01-09
 
 ### Changed
