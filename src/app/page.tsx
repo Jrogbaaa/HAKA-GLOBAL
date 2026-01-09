@@ -14,12 +14,12 @@ export default function HomePage() {
             <span className="material-symbols-outlined text-primary text-5xl">change_history</span>
           </div>
         </div>
-        <h1 className="text-4xl font-light italic tracking-tight text-center mb-4 text-slate-900 dark:text-white">
+        <h1 className="text-4xl font-light italic tracking-tight text-center mb-4 text-slate-900 dark:text-gray-200">
           pre-shift strike.
         </h1>
         <div className="h-1 w-12 bg-primary rounded-full mb-6"></div>
         <p className="text-center text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-xs">
-          Bridging the gap between visionary strategy and tangible capital. We empower global enterprises to define the future.
+          We support Personal and Corporate Affairs with anticipation, strategic clarity, access and long-term vision.
         </p>
       </section>
 
@@ -48,7 +48,7 @@ export default function HomePage() {
               </span>
             </div>
             <span className="inline-block px-2 py-1 mb-2 text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 rounded border border-primary/20 backdrop-blur-sm">
-              Strategy &amp; Operations
+              Strategic Advisory
             </span>
             <h3 className="text-2xl font-bold text-white leading-none">
               HAKA GLOBAL
@@ -81,7 +81,7 @@ export default function HomePage() {
               </span>
             </div>
             <span className="inline-block px-2 py-1 mb-2 text-[10px] font-bold tracking-widest uppercase text-primary bg-primary/10 rounded border border-primary/20 backdrop-blur-sm">
-              Venture &amp; Capital
+              Access &amp; Conviction
             </span>
             <h3 className="text-2xl font-bold text-white leading-none">
               HAKA GLOBAL
@@ -96,9 +96,9 @@ export default function HomePage() {
       <div className="mt-4 px-6 pt-8 pb-12 bg-white dark:bg-surface-dark rounded-t-3xl border-t border-gray-100 dark:border-white/5">
         <div className="flex flex-col items-start gap-4">
           <div>
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Join the shift.</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-gray-200">Join the shift.</h3>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-              Get exclusive strategic insights delivered.
+              Discretion starts here.
             </p>
           </div>
           <form
@@ -110,7 +110,7 @@ export default function HomePage() {
                 <span className="material-symbols-outlined text-gray-400">mail</span>
               </div>
               <input
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg text-slate-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-lg text-slate-900 dark:text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
                 placeholder="email@address.com"
                 required
                 type="email"

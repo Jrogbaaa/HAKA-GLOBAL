@@ -43,7 +43,7 @@ const AccordionItem = ({
           <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
             <span className="material-symbols-outlined text-[20px]">{icon}</span>
           </div>
-          <p className="text-slate-900 dark:text-white text-base font-semibold leading-normal">
+          <p className="text-slate-900 dark:text-gray-200 text-base font-semibold leading-normal">
             {title}
           </p>
         </div>
@@ -79,12 +79,11 @@ export default function ConsultingPage() {
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-4">
             Advisory Services
           </span>
-          <h1 className="text-slate-900 dark:text-white text-4xl font-bold leading-[1.1] mb-4 tracking-tight">
-            Global Consulting
+          <h1 className="text-slate-900 dark:text-gray-200 text-4xl font-bold leading-[1.1] mb-4 tracking-tight">
+            HAKA Global Consulting
           </h1>
           <p className="text-slate-600 dark:text-gray-400 text-lg font-normal leading-relaxed">
-            Navigating complexity with precision. We provide expert guidance for
-            your most critical decisions.
+            Strategic advisory for people and companies operating where decisions take shape.
           </p>
         </div>
       </section>
@@ -92,35 +91,29 @@ export default function ConsultingPage() {
       {/* Section 1: What We Do (Accordions) */}
       <section className="flex flex-col gap-2 mb-8">
         <div className="px-6 flex items-center justify-between">
-          <h3 className="text-slate-900 dark:text-white text-sm font-bold uppercase tracking-widest text-opacity-80">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
             What We Do
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
         </div>
         <div className="flex flex-col px-4 pt-4 gap-3">
           {/* Accordion 1 */}
-          <AccordionItem icon="strategy" title="Strategic Advisory" defaultOpen>
-            Comprehensive market entry analysis, growth strategy formulation,
-            and competitive landscape mapping to ensure sustainable long-term
-            success in volatile markets.
+          <AccordionItem icon="strategy" title="Strategic Advisory & Positioning" defaultOpen>
+            We define and refine strategic positioning where relevance, authority and long-term advantage are built — beyond visibility or messaging.
           </AccordionItem>
           {/* Accordion 2 */}
           <AccordionItem
             icon="meeting_room"
             title="C-Level & Executive Advisory"
           >
-            Confidential sounding board services for senior leadership, focusing
-            on high-stakes decision support, succession planning, and
-            organizational transformation.
+            Confidential counsel for founders, executives and decision-makers operating under high stakes, public exposure and institutional complexity.
           </AccordionItem>
           {/* Accordion 3 */}
           <AccordionItem
             icon="admin_panel_settings"
             title="Personal & Corporate Affairs"
           >
-            Discreet management of reputational risks, crisis communication
-            strategies, and complex stakeholder negotiations for individuals and
-            entities.
+            Strategic advisory on personal and corporate interests, aligning reputation, relationships and positioning within decision-making environments.
           </AccordionItem>
         </div>
       </section>
@@ -128,7 +121,7 @@ export default function ConsultingPage() {
       {/* Section 2: How We Work (Timeline) */}
       <section className="flex flex-col mb-10">
         <div className="px-6 pb-4 flex items-center justify-between">
-          <h3 className="text-slate-900 dark:text-white text-sm font-bold uppercase tracking-widest text-opacity-80">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
             How We Work
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
@@ -143,12 +136,11 @@ export default function ConsultingPage() {
               <div className="w-0.5 grow bg-gray-200 dark:bg-gray-800 min-h-[40px]" />
             </div>
             <div className="pb-8 pt-1">
-              <h4 className="text-slate-900 dark:text-white text-lg font-bold mb-1">
-                Assessment
+              <h4 className="text-slate-900 dark:text-gray-200 text-lg font-bold mb-1">
+                We work selectively
               </h4>
               <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
-                We begin with a deep dive into the current state of affairs,
-                identifying hidden risks and opportunities.
+                We operate with discretion. We prioritize judgment over process.
               </p>
             </div>
           </div>
@@ -161,12 +153,11 @@ export default function ConsultingPage() {
               <div className="w-0.5 grow bg-gray-200 dark:bg-gray-800 min-h-[40px]" />
             </div>
             <div className="pb-8 pt-1">
-              <h4 className="text-slate-900 dark:text-white text-lg font-bold mb-1">
-                Strategy Formulation
+              <h4 className="text-slate-900 dark:text-gray-200 text-lg font-bold mb-1">
+                Advisory is not execution support
               </h4>
               <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
-                Developing tailored, actionable roadmaps that align with your
-                core business objectives.
+                It is strategic clarity under complexity.
               </p>
             </div>
           </div>
@@ -179,12 +170,11 @@ export default function ConsultingPage() {
               {/* Last item has no line growing down */}
             </div>
             <div className="pt-1">
-              <h4 className="text-slate-900 dark:text-white text-lg font-bold mb-1">
-                Execution & Oversight
+              <h4 className="text-slate-900 dark:text-gray-200 text-lg font-bold mb-1">
+                Confidential by default
               </h4>
               <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
-                Accompanying the implementation phase to ensure precision and
-                adaptability.
+                We do not seek visibility. We operate where relevance is decided.
               </p>
             </div>
           </div>
@@ -194,7 +184,7 @@ export default function ConsultingPage() {
       {/* Section 3: When Clients Engage Us (Cards) */}
       <section className="flex flex-col mb-10 bg-slate-100 dark:bg-[#151921] py-8">
         <div className="px-6 pb-6 flex items-center justify-between">
-          <h3 className="text-slate-900 dark:text-white text-sm font-bold uppercase tracking-widest text-opacity-80">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
             When Clients Engage Us
           </h3>
         </div>
@@ -205,11 +195,11 @@ export default function ConsultingPage() {
               <span className="material-symbols-outlined">domain</span>
             </div>
             <div>
-              <h4 className="text-slate-900 dark:text-white font-bold text-sm mb-1">
-                M&A Activity
+              <h4 className="text-slate-900 dark:text-gray-200 font-bold text-sm mb-1">
+                Visibility matters
               </h4>
               <p className="text-xs text-slate-500 dark:text-gray-500 leading-snug">
-                During mergers, acquisitions, or divestitures.
+                When access and timing are critical.
               </p>
             </div>
           </div>
@@ -219,11 +209,11 @@ export default function ConsultingPage() {
               <span className="material-symbols-outlined">warning</span>
             </div>
             <div>
-              <h4 className="text-slate-900 dark:text-white font-bold text-sm mb-1">
-                Crisis Mgmt
+              <h4 className="text-slate-900 dark:text-gray-200 font-bold text-sm mb-1">
+                Influence needed
               </h4>
               <p className="text-xs text-slate-500 dark:text-gray-500 leading-snug">
-                Unexpected high-impact events needing rapid response.
+                When strategic alignment must be achieved.
               </p>
             </div>
           </div>
@@ -233,11 +223,11 @@ export default function ConsultingPage() {
               <span className="material-symbols-outlined">public</span>
             </div>
             <div>
-              <h4 className="text-slate-900 dark:text-white font-bold text-sm mb-1">
-                Global Expansion
+              <h4 className="text-slate-900 dark:text-gray-200 font-bold text-sm mb-1">
+                No improvisation
               </h4>
               <p className="text-xs text-slate-500 dark:text-gray-500 leading-snug">
-                Entering new geopolitical territories.
+                When decisions cannot be left to chance.
               </p>
             </div>
           </div>
@@ -247,11 +237,11 @@ export default function ConsultingPage() {
               <span className="material-symbols-outlined">handshake</span>
             </div>
             <div>
-              <h4 className="text-slate-900 dark:text-white font-bold text-sm mb-1">
-                Restructuring
+              <h4 className="text-slate-900 dark:text-gray-200 font-bold text-sm mb-1">
+                Context matters
               </h4>
               <p className="text-xs text-slate-500 dark:text-gray-500 leading-snug">
-                Significant organizational pivots.
+                When context is as important as capital.
               </p>
             </div>
           </div>
@@ -261,7 +251,7 @@ export default function ConsultingPage() {
       {/* Section 4: Relationship Model */}
       <section className="flex flex-col mb-24 px-6">
         <div className="pb-4 flex items-center justify-between">
-          <h3 className="text-slate-900 dark:text-white text-sm font-bold uppercase tracking-widest text-opacity-80">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
             Relationship Model
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
@@ -270,11 +260,11 @@ export default function ConsultingPage() {
           <div className="absolute top-0 right-0 p-4 opacity-5">
             <span className="material-symbols-outlined text-6xl">contract</span>
           </div>
-          <h4 className="text-slate-900 dark:text-white font-bold text-lg mb-2">
-            Tailored Engagement
+          <h4 className="text-slate-900 dark:text-gray-200 font-bold text-lg mb-2">
+            Mandate-based. Bespoke. Confidential.
           </h4>
           <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-            Our engagement models are designed for flexibility. We offer:
+            Strategic advisory often leads to capital decisions. When appropriate, our work extends into HAKA Global Investment.
           </p>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
@@ -282,8 +272,7 @@ export default function ConsultingPage() {
                 check_circle
               </span>
               <span className="text-slate-700 dark:text-gray-300 text-sm">
-                <strong>Retainer Based:</strong> Ongoing advisory for continuous
-                support.
+                Not every conversation leads to engagement.
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -291,8 +280,7 @@ export default function ConsultingPage() {
                 check_circle
               </span>
               <span className="text-slate-700 dark:text-gray-300 text-sm">
-                <strong>Project Based:</strong> Define scope for specific
-                deliverables.
+                But every engagement starts with the right conversation.
               </span>
             </li>
           </ul>

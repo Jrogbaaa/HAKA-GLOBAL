@@ -7,6 +7,51 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.0] - 2026-01-09
+
+### Changed
+- **Navigation Logo** - Replaced text "HAKA" with gold SVG logo (`haka-logo-gold.svg`)
+  - Logo is now centered and larger for better visibility
+  - Consistent branding with footer logo
+
+- **Text Color Refinement** - Changed white text to softer gray (`dark:text-gray-200`)
+  - Improved readability across all pages
+  - Better contrast without harsh white-on-dark
+
+- **Complete Brand Content Update** - All placeholder text replaced with official HAKA brand copy
+  
+  **Homepage:**
+  - Hero description: "We support Personal and Corporate Affairs with anticipation, strategic clarity, access and long-term vision."
+  - Card badges: "Strategic Advisory" and "Access & Conviction"
+  - Newsletter CTA: "Discretion starts here."
+
+  **About Page:**
+  - Hero: "Anticipation. Affairs. Influence."
+  - Intro: "HAKA operates where decisions take shape, before they become public or formalized."
+  - Sections renamed: "How We Operate", "Anticipation", "AI as Strategic Leverage"
+  - Cards: Selectivity, Discretion, "Before narratives settle", "Before consensus becomes public", "Before the shift occurs"
+  - AI cards: "Contextual Analysis", "Decision Support"
+
+  **Advisory Page:**
+  - Hero: "HAKA Global Consulting" - "Strategic advisory for people and companies operating where decisions take shape."
+  - Accordions updated with official service descriptions
+  - How We Work: "We work selectively", "Advisory is not execution support", "Confidential by default"
+  - When Clients Engage Us: Visibility, Influence, No improvisation, Context matters
+  - Relationship Model: "Mandate-based. Bespoke. Confidential."
+
+  **Investment Page:**
+  - Hero: "HAKA Global Investment" - "Strategic investments shaped by access, timing and conviction."
+  - Overview: "HAKA Global Investment operates where information asymmetry, scarcity and strategic access generate long-term value."
+  - Philosophy: "We do not chase trends. We position capital before they form."
+  - Areas: Updated descriptions for Real Estate, Private & Strategic, Precious Metals, Luxury Assets
+  - How We Operate: Direct investments, Discretion, Intelligence, "Pre-Shift Strike"
+
+- **Contact Page Email Fix** - Changed from `contact@haka.com` to `info@hakaglobal.com`
+
+### Technical
+- No layout or design changes - all updates are text-only swaps within existing components
+- Consistent email address across entire site
+
 ## [3.1.0] - 2026-01-09
 
 ### Changed

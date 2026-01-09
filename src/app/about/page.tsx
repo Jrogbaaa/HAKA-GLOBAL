@@ -22,16 +22,15 @@ export default function AboutPage() {
           <div className="absolute bottom-0 left-0 p-6 w-full">
             <div className="w-12 h-1 bg-primary mb-3 rounded-full" />
             <h2 className="text-3xl font-extrabold text-white leading-tight mb-1">
-              Global Vision,
+              Anticipation.
             </h2>
             <h2 className="text-3xl font-extrabold text-white/80 leading-tight">
-              Local Impact.
+              Affairs. Influence.
             </h2>
           </div>
         </div>
         <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed text-sm px-1">
-          HAKA is a premier global consulting and investment firm dedicated to
-          bridging the gap between ambitious vision and tangible reality.
+          HAKA operates where decisions take shape, before they become public or formalized. We work within complex personal, corporate and institutional environments.
         </p>
       </div>
 
@@ -41,7 +40,7 @@ export default function AboutPage() {
           <span className="material-symbols-outlined text-primary mr-2 text-xl">
             psychology
           </span>
-          <h3 className="text-lg font-bold">Our Philosophy</h3>
+          <h3 className="text-lg font-bold">How We Operate</h3>
         </div>
         <div className="px-4 space-y-4">
           {/* Card 1: Long-term Value */}
@@ -51,10 +50,9 @@ export default function AboutPage() {
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
                 <span className="material-symbols-outlined">trending_up</span>
               </div>
-              <h4 className="text-xl font-bold mb-2">Long-term Value</h4>
+              <h4 className="text-xl font-bold mb-2">Selectivity</h4>
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                We focus on sustainable growth strategies that yield lasting
-                results, prioritizing stability over short-term gains.
+                We work selectively. We prioritize judgment over process.
               </p>
             </div>
           </div>
@@ -65,10 +63,9 @@ export default function AboutPage() {
               <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4 text-emerald-500">
                 <span className="material-symbols-outlined">visibility</span>
               </div>
-              <h4 className="text-xl font-bold mb-2">Transparency</h4>
+              <h4 className="text-xl font-bold mb-2">Discretion</h4>
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                Open communication and clear reporting are the pillars of our
-                client relationships. We believe in total clarity.
+                Confidential by default. We do not seek visibility.
               </p>
             </div>
           </div>
@@ -81,7 +78,7 @@ export default function AboutPage() {
           <span className="material-symbols-outlined text-primary mr-2 text-xl">
             strategy
           </span>
-          <h3 className="text-lg font-bold">Strategic Approach</h3>
+          <h3 className="text-lg font-bold">Anticipation</h3>
         </div>
         <div className="px-4">
           <div className="bg-white dark:bg-surface-dark rounded-xl p-1 border border-gray-200 dark:border-gray-800 shadow-sm">
@@ -96,11 +93,10 @@ export default function AboutPage() {
               </div>
               <div>
                 <h4 className="font-bold text-base mb-1">
-                  Data-Driven Decisions
+                  Before narratives settle
                 </h4>
                 <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                  Utilizing advanced analytics to inform every strategic move,
-                  minimizing risk and maximizing opportunity.
+                  We read context and influence outcomes before positions harden.
                 </p>
               </div>
             </div>
@@ -114,10 +110,9 @@ export default function AboutPage() {
                 </div>
               </div>
               <div>
-                <h4 className="font-bold text-base mb-1">Agile Methodology</h4>
+                <h4 className="font-bold text-base mb-1">Before consensus becomes public</h4>
                 <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                  Adapting quickly to market changes with flexible, iterative
-                  processes that keep you ahead of the curve.
+                  We build consensus among key actors through strategic alignment.
                 </p>
               </div>
             </div>
@@ -131,10 +126,9 @@ export default function AboutPage() {
                 </div>
               </div>
               <div>
-                <h4 className="font-bold text-base mb-1">Holistic Integration</h4>
+                <h4 className="font-bold text-base mb-1">Before the shift occurs</h4>
                 <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
-                  Connecting all aspects of your business operations to ensure
-                  seamless execution of strategy.
+                  Pre-Shift Strike is how we operate.
                 </p>
               </div>
             </div>
@@ -148,7 +142,7 @@ export default function AboutPage() {
           <span className="material-symbols-outlined text-primary mr-2 text-xl">
             handshake
           </span>
-          <h3 className="text-lg font-bold">Client Engagement</h3>
+          <h3 className="text-lg font-bold">AI as Strategic Leverage</h3>
         </div>
         <div className="px-4 grid grid-cols-2 gap-3">
           {/* Engagement Card 1 */}
@@ -157,9 +151,9 @@ export default function AboutPage() {
               diversity_3
             </span>
             <div>
-              <h4 className="font-bold text-sm mb-1">Partnership</h4>
+              <h4 className="font-bold text-sm mb-1">Contextual Analysis</h4>
               <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-tight">
-                More than a vendor; we are extensions of your team.
+                AI enhances judgment, maps environments, detects signals.
               </p>
             </div>
           </div>
@@ -169,9 +163,9 @@ export default function AboutPage() {
               forum
             </span>
             <div>
-              <h4 className="font-bold text-sm mb-1">Feedback Loops</h4>
+              <h4 className="font-bold text-sm mb-1">Decision Support</h4>
               <p className="text-[11px] text-gray-500 dark:text-gray-400 leading-tight">
-                Continuous dialogue ensures we stay aligned with goals.
+                AI amplifies human judgment. It does not replace it.
               </p>
             </div>
           </div>

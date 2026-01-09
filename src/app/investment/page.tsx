@@ -41,10 +41,10 @@ export default function InvestmentPage() {
                 Global Consulting Firm
               </p>
               <h1 className="text-white text-3xl font-extrabold leading-tight mb-1">
-                Global Investment
+                HAKA Global Investment
               </h1>
               <p className="text-gray-300 text-sm font-medium">
-                Preserving Wealth across Borders
+                Strategic investments shaped by access, timing and conviction.
               </p>
             </div>
           </div>
@@ -107,10 +107,7 @@ export default function InvestmentPage() {
         {/* Overview Content */}
         <div className="px-6 py-6 scroll-mt-32" id="overview">
           <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-            HAKA is a global consulting and investment firm dedicated to
-            sustainable growth. We specialize in identifying unique opportunities
-            that preserve wealth while fostering innovation across international
-            borders.
+            HAKA Global Investment operates where information asymmetry, scarcity and strategic access generate long-term value. Our activity is selective and opportunity-driven.
           </p>
         </div>
 
@@ -130,12 +127,10 @@ export default function InvestmentPage() {
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10" />
             <div className="relative z-10">
               <h3 className="text-2xl font-bold text-primary mb-3">
-                Prudence. Patience. Precision.
+                We do not chase trends.
               </h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
-                We believe that true wealth preservation requires a disciplined
-                approach to risk management. Our philosophy is rooted in long-term
-                value creation rather than short-term speculation.
+                We position capital before they form. Our approach combines contextual intelligence, disciplined risk assessment and access to non-obvious opportunities. Conviction matters more than volume.
               </p>
               {/* Abstract Visualization of Portfolio */}
               <div className="flex items-center gap-4">
@@ -173,7 +168,7 @@ export default function InvestmentPage() {
                     Strategy
                   </span>
                   <span className="text-sm font-semibold">
-                    Diversified Risk Management
+                    Anticipation creates advantage
                   </span>
                 </div>
               </div>
@@ -214,8 +209,7 @@ export default function InvestmentPage() {
               <div className="p-4">
                 <h3 className="font-bold text-lg mb-1">Worldwide Real Estate</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Commercial & Residential acquisitions in high-growth global
-                  markets.
+                  Strategic investments across key global locations, focused on scarcity, positioning and long-term relevance.
                 </p>
               </div>
             </div>
@@ -241,8 +235,7 @@ export default function InvestmentPage() {
               <div className="p-4">
                 <h3 className="font-bold text-lg mb-1">Private & Strategic</h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Direct equity investments in scalable technologies and
-                  established firms.
+                  Direct investments in companies where governance, strategy and long-term vision are aligned. Including startups and early-stage opportunities.
                 </p>
               </div>
             </div>
@@ -261,7 +254,7 @@ export default function InvestmentPage() {
                     Precious Metals
                   </h3>
                   <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-tight">
-                    Gold, Silver & Strategic reserves.
+                    Capital preservation, optionality and portfolio balance.
                   </p>
                 </div>
               </div>
@@ -275,7 +268,7 @@ export default function InvestmentPage() {
                     Luxury Assets
                   </h3>
                   <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-tight">
-                    Collectibles, Art & rare Vehicles.
+                    Watches, handbags, jewelry. Patek, Hermès, Rolex.
                   </p>
                 </div>
               </div>
@@ -305,11 +298,11 @@ export default function InvestmentPage() {
                 </span>
               </div>
               <div className="pt-1">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">
-                  Discovery
+                <h4 className="text-lg font-bold text-gray-900 dark:text-gray-200">
+                  Direct investments
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  Understanding your unique financial landscape and objectives.
+                  Or mandate-based activity. No open vehicles.
                 </p>
               </div>
             </div>
@@ -321,11 +314,11 @@ export default function InvestmentPage() {
                 </span>
               </div>
               <div className="pt-1">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">
-                  Strategy
+                <h4 className="text-lg font-bold text-gray-900 dark:text-gray-200">
+                  Discretion
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  Crafting a bespoke investment roadmap tailored to your needs.
+                  Selectivity is fundamental. No mass exposure.
                 </p>
               </div>
             </div>
@@ -337,11 +330,11 @@ export default function InvestmentPage() {
                 </span>
               </div>
               <div className="pt-1">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">
-                  Execution
+                <h4 className="text-lg font-bold text-gray-900 dark:text-gray-200">
+                  Intelligence
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  Deploying capital with precision into selected asset classes.
+                  AI-driven strategic intelligence for context analysis and scenario anticipation.
                 </p>
               </div>
             </div>
@@ -353,11 +346,11 @@ export default function InvestmentPage() {
                 </span>
               </div>
               <div className="pt-1">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">
-                  Management
+                <h4 className="text-lg font-bold text-gray-900 dark:text-gray-200">
+                  Pre-Shift Strike
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  Continuous monitoring and optimization of your portfolio.
+                  Capital follows insight. Insight comes before opportunity.
                 </p>
               </div>
             </div>

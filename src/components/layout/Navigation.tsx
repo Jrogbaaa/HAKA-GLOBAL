@@ -44,23 +44,25 @@ export const Navigation = () => {
       <button
         ref={buttonRef}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="flex items-center justify-center p-1 rounded-full text-slate-900 dark:text-white hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
+        className="flex items-center justify-center p-1 rounded-full text-slate-900 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-white/10 transition-colors"
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         aria-expanded={isMenuOpen}
       >
         <span className="material-symbols-outlined text-2xl">menu</span>
       </button>
 
-      <div className="flex-1 text-center pr-8">
+      <div className="flex-1 flex justify-center">
         <Link href="/">
-          <h2 className="text-xl font-extrabold tracking-[0.2em] leading-tight text-slate-900 dark:text-white">
-            HAKA
-          </h2>
+          <img 
+            src="/haka-logo-gold.svg" 
+            alt="HAKA Global" 
+            className="h-10 w-auto"
+          />
         </Link>
       </div>
 
       {/* Spacer to balance the menu icon */}
-      <div className="w-6"></div>
+      <div className="w-10"></div>
 
       {/* Dropdown Menu */}
       {isMenuOpen && (
@@ -76,7 +78,7 @@ export const Navigation = () => {
               className={`flex items-center justify-between px-4 py-3 text-base font-medium transition-colors hover:bg-gray-100 dark:hover:bg-white/5 ${
                 pathname === link.href
                   ? "text-primary"
-                  : "text-slate-900 dark:text-white"
+                  : "text-slate-900 dark:text-gray-200"
               }`}
               role="menuitem"
             >

@@ -102,7 +102,14 @@ Using Zod schemas in `src/lib/validations.ts`
 ### Demo Data
 Pages include demo data arrays that display when database is unavailable.
 
-## Recent Changes (v1.3.0)
+## Recent Changes (v3.2.0)
+
+1. **Gold Logo in Navigation**: Replaced text "HAKA" with gold SVG logo (`haka-logo-gold.svg`), centered and larger
+2. **Softer Text Colors**: Changed `dark:text-white` to `dark:text-gray-200` for better readability
+3. **Complete Brand Content**: All placeholder text replaced with official HAKA brand copy across all pages
+4. **Email Consistency**: Fixed contact page email to `info@hakaglobal.com`
+
+## Previous Changes (v1.3.0)
 
 1. **E2E Testing**: Added Playwright E2E test suite with GitHub Actions CI/CD
 2. **Email Notifications**: Contact form submissions now send:
