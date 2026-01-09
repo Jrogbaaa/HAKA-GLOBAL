@@ -14,10 +14,11 @@ test.describe("About Page", () => {
   });
 
   test("should display main content sections", async ({ page }) => {
-    // Check key content is present
-    await expect(page.getByText(/decisions take shape/i)).toBeVisible();
-    await expect(page.getByText(/Personal and Corporate Affairs/i)).toBeVisible();
-    await expect(page.getByText(/Pre-Shift Strike/i)).toBeVisible();
+    // Check key content is present in the article
+    const article = page.locator("article");
+    await expect(article.getByText(/decisions take shape/i).first()).toBeVisible();
+    await expect(article.getByText(/Personal and Corporate Affairs/i).first()).toBeVisible();
+    await expect(article.getByText(/Pre-Shift Strike/i)).toBeVisible();
     await expect(page.getByText(/AI as Strategic Leverage/i)).toBeVisible();
   });
 
@@ -36,5 +37,9 @@ test.describe("About Page", () => {
     await expect(page.getByText(/All rights reserved/i)).toBeVisible();
     await expect(page.getByRole("link", { name: /Privacy Policy/i })).toBeVisible();
     await expect(page.getByRole("link", { name: /Legal Notice/i })).toBeVisible();
+  });
+
+  test("should have hero image", async ({ page }) => {
+    await expect(page.getByRole("img", { name: /HAKA Global - Strategic Advisory/i })).toBeVisible();
   });
 });

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.6.1] - 2026-01-09
+
+### Fixed
+- **E2E Test Updates** - Updated all Playwright tests to match current site structure
+  - `about.spec.ts` - Fixed selectors to scope within article element, added hero image test
+  - `contact.spec.ts` - Updated form field selectors to use aria-labels, fixed title check, added location test
+  - `navigation.spec.ts` - Updated to use hamburger menu for all navigation tests (removed desktop nav assumption), scoped home page content tests to main element
+  - All 115 tests now pass across Chromium, Firefox, WebKit, Mobile Chrome, and Mobile Safari
+
 ## [2.6.0] - 2026-01-08
 
 ### Added
