@@ -20,7 +20,7 @@ export const CTASection = ({
   buttonHref = "/contact",
 }: CTASectionProps) => {
   return (
-    <section className="relative w-full flex justify-center bg-[var(--background)] py-32 lg:py-44 overflow-hidden">
+    <section className="relative w-full flex justify-center bg-[var(--background)] py-20 lg:py-32 overflow-hidden">
       {/* Background gradient orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,var(--primary)_0%,transparent_70%)] opacity-[0.04] blur-3xl pointer-events-none" />
       
@@ -28,9 +28,9 @@ export const CTASection = ({
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-[var(--primary)]/30 to-transparent" />
 
       <div className="relative w-full max-w-[1280px] px-6 lg:px-10">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-left">
           {/* Subtitle with decorative elements */}
-          <div className="flex items-center justify-center gap-4 mb-10">
+          <div className="flex items-center justify-start gap-4 mb-10">
             <span className="h-px w-12 bg-gradient-to-r from-transparent to-[var(--primary)]/60" />
             <p className="text-xs font-medium uppercase tracking-[0.4em] text-[var(--primary)]">
               {subtitle}
@@ -66,7 +66,7 @@ export const CTASection = ({
           </div>
 
           {note && (
-            <div className="mt-14 flex items-center justify-center gap-3">
+            <div className="mt-14 flex items-center justify-start gap-3">
               <span className="h-px w-6 bg-white/20" />
               <p className="text-sm text-white/35 italic max-w-md">
                 {note}

@@ -35,9 +35,9 @@ export default function ConsultingPage() {
     <div className="flex flex-col min-h-screen w-full max-w-full">
       <main className="flex-1 w-full max-w-full">
         {/* Hero Section */}
-        <section className="w-full flex justify-center pt-24 pb-12 md:pt-32 md:pb-16 lg:pt-36 lg:pb-20">
+        <section className="w-full flex justify-center pt-16 pb-10 md:pt-24 md:pb-12 lg:pt-28 lg:pb-16">
           <div className="w-full max-w-3xl px-6 text-left">
-            <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[var(--foreground)] mb-10">
+            <h1 className="text-left text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-[var(--gold)] mb-10">
               HAKA GLOBAL CONSULTING
             </h1>
             <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-relaxed">
@@ -60,7 +60,7 @@ export default function ConsultingPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* What We Do Section */}
         <section className="w-full flex justify-center">
@@ -70,12 +70,12 @@ export default function ConsultingPage() {
             </h2>
             <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9]">
               We advise at decision level, aligning strategy, reputation and context. Our work sits across{" "}
-              <strong className="text-[var(--foreground)] font-semibold">Personal and Corporate Affairs</strong>, non-market dynamics and financial decision-making. We help clients anticipate shifts, shape consensus and act with clarity — before moves become public.
+              <strong className="text-[var(--gold)] font-semibold">Personal and Corporate Affairs</strong>, non-market dynamics and financial decision-making. We help clients anticipate shifts, shape consensus and act with clarity — before moves become public.
             </p>
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Areas of Advisory Section */}
         <section className="w-full flex justify-center">
@@ -158,7 +158,7 @@ export default function ConsultingPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* How We Work Section */}
         <section className="w-full flex justify-center">
@@ -176,7 +176,7 @@ export default function ConsultingPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* When Clients Engage Us Section */}
         <section className="w-full flex justify-center">
@@ -193,7 +193,7 @@ export default function ConsultingPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Relationship Model Section */}
         <section className="w-full flex justify-center">
@@ -209,7 +209,7 @@ export default function ConsultingPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Investment Bridge Section */}
         <section className="w-full flex justify-center">
@@ -232,10 +232,10 @@ export default function ConsultingPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Email Subscription Section */}
-        <section className="w-full flex justify-center pb-24 md:pb-36 lg:pb-44">
+        <section className="w-full flex justify-center pb-16 md:pb-24 lg:pb-32">
           <div className="w-full max-w-md px-6 text-left">
             <p className="text-base md:text-lg text-[var(--foreground)] mb-8">
               Enter your email address

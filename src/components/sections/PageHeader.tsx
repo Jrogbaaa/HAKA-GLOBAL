@@ -12,7 +12,7 @@ export const PageHeader = ({
   description,
 }: PageHeaderProps) => {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-16 lg:py-24 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-[var(--background)]">
         <div
@@ -26,7 +26,7 @@ export const PageHeader = ({
       </div>
 
       <div className="relative max-w-[1280px] mx-auto px-4 lg:px-8">
-        <div className="max-w-3xl fade-in-up">
+        <div className="max-w-3xl fade-in-up text-left">
           {subtitle && (
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--surface)] border border-[var(--border)] mb-6">
               <span className="text-sm font-medium text-[var(--primary)]">

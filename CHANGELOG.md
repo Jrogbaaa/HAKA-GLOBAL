@@ -7,6 +7,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.7.0] - 2026-01-09
+
+### Changed
+- **Site-wide Gold Titles** - All h1, h2, h3 headings now use gold color (`var(--gold)`) for consistent brand identity
+- **Hamburger Menu Refinements**
+  - Reduced line size from `w-7 md:w-8 h-[3px]` to `w-5 md:w-6 h-[2px]` for a more refined look
+  - Reduced gap between lines for tighter appearance
+  - Aligned hamburger position with top of HAKA logo on desktop
+- **Home Page Updates**
+  - First sentence "We support Personal and Corporate Affairs..." now gold and larger (`text-xl md:text-2xl lg:text-3xl`)
+  - Split description into two paragraphs with spacing after first gold sentence
+  - CONSULTING/INVESTING card titles reduced from `clamp(2rem, 8vw, 6rem)` to `clamp(1.75rem, 6vw, 4.5rem)`
+  - Added background images to CONSULTING and INVESTING cards with dark overlay and hover effects
+- **Navigation/Branding**
+  - "pre-shift strike." tagline now visible on mobile (was hidden)
+  - Reduced header height and moved logo/tagline up for tighter layout
+- **Bold Text → Bold + Gold** - All bold/emphasized text across the site now displays in gold color
+  - About page: 12 instances updated
+  - Advisory page: Key terms now gold
+  - Investment page: 6 instances updated
+  - Home page: "Pre-Shift Strike" now gold
+- **Text Alignment** - Changed from centered to left-aligned text across all pages
+- **Reduced Section Spacing** - Decreased vertical padding/margins between sections by ~25-30% site-wide
+- **Title Size Reductions**
+  - HAKA GLOBAL CONSULTING: `text-3xl md:text-4xl lg:text-5xl` → `text-2xl md:text-3xl lg:text-4xl`
+  - HAKA GLOBAL INVESTMENT: `text-3xl md:text-4xl lg:text-5xl` → `text-2xl md:text-3xl lg:text-4xl`
+
 ## [2.6.1] - 2026-01-09
 
 ### Fixed

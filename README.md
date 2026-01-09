@@ -54,16 +54,20 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 
 ### Design Principles
 - Dark mode first with luxury gold accent
+- **Gold titles** - All h1, h2, h3 headings use gold color for brand consistency
+- **Bold text in gold** - All emphasized/bold text displays in gold across the site
+- **Left-aligned text** - Content is left-aligned for improved readability
 - Max content width: 1400px (general pages), 768px/3xl (document-style pages)
 - Consistent padding: 24px mobile, 40px desktop
-- Full-width sections with centered content (`flex justify-center`)
+- Full-width sections with left-aligned content
 - Hero section on homepage only; compact PageHeader on subpages
-- **Document-style layout** for Advisory & Investment pages: centered content, uppercase section headers, numbered lists
-- **Strategic imagery** on About, Investment, and Advisory pages with low opacity (40-50%) and gradient overlays
+- **Document-style layout** for Advisory & Investment pages: left-aligned content, uppercase section headers, numbered lists
+- **Strategic imagery** on About, Investment, Advisory, and Homepage cards with low opacity (40-50%) and gradient overlays
 - Content-first layout approach on all pages
 - Smooth scroll and subtle animations (Framer Motion)
 - Minimal borders, spacing-based hierarchy
 - Hover states for all interactive elements
+- Refined hamburger menu aligned with logo
 
 ## 🚀 Getting Started
 

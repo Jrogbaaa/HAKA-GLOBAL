@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   const [email, setEmail] = useState("");
@@ -37,31 +38,53 @@ export default function HomePage() {
         {/* Two Card Grid - Full Width */}
         <section className="w-full px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
-            {/* Consulting Card - Black Background */}
+            {/* Consulting Card - With Background Image */}
             <Link
               href="/advisory"
-              className="group relative flex items-center justify-center min-h-[300px] md:min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl bg-black border border-[var(--border)] hover:border-[var(--gold)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--gold)]/10"
+              className="group relative flex items-center justify-center min-h-[300px] md:min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl border border-[var(--border)] hover:border-[var(--gold)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--gold)]/10"
               tabIndex={0}
               aria-label="Explore Consulting services"
             >
+              {/* Background Image */}
+              <Image
+                src="/images/advisory/hero.jpg"
+                alt=""
+                fill
+                className="object-cover opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                priority
+              />
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-all duration-500" />
+              {/* Title */}
               <h2 
-                className="text-[var(--gold)] font-light tracking-tight text-center group-hover:scale-105 transition-transform duration-500"
-                style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: '1' }}
+                className="relative z-10 text-[var(--gold)] font-light tracking-tight text-center group-hover:scale-105 transition-transform duration-500"
+                style={{ fontSize: 'clamp(1.75rem, 6vw, 4.5rem)', lineHeight: '1' }}
               >
                 CONSULTING
               </h2>
             </Link>
 
-            {/* Investing Card - Black Background */}
+            {/* Investing Card - With Background Image */}
             <Link
               href="/investment"
-              className="group relative flex items-center justify-center min-h-[300px] md:min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl bg-black border border-[var(--border)] hover:border-[var(--foreground-muted)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-white/5"
+              className="group relative flex items-center justify-center min-h-[300px] md:min-h-[350px] lg:min-h-[400px] overflow-hidden rounded-2xl border border-[var(--border)] hover:border-[var(--foreground-muted)]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-white/5"
               tabIndex={0}
               aria-label="Explore Investing services"
             >
+              {/* Background Image */}
+              <Image
+                src="/images/investment/hero.jpg"
+                alt=""
+                fill
+                className="object-cover opacity-40 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700"
+                priority
+              />
+              {/* Dark Overlay */}
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-all duration-500" />
+              {/* Title */}
               <h2 
-                className="text-[var(--foreground-muted)] font-light tracking-tight text-center group-hover:scale-105 transition-transform duration-500"
-                style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', lineHeight: '1' }}
+                className="relative z-10 text-[var(--foreground-muted)] font-light tracking-tight text-center group-hover:scale-105 transition-transform duration-500"
+                style={{ fontSize: 'clamp(1.75rem, 6vw, 4.5rem)', lineHeight: '1' }}
               >
                 INVESTING
               </h2>
@@ -70,15 +93,19 @@ export default function HomePage() {
         </section>
 
         {/* Spacer between cards and description */}
-        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
+        <div className="h-8 md:h-12 lg:h-16" aria-hidden="true" />
 
         {/* Description Section - Below boxes with spacing */}
-        <section className="w-full flex justify-center pt-16 pb-16 md:pt-20 md:pb-20 lg:pt-24 lg:pb-24">
-          <div className="w-full max-w-4xl px-6 text-center">
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)]">
-              <strong className="font-semibold">We support Personal and Corporate Affairs</strong> with anticipation, strategic clarity, access and long-term vision. We operate where decisions take shape, before they become public.
+        <section className="w-full flex justify-center pt-12 pb-12 md:pt-16 md:pb-16 lg:pt-20 lg:pb-20">
+          <div className="w-full max-w-4xl px-6 text-left">
+            <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-[var(--gold)] font-semibold">
+              We support Personal and Corporate Affairs with anticipation, strategic clarity, access and long-term vision.
             </p>
             <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
+              We operate where decisions take shape, before they become public.
+            </p>
+            <div className="h-4 md:h-6" aria-hidden="true" />
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)]">
               We read context, influence outcomes and position people and companies where it matters most. Strategy, reputation and capital move together.
             </p>
             <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
@@ -88,14 +115,14 @@ export default function HomePage() {
               We advise with clarity. We invest with conviction. We act with access.
             </p>
             <p className="text-base md:text-lg lg:text-xl leading-relaxed text-[var(--foreground)] mt-6">
-              <strong className="font-semibold">Pre-Shift Strike</strong> is not a slogan. It&apos;s knowing when to move, where to stand, and who needs to be in the room. Before the shift happens.
+              <strong className="font-semibold text-[var(--gold)]">Pre-Shift Strike</strong> is not a slogan. It&apos;s knowing when to move, where to stand, and who needs to be in the room. Before the shift happens.
             </p>
           </div>
         </section>
 
         {/* Email Subscription Section */}
-        <section className="w-full flex justify-center pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-28">
-          <div className="w-full max-w-md px-6 text-center">
+        <section className="w-full flex justify-center pt-20 md:pt-28 lg:pt-36 pb-12 md:pb-16 lg:pb-20">
+          <div className="w-full max-w-md px-6 text-left">
             <p className="text-base md:text-lg text-[var(--foreground)] mb-8">
               Enter your email address
             </p>

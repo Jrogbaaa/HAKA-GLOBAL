@@ -35,9 +35,9 @@ export default function InvestmentPage() {
     <div className="flex flex-col min-h-screen w-full max-w-full">
       <main className="flex-1 w-full max-w-full">
         {/* Hero Section */}
-        <section className="w-full flex justify-center pt-24 pb-12 md:pt-32 md:pb-16 lg:pt-36 lg:pb-20">
+        <section className="w-full flex justify-center pt-16 pb-10 md:pt-24 md:pb-12 lg:pt-28 lg:pb-16">
           <div className="w-full max-w-3xl px-6 text-left">
-            <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-[var(--foreground)] mb-10">
+            <h1 className="text-left text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-[var(--gold)] mb-10">
               HAKA GLOBAL INVESTMENT
             </h1>
             <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-relaxed">
@@ -60,7 +60,7 @@ export default function InvestmentPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Overview Section */}
         <section className="w-full flex justify-center">
@@ -70,7 +70,7 @@ export default function InvestmentPage() {
             </h2>
             <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9] mb-6">
               HAKA Global Investment operates where{" "}
-              <strong className="text-[var(--foreground)] font-semibold">information asymmetry, scarcity and strategic access</strong>{" "}
+              <strong className="text-[var(--gold)] font-semibold">information asymmetry, scarcity and strategic access</strong>{" "}
               generate long-term value. Our activity is selective and opportunity-driven, often emerging from insights developed within{" "}
               <Link
                 href="/advisory"
@@ -87,7 +87,7 @@ export default function InvestmentPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Investment Philosophy Section */}
         <section className="w-full flex justify-center">
@@ -107,7 +107,7 @@ export default function InvestmentPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Investment Areas Section */}
         <section className="w-full flex justify-center">
@@ -137,7 +137,7 @@ export default function InvestmentPage() {
                 </p>
                 <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
                   This includes access to{" "}
-                  <strong className="text-[var(--foreground)] font-semibold">startups and early-stage opportunities typically unavailable to the broader market</strong>, sourced through private networks and proprietary intelligence.
+                  <strong className="text-[var(--gold)] font-semibold">startups and early-stage opportunities typically unavailable to the broader market</strong>, sourced through private networks and proprietary intelligence.
                 </p>
               </div>
 
@@ -158,18 +158,18 @@ export default function InvestmentPage() {
                 </h3>
                 <p className="text-base text-[var(--foreground-muted)] leading-[1.8] mb-4">
                   We treat luxury goods as{" "}
-                  <strong className="text-[var(--foreground)] font-semibold">investment-grade assets</strong>, driven by scarcity, demand and access.
+                  <strong className="text-[var(--gold)] font-semibold">investment-grade assets</strong>, driven by scarcity, demand and access.
                 </p>
                 <p className="text-base text-[var(--foreground-muted)] leading-[1.8]">
                   We provide sourcing, access and resale of{" "}
-                  <strong className="text-[var(--foreground)] font-semibold">highly sought-after and often inaccessible pieces</strong>, including watches, handbags, accessories and fine jewelry from maisons such as Patek Philippe, Audemars Piguet, Rolex, Hermès, Chanel, Goyard, and other highly selective brands. We operate where access defines value.
+                  <strong className="text-[var(--gold)] font-semibold">highly sought-after and often inaccessible pieces</strong>, including watches, handbags, accessories and fine jewelry from maisons such as Patek Philippe, Audemars Piguet, Rolex, Hermès, Chanel, Goyard, and other highly selective brands. We operate where access defines value.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Intelligence & Timing Section */}
         <section className="w-full flex justify-center">
@@ -179,12 +179,12 @@ export default function InvestmentPage() {
             </h2>
             <p className="text-base md:text-lg text-[var(--foreground-muted)] leading-[1.9]">
               Investment decisions are supported by{" "}
-              <strong className="text-[var(--foreground)] font-semibold">AI-driven strategic intelligence</strong>, applied to context analysis, scenario anticipation and decision support across market and non-market environments.
+              <strong className="text-[var(--gold)] font-semibold">AI-driven strategic intelligence</strong>, applied to context analysis, scenario anticipation and decision support across market and non-market environments.
             </p>
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* How We Operate Section */}
         <section className="w-full flex justify-center">
@@ -199,7 +199,7 @@ export default function InvestmentPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Consulting Bridge Section */}
         <section className="w-full flex justify-center">
@@ -213,10 +213,10 @@ export default function InvestmentPage() {
           </div>
         </section>
 
-        <div className="h-16 md:h-24 lg:h-32" aria-hidden="true" />
+        <div className="h-12 md:h-16 lg:h-20" aria-hidden="true" />
 
         {/* Email Subscription Section */}
-        <section className="w-full flex justify-center pb-24 md:pb-36 lg:pb-44">
+        <section className="w-full flex justify-center pb-16 md:pb-24 lg:pb-32">
           <div className="w-full max-w-md px-6 text-left">
             <p className="text-base md:text-lg text-[var(--foreground)] mb-8">
               Enter your email address

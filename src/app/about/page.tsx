@@ -13,11 +13,11 @@ export default function AboutPage() {
 
   return (
     <div className="flex flex-col min-h-screen w-full">
-      <main className="flex-1 w-full py-24 lg:py-32 flex flex-col items-center">
+      <main className="flex-1 w-full py-16 lg:py-24 flex flex-col items-center">
         <div className="w-full max-w-[850px] px-8 lg:px-12">
           {/* Title */}
           <h1
-            className="text-[var(--foreground)] font-medium tracking-tight text-center"
+            className="text-[var(--gold)] font-medium tracking-tight text-left"
             style={{ fontSize: "1.5rem", lineHeight: "1.2" }}
           >
             ABOUT HAKA
@@ -41,7 +41,7 @@ export default function AboutPage() {
             style={{ fontSize: "1.125rem", lineHeight: "1.75" }}
           >
             {/* Tagline */}
-            <p className="font-semibold">Anticipation · Affairs · Influence</p>
+            <p className="font-semibold text-[var(--gold)]">Anticipation · Affairs · Influence</p>
 
             {/* Space after tagline */}
             <div className="h-6" />
@@ -49,28 +49,28 @@ export default function AboutPage() {
             {/* Introduction paragraphs */}
             <p>
               HAKA operates where{" "}
-              <strong className="font-semibold">decisions take shape</strong>,
+              <strong className="font-semibold text-[var(--gold)]">decisions take shape</strong>,
               before they become public or formalized.
             </p>
             <p>
               We work within complex{" "}
-              <strong className="font-semibold">
+              <strong className="font-semibold text-[var(--gold)]">
                 personal, corporate and institutional environments
               </strong>
               , supporting individuals and organizations whose outcomes depend on{" "}
-              <strong className="font-semibold">
+              <strong className="font-semibold text-[var(--gold)]">
                 context, alignment and timing
               </strong>
               , not only on market dynamics.
             </p>
             <p>
               Our activity sits within{" "}
-              <strong className="font-semibold">
+              <strong className="font-semibold text-[var(--gold)]">
                 Personal and Corporate Affairs
               </strong>
               : the management of positioning, relationships and credibility in
               environments where{" "}
-              <strong className="font-semibold">
+              <strong className="font-semibold text-[var(--gold)]">
                 power, interests and perception converge.
               </strong>
             </p>
@@ -81,7 +81,7 @@ export default function AboutPage() {
             <p>
               We help navigate groups of influence, shape alignment among key
               actors and{" "}
-              <strong className="font-semibold">
+              <strong className="font-semibold text-[var(--gold)]">
                 build consensus before positions harden
               </strong>
               . Influence, for us, is not pressure — it is strategic alignment
@@ -90,7 +90,7 @@ export default function AboutPage() {
             <p>
               Anticipation defines our advantage. By combining contextual judgment
               with{" "}
-              <strong className="font-semibold">
+              <strong className="font-semibold text-[var(--gold)]">
                 AI-driven strategic intelligence
               </strong>
               , we analyze decision-making environments, identify early signals
@@ -107,7 +107,7 @@ export default function AboutPage() {
             <div className="h-6" />
 
             <p>
-              <strong className="font-semibold">Pre-Shift Strike</strong> is how
+              <strong className="font-semibold text-[var(--gold)]">Pre-Shift Strike</strong> is how
               we operate. HAKA works selectively and with discretion. We do not
               seek visibility. We operate where relevance is decided.
             </p>
@@ -118,19 +118,19 @@ export default function AboutPage() {
             {/* AI Section with Accent Image */}
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
               <div className="flex-1">
-                <p className="font-semibold">AI as Strategic Leverage</p>
+                <p className="font-semibold text-[var(--gold)]">AI as Strategic Leverage</p>
                 <p>
                   At HAKA, artificial intelligence is not a product, a toolset or a
                   standalone service.
                 </p>
                 <p>
                   It is a{" "}
-                  <strong className="font-semibold">strategic leverage layer</strong>{" "}
+                  <strong className="font-semibold text-[var(--gold)]">strategic leverage layer</strong>{" "}
                   embedded into our judgment and advisory processes. We use AI to
                   enhance contextual analysis, map complex decision-making
                   environments, detect weak signals and simulate scenarios before they
                   materialize. The objective is not automation, but{" "}
-                  <strong className="font-semibold">clarity</strong>: reducing
+                  <strong className="font-semibold text-[var(--gold)]">clarity</strong>: reducing
                   uncertainty, improving timing and supporting higher-quality
                   decisions at critical moments. AI amplifies human judgment. It does
                   not replace it.
@@ -150,8 +150,8 @@ export default function AboutPage() {
         </div>
 
         {/* Email Section - No Subscribe Button */}
-        <section className="w-full flex justify-center pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-28">
-          <div className="w-full max-w-md px-6 text-center">
+        <section className="w-full flex justify-center pt-20 md:pt-28 lg:pt-36 pb-12 md:pb-16 lg:pb-20">
+          <div className="w-full max-w-md px-6 text-left">
             <p className="text-base md:text-lg text-[var(--foreground)] mb-8">
               Enter your email address
             </p>

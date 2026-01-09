@@ -70,7 +70,7 @@ export const Navigation = () => {
           : "bg-[#1A191A]"
       }`}
     >
-      <div className="w-full flex h-24 md:h-32 lg:h-40 items-center justify-between px-4 md:px-12 lg:px-16">
+      <div className="w-full flex h-20 md:h-28 lg:h-36 items-start justify-between px-4 md:px-12 lg:px-16 pt-2 md:pt-3 lg:pt-4">
         {/* Logo with tagline below */}
         <Link
           href="/"
@@ -87,7 +87,7 @@ export const Navigation = () => {
               className="h-20 md:h-28 lg:h-36 w-auto object-contain"
               priority
             />
-            <span className="hidden sm:block text-xs md:text-sm lg:text-base text-[var(--foreground-muted)] tracking-wide whitespace-nowrap -translate-x-3 -translate-y-10">
+            <span className="block text-[10px] sm:text-xs md:text-sm lg:text-base text-[var(--foreground-muted)] tracking-wide whitespace-nowrap -translate-x-1 sm:-translate-x-3 -translate-y-4 sm:-translate-y-10">
               pre-shift strike.
             </span>
           </div>
@@ -99,15 +99,15 @@ export const Navigation = () => {
             ref={buttonRef}
             onClick={handleToggleMenu}
             onKeyDown={handleKeyDown}
-            className="flex flex-col items-center justify-center w-14 h-14 md:w-16 md:h-16 gap-2 md:gap-2.5 rounded-xl hover:bg-[var(--surface)] border border-transparent hover:border-[var(--border)] transition-all duration-200"
+            className="flex flex-col items-center justify-center w-14 h-14 md:w-16 md:h-16 gap-1.5 md:gap-2 rounded-xl hover:bg-[var(--surface)] border border-transparent hover:border-[var(--border)] transition-all duration-200"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             aria-haspopup="true"
             tabIndex={0}
           >
-            <span className={`block w-7 md:w-8 h-[3px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[11px] md:translate-y-[13px]' : ''}`} />
-            <span className={`block w-7 md:w-8 h-[3px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0 scale-0' : ''}`} />
-            <span className={`block w-7 md:w-8 h-[3px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[11px] md:-translate-y-[13px]' : ''}`} />
+            <span className={`block w-5 md:w-6 h-[2px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[8px] md:translate-y-[10px]' : ''}`} />
+            <span className={`block w-5 md:w-6 h-[2px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? 'opacity-0 scale-0' : ''}`} />
+            <span className={`block w-5 md:w-6 h-[2px] bg-[var(--gold)] rounded-full transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[8px] md:-translate-y-[10px]' : ''}`} />
           </button>
 
           {/* Dropdown Menu */}
