@@ -13,7 +13,7 @@ interface CTASectionProps {
 
 export const CTASection = ({
   subtitle = "Start a Conversation",
-  title = "Discretion starts here.",
+  title = "Discretion starts here",
   description = "HAKA engages selectively. If context, timing, and access are critical to your decisions, you may initiate a conversation. All inquiries are treated with discretion.",
   note = "Not every conversation leads to engagement. But every engagement starts with the right conversation.",
   buttonText = "Initiate a Conversation",

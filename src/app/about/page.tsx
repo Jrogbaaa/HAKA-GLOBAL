@@ -22,10 +22,10 @@ export default function AboutPage() {
           <div className="absolute bottom-0 left-0 p-6 w-full">
             <div className="w-12 h-1 bg-primary mb-3 rounded-full" />
             <h2 className="text-3xl font-extrabold text-white leading-tight mb-1">
-              Anticipation.
+              Anticipation
             </h2>
             <h2 className="text-3xl font-extrabold text-white/80 leading-tight">
-              Affairs. Influence.
+              Affairs Influence
             </h2>
           </div>
         </div>
@@ -178,9 +178,9 @@ export default function AboutPage() {
           href="/contact"
           className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group"
           tabIndex={0}
-          aria-label="Get in Touch"
+          aria-label="Schedule Consultation"
         >
-          <span>Get in Touch</span>
+          <span>Schedule Consultation</span>
           <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform text-sm">
             arrow_forward
           </span>

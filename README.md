@@ -41,7 +41,7 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 
 | Variable | Value | Usage |
 |----------|-------|-------|
-| `--color-primary` | `#1754cf` | Primary blue accent |
+| `--color-primary` | `#B39750` | Primary gold accent |
 | `--color-background-light` | `#f6f6f8` | Light mode background |
 | `--color-background-dark` | `#111621` | Dark mode background |
 | `--color-surface-dark` | `#1c222e` | Elevated surfaces, cards |
@@ -49,20 +49,20 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 ### Design Principles
 - **Mobile-first design** - Optimized for mobile viewports (max-w-md centered)
 - **Dark mode by default** - Clean, modern dark aesthetic with softer gray text
-- **Gold logo branding** - HAKA gold SVG logo in navigation and footer
-- **Blue primary accent** - Professional blue (#1754cf) for CTAs and highlights
+- **Gold theme branding** - Consistent gold (#B39750) across logo, icons, and accents
+- **Gold primary accent** - Gold (#B39750) matching logo for CTAs and highlights
 - **Card-based UI** - Cards with shadows, borders, and hover effects
-- **Sticky navigation** - Backdrop blur header with hamburger menu
-- **Material icons** - Google Material Symbols Outlined
+- **Sticky navigation** - Backdrop blur header with hamburger menu and active page indicators
+- **Material icons** - Google Material Symbols Outlined (in gold theme)
 - **Smooth transitions** - Hover effects and subtle animations
-- **Floating CTAs** - Fixed bottom action buttons with backdrop blur
+- **Floating CTAs** - Fixed bottom action buttons with "Schedule Consultation" CTA
 
 ## 📄 Pages
 
 | Route | Description |
 |-------|-------------|
-| `/` | Homepage - "pre-shift strike." hero, Consulting & Investment cards, newsletter CTA |
-| `/about` | Anticipation. Affairs. Influence. - How We Operate, Anticipation timeline, AI as Strategic Leverage |
+| `/` | Homepage - "pre-shift strike" hero, Consulting & Investment cards, newsletter CTA |
+| `/about` | Anticipation, Affairs, Influence - How We Operate, Anticipation timeline, AI as Strategic Leverage |
 | `/advisory` | HAKA Global Consulting - Advisory areas, engagement principles, relationship model |
 | `/investment` | HAKA Global Investment - Philosophy, focus areas (Real Estate, Private, Metals, Luxury), operation model |
 | `/contact` | Start a Conversation - Inquiry form with Madrid, Barcelona, Roma office locations |

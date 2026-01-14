@@ -34,7 +34,7 @@ export default function HomePage() {
           </div>
         </div>
         <h1 className="text-4xl font-light italic tracking-tight text-center mb-4 text-slate-900 dark:text-gray-200">
-          pre-shift strike.
+          pre-shift strike
         </h1>
         <div className="h-1 w-12 bg-primary rounded-full mb-6"></div>
         <p className="text-center text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-xs">

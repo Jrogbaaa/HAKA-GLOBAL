@@ -70,29 +70,28 @@ export default function ConsultingPage() {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
       {/* Hero Section */}
-      <section className="relative p-6 pt-8 pb-10 overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/advisory/hero.jpg')" }}
-        />
-        {/* Gradient Overlay - fades from bottom to top like Investment page */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent opacity-90" />
-        {/* Decorative circle glow */}
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/20 rounded-full blur-[80px] pointer-events-none" />
-
-        <div className="relative z-10">
-          <span className="inline-block py-1 px-3 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-4">
-            Advisory Services
-          </span>
-          <h1 className="text-slate-900 dark:text-gray-200 text-4xl font-bold leading-[1.1] mb-4 tracking-tight">
-            HAKA Global Consulting
-          </h1>
-          <p className="text-slate-600 dark:text-gray-400 text-lg font-normal leading-relaxed">
-            Strategic advisory for people and companies operating where decisions take shape.
-          </p>
+      <div className="relative w-full px-4 pt-4 pb-2">
+        <div className="relative w-full h-[240px] rounded-xl overflow-hidden shadow-lg group">
+          {/* Background Image */}
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+            style={{ backgroundImage: "url('/images/advisory/hero.jpg')" }}
+            role="img"
+            aria-label="Strategic advisory consulting hero image"
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/60 to-transparent opacity-90" />
+          {/* Content */}
+          <div className="absolute inset-0 flex flex-col justify-end p-6">
+            <h1 className="text-white text-3xl font-extrabold leading-tight mb-1">
+              HAKA Global Consulting
+            </h1>
+            <p className="text-gray-300 text-sm font-medium">
+              Strategic advisory for people and companies operating where decisions take shape.
+            </p>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Section 1: What We Do (Accordions) */}
       <section className="flex flex-col gap-2 mb-8">

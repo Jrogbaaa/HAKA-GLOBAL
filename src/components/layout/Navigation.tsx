@@ -56,7 +56,7 @@ export const Navigation = () => {
           <img 
             src="/haka-logo-gold.svg" 
             alt="HAKA Global" 
-            className="h-14 w-auto"
+            className="h-20 w-auto"
           />
         </Link>
       </div>
@@ -77,13 +77,15 @@ export const Navigation = () => {
               href={link.href}
               className={`flex items-center justify-between px-4 py-3 text-base font-medium transition-colors hover:bg-gray-100 dark:hover:bg-white/5 ${
                 pathname === link.href
-                  ? "text-primary"
-                  : "text-slate-900 dark:text-gray-200"
+                  ? "text-primary bg-primary/10 border-l-4 border-primary"
+                  : "text-slate-900 dark:text-gray-200 border-l-4 border-transparent"
               }`}
               role="menuitem"
             >
               <span>{link.label}</span>
-              <span className="material-symbols-outlined text-gray-400 text-lg">
+              <span className={`material-symbols-outlined text-lg ${
+                pathname === link.href ? "text-primary" : "text-gray-400"
+              }`}>
                 arrow_forward
               </span>
             </Link>

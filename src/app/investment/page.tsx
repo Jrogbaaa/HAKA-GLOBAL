@@ -361,9 +361,9 @@ export default function InvestmentPage() {
           href="/contact"
           className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/25 transition-all active:scale-[0.98]"
           tabIndex={0}
-          aria-label="Request Consultation"
+          aria-label="Schedule Consultation"
         >
-          <span>Request Consultation</span>
+          <span>Schedule Consultation</span>
           <span className="material-symbols-outlined text-sm">arrow_forward</span>
         </Link>
       </div>

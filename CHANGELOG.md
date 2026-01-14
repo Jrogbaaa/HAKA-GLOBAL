@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.4.0] - 2026-01-14
+
+### Changed
+- **Gold Theme Implementation** - Changed primary color from blue (`#1754cf`) to gold (`#B39750`)
+  - All icons, accents, buttons, and highlights now use gold matching the HAKA logo
+  - Consistent brand identity across the entire site
+
+- **Logo Size Increase** - Navigation logo increased from `h-14` to `h-20`
+  - 43% larger for better brand visibility and presence
+
+- **Mobile Menu Selection Indicator** - Added visual indicator for active page in hamburger menu
+  - Gold left border (`border-l-4 border-primary`) on selected page
+  - Background tint (`bg-primary/10`) for active menu items
+  - Arrow icon also changes to gold when page is selected
+
+- **Standardized CTA Buttons** - All floating CTA buttons now use "Schedule Consultation"
+  - About page: "Get in Touch" → "Schedule Consultation"
+  - Investment page: "Request Consultation" → "Schedule Consultation"
+  - Consistent user experience across all pages
+
+- **Removed Periods from Titles** - Cleaner, more consistent typography
+  - Homepage: "pre-shift strike." → "pre-shift strike"
+  - About page: "Anticipation." → "Anticipation"
+  - About page: "Affairs. Influence." → "Affairs Influence"
+  - CTASection: "Discretion starts here." → "Discretion starts here"
+
+- **Consulting Page Hero Redesign** - Restyled to match Investment page
+  - Removed "Advisory Services" blue badge
+  - Changed title color from dark/blue to white
+  - Added rounded corners (`rounded-xl`) with shadow
+  - Proper image fade with gradient overlay
+  - Hover scale animation on image
+  - Content positioned at bottom of card (matching Investment page)
+
 ## [3.3.0] - 2026-01-09
 
 ### Changed
