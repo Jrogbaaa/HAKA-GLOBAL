@@ -1,27 +1,26 @@
-import { Metadata } from "next";
+"use client";
+
 import { ContactForm } from "./ContactForm";
-
-export const metadata: Metadata = {
-  title: "Start a Conversation",
-  description: "Discretion starts here. HAKA engages selectively.",
-};
-
-const OFFICES = [
-  {
-    city: "Madrid",
-    address: "Calle de Velázquez 34\n28001 Madrid, Spain",
-  },
-  {
-    city: "Barcelona",
-    address: "Passeig de Gràcia 56\n08007 Barcelona, Spain",
-  },
-  {
-    city: "Roma",
-    address: "Via Veneto 112\n00187 Roma, Italy",
-  },
-];
+import { useLocale } from "@/i18n";
 
 export default function ContactPage() {
+  const { t } = useLocale();
+
+  const OFFICES = [
+    {
+      city: t("contact.office.madrid"),
+      address: t("contact.office.madrid.address"),
+    },
+    {
+      city: t("contact.office.barcelona"),
+      address: t("contact.office.barcelona.address"),
+    },
+    {
+      city: t("contact.office.roma"),
+      address: t("contact.office.roma.address"),
+    },
+  ];
+
   return (
     <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-white">
       {/* Main Content */}
@@ -29,10 +28,16 @@ export default function ContactPage() {
         {/* Intro Header */}
         <div className="px-5 pt-6 pb-2">
           <h1 className="text-slate-900 dark:text-gray-200 tracking-tight text-[32px] font-bold leading-tight mb-2">
-            Let&apos;s discuss how we can help your business grow.
+            {t("contact.title")}
           </h1>
-          <p className="text-slate-500 dark:text-gray-400 text-base font-medium">
-            Get in touch with our global team.
+          <p className="text-primary text-lg font-semibold mb-3">
+            {t("contact.subtitle")}
+          </p>
+          <p className="text-slate-500 dark:text-gray-400 text-base font-medium mb-2">
+            {t("contact.intro")}
+          </p>
+          <p className="text-slate-400 dark:text-gray-500 text-sm italic">
+            {t("contact.disclaimer")}
           </p>
         </div>
 
@@ -47,7 +52,7 @@ export default function ContactPage() {
             <span className="material-symbols-outlined text-primary">
               public
             </span>
-            Our Offices
+            {t("contact.offices.title")}
           </h3>
           <div className="grid gap-4">
             {OFFICES.map((office) => (
@@ -71,19 +76,26 @@ export default function ContactPage() {
           </div>
         </div>
 
+        {/* Closing Statement */}
+        <div className="px-5 py-6">
+          <p className="text-slate-600 dark:text-gray-400 text-sm italic text-center leading-relaxed">
+            {t("contact.closing")}
+          </p>
+        </div>
+
         {/* Direct Email */}
-        <div className="px-5 py-8 text-center">
+        <div className="px-5 py-4 text-center">
           <a
             className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm"
-            href="mailto:info@hakaglobal.com"
+            href={`mailto:${t("contact.email")}`}
             tabIndex={0}
-            aria-label="Send email to info@hakaglobal.com"
+            aria-label={`Send email to ${t("contact.email")}`}
           >
             <span className="material-symbols-outlined text-[18px]">mail</span>
-            info@hakaglobal.com
+            {t("contact.email")}
           </a>
           <p className="text-slate-400 dark:text-slate-600 text-xs mt-2">
-            © {new Date().getFullYear()} HAKA Global. All rights reserved.
+            © {new Date().getFullYear()} HAKA Global. {t("footer.rights")}
           </p>
         </div>
       </main>

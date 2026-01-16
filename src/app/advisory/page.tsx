@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useLocale } from "@/i18n";
 
 type AccordionItemProps = {
   icon: string;
@@ -67,6 +68,8 @@ const AccordionItem = ({
 };
 
 export default function ConsultingPage() {
+  const { t } = useLocale();
+
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
       {/* Hero Section */}
@@ -84,41 +87,64 @@ export default function ConsultingPage() {
           {/* Content */}
           <div className="absolute inset-0 flex flex-col justify-end p-6">
             <h1 className="text-white text-3xl font-extrabold leading-tight mb-1">
-              HAKA Global Consulting
+              {t("advisory.hero.title")}
             </h1>
             <p className="text-gray-300 text-sm font-medium">
-              Strategic advisory for people and companies operating where decisions take shape.
+              {t("advisory.hero.subtitle")}
             </p>
           </div>
         </div>
       </div>
 
-      {/* Section 1: What We Do (Accordions) */}
+      {/* What We Do Section */}
+      <section className="px-4 py-6">
+        <div className="flex items-center mb-3">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest">
+            {t("advisory.whatwedo.title")}
+          </h3>
+          <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
+        </div>
+        <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
+          {t("advisory.whatwedo.desc")}
+        </p>
+      </section>
+
+      {/* Section 1: Areas of Advisory (Accordions) */}
       <section className="flex flex-col gap-2 mb-8">
         <div className="px-6 flex items-center justify-between">
           <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
-            What We Do
+            {t("advisory.areas.title")}
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
         </div>
         <div className="flex flex-col px-4 pt-4 gap-3">
           {/* Accordion 1 */}
-          <AccordionItem icon="strategy" title="Strategic Advisory & Positioning" defaultOpen>
-            We define and refine strategic positioning where relevance, authority and long-term advantage are built — beyond visibility or messaging.
+          <AccordionItem icon="strategy" title={t("advisory.area1.title")} defaultOpen>
+            {t("advisory.area1.desc")}
           </AccordionItem>
           {/* Accordion 2 */}
-          <AccordionItem
-            icon="meeting_room"
-            title="C-Level & Executive Advisory"
-          >
-            Confidential counsel for founders, executives and decision-makers operating under high stakes, public exposure and institutional complexity.
+          <AccordionItem icon="meeting_room" title={t("advisory.area2.title")}>
+            {t("advisory.area2.desc")}
           </AccordionItem>
           {/* Accordion 3 */}
-          <AccordionItem
-            icon="admin_panel_settings"
-            title="Personal & Corporate Affairs"
-          >
-            Strategic advisory on personal and corporate interests, aligning reputation, relationships and positioning within decision-making environments.
+          <AccordionItem icon="admin_panel_settings" title={t("advisory.area3.title")}>
+            {t("advisory.area3.desc")}
+          </AccordionItem>
+          {/* Accordion 4 */}
+          <AccordionItem icon="account_balance" title={t("advisory.area4.title")}>
+            {t("advisory.area4.desc")}
+          </AccordionItem>
+          {/* Accordion 5 */}
+          <AccordionItem icon="handshake" title={t("advisory.area5.title")}>
+            {t("advisory.area5.desc")}
+          </AccordionItem>
+          {/* Accordion 6 */}
+          <AccordionItem icon="smart_toy" title={t("advisory.area6.title")}>
+            {t("advisory.area6.desc")}
+          </AccordionItem>
+          {/* Accordion 7 */}
+          <AccordionItem icon="account_balance_wallet" title={t("advisory.area7.title")}>
+            {t("advisory.area7.desc")}
           </AccordionItem>
         </div>
       </section>
@@ -127,7 +153,7 @@ export default function ConsultingPage() {
       <section className="flex flex-col mb-10">
         <div className="px-6 pb-4 flex items-center justify-between">
           <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
-            How We Work
+            {t("advisory.howwework.title")}
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
         </div>
@@ -142,10 +168,10 @@ export default function ConsultingPage() {
             </div>
             <div className="pb-8 pt-1">
               <h4 className="text-slate-900 dark:text-gray-200 text-lg font-bold mb-1">
-                We work selectively
+                {t("advisory.howwework.step1.title")}
               </h4>
               <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
-                We operate with discretion. We prioritize judgment over process.
+                {t("advisory.howwework.step1.desc")}
               </p>
             </div>
           </div>
@@ -159,10 +185,10 @@ export default function ConsultingPage() {
             </div>
             <div className="pb-8 pt-1">
               <h4 className="text-slate-900 dark:text-gray-200 text-lg font-bold mb-1">
-                Advisory is not execution support
+                {t("advisory.howwework.step2.title")}
               </h4>
               <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
-                It is strategic clarity under complexity.
+                {t("advisory.howwework.step2.desc")}
               </p>
             </div>
           </div>
@@ -172,14 +198,13 @@ export default function ConsultingPage() {
               <div className="flex size-8 shrink-0 items-center justify-center rounded-full bg-surface-dark border border-gray-600 text-gray-400 text-sm font-bold z-10 ring-4 ring-background-light dark:ring-background-dark">
                 3
               </div>
-              {/* Last item has no line growing down */}
             </div>
             <div className="pt-1">
               <h4 className="text-slate-900 dark:text-gray-200 text-lg font-bold mb-1">
-                Confidential by default
+                {t("advisory.howwework.step3.title")}
               </h4>
               <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
-                We do not seek visibility. We operate where relevance is decided.
+                {t("advisory.howwework.step3.desc")}
               </p>
             </div>
           </div>
@@ -190,63 +215,63 @@ export default function ConsultingPage() {
       <section className="flex flex-col mb-10 bg-slate-100 dark:bg-[#151921] py-8">
         <div className="px-6 pb-6 flex items-center justify-between">
           <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
-            When Clients Engage Us
+            {t("advisory.engage.title")}
           </h3>
         </div>
         <div className="px-4 grid grid-cols-2 gap-3">
           {/* Card 1 */}
           <div className="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col gap-3 hover:border-primary/50 transition-colors">
-            <div className="size-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-500">
-              <span className="material-symbols-outlined">domain</span>
+            <div className="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <span className="material-symbols-outlined">visibility</span>
             </div>
             <div>
               <h4 className="text-slate-900 dark:text-gray-200 font-bold text-sm mb-1">
-                Visibility matters
+                {t("advisory.engage.item1.title")}
               </h4>
               <p className="text-xs text-slate-500 dark:text-gray-500 leading-snug">
-                When access and timing are critical.
+                {t("advisory.engage.item1.desc")}
               </p>
             </div>
           </div>
           {/* Card 2 */}
           <div className="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col gap-3 hover:border-primary/50 transition-colors">
-            <div className="size-10 rounded-full bg-red-500/10 flex items-center justify-center text-red-500">
-              <span className="material-symbols-outlined">warning</span>
+            <div className="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <span className="material-symbols-outlined">bolt</span>
             </div>
             <div>
               <h4 className="text-slate-900 dark:text-gray-200 font-bold text-sm mb-1">
-                Influence needed
+                {t("advisory.engage.item2.title")}
               </h4>
               <p className="text-xs text-slate-500 dark:text-gray-500 leading-snug">
-                When strategic alignment must be achieved.
+                {t("advisory.engage.item2.desc")}
               </p>
             </div>
           </div>
           {/* Card 3 */}
           <div className="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col gap-3 hover:border-primary/50 transition-colors">
-            <div className="size-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
-              <span className="material-symbols-outlined">public</span>
+            <div className="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <span className="material-symbols-outlined">gavel</span>
             </div>
             <div>
               <h4 className="text-slate-900 dark:text-gray-200 font-bold text-sm mb-1">
-                No improvisation
+                {t("advisory.engage.item3.title")}
               </h4>
               <p className="text-xs text-slate-500 dark:text-gray-500 leading-snug">
-                When decisions cannot be left to chance.
+                {t("advisory.engage.item3.desc")}
               </p>
             </div>
           </div>
           {/* Card 4 */}
           <div className="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col gap-3 hover:border-primary/50 transition-colors">
-            <div className="size-10 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500">
-              <span className="material-symbols-outlined">handshake</span>
+            <div className="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+              <span className="material-symbols-outlined">explore</span>
             </div>
             <div>
               <h4 className="text-slate-900 dark:text-gray-200 font-bold text-sm mb-1">
-                Context matters
+                {t("advisory.engage.item4.title")}
               </h4>
               <p className="text-xs text-slate-500 dark:text-gray-500 leading-snug">
-                When context is as important as capital.
+                {t("advisory.engage.item4.desc")}
               </p>
             </div>
           </div>
@@ -257,7 +282,7 @@ export default function ConsultingPage() {
       <section className="flex flex-col mb-24 px-6">
         <div className="pb-4 flex items-center justify-between">
           <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
-            Relationship Model
+            {t("advisory.relationship.title")}
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
         </div>
@@ -266,10 +291,10 @@ export default function ConsultingPage() {
             <span className="material-symbols-outlined text-6xl">contract</span>
           </div>
           <h4 className="text-slate-900 dark:text-gray-200 font-bold text-lg mb-2">
-            Mandate-based. Bespoke. Confidential.
+            {t("advisory.relationship.headline")}
           </h4>
           <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-            Strategic advisory often leads to capital decisions. When appropriate, our work extends into HAKA Global Investment.
+            {t("advisory.relationship.desc")}
           </p>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
@@ -277,7 +302,7 @@ export default function ConsultingPage() {
                 check_circle
               </span>
               <span className="text-slate-700 dark:text-gray-300 text-sm">
-                Not every conversation leads to engagement.
+                {t("advisory.relationship.point1")}
               </span>
             </li>
             <li className="flex items-start gap-3">
@@ -285,7 +310,7 @@ export default function ConsultingPage() {
                 check_circle
               </span>
               <span className="text-slate-700 dark:text-gray-300 text-sm">
-                But every engagement starts with the right conversation.
+                {t("advisory.relationship.point2")}
               </span>
             </li>
           </ul>
@@ -298,9 +323,9 @@ export default function ConsultingPage() {
           href="/contact"
           className="w-full h-12 bg-primary hover:bg-blue-600 active:scale-[0.98] transition-all rounded-lg text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-primary/25"
           tabIndex={0}
-          aria-label="Schedule Consultation"
+          aria-label={t("advisory.cta")}
         >
-          <span>Schedule Consultation</span>
+          <span>{t("advisory.cta")}</span>
           <span className="material-symbols-outlined text-sm">arrow_forward</span>
         </Link>
       </div>

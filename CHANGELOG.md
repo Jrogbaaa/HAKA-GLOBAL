@@ -7,6 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.5.0] - 2026-01-16
+
+### Added
+- **Spanish Localization** - Site now defaults to Spanish with full bilingual support
+  - `/src/messages/en.json` and `/src/messages/es.json` for all content
+  - Geolocation-based locale detection via middleware
+  - LocaleContext for client-side locale management
+  - Spanish translations for all pages
+
+### Changed
+- **Navigation Header**
+  - HAKA logo size increased from `h-14 md:h-20` to `h-16 md:h-24 lg:h-28`
+  - Added "pre-shift strike." tagline directly under logo (reduced vertical spacing)
+  - Added "Home" (Inicio) link to dropdown menu
+  - Removed language toggle buttons from header and menu
+
+- **Homepage Reorganization**
+  - Cards (Consulting/Investment) moved to TOP of page
+  - Intro text paragraphs moved BELOW the cards
+  - Removed duplicate logo (now only in header)
+  - Removed Twitter/LinkedIn social icons from footer
+
+- **Gold Icons Site-Wide**
+  - All Material Symbols icons now use gold (#B39750) instead of random colors
+  - About page: Anticipation items, How We Operate cards, AI cards
+  - Advisory page: Engagement cards
+  - Investment page: Investment area icons, timeline icons
+  - Contact page: Office location icons
+
+- **Investment Page Cards**
+  - All 4 investment areas now display as full-width cards (stacked vertically)
+  - Fixes asymmetrical layout from mixed full-width/grid display
+  - Consistent card sizing regardless of text length
+
+- **About Page**
+  - Hero title changed to "Nosotros" (Spanish)
+  - "Anticipación, Asuntos · Influencia" moved from hero to bold gold heading below
+
 ## [3.4.0] - 2026-01-14
 
 ### Changed

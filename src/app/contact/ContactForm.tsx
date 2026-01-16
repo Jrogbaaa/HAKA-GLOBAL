@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { submitContactForm } from "@/lib/actions/contact";
+import { useLocale } from "@/i18n";
 
 type FormData = {
   name: string;
@@ -11,6 +12,7 @@ type FormData = {
 };
 
 export const ContactForm = () => {
+  const { t } = useLocale();
   const [formData, setFormData] = useState<FormData>({
     name: "",
     organization: "",
@@ -77,18 +79,18 @@ export const ContactForm = () => {
       <div className="flex flex-wrap items-end gap-4 px-5 py-2">
         <label className="flex flex-col min-w-40 flex-1 group">
           <p className="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">
-            Name
+            {t("contact.form.name")}
           </p>
           <input
             className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-gray-800 bg-white dark:bg-surface-dark h-14 placeholder:text-slate-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-slate-900 dark:text-white transition-all shadow-sm"
-            placeholder="Your full name"
+            placeholder={t("contact.form.name.placeholder")}
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
             tabIndex={0}
-            aria-label="Your full name"
+            aria-label={t("contact.form.name")}
           />
         </label>
       </div>
@@ -97,20 +99,20 @@ export const ContactForm = () => {
       <div className="flex flex-wrap items-end gap-4 px-5 py-2">
         <label className="flex flex-col min-w-40 flex-1 group">
           <p className="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">
-            Organization{" "}
+            {t("contact.form.organization")}{" "}
             <span className="text-slate-400 dark:text-slate-600 font-normal text-sm ml-1">
               (Optional)
             </span>
           </p>
           <input
             className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-gray-800 bg-white dark:bg-surface-dark h-14 placeholder:text-slate-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-slate-900 dark:text-white transition-all shadow-sm"
-            placeholder="Company name"
+            placeholder={t("contact.form.organization.placeholder")}
             type="text"
             name="organization"
             value={formData.organization}
             onChange={handleChange}
             tabIndex={0}
-            aria-label="Your organization"
+            aria-label={t("contact.form.organization")}
           />
         </label>
       </div>
@@ -119,18 +121,18 @@ export const ContactForm = () => {
       <div className="flex flex-wrap items-end gap-4 px-5 py-2">
         <label className="flex flex-col min-w-40 flex-1 group">
           <p className="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">
-            Contact Details
+            {t("contact.form.email")}
           </p>
           <input
             className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-gray-800 bg-white dark:bg-surface-dark h-14 placeholder:text-slate-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-slate-900 dark:text-white transition-all shadow-sm"
-            placeholder="Email or phone number"
+            placeholder={t("contact.form.email.placeholder")}
             type="text"
             name="contactDetails"
             value={formData.contactDetails}
             onChange={handleChange}
             required
             tabIndex={0}
-            aria-label="Your contact details"
+            aria-label={t("contact.form.email")}
           />
         </label>
       </div>
@@ -139,17 +141,17 @@ export const ContactForm = () => {
       <div className="flex flex-wrap items-end gap-4 px-5 py-2">
         <label className="flex flex-col min-w-40 flex-1 group">
           <p className="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2 group-focus-within:text-primary transition-colors">
-            How can we help?
+            {t("contact.form.message")}
           </p>
           <textarea
             className="form-textarea flex w-full min-w-0 flex-1 resize-none rounded-lg focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-slate-300 dark:border-gray-800 bg-white dark:bg-surface-dark min-h-[140px] placeholder:text-slate-400 dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-slate-900 dark:text-white transition-all shadow-sm"
-            placeholder="Tell us a little about the context of your inquiry..."
+            placeholder={t("contact.form.message.placeholder")}
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
             tabIndex={0}
-            aria-label="Your message"
+            aria-label={t("contact.form.message")}
           />
         </label>
       </div>
@@ -174,9 +176,9 @@ export const ContactForm = () => {
           type="submit"
           disabled={isSubmitting}
           tabIndex={0}
-          aria-label="Send message"
+          aria-label={t("contact.form.submit")}
         >
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {isSubmitting ? "Sending..." : t("contact.form.submit")}
           {!isSubmitting && (
             <span className="material-symbols-outlined text-[20px]">send</span>
           )}

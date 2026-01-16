@@ -2,20 +2,24 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-
-const NAV_LINKS = [
-  { label: "About", href: "/about" },
-  { label: "Consulting", href: "/advisory" },
-  { label: "Investment", href: "/investment" },
-  { label: "Contact", href: "/contact" },
-];
+import { useLocale } from "@/i18n";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
+  const { t } = useLocale();
+
+  const NAV_LINKS = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.about"), href: "/about" },
+    { label: t("nav.advisory"), href: "/advisory" },
+    { label: t("nav.investment"), href: "/investment" },
+    { label: t("nav.contact"), href: "/contact" },
+  ];
 
   // Close menu on route change
   useEffect(() => {
@@ -40,7 +44,7 @@ export const Navigation = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between px-5 py-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800/50">
+    <header className="sticky top-0 z-50 flex items-center justify-between px-4 md:px-12 lg:px-16 py-3 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800/50">
       <button
         ref={buttonRef}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -51,13 +55,27 @@ export const Navigation = () => {
         <span className="material-symbols-outlined text-2xl">menu</span>
       </button>
 
+      {/* Logo with tagline below - right aligned */}
       <div className="flex-1 flex justify-center">
-        <Link href="/">
-          <img 
-            src="/haka-logo-gold.svg" 
-            alt="HAKA Global" 
-            className="h-20 w-auto"
-          />
+        <Link
+          href="/"
+          className="inline-block shrink-0 group"
+          aria-label="HAKA Global Home"
+          tabIndex={0}
+        >
+          <div className="flex flex-col items-end">
+            <Image
+              src="/haka-logo-gold.svg"
+              alt="HAKA"
+              width={320}
+              height={90}
+              className="h-16 md:h-24 lg:h-28 w-auto object-contain"
+              priority
+            />
+            <span className="text-xs md:text-sm lg:text-base text-gray-500 dark:text-gray-400 tracking-wide -mt-1 text-right whitespace-nowrap">
+              pre-shift strike.
+            </span>
+          </div>
         </Link>
       </div>
 

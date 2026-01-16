@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
+import { LocaleProvider } from "@/i18n/LocaleContext";
+import { getServerLocale, getMessages } from "@/i18n/server";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -18,13 +20,16 @@ export const metadata: Metadata = {
     "Strategic advisory and investment where decisions take shape — before they become public. Pre-Shift Strike.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getServerLocale();
+  const messages = await getMessages(locale);
+
   return (
-    <html lang="en" className="dark">
+    <html lang={locale} className="dark">
       <head>
         {/* Material Symbols Outlined */}
         <link
@@ -35,8 +40,10 @@ export default function RootLayout({
       <body
         className={`${manrope.className} bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-x-hidden antialiased selection:bg-primary selection:text-white`}
       >
-        <Navigation />
-        {children}
+        <LocaleProvider initialLocale={locale} initialMessages={messages}>
+          <Navigation />
+          {children}
+        </LocaleProvider>
       </body>
     </html>
   );

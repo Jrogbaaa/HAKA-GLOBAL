@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useLocale } from "@/i18n";
 
 type TabId = "overview" | "philosophy" | "areas" | "operate";
 
 export default function InvestmentPage() {
+  const { t } = useLocale();
   const [activeTab, setActiveTab] = useState<TabId>("overview");
 
   const handleTabClick = (tabId: TabId) => {
@@ -27,8 +29,7 @@ export default function InvestmentPage() {
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style={{
-                backgroundImage:
-                  "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBrMh97VMpZ8HS7eXlEokv_IjVKT1ueTmg5fUoTFKpZnbBdxS2EOY6VpH5TQ6403kobE2Zp98DtjW4laXwL8Gkq4jGSxEEFKjsCAB_wVfLbqtbDZQG4If8tYa8qgWDjGvLkL7CfLKGXl9Rc05MQiIHHAbZ_H0XerR5tTl807UAyI6hn_DbhBOD5ztNjjbGJnF6TD9WNk2mcVs4GjgJD6tn2y5w-fGwAUp_xWxWvgh5yf4qBrWOSy7XbhfnHiX3QlCyEvnW2guTvwvo')",
+                backgroundImage: "url('/images/investment/hero.jpg')",
               }}
               role="img"
               aria-label="Abstract view of modern glass skyscrapers looking up towards the sky"
@@ -38,10 +39,10 @@ export default function InvestmentPage() {
             {/* Content */}
             <div className="absolute inset-0 flex flex-col justify-end p-6">
               <h1 className="text-white text-3xl font-extrabold leading-tight mb-1">
-                HAKA Global Investment
+                {t("investment.hero.title")}
               </h1>
               <p className="text-gray-300 text-sm font-medium">
-                Strategic investments shaped by access, timing and conviction.
+                {t("investment.hero.subtitle")}
               </p>
             </div>
           </div>
@@ -58,9 +59,9 @@ export default function InvestmentPage() {
                   : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
               }`}
               tabIndex={0}
-              aria-label="Overview tab"
+              aria-label={t("investment.tab.overview")}
             >
-              Overview
+              {t("investment.tab.overview")}
             </button>
             <button
               onClick={() => handleTabClick("philosophy")}
@@ -70,9 +71,9 @@ export default function InvestmentPage() {
                   : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
               }`}
               tabIndex={0}
-              aria-label="Philosophy tab"
+              aria-label={t("investment.tab.philosophy")}
             >
-              Philosophy
+              {t("investment.tab.philosophy")}
             </button>
             <button
               onClick={() => handleTabClick("areas")}
@@ -82,9 +83,9 @@ export default function InvestmentPage() {
                   : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
               }`}
               tabIndex={0}
-              aria-label="Areas tab"
+              aria-label={t("investment.tab.areas")}
             >
-              Areas
+              {t("investment.tab.areas")}
             </button>
             <button
               onClick={() => handleTabClick("operate")}
@@ -94,17 +95,20 @@ export default function InvestmentPage() {
                   : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
               }`}
               tabIndex={0}
-              aria-label="Operate tab"
+              aria-label={t("investment.tab.operate")}
             >
-              Operate
+              {t("investment.tab.operate")}
             </button>
           </div>
         </div>
 
         {/* Overview Content */}
         <div className="px-6 py-6 scroll-mt-32" id="overview">
-          <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-            HAKA Global Investment operates where information asymmetry, scarcity and strategic access generate long-term value. Our activity is selective and opportunity-driven.
+          <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed mb-4">
+            {t("investment.overview.p1")}
+          </p>
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-medium">
+            {t("investment.overview.p2")}
           </p>
         </div>
 
@@ -116,7 +120,7 @@ export default function InvestmentPage() {
           <div className="flex items-center gap-2 mb-4">
             <span className="w-1 h-6 bg-primary rounded-full" />
             <h2 className="text-xl font-bold tracking-tight uppercase">
-              Investment Philosophy
+              {t("investment.philosophy.title")}
             </h2>
           </div>
           <div className="bg-white dark:bg-surface-dark rounded-xl p-6 shadow-sm border border-gray-100 dark:border-gray-700/50 relative overflow-hidden">
@@ -124,10 +128,10 @@ export default function InvestmentPage() {
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10" />
             <div className="relative z-10">
               <h3 className="text-2xl font-bold text-primary mb-3">
-                We do not chase trends.
+                {t("investment.philosophy.headline")}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6">
-                We position capital before they form. Our approach combines contextual intelligence, disciplined risk assessment and access to non-obvious opportunities. Conviction matters more than volume.
+                {t("investment.philosophy.desc")}
               </p>
               {/* Abstract Visualization of Portfolio */}
               <div className="flex items-center gap-4">
@@ -165,7 +169,7 @@ export default function InvestmentPage() {
                     Strategy
                   </span>
                   <span className="text-sm font-semibold">
-                    Anticipation creates advantage
+                    {t("investment.philosophy.strategy")}
                   </span>
                 </div>
               </div>
@@ -181,96 +185,83 @@ export default function InvestmentPage() {
           <div className="flex items-center gap-2 mb-6">
             <span className="w-1 h-6 bg-primary rounded-full" />
             <h2 className="text-xl font-bold tracking-tight uppercase">
-              Focus Areas
+              {t("investment.areas.title")}
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-4">
+          <div className="flex flex-col gap-4">
             {/* Card 1: Real Estate */}
             <div className="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700/50 shadow-sm hover:border-primary/50 transition-colors">
-              <div
-                className="h-32 bg-cover bg-center relative"
-                style={{
-                  backgroundImage:
-                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBrbdFFSXeypJEQSl6Y7gcDF2geATp-szCoib5FQIN3C4axyTd78qXZ_g3_hyC_9p7JGc1xGjQXr0sFo1yU1THWG5Tb88-hkYeh-b6huGqms7AG8LzNy_fIDCHK9_jgU4fKfEh0Chi0B8G2BRuODIAYY83UsCPpspi7V9bBKnaDMVG36Z-fl4GA_2hdpfsq1wD6djDwUDk7lRMBYukQBqFzYwUipL7SNpLDFRjqCiYSrIWg0x0kH1S7_OIGhGpVr-wOhdwdWZVvBE')",
-                }}
-                role="img"
-                aria-label="Modern architectural building facade detail"
-              >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-                <div className="absolute bottom-3 left-4 p-2 bg-primary/90 rounded-lg text-white">
-                  <span className="material-symbols-outlined text-xl">
-                    apartment
-                  </span>
+              <div className="p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-primary/10 text-primary rounded-lg">
+                    <span className="material-symbols-outlined text-xl">apartment</span>
+                  </div>
+                  <h3 className="font-bold text-lg">{t("investment.area1.title")}</h3>
                 </div>
-              </div>
-              <div className="p-4">
-                <h3 className="font-bold text-lg mb-1">Worldwide Real Estate</h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Strategic investments across key global locations, focused on scarcity, positioning and long-term relevance.
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                  {t("investment.area1.desc")}
                 </p>
               </div>
             </div>
 
-            {/* Card 2: Private Equity */}
+            {/* Card 2: Private & Strategic */}
             <div className="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700/50 shadow-sm hover:border-primary/50 transition-colors">
-              <div
-                className="h-32 bg-cover bg-center relative"
-                style={{
-                  backgroundImage:
-                    "url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3FUiu6s88gf8pyR5ZR6qtSz4BPMUGkAnl4K7KwRR6NdbHebKf7Zz_kjEjGeSPOLT9kyuI4njrx2tizXFNPIbdi1zoHSYS4AmzEIspjkjc9Bt9IyHlhLoBByaCLgS7Ee5820KLweaJzP74n1q6n3JsY1Q8agjjJIFBhGIF38RJkF0PRJjdSTFwPQwHHt_ZGM0DzIz8J42Z7e9tRbQ4e05NAocb3U9rpVQ-z9isU8M3xRgYySQ4ZKiTawM73IjpfpPAMacYdDDSfkk')",
-                }}
-                role="img"
-                aria-label="Two professionals shaking hands in a meeting room"
-              >
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-                <div className="absolute bottom-3 left-4 p-2 bg-primary/90 rounded-lg text-white">
-                  <span className="material-symbols-outlined text-xl">
-                    handshake
-                  </span>
+              <div className="p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-primary/10 text-primary rounded-lg">
+                    <span className="material-symbols-outlined text-xl">handshake</span>
+                  </div>
+                  <h3 className="font-bold text-lg">{t("investment.area2.title")}</h3>
                 </div>
-              </div>
-              <div className="p-4">
-                <h3 className="font-bold text-lg mb-1">Private & Strategic</h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  Direct investments in companies where governance, strategy and long-term vision are aligned. Including startups and early-stage opportunities.
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                  {t("investment.area2.desc")}
                 </p>
               </div>
             </div>
 
-            {/* Card 3 & 4 (Grid) */}
-            <div className="grid grid-cols-2 gap-4">
-              {/* Precious Metals */}
-              <div className="bg-white dark:bg-surface-dark rounded-xl p-4 border border-gray-100 dark:border-gray-700/50 shadow-sm flex flex-col items-start gap-3">
-                <div className="p-2 bg-yellow-500/20 text-yellow-500 rounded-lg">
-                  <span className="material-symbols-outlined">
-                    monetization_on
-                  </span>
+            {/* Card 3: Precious Metals */}
+            <div className="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700/50 shadow-sm hover:border-primary/50 transition-colors">
+              <div className="p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-primary/10 text-primary rounded-lg">
+                    <span className="material-symbols-outlined text-xl">monetization_on</span>
+                  </div>
+                  <h3 className="font-bold text-lg">{t("investment.area3.title")}</h3>
                 </div>
-                <div>
-                  <h3 className="font-bold text-sm mb-1 leading-tight">
-                    Precious Metals
-                  </h3>
-                  <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-tight">
-                    Capital preservation, optionality and portfolio balance.
-                  </p>
-                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                  {t("investment.area3.desc")}
+                </p>
               </div>
-              {/* Luxury Assets */}
-              <div className="bg-white dark:bg-surface-dark rounded-xl p-4 border border-gray-100 dark:border-gray-700/50 shadow-sm flex flex-col items-start gap-3">
-                <div className="p-2 bg-purple-500/20 text-purple-500 rounded-lg">
-                  <span className="material-symbols-outlined">diamond</span>
+            </div>
+
+            {/* Card 4: Luxury Assets */}
+            <div className="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700/50 shadow-sm hover:border-primary/50 transition-colors">
+              <div className="p-5">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-primary/10 text-primary rounded-lg">
+                    <span className="material-symbols-outlined text-xl">diamond</span>
+                  </div>
+                  <h3 className="font-bold text-lg">{t("investment.area4.title")}</h3>
                 </div>
-                <div>
-                  <h3 className="font-bold text-sm mb-1 leading-tight">
-                    Luxury Assets
-                  </h3>
-                  <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-tight">
-                    Watches, handbags, jewelry. Patek, Hermès, Rolex.
-                  </p>
-                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+                  {t("investment.area4.desc")}
+                </p>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Intelligence & Timing Section */}
+        <div className="px-6 py-6 bg-slate-100 dark:bg-[#151921]">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-1 h-6 bg-primary rounded-full" />
+            <h2 className="text-lg font-bold tracking-tight uppercase">
+              {t("investment.intelligence.title")}
+            </h2>
+          </div>
+          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            {t("investment.intelligence.desc")}
+          </p>
         </div>
 
         {/* Separator */}
@@ -281,7 +272,7 @@ export default function InvestmentPage() {
           <div className="flex items-center gap-2 mb-6">
             <span className="w-1 h-6 bg-primary rounded-full" />
             <h2 className="text-xl font-bold tracking-tight uppercase">
-              How We Operate
+              {t("investment.operate.title")}
             </h2>
           </div>
           <div className="relative pl-2">
@@ -291,63 +282,63 @@ export default function InvestmentPage() {
             <div className="relative flex gap-6 mb-8">
               <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-primary flex items-center justify-center shrink-0 shadow-lg">
                 <span className="material-symbols-outlined text-primary text-sm">
-                  search
+                  account_balance_wallet
                 </span>
               </div>
               <div className="pt-1">
                 <h4 className="text-lg font-bold text-gray-900 dark:text-gray-200">
-                  Direct investments
+                  {t("investment.operate.step1.title")}
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  Or mandate-based activity. No open vehicles.
+                  {t("investment.operate.step1.desc")}
                 </p>
               </div>
             </div>
             {/* Step 2 */}
             <div className="relative flex gap-6 mb-8">
-              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-gray-500 dark:text-gray-400 text-sm">
-                  strategy
+              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-primary flex items-center justify-center shrink-0 shadow-lg">
+                <span className="material-symbols-outlined text-primary text-sm">
+                  visibility_off
                 </span>
               </div>
               <div className="pt-1">
                 <h4 className="text-lg font-bold text-gray-900 dark:text-gray-200">
-                  Discretion
+                  {t("investment.operate.step2.title")}
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  Selectivity is fundamental. No mass exposure.
+                  {t("investment.operate.step2.desc")}
                 </p>
               </div>
             </div>
             {/* Step 3 */}
             <div className="relative flex gap-6 mb-8">
-              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-gray-500 dark:text-gray-400 text-sm">
-                  rocket_launch
+              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-primary flex items-center justify-center shrink-0 shadow-lg">
+                <span className="material-symbols-outlined text-primary text-sm">
+                  smart_toy
                 </span>
               </div>
               <div className="pt-1">
                 <h4 className="text-lg font-bold text-gray-900 dark:text-gray-200">
-                  Intelligence
+                  {t("investment.operate.step3.title")}
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  AI-driven strategic intelligence for context analysis and scenario anticipation.
+                  {t("investment.operate.step3.desc")}
                 </p>
               </div>
             </div>
             {/* Step 4 */}
             <div className="relative flex gap-6">
-              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined text-gray-500 dark:text-gray-400 text-sm">
-                  monitoring
+              <div className="relative z-10 size-10 rounded-full bg-background-light dark:bg-surface-dark border-2 border-primary flex items-center justify-center shrink-0 shadow-lg">
+                <span className="material-symbols-outlined text-primary text-sm">
+                  bolt
                 </span>
               </div>
               <div className="pt-1">
                 <h4 className="text-lg font-bold text-gray-900 dark:text-gray-200">
-                  Pre-Shift Strike
+                  {t("investment.operate.step4.title")}
                 </h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                  Capital follows insight. Insight comes before opportunity.
+                  {t("investment.operate.step4.desc")}
                 </p>
               </div>
             </div>
@@ -361,9 +352,9 @@ export default function InvestmentPage() {
           href="/contact"
           className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/25 transition-all active:scale-[0.98]"
           tabIndex={0}
-          aria-label="Schedule Consultation"
+          aria-label={t("investment.cta")}
         >
-          <span>Schedule Consultation</span>
+          <span>{t("investment.cta")}</span>
           <span className="material-symbols-outlined text-sm">arrow_forward</span>
         </Link>
       </div>

@@ -13,6 +13,13 @@ Strategic advisory and investment for people and companies operating where decis
 
 HAKA Global operates where decisions take shape, before they become public or formalized. We work within complex personal, corporate, and institutional environments, supporting individuals and organizations whose outcomes depend on context, alignment, and timing.
 
+### Internationalization
+
+The site supports **English** and **Spanish** localization:
+- Default locale: **Spanish (es)**
+- Geolocation-based detection via middleware
+- All content stored in `/src/messages/en.json` and `/src/messages/es.json`
+
 ### HAKA Global Consulting
 Strategic advisory across seven areas: Strategic Advisory & Positioning, C-Level & Executive Advisory, Personal & Corporate Affairs, Non-Market Strategy, Public Reputation & Trust, AI-Driven Strategic Intelligence, and Financial Advisory.
 
@@ -52,10 +59,11 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 - **Gold theme branding** - Consistent gold (#B39750) across logo, icons, and accents
 - **Gold primary accent** - Gold (#B39750) matching logo for CTAs and highlights
 - **Card-based UI** - Cards with shadows, borders, and hover effects
-- **Sticky navigation** - Backdrop blur header with hamburger menu and active page indicators
-- **Material icons** - Google Material Symbols Outlined (in gold theme)
+- **Sticky navigation** - Backdrop blur header with HAKA logo + "pre-shift strike." tagline
+- **Material icons** - Google Material Symbols Outlined (all in gold theme)
 - **Smooth transitions** - Hover effects and subtle animations
 - **Floating CTAs** - Fixed bottom action buttons with "Schedule Consultation" CTA
+- **Bilingual support** - Spanish by default, English available
 
 ## 📄 Pages
 
@@ -165,7 +173,7 @@ src/
 │   └── page.tsx                # Homepage with cards & newsletter
 ├── components/
 │   ├── layout/
-│   │   ├── Navigation.tsx      # Sticky header with hamburger menu
+│   │   ├── Navigation.tsx      # Sticky header with logo + tagline
 │   │   └── Footer.tsx          # Footer component
 │   ├── sections/               # Page section components
 │   └── ui/                     # Reusable UI components
@@ -173,6 +181,14 @@ src/
 │       ├── Timeline.tsx        # Step-by-step timeline
 │       ├── FloatingCTA.tsx     # Sticky bottom CTA
 │       └── ...
+├── i18n/                       # Internationalization
+│   ├── config.ts               # Locale configuration
+│   ├── LocaleContext.tsx       # Client-side locale context
+│   ├── getServerLocale.ts      # Server-side locale detection
+│   └── index.ts                # Exports
+├── messages/                   # Translation files
+│   ├── en.json                 # English translations
+│   └── es.json                 # Spanish translations (default)
 └── lib/
     ├── actions/                # Server actions
     │   └── contact.ts          # Form submission
