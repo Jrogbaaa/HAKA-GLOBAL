@@ -41,8 +41,8 @@ test.describe("Navigation", () => {
     const menuButton = page.getByRole("button", { name: /menu/i });
     await menuButton.click();
     
-    // Click Investing link
-    await page.getByRole("menuitem", { name: "Investing" }).click();
+    // Click Investment link
+    await page.getByRole("menuitem", { name: "Investment" }).click();
     
     await expect(page).toHaveURL("/investment");
     await expect(page.getByRole("heading", { name: /HAKA GLOBAL INVESTMENT/i })).toBeVisible();
@@ -55,8 +55,8 @@ test.describe("Navigation", () => {
     const menuButton = page.getByRole("button", { name: /menu/i });
     await menuButton.click();
     
-    // Click Start a Conversation link
-    await page.getByRole("menuitem", { name: /Start a Conversation/i }).click();
+    // Click Contact link
+    await page.getByRole("menuitem", { name: "Contact" }).click();
     
     await expect(page).toHaveURL("/contact");
     await expect(page.getByRole("heading", { name: /START A CONVERSATION/i })).toBeVisible();
@@ -74,9 +74,9 @@ test.describe("Navigation", () => {
     
     // Menu items should be visible
     await expect(page.getByRole("menuitem", { name: "About" })).toBeVisible();
-    await expect(page.getByRole("menuitem", { name: "Investing" })).toBeVisible();
+    await expect(page.getByRole("menuitem", { name: "Investment" })).toBeVisible();
     await expect(page.getByRole("menuitem", { name: "Consulting" })).toBeVisible();
-    await expect(page.getByRole("menuitem", { name: /Start a Conversation/i })).toBeVisible();
+    await expect(page.getByRole("menuitem", { name: "Contact" })).toBeVisible();
   });
 
   test("should close menu when clicking outside", async ({ page }) => {
@@ -86,14 +86,15 @@ test.describe("Navigation", () => {
     const menuButton = page.getByRole("button", { name: /menu/i });
     await menuButton.click();
     
-    // Verify menu is open
-    await expect(page.getByRole("menuitem", { name: "About" })).toBeVisible();
+    // Verify menu is open - wait for menu to appear
+    const aboutMenuItem = page.getByRole("menuitem", { name: "About" });
+    await expect(aboutMenuItem).toBeVisible({ timeout: 5000 });
     
     // Click outside the menu (on the main content area)
-    await page.click("main");
+    await page.locator("main").click({ force: true });
     
     // Menu should be closed
-    await expect(page.getByRole("menuitem", { name: "About" })).not.toBeVisible();
+    await expect(aboutMenuItem).not.toBeVisible({ timeout: 5000 });
   });
 });
 
