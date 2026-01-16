@@ -67,12 +67,12 @@ export const Navigation = () => {
             <Image
               src="/haka-logo-gold.svg"
               alt="HAKA"
-              width={320}
-              height={90}
-              className="h-16 md:h-24 lg:h-28 w-auto object-contain"
+              width={360}
+              height={100}
+              className="h-20 md:h-28 lg:h-32 w-auto object-contain"
               priority
             />
-            <span className="text-xs md:text-sm lg:text-base text-gray-500 dark:text-gray-400 tracking-wide -mt-1 text-right whitespace-nowrap">
+            <span className="text-xs md:text-sm lg:text-base text-gray-500 dark:text-gray-400 tracking-wide -mt-4 text-right whitespace-nowrap translate-x-[-6px]">
               pre-shift strike.
             </span>
           </div>
