@@ -19,7 +19,7 @@ export async function middleware(request: NextRequest) {
       // Auto-set locale based on country
       const detectedLocale: Locale = spanishCountries.includes(country)
         ? "es"
-        : defaultLocale;
+        : "en";
 
       // Set the locale cookie for first-time visitors
       response.cookies.set("HAKA_LOCALE", detectedLocale, {

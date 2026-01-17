@@ -16,8 +16,8 @@ HAKA Global operates where decisions take shape, before they become public or fo
 ### Internationalization
 
 The site supports **English** and **Spanish** localization:
-- Default locale: **Spanish (es)**
-- Geolocation-based detection via middleware
+- Default locale: **English (en)**
+- Geolocation-based detection via middleware (Spanish for Spanish-speaking countries)
 - All content stored in `/src/messages/en.json` and `/src/messages/es.json`
 
 ### HAKA Global Consulting
@@ -63,7 +63,7 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 - **Material icons** - Google Material Symbols Outlined (all in gold theme)
 - **Smooth transitions** - Hover effects and subtle animations
 - **Floating CTAs** - Fixed bottom action buttons with "Schedule Consultation" CTA
-- **Bilingual support** - Spanish by default, English available
+- **Bilingual support** - English by default, Spanish available for Spanish-speaking countries
 
 ## 📄 Pages
 
@@ -187,8 +187,8 @@ src/
 │   ├── getServerLocale.ts      # Server-side locale detection
 │   └── index.ts                # Exports
 ├── messages/                   # Translation files
-│   ├── en.json                 # English translations
-│   └── es.json                 # Spanish translations (default)
+│   ├── en.json                 # English translations (default)
+│   └── es.json                 # Spanish translations
 └── lib/
     ├── actions/                # Server actions
     │   └── contact.ts          # Form submission
