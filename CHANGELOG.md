@@ -10,11 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.5.1] - 2026-01-17
 
 ### Changed
-- **Default Language Changed to English** - Site now defaults to English instead of Spanish
-  - Updated `defaultLocale` from "es" to "en" in i18n config
-  - Non-Spanish-speaking countries now receive English by default
-  - Spanish-speaking countries still auto-detect and receive Spanish
-  - Updated documentation to reflect new default language
+- **Site Now English Only** - Removed all Spanish localization
+  - Removed Spanish translations (`/src/messages/es.json`)
+  - Simplified i18n to always serve English content
+  - Removed geolocation-based locale detection
+  - Removed language switching functionality
+  - Updated documentation to reflect English-only site
 
 ## [3.5.0] - 2026-01-16
 

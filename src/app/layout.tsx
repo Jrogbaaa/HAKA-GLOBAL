@@ -3,7 +3,7 @@ import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
 import { LocaleProvider } from "@/i18n/LocaleContext";
-import { getServerLocale, getMessages } from "@/i18n/server";
+import { getMessages } from "@/i18n/server";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -25,11 +25,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getServerLocale();
-  const messages = await getMessages(locale);
+  const messages = await getMessages("en");
 
   return (
-    <html lang={locale} className="dark">
+    <html lang="en" className="dark">
       <head>
         {/* Material Symbols Outlined */}
         <link
@@ -40,7 +39,7 @@ export default async function RootLayout({
       <body
         className={`${manrope.className} bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-x-hidden antialiased selection:bg-primary selection:text-white`}
       >
-        <LocaleProvider initialLocale={locale} initialMessages={messages}>
+        <LocaleProvider initialMessages={messages}>
           <Navigation />
           {children}
         </LocaleProvider>

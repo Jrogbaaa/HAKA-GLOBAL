@@ -13,12 +13,10 @@ Strategic advisory and investment for people and companies operating where decis
 
 HAKA Global operates where decisions take shape, before they become public or formalized. We work within complex personal, corporate, and institutional environments, supporting individuals and organizations whose outcomes depend on context, alignment, and timing.
 
-### Internationalization
+### Language
 
-The site supports **English** and **Spanish** localization:
-- Default locale: **English (en)**
-- Geolocation-based detection via middleware (Spanish for Spanish-speaking countries)
-- All content stored in `/src/messages/en.json` and `/src/messages/es.json`
+The site is in **English** only:
+- All content stored in `/src/messages/en.json`
 
 ### HAKA Global Consulting
 Strategic advisory across seven areas: Strategic Advisory & Positioning, C-Level & Executive Advisory, Personal & Corporate Affairs, Non-Market Strategy, Public Reputation & Trust, AI-Driven Strategic Intelligence, and Financial Advisory.
@@ -63,7 +61,7 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 - **Material icons** - Google Material Symbols Outlined (all in gold theme)
 - **Smooth transitions** - Hover effects and subtle animations
 - **Floating CTAs** - Fixed bottom action buttons with "Schedule Consultation" CTA
-- **Bilingual support** - English by default, Spanish available for Spanish-speaking countries
+- **English only** - Site content in English
 
 ## 📄 Pages
 
@@ -181,14 +179,12 @@ src/
 │       ├── Timeline.tsx        # Step-by-step timeline
 │       ├── FloatingCTA.tsx     # Sticky bottom CTA
 │       └── ...
-├── i18n/                       # Internationalization
+├── i18n/                       # Language configuration
 │   ├── config.ts               # Locale configuration
 │   ├── LocaleContext.tsx       # Client-side locale context
-│   ├── getServerLocale.ts      # Server-side locale detection
 │   └── index.ts                # Exports
-├── messages/                   # Translation files
-│   ├── en.json                 # English translations (default)
-│   └── es.json                 # Spanish translations
+├── messages/                   # Content files
+│   └── en.json                 # English content
 └── lib/
     ├── actions/                # Server actions
     │   └── contact.ts          # Form submission
