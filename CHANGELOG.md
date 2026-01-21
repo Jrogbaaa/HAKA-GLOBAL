@@ -10,30 +10,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.6.0] - 2026-01-21
 
 ### Added
-- **Privacy Policy Page** (`/privacy`) - Full privacy policy with 11 sections covering data collection, usage, cookies, third parties, data retention, user rights, and contact info
-- **Terms of Service Page** (`/terms`) - Full terms of service with 13 sections covering acceptance, services, intellectual property, liability, and governing law
-- **Footer Component on All Pages** - Footer now appears site-wide via root layout
+- **Newsletter Subscription Now Functional** - Landing page newsletter form now works
+  - Form properly calls `/api/newsletter` endpoint on submit
+  - Shows loading state during submission
+  - Displays success/error feedback to users
+  - Email field controlled with proper state management
 
-### Changed
-- **Dark Mode Colors** - Changed from dark blue to true black for better contrast with gold accents
-  - `--color-background-dark`: `#111621` → `#0a0a0a`
-  - `--color-surface-dark`: `#1c222e` → `#141414`
-  - Scrollbar track color updated to match
+- **Team Notification for Newsletter Signups** - You now receive emails when someone subscribes
+  - Sends notification email to info@hakaglobal.com with subscriber's email
+  - Professional HTML email template matching HAKA branding
+  - Subscriber still receives welcome email as before
 
-- **Desktop Responsiveness** - All pages now responsive with `max-w-md md:max-w-4xl` pattern
-  - Homepage: 2-column card grid on desktop, wider text sections
-  - About page: Responsive hero, 2-column "How We Operate" cards
-  - Advisory page: 2-column accordion grid, 4-column engagement cards
-  - Investment page: 2-column investment areas grid
-  - Contact page: 3-column offices grid
+- **Honeypot Spam Protection** - Bot protection added to all forms
+  - Newsletter form: Hidden "company" field catches bots
+  - Contact form: Hidden "website" field catches bots
+  - Bots that fill honeypot fields are silently rejected (returns success but no processing)
+  - No user-facing changes - protection is invisible to real users
 
-- **Homepage Text Unification** - All intro paragraphs now use consistent `text-base text-gray-600` styling
-  - Gold motto text keeps `text-primary font-semibold` but now matches paragraph size
-
-- **Footer Updates**
-  - Removed LinkedIn and Twitter/X social icons
-  - Increased logo size from `h-8` to `h-14`
-  - Logo and tagline vertically aligned with description text below
+### Fixed
+- Newsletter form on landing page was non-functional (only called `e.preventDefault()`)
+- Bot/spam submissions flooding contact form with gibberish names
 
 ## [3.5.1] - 2026-01-17
 

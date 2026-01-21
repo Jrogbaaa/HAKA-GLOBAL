@@ -6,9 +6,85 @@ const resend = process.env.RESEND_API_KEY
   ? new Resend(process.env.RESEND_API_KEY)
   : null;
 
+const NOTIFICATION_EMAIL =
+  process.env.NOTIFICATION_EMAIL || "info@hakaglobal.com";
+
+// Send notification to team about new subscriber
+const sendTeamNotification = async (subscriberEmail: string) => {
+  if (!resend) return { success: false };
+
+  try {
+    const result = await resend.emails.send({
+      from: `${SITE_CONFIG.name} <noreply@hakaglobal.com>`,
+      to: [NOTIFICATION_EMAIL],
+      subject: `New Newsletter Subscriber: ${subscriberEmail}`,
+      html: `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <style>
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+              .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+              .header { background: #1A191A; color: #D4A84B; padding: 24px; text-align: center; }
+              .header h1 { margin: 0; font-size: 24px; font-weight: 500; }
+              .content { padding: 24px; background: #f9f9f9; }
+              .email-box { padding: 16px; background: white; border-left: 3px solid #D4A84B; margin: 16px 0; font-size: 18px; }
+              .footer { padding: 16px 24px; text-align: center; font-size: 12px; color: #999; }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <div class="header">
+                <h1>New Newsletter Subscription</h1>
+              </div>
+              <div class="content">
+                <p>A new user has subscribed to the HAKA Global newsletter:</p>
+                <div class="email-box">${subscriberEmail}</div>
+                <p>This subscriber has been sent a welcome email automatically.</p>
+              </div>
+              <div class="footer">
+                <p>This notification was sent from the ${SITE_CONFIG.name} website.</p>
+              </div>
+            </div>
+          </body>
+        </html>
+      `,
+      text: `
+New Newsletter Subscription
+
+A new user has subscribed to the HAKA Global newsletter:
+
+${subscriberEmail}
+
+This subscriber has been sent a welcome email automatically.
+
+---
+This notification was sent from the ${SITE_CONFIG.name} website.
+      `.trim(),
+    });
+
+    if (result.error) {
+      console.error("Failed to send team notification:", result.error);
+      return { success: false };
+    }
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error sending team notification:", error);
+    return { success: false };
+  }
+};
+
 export async function POST(request: NextRequest) {
   try {
-    const { email } = await request.json();
+    const { email, company } = await request.json();
+
+    // Honeypot check - if "company" field is filled, it's a bot
+    if (company) {
+      console.log("Bot detected via honeypot - blocking submission");
+      // Return success to not alert the bot, but don't process
+      return NextResponse.json({ success: true });
+    }
 
     if (!email || typeof email !== "string") {
       return NextResponse.json(
@@ -30,6 +106,14 @@ export async function POST(request: NextRequest) {
       console.log("Resend not configured - newsletter signup received:", email);
       // Still return success in development
       return NextResponse.json({ success: true });
+    }
+
+    // Send notification to team about new subscriber
+    const notificationResult = await sendTeamNotification(email);
+    if (notificationResult.success) {
+      console.log("✓ Team notification sent for new subscriber:", email);
+    } else {
+      console.warn("✗ Failed to send team notification for:", email);
     }
 
     // Send welcome email to subscriber

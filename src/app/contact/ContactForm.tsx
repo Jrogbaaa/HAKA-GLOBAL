@@ -9,6 +9,7 @@ type FormData = {
   organization: string;
   contactDetails: string;
   message: string;
+  website: string; // Honeypot field
 };
 
 export const ContactForm = () => {
@@ -18,6 +19,7 @@ export const ContactForm = () => {
     organization: "",
     contactDetails: "",
     message: "",
+    website: "", // Honeypot field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
@@ -43,6 +45,7 @@ export const ContactForm = () => {
         organization: formData.organization,
         contactDetails: formData.contactDetails,
         message: formData.message,
+        website: formData.website, // Honeypot field
       });
 
       if (result.success) {
@@ -56,6 +59,7 @@ export const ContactForm = () => {
           organization: "",
           contactDetails: "",
           message: "",
+          website: "",
         });
       } else {
         setSubmitStatus({
@@ -75,6 +79,17 @@ export const ContactForm = () => {
 
   return (
     <form className="flex flex-col gap-1 mt-4" onSubmit={handleSubmit}>
+      {/* Honeypot field - hidden from users, catches bots */}
+      <input
+        type="text"
+        name="website"
+        value={formData.website}
+        onChange={handleChange}
+        className="absolute -left-[9999px] opacity-0 pointer-events-none"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       {/* Name Field */}
       <div className="flex flex-wrap items-end gap-4 px-5 py-2">
         <label className="flex flex-col min-w-40 flex-1 group">

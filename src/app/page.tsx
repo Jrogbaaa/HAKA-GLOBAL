@@ -1,13 +1,49 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useLocale } from "@/i18n";
 
 export default function HomePage() {
   const { t } = useLocale();
+  const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const handleHoneypotChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setHoneypot(e.target.value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!email || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, company: honeypot }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setEmail("");
+      } else {
+        setSubmitStatus("error");
+      }
+    } catch {
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -129,6 +165,17 @@ export default function HomePage() {
             className="w-full flex flex-col md:flex-row gap-3 mt-2"
             onSubmit={handleSubmit}
           >
+            {/* Honeypot field - hidden from users, catches bots */}
+            <input
+              type="text"
+              name="company"
+              value={honeypot}
+              onChange={handleHoneypotChange}
+              className="absolute -left-[9999px] opacity-0 pointer-events-none"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+            />
             <div className="relative group flex-1">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <span className="material-symbols-outlined text-primary">mail</span>
@@ -138,17 +185,35 @@ export default function HomePage() {
                 placeholder={t("landing.newsletter.placeholder")}
                 required
                 type="email"
+                value={email}
+                onChange={handleEmailChange}
                 aria-label="Email address"
+                tabIndex={0}
               />
             </div>
             <button
-              className="w-full md:w-auto py-3 px-6 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(179,151,80,0.39)]"
+              className="w-full md:w-auto py-3 px-6 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(179,151,80,0.39)] disabled:opacity-50 disabled:cursor-not-allowed"
               type="submit"
+              disabled={isSubmitting}
+              aria-label="Subscribe to newsletter"
+              tabIndex={0}
             >
-              {t("landing.newsletter.button")}
-              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              {isSubmitting ? "Subscribing..." : t("landing.newsletter.button")}
+              {!isSubmitting && (
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              )}
             </button>
           </form>
+          {submitStatus === "success" && (
+            <p className="text-emerald-500 text-sm mt-2">
+              Thank you for subscribing!
+            </p>
+          )}
+          {submitStatus === "error" && (
+            <p className="text-red-500 text-sm mt-2">
+              Something went wrong. Please try again.
+            </p>
+          )}
         </div>
       </div>
     </div>

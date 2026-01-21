@@ -170,7 +170,7 @@ src/
 │   │   └── page.tsx
 │   ├── api/
 │   │   └── newsletter/         # Newsletter subscription API
-│   │       └── route.ts
+│   │       └── route.ts        # Sends welcome email to subscriber + notification to team
 │   ├── globals.css             # Global styles & CSS variables
 │   ├── layout.tsx              # Root layout with fonts, navigation & footer
 │   ├── not-found.tsx           # 404 page
@@ -269,6 +269,9 @@ For inquiries: **info@hakaglobal.com**
 - Form validation on both client and server
 - HTTPS enforced in production
 - All inquiries treated with discretion
+- **Honeypot spam protection** on all forms (newsletter + contact)
+  - Hidden fields catch automated bot submissions
+  - Bots are silently rejected without alerting them
 
 ## 📝 License
 

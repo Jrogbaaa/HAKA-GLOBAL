@@ -210,7 +210,22 @@ export const submitContactForm = async (data: {
   organization: string;
   contactDetails: string;
   message: string;
+  website?: string; // Honeypot field
 }) => {
+  // Honeypot check - if "website" field is filled, it's a bot
+  if (data.website) {
+    console.log("Bot detected via honeypot - blocking contact submission");
+    // Return success to not alert the bot, but don't process
+    return {
+      success: true,
+      data: {
+        notificationSent: false,
+        confirmationSent: false,
+        dbSaved: false,
+      },
+    };
+  }
+
   let dbSaveSuccess = false;
   let notificationSent = false;
   let confirmationSent = false;
