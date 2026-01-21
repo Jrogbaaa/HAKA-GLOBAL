@@ -39,7 +39,7 @@ export const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Logo Column */}
           <div className="col-span-2 md:col-span-1 mb-6 md:mb-0">
-            <Link href="/" className="inline-block mb-4" tabIndex={0}>
+            <Link href="/" className="inline-block mb-4 -ml-1" tabIndex={0}>
               <div className="flex flex-col items-start">
                 <img
                   src="/haka-logo-gold.svg"
