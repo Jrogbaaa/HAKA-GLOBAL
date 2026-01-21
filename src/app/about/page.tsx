@@ -7,10 +7,10 @@ export default function AboutPage() {
   const { t } = useLocale();
 
   return (
-    <div className="relative min-h-screen flex flex-col mx-auto w-full max-w-md bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl">
+    <div className="relative min-h-screen flex flex-col mx-auto w-full max-w-md md:max-w-4xl bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl">
       {/* Hero Section */}
-      <div className="p-4 pb-2">
-        <div className="relative w-full h-[240px] rounded-2xl overflow-hidden shadow-lg group">
+      <div className="p-4 md:p-6 lg:p-8 pb-2">
+        <div className="relative w-full h-[240px] md:h-[320px] rounded-2xl overflow-hidden shadow-lg group">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
             style={{
@@ -31,45 +31,45 @@ export default function AboutPage() {
       </div>
 
       {/* Section Heading */}
-      <div className="px-4 pt-6 pb-2">
-        <h2 className="text-2xl font-bold text-primary leading-tight">
+      <div className="px-4 md:px-6 lg:px-8 pt-6 pb-2">
+        <h2 className="text-2xl md:text-3xl font-bold text-primary leading-tight">
           {t("about.hero.line1")}
         </h2>
-        <h2 className="text-2xl font-bold text-primary/80 leading-tight">
+        <h2 className="text-2xl md:text-3xl font-bold text-primary/80 leading-tight">
           {t("about.hero.line2")}
         </h2>
       </div>
 
       {/* About HAKA Section */}
-      <section className="px-4 py-4">
-        <div className="space-y-4">
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+      <section className="px-4 md:px-6 lg:px-8 py-4 md:py-6">
+        <div className="space-y-4 md:max-w-3xl">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
             {t("about.section1.p1")}
           </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
             {t("about.section1.p2")}
           </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
             {t("about.section1.p3")}
           </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
             {t("about.section1.p4")}
           </p>
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base">
             {t("about.section1.p5")}
           </p>
         </div>
       </section>
 
       {/* Section: Anticipation */}
-      <section className="mt-2">
-        <div className="flex items-center px-4 mb-4">
-          <span className="material-symbols-outlined text-primary mr-2 text-xl">
+      <section className="mt-2 md:mt-6">
+        <div className="flex items-center px-4 md:px-6 lg:px-8 mb-4">
+          <span className="material-symbols-outlined text-primary mr-2 text-xl md:text-2xl">
             strategy
           </span>
-          <h3 className="text-lg font-bold">{t("about.anticipation.title")}</h3>
+          <h3 className="text-lg md:text-xl font-bold">{t("about.anticipation.title")}</h3>
         </div>
-        <div className="px-4">
+        <div className="px-4 md:px-6 lg:px-8">
           <div className="bg-white dark:bg-surface-dark rounded-xl p-1 border border-gray-200 dark:border-gray-800 shadow-sm">
             {/* Item 1 */}
             <div className="flex gap-4 p-4 border-b border-gray-100 dark:border-gray-700/50">
@@ -125,22 +125,22 @@ export default function AboutPage() {
         </div>
         
         {/* Pre-Shift Strike Statement */}
-        <div className="px-4 mt-4">
-          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed italic">
+        <div className="px-4 md:px-6 lg:px-8 mt-4">
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed italic md:max-w-3xl">
             {t("about.preshift")}
           </p>
         </div>
       </section>
 
       {/* Section: How We Operate */}
-      <section className="mt-8">
-        <div className="flex items-center px-4 mb-3">
-          <span className="material-symbols-outlined text-primary mr-2 text-xl">
+      <section className="mt-8 md:mt-12">
+        <div className="flex items-center px-4 md:px-6 lg:px-8 mb-3">
+          <span className="material-symbols-outlined text-primary mr-2 text-xl md:text-2xl">
             psychology
           </span>
-          <h3 className="text-lg font-bold">{t("about.operate.title")}</h3>
+          <h3 className="text-lg md:text-xl font-bold">{t("about.operate.title")}</h3>
         </div>
-        <div className="px-4 space-y-4">
+        <div className="px-4 md:px-6 lg:px-8 space-y-4 md:grid md:grid-cols-2 md:gap-6 md:space-y-0">
           {/* Card 1: Selectivity */}
           <div className="relative overflow-hidden rounded-xl bg-white dark:bg-surface-dark shadow-sm border border-gray-200 dark:border-gray-800 group">
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-8 -mt-8 transition-all group-hover:bg-primary/20" />
@@ -171,16 +171,16 @@ export default function AboutPage() {
       </section>
 
       {/* Section: AI as Strategic Leverage */}
-      <section className="mt-8 mb-24">
-        <div className="flex items-center px-4 mb-4">
-          <span className="material-symbols-outlined text-primary mr-2 text-xl">
+      <section className="mt-8 md:mt-12 mb-24 md:mb-12">
+        <div className="flex items-center px-4 md:px-6 lg:px-8 mb-4">
+          <span className="material-symbols-outlined text-primary mr-2 text-xl md:text-2xl">
             smart_toy
           </span>
-          <h3 className="text-lg font-bold">{t("about.ai.title")}</h3>
+          <h3 className="text-lg md:text-xl font-bold">{t("about.ai.title")}</h3>
         </div>
         
         {/* AI Description */}
-        <div className="px-4 mb-4 space-y-3">
+        <div className="px-4 md:px-6 lg:px-8 mb-4 space-y-3 md:max-w-3xl">
           <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
             {t("about.ai.p1")}
           </p>
@@ -196,7 +196,7 @@ export default function AboutPage() {
         </div>
         
         {/* AI Feature Cards */}
-        <div className="px-4 grid grid-cols-2 gap-3">
+        <div className="px-4 md:px-6 lg:px-8 grid grid-cols-2 gap-3 md:gap-6 md:max-w-2xl">
           {/* Card 1 */}
           <div className="bg-gradient-to-br from-white to-gray-50 dark:from-surface-dark dark:to-gray-900 rounded-xl p-4 border border-gray-200 dark:border-gray-800 flex flex-col justify-between min-h-[140px]">
             <span className="material-symbols-outlined text-3xl text-primary mb-2">
@@ -225,7 +225,7 @@ export default function AboutPage() {
       </section>
 
       {/* Floating CTA */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent z-40 max-w-md mx-auto">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-light via-background-light to-transparent dark:from-background-dark dark:via-background-dark dark:to-transparent z-40 max-w-md md:max-w-4xl mx-auto">
         <Link
           href="/contact"
           className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group"

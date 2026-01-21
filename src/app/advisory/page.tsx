@@ -71,10 +71,10 @@ export default function ConsultingPage() {
   const { t } = useLocale();
 
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
+    <div className="relative flex h-auto min-h-screen w-full flex-col max-w-md md:max-w-4xl mx-auto shadow-2xl overflow-hidden bg-background-light dark:bg-background-dark">
       {/* Hero Section */}
-      <div className="relative w-full px-4 pt-4 pb-2">
-        <div className="relative w-full h-[240px] rounded-xl overflow-hidden shadow-lg group">
+      <div className="relative w-full px-4 md:px-6 lg:px-8 pt-4 pb-2">
+        <div className="relative w-full h-[240px] md:h-[320px] rounded-xl overflow-hidden shadow-lg group">
           {/* Background Image */}
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -97,27 +97,27 @@ export default function ConsultingPage() {
       </div>
 
       {/* What We Do Section */}
-      <section className="px-4 py-6">
+      <section className="px-4 md:px-6 lg:px-8 py-6 md:py-8">
         <div className="flex items-center mb-3">
-          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm md:text-base font-bold uppercase tracking-widest">
             {t("advisory.whatwedo.title")}
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
         </div>
-        <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
+        <p className="text-slate-600 dark:text-gray-400 text-sm md:text-base leading-relaxed md:max-w-3xl">
           {t("advisory.whatwedo.desc")}
         </p>
       </section>
 
       {/* Section 1: Areas of Advisory (Accordions) */}
-      <section className="flex flex-col gap-2 mb-8">
-        <div className="px-6 flex items-center justify-between">
-          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
+      <section className="flex flex-col gap-2 mb-8 md:mb-12">
+        <div className="px-6 md:px-6 lg:px-8 flex items-center justify-between">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm md:text-base font-bold uppercase tracking-widest text-opacity-80">
             {t("advisory.areas.title")}
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
         </div>
-        <div className="flex flex-col px-4 pt-4 gap-3">
+        <div className="flex flex-col md:grid md:grid-cols-2 px-4 md:px-6 lg:px-8 pt-4 gap-3 md:gap-4">
           {/* Accordion 1 */}
           <AccordionItem icon="strategy" title={t("advisory.area1.title")} defaultOpen>
             {t("advisory.area1.desc")}
@@ -150,14 +150,14 @@ export default function ConsultingPage() {
       </section>
 
       {/* Section 2: How We Work (Timeline) */}
-      <section className="flex flex-col mb-10">
-        <div className="px-6 pb-4 flex items-center justify-between">
-          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
+      <section className="flex flex-col mb-10 md:mb-12">
+        <div className="px-6 md:px-6 lg:px-8 pb-4 flex items-center justify-between">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm md:text-base font-bold uppercase tracking-widest text-opacity-80">
             {t("advisory.howwework.title")}
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
         </div>
-        <div className="px-6">
+        <div className="px-6 md:px-6 lg:px-8 md:max-w-2xl">
           {/* Step 1 */}
           <div className="flex gap-4">
             <div className="flex flex-col items-center">
@@ -212,13 +212,13 @@ export default function ConsultingPage() {
       </section>
 
       {/* Section 3: When Clients Engage Us (Cards) */}
-      <section className="flex flex-col mb-10 bg-slate-100 dark:bg-[#151921] py-8">
-        <div className="px-6 pb-6 flex items-center justify-between">
-          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
+      <section className="flex flex-col mb-10 md:mb-12 bg-slate-100 dark:bg-[#151921] py-8 md:py-10">
+        <div className="px-6 md:px-6 lg:px-8 pb-6 flex items-center justify-between">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm md:text-base font-bold uppercase tracking-widest text-opacity-80">
             {t("advisory.engage.title")}
           </h3>
         </div>
-        <div className="px-4 grid grid-cols-2 gap-3">
+        <div className="px-4 md:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {/* Card 1 */}
           <div className="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-200 dark:border-gray-800 flex flex-col gap-3 hover:border-primary/50 transition-colors">
             <div className="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -279,9 +279,9 @@ export default function ConsultingPage() {
       </section>
 
       {/* Section 4: Relationship Model */}
-      <section className="flex flex-col mb-24 px-6">
+      <section className="flex flex-col mb-24 md:mb-12 px-6 md:px-6 lg:px-8">
         <div className="pb-4 flex items-center justify-between">
-          <h3 className="text-slate-900 dark:text-gray-200 text-sm font-bold uppercase tracking-widest text-opacity-80">
+          <h3 className="text-slate-900 dark:text-gray-200 text-sm md:text-base font-bold uppercase tracking-widest text-opacity-80">
             {t("advisory.relationship.title")}
           </h3>
           <span className="h-px bg-gray-200 dark:bg-gray-800 flex-1 ml-4" />
@@ -318,7 +318,7 @@ export default function ConsultingPage() {
       </section>
 
       {/* Fixed Bottom Action Bar */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 max-w-md mx-auto z-50">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-lg border-t border-gray-200 dark:border-gray-800 max-w-md md:max-w-4xl mx-auto z-50">
         <Link
           href="/contact"
           className="w-full h-12 bg-primary hover:bg-blue-600 active:scale-[0.98] transition-all rounded-lg text-white font-bold text-base flex items-center justify-center gap-2 shadow-lg shadow-primary/25"

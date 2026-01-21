@@ -48,12 +48,12 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 |----------|-------|-------|
 | `--color-primary` | `#B39750` | Primary gold accent |
 | `--color-background-light` | `#f6f6f8` | Light mode background |
-| `--color-background-dark` | `#111621` | Dark mode background |
-| `--color-surface-dark` | `#1c222e` | Elevated surfaces, cards |
+| `--color-background-dark` | `#0a0a0a` | Dark mode background (true black) |
+| `--color-surface-dark` | `#141414` | Elevated surfaces, cards |
 
 ### Design Principles
-- **Mobile-first design** - Optimized for mobile viewports (max-w-md centered)
-- **Dark mode by default** - Clean, modern dark aesthetic with softer gray text
+- **Responsive design** - Mobile-first with desktop support (max-w-md md:max-w-4xl centered)
+- **Dark mode by default** - True black background for better contrast with gold accents
 - **Gold theme branding** - Consistent gold (#B39750) across logo, icons, and accents
 - **Gold primary accent** - Gold (#B39750) matching logo for CTAs and highlights
 - **Card-based UI** - Cards with shadows, borders, and hover effects
@@ -72,6 +72,8 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 | `/advisory` | HAKA Global Consulting - Advisory areas, engagement principles, relationship model |
 | `/investment` | HAKA Global Investment - Philosophy, focus areas (Real Estate, Private, Metals, Luxury), operation model |
 | `/contact` | Start a Conversation - Inquiry form with Madrid, Barcelona, Roma office locations |
+| `/privacy` | Privacy Policy - Data collection, usage, cookies, user rights |
+| `/terms` | Terms of Service - Acceptance, services, intellectual property, liability |
 
 ## 🚀 Getting Started
 
@@ -162,11 +164,15 @@ src/
 │   │   └── page.tsx
 │   ├── advisory/               # HAKA Global Consulting - Accordions, timeline
 │   │   └── page.tsx
+│   ├── privacy/                # Privacy Policy page
+│   │   └── page.tsx
+│   ├── terms/                  # Terms of Service page
+│   │   └── page.tsx
 │   ├── api/
 │   │   └── newsletter/         # Newsletter subscription API
 │   │       └── route.ts
 │   ├── globals.css             # Global styles & CSS variables
-│   ├── layout.tsx              # Root layout with fonts & navigation
+│   ├── layout.tsx              # Root layout with fonts, navigation & footer
 │   ├── not-found.tsx           # 404 page
 │   └── page.tsx                # Homepage with cards & newsletter
 ├── components/

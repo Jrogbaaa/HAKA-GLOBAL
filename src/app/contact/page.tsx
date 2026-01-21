@@ -24,19 +24,19 @@ export default function ContactPage() {
   return (
     <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-white">
       {/* Main Content */}
-      <main className="flex-1 w-full max-w-lg mx-auto pb-12">
+      <main className="flex-1 w-full max-w-lg md:max-w-4xl mx-auto pb-12">
         {/* Intro Header */}
-        <div className="px-5 pt-6 pb-2">
-          <h1 className="text-slate-900 dark:text-gray-200 tracking-tight text-[32px] font-bold leading-tight mb-2">
+        <div className="px-5 md:px-6 lg:px-8 pt-6 md:pt-10 pb-2">
+          <h1 className="text-slate-900 dark:text-gray-200 tracking-tight text-[32px] md:text-4xl font-bold leading-tight mb-2">
             {t("contact.title")}
           </h1>
-          <p className="text-primary text-lg font-semibold mb-3">
+          <p className="text-primary text-lg md:text-xl font-semibold mb-3">
             {t("contact.subtitle")}
           </p>
-          <p className="text-slate-500 dark:text-gray-400 text-base font-medium mb-2">
+          <p className="text-slate-500 dark:text-gray-400 text-base md:text-lg font-medium mb-2 md:max-w-2xl">
             {t("contact.intro")}
           </p>
-          <p className="text-slate-400 dark:text-gray-500 text-sm italic">
+          <p className="text-slate-400 dark:text-gray-500 text-sm md:text-base italic">
             {t("contact.disclaimer")}
           </p>
         </div>
@@ -44,17 +44,17 @@ export default function ContactPage() {
         {/* Contact Form */}
         <ContactForm />
 
-        <div className="h-px bg-slate-200 dark:bg-gray-800 mx-5 my-6" />
+        <div className="h-px bg-slate-200 dark:bg-gray-800 mx-5 md:mx-6 lg:mx-8 my-6 md:my-8" />
 
         {/* Locations Section */}
-        <div className="px-5">
-          <h3 className="text-slate-900 dark:text-gray-200 text-lg font-bold mb-6 flex items-center gap-2">
+        <div className="px-5 md:px-6 lg:px-8">
+          <h3 className="text-slate-900 dark:text-gray-200 text-lg md:text-xl font-bold mb-6 flex items-center gap-2">
             <span className="material-symbols-outlined text-primary">
               public
             </span>
             {t("contact.offices.title")}
           </h3>
-          <div className="grid gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             {OFFICES.map((office) => (
               <div
                 key={office.city}
@@ -77,16 +77,16 @@ export default function ContactPage() {
         </div>
 
         {/* Closing Statement */}
-        <div className="px-5 py-6">
-          <p className="text-slate-600 dark:text-gray-400 text-sm italic text-center leading-relaxed">
+        <div className="px-5 md:px-6 lg:px-8 py-6 md:py-8">
+          <p className="text-slate-600 dark:text-gray-400 text-sm md:text-base italic text-center leading-relaxed max-w-xl mx-auto">
             {t("contact.closing")}
           </p>
         </div>
 
         {/* Direct Email */}
-        <div className="px-5 py-4 text-center">
+        <div className="px-5 md:px-6 lg:px-8 py-4 text-center">
           <a
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm"
+            className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm md:text-base"
             href={`mailto:${t("contact.email")}`}
             tabIndex={0}
             aria-label={`Send email to ${t("contact.email")}`}
@@ -94,9 +94,6 @@ export default function ContactPage() {
             <span className="material-symbols-outlined text-[18px]">mail</span>
             {t("contact.email")}
           </a>
-          <p className="text-slate-400 dark:text-slate-600 text-xs mt-2">
-            © {new Date().getFullYear()} HAKA Global. {t("footer.rights")}
-          </p>
         </div>
       </main>
     </div>

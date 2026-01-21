@@ -21,10 +21,10 @@ export default function InvestmentPage() {
   return (
     <div className="bg-background-light dark:bg-background-dark min-h-screen flex flex-col overflow-x-hidden">
       {/* Main Content */}
-      <main className="flex-1 flex flex-col pb-24">
+      <main className="flex-1 flex flex-col pb-24 md:pb-12 max-w-md md:max-w-4xl mx-auto w-full">
         {/* Hero Section */}
-        <div className="relative w-full px-4 pt-4 pb-2">
-          <div className="relative w-full h-[240px] rounded-xl overflow-hidden shadow-lg group">
+        <div className="relative w-full px-4 md:px-6 lg:px-8 pt-4 pb-2">
+          <div className="relative w-full h-[240px] md:h-[320px] rounded-xl overflow-hidden shadow-lg group">
             {/* Background Image */}
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -103,11 +103,11 @@ export default function InvestmentPage() {
         </div>
 
         {/* Overview Content */}
-        <div className="px-6 py-6 scroll-mt-32" id="overview">
-          <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed mb-4">
+        <div className="px-6 md:px-6 lg:px-8 py-6 md:py-8 scroll-mt-32" id="overview">
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed mb-4 md:max-w-3xl">
             {t("investment.overview.p1")}
           </p>
-          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-medium">
+          <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed font-medium md:max-w-3xl">
             {t("investment.overview.p2")}
           </p>
         </div>
@@ -116,10 +116,10 @@ export default function InvestmentPage() {
         <div className="h-2 bg-gray-100 dark:bg-surface-dark w-full" />
 
         {/* Philosophy Section */}
-        <div className="px-6 py-8 scroll-mt-32" id="philosophy">
+        <div className="px-6 md:px-6 lg:px-8 py-8 md:py-10 scroll-mt-32" id="philosophy">
           <div className="flex items-center gap-2 mb-4">
             <span className="w-1 h-6 bg-primary rounded-full" />
-            <h2 className="text-xl font-bold tracking-tight uppercase">
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight uppercase">
               {t("investment.philosophy.title")}
             </h2>
           </div>
@@ -181,14 +181,14 @@ export default function InvestmentPage() {
         <div className="h-2 bg-gray-100 dark:bg-surface-dark w-full" />
 
         {/* Areas Section */}
-        <div className="px-6 py-8 scroll-mt-32" id="areas">
+        <div className="px-6 md:px-6 lg:px-8 py-8 md:py-10 scroll-mt-32" id="areas">
           <div className="flex items-center gap-2 mb-6">
             <span className="w-1 h-6 bg-primary rounded-full" />
-            <h2 className="text-xl font-bold tracking-tight uppercase">
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight uppercase">
               {t("investment.areas.title")}
             </h2>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-4">
             {/* Card 1: Real Estate */}
             <div className="group flex flex-col bg-white dark:bg-surface-dark rounded-xl overflow-hidden border border-gray-100 dark:border-gray-700/50 shadow-sm hover:border-primary/50 transition-colors">
               <div className="p-5">
@@ -252,14 +252,14 @@ export default function InvestmentPage() {
         </div>
 
         {/* Intelligence & Timing Section */}
-        <div className="px-6 py-6 bg-slate-100 dark:bg-[#151921]">
+        <div className="px-6 md:px-6 lg:px-8 py-6 md:py-8 bg-slate-100 dark:bg-[#151921]">
           <div className="flex items-center gap-2 mb-4">
             <span className="w-1 h-6 bg-primary rounded-full" />
-            <h2 className="text-lg font-bold tracking-tight uppercase">
+            <h2 className="text-lg md:text-xl font-bold tracking-tight uppercase">
               {t("investment.intelligence.title")}
             </h2>
           </div>
-          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed md:max-w-3xl">
             {t("investment.intelligence.desc")}
           </p>
         </div>
@@ -268,14 +268,14 @@ export default function InvestmentPage() {
         <div className="h-2 bg-gray-100 dark:bg-surface-dark w-full" />
 
         {/* How We Operate Section */}
-        <div className="px-6 py-8 scroll-mt-32" id="operate">
+        <div className="px-6 md:px-6 lg:px-8 py-8 md:py-10 scroll-mt-32" id="operate">
           <div className="flex items-center gap-2 mb-6">
             <span className="w-1 h-6 bg-primary rounded-full" />
-            <h2 className="text-xl font-bold tracking-tight uppercase">
+            <h2 className="text-xl md:text-2xl font-bold tracking-tight uppercase">
               {t("investment.operate.title")}
             </h2>
           </div>
-          <div className="relative pl-2">
+          <div className="relative pl-2 md:max-w-2xl">
             {/* Vertical Line */}
             <div className="absolute left-[19px] top-2 bottom-4 w-[2px] bg-gray-200 dark:bg-gray-800" />
             {/* Step 1 */}
@@ -347,7 +347,7 @@ export default function InvestmentPage() {
       </main>
 
       {/* Floating Bottom CTA */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 z-50">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 z-50 max-w-md md:max-w-4xl mx-auto">
         <Link
           href="/contact"
           className="w-full bg-primary hover:bg-primary/90 text-white font-bold h-12 rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-primary/25 transition-all active:scale-[0.98]"

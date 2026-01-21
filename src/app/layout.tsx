@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/layout/Navigation";
+import { Footer } from "@/components/layout/Footer";
 import { LocaleProvider } from "@/i18n/LocaleContext";
 import { getMessages } from "@/i18n/server";
 
@@ -37,11 +38,12 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${manrope.className} bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-x-hidden antialiased selection:bg-primary selection:text-white`}
+        className={`${manrope.className} bg-background-light dark:bg-background-dark text-slate-900 dark:text-white overflow-x-hidden antialiased selection:bg-primary selection:text-white min-h-screen flex flex-col`}
       >
         <LocaleProvider initialMessages={messages}>
           <Navigation />
-          {children}
+          <main className="flex-1">{children}</main>
+          <Footer />
         </LocaleProvider>
       </body>
     </html>

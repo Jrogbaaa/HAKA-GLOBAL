@@ -29,32 +29,11 @@ const FOOTER_LINKS = {
   },
 };
 
-const SOCIAL_LINKS = [
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com/company/hakaglobal",
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-      </svg>
-    ),
-  },
-  {
-    name: "Twitter",
-    href: "https://twitter.com/hakaglobal",
-    icon: (
-      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
-];
-
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[var(--background)] border-t border-[var(--border)]">
+    <footer className="bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800">
       {/* Main Footer */}
       <div className="max-w-4xl mx-auto px-6 py-12 lg:py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -65,38 +44,22 @@ export const Footer = () => {
                 <img
                   src="/haka-logo-gold.svg"
                   alt={`${SITE_CONFIG.name} Logo`}
-                  className="h-8 w-auto"
+                  className="h-14 w-auto"
                 />
-                <span className="text-[10px] text-[var(--foreground-muted)] tracking-wide mt-1 whitespace-nowrap">
+                <span className="text-[10px] text-gray-500 dark:text-gray-400 tracking-wide mt-1 whitespace-nowrap">
                   pre-shift strike.
                 </span>
               </div>
             </Link>
-            <p className="text-xs text-[var(--foreground-muted)] mb-4 max-w-[200px]">
+            <p className="text-xs text-gray-500 dark:text-gray-400 max-w-[200px]">
               Strategic advisory and investment where decisions take shape.
             </p>
-            {/* Social Links */}
-            <div className="flex items-center gap-4">
-              {SOCIAL_LINKS.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--foreground-muted)] hover:text-[var(--primary)] transition-colors"
-                  aria-label={social.name}
-                  tabIndex={0}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Link Columns */}
           {Object.values(FOOTER_LINKS).map((section) => (
             <div key={section.title}>
-              <h4 className="text-sm font-semibold text-[var(--foreground)] mb-3">
+              <h4 className="text-sm font-semibold text-slate-900 dark:text-gray-200 mb-3">
                 {section.title}
               </h4>
               <ul className="space-y-2">
@@ -104,7 +67,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-xs text-[var(--foreground-muted)] hover:text-[var(--primary)] transition-colors"
+                      className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
                       tabIndex={0}
                     >
                       {link.label}
@@ -118,26 +81,26 @@ export const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-[var(--border)]">
+      <div className="border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto px-6 py-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-[var(--foreground-muted)]">
+            <p className="text-xs text-gray-500 dark:text-gray-400">
               © {currentYear} {SITE_CONFIG.name}. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               <Link
                 href="/privacy"
-                className="text-xs text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors"
+                className="text-xs text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-200 transition-colors"
                 tabIndex={0}
               >
-                Privacy
+                Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-xs text-[var(--foreground-muted)] hover:text-[var(--foreground)] transition-colors"
+                className="text-xs text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-200 transition-colors"
                 tabIndex={0}
               >
-                Terms
+                Terms of Service
               </Link>
             </div>
           </div>

@@ -6,8 +6,8 @@
 @theme {
   --color-primary: #B39750;
   --color-background-light: #f6f6f8;
-  --color-background-dark: #111621;
-  --color-surface-dark: #1c222e;
+  --color-background-dark: #0a0a0a;
+  --color-surface-dark: #141414;
 }
 
 html {
@@ -27,7 +27,7 @@ body {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #111621;
+  background: #0a0a0a;
 }
 ::-webkit-scrollbar-thumb {
   background: #2d3748;

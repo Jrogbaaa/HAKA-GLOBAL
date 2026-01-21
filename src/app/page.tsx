@@ -11,9 +11,9 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col max-w-md mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
+    <div className="relative flex h-auto min-h-screen w-full flex-col max-w-md md:max-w-4xl mx-auto shadow-2xl bg-background-light dark:bg-background-dark">
       {/* Navigation Cards Area - NOW AT TOP */}
-      <div className="flex flex-col gap-5 p-5 pt-6 w-full">
+      <div className="flex flex-col md:grid md:grid-cols-2 gap-5 p-5 pt-6 md:px-8 lg:px-12 w-full">
         {/* Consulting Card */}
         <Link
           href="/advisory"
@@ -86,30 +86,30 @@ export default function HomePage() {
       </div>
 
       {/* Intro Text Section - NOW BELOW CARDS */}
-      <section className="flex flex-col items-center justify-center py-8 px-6">
+      <section className="flex flex-col items-center justify-center py-8 md:py-12 px-6 md:px-8 lg:px-12">
         <div className="h-1 w-12 bg-primary rounded-full mb-6"></div>
         
         {/* Intro Text */}
-        <p className="text-center text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-xs mb-4">
+        <p className="text-center text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-xs md:max-w-2xl mb-4">
           {t("landing.intro")}
         </p>
-        <p className="text-center text-sm text-gray-500 dark:text-gray-500 font-normal leading-relaxed max-w-xs mb-4">
+        <p className="text-center text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-xs md:max-w-2xl mb-4">
           {t("landing.intro2")}
         </p>
-        <p className="text-center text-sm text-gray-500 dark:text-gray-500 font-medium leading-relaxed max-w-xs mb-4">
+        <p className="text-center text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-xs md:max-w-2xl mb-4">
           {t("landing.intro3")}
         </p>
         
         {/* Motto */}
-        <p className="text-center text-sm text-primary font-semibold leading-relaxed max-w-xs">
+        <p className="text-center text-base text-primary font-semibold leading-relaxed max-w-xs md:max-w-2xl">
           {t("landing.motto")}
         </p>
       </section>
 
       {/* Pre-Shift Strike Explanation */}
-      <section className="px-6 pb-6">
-        <div className="bg-white dark:bg-surface-dark rounded-xl p-5 border border-gray-200 dark:border-gray-800 shadow-sm">
-          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+      <section className="px-6 md:px-8 lg:px-12 pb-6">
+        <div className="bg-white dark:bg-surface-dark rounded-xl p-5 md:p-8 border border-gray-200 dark:border-gray-800 shadow-sm max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed text-center">
             <span className="font-bold text-slate-900 dark:text-gray-200">{t("landing.preshift.title")}</span>{" "}
             {t("landing.preshift.desc")}
           </p>
@@ -117,19 +117,19 @@ export default function HomePage() {
       </section>
 
       {/* Newsletter / Bottom CTA */}
-      <div className="mt-4 px-6 pt-8 pb-12 bg-white dark:bg-surface-dark rounded-t-3xl border-t border-gray-100 dark:border-white/5">
-        <div className="flex flex-col items-start gap-4">
-          <div>
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-gray-200">{t("landing.newsletter.title")}</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+      <div className="mt-4 px-6 md:px-8 lg:px-12 pt-8 md:pt-12 pb-12 bg-white dark:bg-surface-dark rounded-t-3xl border-t border-gray-100 dark:border-white/5">
+        <div className="flex flex-col items-start gap-4 max-w-xl mx-auto">
+          <div className="w-full text-center md:text-left">
+            <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-gray-200">{t("landing.newsletter.title")}</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 mt-1">
               {t("landing.newsletter.subtitle")}
             </p>
           </div>
           <form
-            className="w-full flex flex-col gap-3 mt-2"
+            className="w-full flex flex-col md:flex-row gap-3 mt-2"
             onSubmit={handleSubmit}
           >
-            <div className="relative group">
+            <div className="relative group flex-1">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <span className="material-symbols-outlined text-primary">mail</span>
               </div>
@@ -142,7 +142,7 @@ export default function HomePage() {
               />
             </div>
             <button
-              className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(23,84,207,0.39)]"
+              className="w-full md:w-auto py-3 px-6 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-[0_4px_14px_0_rgba(179,151,80,0.39)]"
               type="submit"
             >
               {t("landing.newsletter.button")}
@@ -150,16 +150,6 @@ export default function HomePage() {
             </button>
           </form>
         </div>
-
-        {/* Minimal Footer - Removed social icons */}
-        <div className="mt-10 pt-6 border-t border-gray-100 dark:border-white/5 flex flex-col items-center">
-          <p className="text-xs text-gray-500 font-light">
-            © {new Date().getFullYear()} HAKA Global. {t("footer.rights")}
-          </p>
-        </div>
-
-        {/* Safe area spacer for iOS home indicator */}
-        <div className="h-6 w-full"></div>
       </div>
     </div>
   );
