@@ -117,6 +117,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Send welcome email to subscriber
+    console.log("Attempting to send welcome email to:", email);
+    
     const result = await resend.emails.send({
       from: `${SITE_CONFIG.name} <noreply@hakaglobal.com>`,
       to: [email],
@@ -132,7 +134,7 @@ export async function POST(request: NextRequest) {
               .header h1 { margin: 0; font-size: 28px; font-weight: 700; letter-spacing: 0.1em; }
               .content { padding: 32px; background: #1c222e; border-radius: 0 0 12px 12px; }
               .content p { margin: 0 0 16px; color: #C8C8C8; }
-              .highlight { color: #1754cf; font-weight: 600; }
+              .highlight { color: #D4A84B; font-weight: 600; }
               .footer { padding: 24px; text-align: center; font-size: 12px; color: #8a8a8a; }
             </style>
           </head>
@@ -168,15 +170,19 @@ The HAKA Global Team
       `.trim(),
     });
 
+    // Log the full result for debugging
+    console.log("Welcome email result:", JSON.stringify(result, null, 2));
+
     if (result.error) {
-      console.error("Resend API error:", result.error);
+      console.error("✗ Failed to send welcome email to subscriber:", result.error);
       return NextResponse.json(
-        { error: "Failed to send email" },
+        { error: "Failed to send welcome email", details: result.error.message },
         { status: 500 }
       );
     }
 
-    return NextResponse.json({ success: true });
+    console.log("✓ Welcome email sent successfully to:", email, "- ID:", result.data?.id);
+    return NextResponse.json({ success: true, emailId: result.data?.id });
   } catch (error) {
     console.error("Newsletter subscription error:", error);
     return NextResponse.json(
