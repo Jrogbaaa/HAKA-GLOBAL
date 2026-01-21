@@ -42,7 +42,7 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 - **Font**: Manrope (Google Fonts)
 - **Weights**: 200 (ExtraLight) to 800 (ExtraBold)
 
-### Color Palette (Mobile-First Dark Theme)
+### Color Palette (Dark Theme)
 
 | Variable | Value | Usage |
 |----------|-------|-------|
@@ -52,8 +52,8 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 | `--color-surface-dark` | `#141414` | Elevated surfaces, cards |
 
 ### Design Principles
-- **Responsive design** - Mobile-first with desktop support (max-w-md md:max-w-4xl centered)
-- **Dark mode by default** - True black background for better contrast with gold accents
+- **Responsive design** - Mobile-first with full desktop support (max-w-md on mobile, max-w-4xl on desktop)
+- **Dark mode by default** - Clean, modern dark aesthetic with true black background for optimal contrast
 - **Gold theme branding** - Consistent gold (#B39750) across logo, icons, and accents
 - **Gold primary accent** - Gold (#B39750) matching logo for CTAs and highlights
 - **Card-based UI** - Cards with shadows, borders, and hover effects
@@ -73,7 +73,7 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 | `/investment` | HAKA Global Investment - Philosophy, focus areas (Real Estate, Private, Metals, Luxury), operation model |
 | `/contact` | Start a Conversation - Inquiry form with Madrid, Barcelona, Roma office locations |
 | `/privacy` | Privacy Policy - Data collection, usage, cookies, user rights |
-| `/terms` | Terms of Service - Acceptance, services, intellectual property, liability |
+| `/terms` | Terms of Service - Service terms, intellectual property, liability, governing law |
 
 ## 🚀 Getting Started
 
@@ -157,16 +157,16 @@ src/
 ├── app/                        # Next.js App Router pages
 │   ├── about/                  # About HAKA - Philosophy, Strategic approach
 │   │   └── page.tsx
+│   ├── advisory/               # HAKA Global Consulting - Accordions, timeline
+│   │   └── page.tsx
 │   ├── contact/                # Start a Conversation
 │   │   ├── ContactForm.tsx     # Inquiry form with validation
 │   │   └── page.tsx
 │   ├── investment/             # HAKA Global Investment - Tabs, areas, timeline
 │   │   └── page.tsx
-│   ├── advisory/               # HAKA Global Consulting - Accordions, timeline
+│   ├── privacy/                # Privacy Policy
 │   │   └── page.tsx
-│   ├── privacy/                # Privacy Policy page
-│   │   └── page.tsx
-│   ├── terms/                  # Terms of Service page
+│   ├── terms/                  # Terms of Service
 │   │   └── page.tsx
 │   ├── api/
 │   │   └── newsletter/         # Newsletter subscription API
