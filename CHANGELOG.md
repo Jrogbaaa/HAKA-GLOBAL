@@ -27,6 +27,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Bots that fill honeypot fields are silently rejected (returns success but no processing)
   - No user-facing changes - protection is invisible to real users
 
+### Changed
+- **Newsletter Welcome Email Redesign** - Professional HAKA-branded email template
+  - Dark theme matching the HAKA website (#0a0a0a background, #141414 cards)
+  - Gold accent color (#B39750) consistent with branding
+  - HAKA logo displayed prominently at top
+  - Clean, minimal design with proper typography
+  - Improved email deliverability with proper HTML structure
+  - Added List-Unsubscribe header to reduce spam filtering
+  - Mobile-responsive table-based layout for all email clients
+  - Proper plain-text fallback version
+
 ### Fixed
 - Newsletter form on landing page was non-functional (only called `e.preventDefault()`)
 - Bot/spam submissions flooding contact form with gibberish names
