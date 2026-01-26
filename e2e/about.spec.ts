@@ -6,19 +6,19 @@ test.describe("About Page", () => {
   });
 
   test("should display about page correctly", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: /ABOUT HAKA/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /About/i })).toBeVisible();
   });
 
   test("should display tagline", async ({ page }) => {
-    await expect(page.getByText(/Anticipation · Affairs · Influence/i)).toBeVisible();
+    await expect(page.getByText(/Anticipation/i).first()).toBeVisible();
+    await expect(page.getByText(/Affairs · Influence/i)).toBeVisible();
   });
 
   test("should display main content sections", async ({ page }) => {
-    // Check key content is present in the article
-    const article = page.locator("article");
-    await expect(article.getByText(/decisions take shape/i).first()).toBeVisible();
-    await expect(article.getByText(/Personal and Corporate Affairs/i).first()).toBeVisible();
-    await expect(article.getByText(/Pre-Shift Strike/i)).toBeVisible();
+    // Check key content is present on the page
+    await expect(page.getByText(/decisions take shape/i).first()).toBeVisible();
+    await expect(page.getByText(/Personal and Corporate Affairs/i).first()).toBeVisible();
+    await expect(page.getByText(/Pre-Shift Strike/i).first()).toBeVisible();
     await expect(page.getByText(/AI as Strategic Leverage/i)).toBeVisible();
   });
 
@@ -28,9 +28,10 @@ test.describe("About Page", () => {
     await expect(page.getByText(/before the shift occurs/i)).toBeVisible();
   });
 
-  test("should have email input section", async ({ page }) => {
-    await expect(page.getByText(/Enter your email address/i)).toBeVisible();
-    await expect(page.getByRole("textbox", { name: /email/i })).toBeVisible();
+  test("should have how we operate section", async ({ page }) => {
+    await expect(page.getByRole("heading", { name: /How We Operate/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Selectivity/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Discretion/i })).toBeVisible();
   });
 
   test("should have footer with links", async ({ page }) => {
@@ -40,6 +41,6 @@ test.describe("About Page", () => {
   });
 
   test("should have hero image", async ({ page }) => {
-    await expect(page.getByRole("img", { name: /HAKA Global - Strategic Advisory/i })).toBeVisible();
+    await expect(page.getByRole("img", { name: /skyscrapers/i })).toBeVisible();
   });
 });

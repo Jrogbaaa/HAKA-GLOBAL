@@ -13,26 +13,26 @@ test.describe("Contact Form", () => {
   });
 
   test("should have all form fields", async ({ page }) => {
-    // Check for the form fields using their aria-labels
-    await expect(page.getByRole("textbox", { name: /Your name/i })).toBeVisible();
-    await expect(page.getByRole("textbox", { name: /Your organization/i })).toBeVisible();
-    await expect(page.getByRole("textbox", { name: /Your contact details/i })).toBeVisible();
-    await expect(page.getByRole("textbox", { name: /Your message/i })).toBeVisible();
+    // Check for the form fields using their aria-labels from translations
+    await expect(page.getByRole("textbox", { name: /Name/i })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: /Organization/i })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: /Contact details/i })).toBeVisible();
+    await expect(page.getByRole("textbox", { name: /Context/i })).toBeVisible();
     await expect(page.getByRole("button", { name: /Submit/i })).toBeVisible();
   });
 
   test("should fill form correctly", async ({ page }) => {
-    // Use aria-label based selectors
-    await page.getByRole("textbox", { name: /Your name/i }).fill("John Doe");
-    await page.getByRole("textbox", { name: /Your organization/i }).fill("Test Corp");
-    await page.getByRole("textbox", { name: /Your contact details/i }).fill("john@example.com");
-    await page.getByRole("textbox", { name: /Your message/i }).fill("I am interested in your services.");
+    // Use aria-label based selectors matching the actual translations
+    await page.getByRole("textbox", { name: /Name/i }).fill("John Doe");
+    await page.getByRole("textbox", { name: /Organization/i }).fill("Test Corp");
+    await page.getByRole("textbox", { name: /Contact details/i }).fill("john@example.com");
+    await page.getByRole("textbox", { name: /Context/i }).fill("I am interested in your services.");
     
     // Verify form is filled
-    await expect(page.getByRole("textbox", { name: /Your name/i })).toHaveValue("John Doe");
-    await expect(page.getByRole("textbox", { name: /Your organization/i })).toHaveValue("Test Corp");
-    await expect(page.getByRole("textbox", { name: /Your contact details/i })).toHaveValue("john@example.com");
-    await expect(page.getByRole("textbox", { name: /Your message/i })).toHaveValue("I am interested in your services.");
+    await expect(page.getByRole("textbox", { name: /Name/i })).toHaveValue("John Doe");
+    await expect(page.getByRole("textbox", { name: /Organization/i })).toHaveValue("Test Corp");
+    await expect(page.getByRole("textbox", { name: /Contact details/i })).toHaveValue("john@example.com");
+    await expect(page.getByRole("textbox", { name: /Context/i })).toHaveValue("I am interested in your services.");
   });
 
   test("should display location information", async ({ page }) => {

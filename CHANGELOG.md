@@ -18,6 +18,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Footer** - Added "Legal Notice" link to bottom bar alongside Privacy Policy and Terms of Service
 - **Navigation Tagline Position** - Adjusted vertical spacing from `-mt-4` to `-mt-6` for tighter alignment with logo
 
+### Fixed
+- **E2E Tests** - Updated all Playwright tests to match current site content and translations
+  - `about.spec.ts` - Fixed selectors to match actual page headings and content
+  - `contact.spec.ts` - Updated form field selectors to match translated aria-labels
+  - `navigation.spec.ts` - Fixed card selectors and page heading assertions
+  - All 115 tests now pass across Chromium, Firefox, WebKit, Mobile Chrome, and Mobile Safari
+
 ## [3.6.0] - 2026-01-21
 
 ### Added

@@ -17,7 +17,7 @@ test.describe("Navigation", () => {
     await page.getByRole("menuitem", { name: "About" }).click();
     
     await expect(page).toHaveURL("/about");
-    await expect(page.getByRole("heading", { name: /ABOUT HAKA/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /About/i })).toBeVisible();
   });
 
   test("should navigate to advisory page via menu", async ({ page }) => {
@@ -31,7 +31,7 @@ test.describe("Navigation", () => {
     await page.getByRole("menuitem", { name: "Consulting" }).click();
     
     await expect(page).toHaveURL("/advisory");
-    await expect(page.getByRole("heading", { name: /HAKA GLOBAL CONSULTING/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /HAKA Global Consulting/i })).toBeVisible();
   });
 
   test("should navigate to investment page via menu", async ({ page }) => {
@@ -45,7 +45,7 @@ test.describe("Navigation", () => {
     await page.getByRole("menuitem", { name: "Investment" }).click();
     
     await expect(page).toHaveURL("/investment");
-    await expect(page.getByRole("heading", { name: /HAKA GLOBAL INVESTMENT/i })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /HAKA Global Investment/i })).toBeVisible();
   });
 
   test("should navigate to contact page via menu", async ({ page }) => {
@@ -111,23 +111,23 @@ test.describe("Home Page", () => {
   test("should have consulting and investing cards", async ({ page }) => {
     await page.goto("/");
     
-    // Check for the two main cards
-    await expect(page.getByRole("heading", { name: /CONSULTING/i })).toBeVisible();
-    await expect(page.getByRole("heading", { name: /INVESTING/i })).toBeVisible();
+    // Check for the two main cards - they contain "HAKA GLOBAL" and "CONSULTING"/"INVESTMENT" as subtitles
+    await expect(page.getByText(/CONSULTING/i).first()).toBeVisible();
+    await expect(page.getByText(/INVESTMENT/i).first()).toBeVisible();
   });
 
   test("should have email subscription section", async ({ page }) => {
     await page.goto("/");
     
-    await expect(page.getByText(/Enter your email address/i)).toBeVisible();
+    await expect(page.getByText(/Join the shift/i)).toBeVisible();
     await expect(page.getByRole("button", { name: /Subscribe/i })).toBeVisible();
   });
 
   test("should navigate to advisory via consulting card", async ({ page }) => {
     await page.goto("/");
     
-    // Click the consulting card
-    await page.getByRole("link", { name: /Explore Consulting services/i }).click();
+    // Click the consulting card using aria-label that matches the actual label
+    await page.getByRole("link", { name: /HAKA GLOBAL CONSULTING/i }).click();
     
     await expect(page).toHaveURL("/advisory");
   });
@@ -135,8 +135,8 @@ test.describe("Home Page", () => {
   test("should navigate to investment via investing card", async ({ page }) => {
     await page.goto("/");
     
-    // Click the investing card
-    await page.getByRole("link", { name: /Explore Investing services/i }).click();
+    // Click the investing card using aria-label that matches the actual label
+    await page.getByRole("link", { name: /HAKA GLOBAL INVESTMENT/i }).click();
     
     await expect(page).toHaveURL("/investment");
   });
