@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Legal Notice Page** - New `/legal` route with company registration details
+  - Company: Haka Sport Academy SL
+  - Address: C/Galileo 5, 28015 Madrid, Spain
+  - Tax ID (CIF): B88494398
+  - Sections: Website Operator, Company Information, Contact, Intellectual Property, Liability, Jurisdiction, Related Policies
+
+### Changed
+- **Footer** - Added "Legal Notice" link to bottom bar alongside Privacy Policy and Terms of Service
+- **Navigation Tagline Position** - Adjusted vertical spacing from `-mt-4` to `-mt-6` for tighter alignment with logo
+
 ## [3.6.0] - 2026-01-21
 
 ### Added

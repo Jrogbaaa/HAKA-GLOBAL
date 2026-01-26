@@ -74,6 +74,7 @@ Selective, opportunity-driven investment across: Worldwide Real Estate, Private 
 | `/contact` | Start a Conversation - Inquiry form with Madrid, Barcelona, Roma office locations |
 | `/privacy` | Privacy Policy - Data collection, usage, cookies, user rights |
 | `/terms` | Terms of Service - Service terms, intellectual property, liability, governing law |
+| `/legal` | Legal Notice - Company registration (Haka Sport Academy SL), address, tax ID |
 
 ## 🚀 Getting Started
 
@@ -167,6 +168,8 @@ src/
 │   ├── privacy/                # Privacy Policy
 │   │   └── page.tsx
 │   ├── terms/                  # Terms of Service
+│   │   └── page.tsx
+│   ├── legal/                  # Legal Notice
 │   │   └── page.tsx
 │   ├── api/
 │   │   └── newsletter/         # Newsletter subscription API
