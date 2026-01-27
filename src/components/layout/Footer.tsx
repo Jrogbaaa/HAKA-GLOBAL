@@ -46,7 +46,7 @@ export const Footer = () => {
                   alt={`${SITE_CONFIG.name} Logo`}
                   className="h-14 w-auto"
                 />
-                <span className="text-[10px] text-gray-500 dark:text-gray-400 tracking-wide -mt-2 whitespace-nowrap self-end translate-x-[-4px]">
+                <span className="text-[10px] text-gray-500 dark:text-gray-400 tracking-wide -mt-4 whitespace-nowrap self-end translate-x-[-4px]">
                   pre-shift strike.
                 </span>
               </div>
