@@ -105,9 +105,13 @@ export async function POST(request: NextRequest) {
     }
 
     if (!resend) {
-      console.log("Resend not configured - newsletter signup received:", email);
-      // Still return success in development
-      return NextResponse.json({ success: true });
+      // Email service is unconfigured: fail loudly instead of returning a
+      // fake success, so a dropped signup is never mistaken for a delivered one.
+      console.error("Resend not configured - newsletter signup dropped:", email);
+      return NextResponse.json(
+        { error: "Email service is not configured" },
+        { status: 503 }
+      );
     }
 
     // Send notification to team about new subscriber

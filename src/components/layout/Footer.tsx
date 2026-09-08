@@ -67,7 +67,7 @@ export const Footer = () => {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                      className="inline-block py-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
                       tabIndex={0}
                     >
                       {link.label}
@@ -83,28 +83,28 @@ export const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-200 dark:border-gray-800">
         <div className="max-w-4xl mx-auto px-6 py-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-3">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-1 md:gap-3">
             <p className="text-xs text-gray-500 dark:text-gray-400">
               © {currentYear} {SITE_CONFIG.name}. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               <Link
                 href="/privacy"
-                className="text-xs text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-200 transition-colors"
+                className="inline-block py-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-200 transition-colors"
                 tabIndex={0}
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/legal"
-                className="text-xs text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-200 transition-colors"
+                className="inline-block py-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-200 transition-colors"
                 tabIndex={0}
               >
                 Legal Notice
               </Link>
               <Link
                 href="/terms"
-                className="text-xs text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-200 transition-colors"
+                className="inline-block py-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-gray-200 transition-colors"
                 tabIndex={0}
               >
                 Terms of Service

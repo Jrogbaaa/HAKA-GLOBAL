@@ -86,7 +86,7 @@ export default function ContactPage() {
         {/* Direct Email */}
         <div className="px-5 md:px-6 lg:px-8 py-4 text-center">
           <a
-            className="inline-flex items-center gap-2 text-primary font-medium hover:underline text-sm md:text-base"
+            className="inline-flex items-center gap-2 py-2 text-primary font-medium hover:underline text-sm md:text-base"
             href={`mailto:${t("contact.email")}`}
             tabIndex={0}
             aria-label={`Send email to ${t("contact.email")}`}
